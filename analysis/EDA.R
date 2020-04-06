@@ -34,10 +34,17 @@ ihme_hospital_admissions <- model_outputs[which(model_outputs$output_name == "ho
                       model_outputs$date >= "2020-03-01" &
                       model_outputs$date <= "2020-07-01"),]
 
+ihme_cumulative_fatalities <- model_outputs[which(model_outputs$output_name == "cumulative fatalities" &
+                                                  model_outputs$model_name == "IHME COVID-19 Model" &
+                                                  model_outputs$date >= "2020-03-01" &
+                                                  model_outputs$date <= "2020-07-01"),]
+
+
 
 for(loc in unique(ihme_hospital_admissions$location)){
   filename <- paste("analysis/static_figures/IHME_comparison_", loc, ".pdf", sep = "")
   pdf(file = filename, height = 3.5, width = 5.5)
+  
   print(ggplot(ihme_hospital_admissions[which(ihme_hospital_admissions$location == loc),], 
        aes(x = date, y = value, color = model_snapshot_date)) + 
   geom_line(size = 1) +
@@ -48,6 +55,18 @@ for(loc in unique(ihme_hospital_admissions$location)){
   xlab("") + 
   ggtitle(paste("Projected daily hospital admissions\nIHME Model (", loc, ")", sep = "" )) +
   theme_bw())
+  
+  print(ggplot(ihme_cumulative_fatalities[which(ihme_cumulative_fatalities$location == loc),], 
+               aes(x = date, y = value, color = model_snapshot_date)) + 
+          geom_line(size = 1) +
+          scale_y_continuous(label = comma) +
+          scale_color_manual(values = rev(c("#2b8cbe",  "#a6bddb"))) +
+          guides(color = guide_legend(title = "Model Snapshot date")) +  
+          ylab(paste("Cumulative fatalities (", loc, ")", sep = "")) +
+          xlab("") + 
+          ggtitle(paste("Projected cumulative fatalities\nIHME Model (", loc, ")", sep = "" )) +
+          theme_bw())
+  
   dev.off()
 }
 
