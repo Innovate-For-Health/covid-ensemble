@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 3
-file_name <- "model_runs/2_neher/model_export/3_covid.results.deterministic.csv"
+model_run_id <- 4
+file_name <- "model_runs/2_neher/model_export/4_covid.results.deterministic.csv"
   
 #################################################################
 ## Load required packages #######################################
@@ -40,19 +40,6 @@ model_name <- models$model_name[which(models$model_id == 2)]
 neher$time <- as.Date(neher$time)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## note: we "told" Neher model as an input to start the scenario on 4/6/2020 ("today" as of writing this code)
-## as a result, current fatality counts are zero
-## to address this, adding the cumulative COVID-19 fatality count reported by CDC as of 4/6/20 (8,910 fatalities) to cumulative_fatalities
-neher$cumulative_fatality <- neher$cumulative_fatality + 8910
-
-## note: we "told" Neher model as an input to start the scenario on 4/6/2020 ("today" as of writing this code)
-## as a result, current hospitalization counts are zero
-## to address this, adding hospitalization data reported by CDC as of 4/6/20 (8,910 fatalities) to cumulative_hospitalized
-## overall cumulative hospitalization rate is 4.6 per 100,000 population (week ending March 28, 2020 accessed
-## via https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html at 11:56AM PT on April 6, 2020)
-## 4.6/100000*327167439 (assuming US population of 327,167,439 based on data from US Census) == 15,050 hospitalizations
-neher$cumulative_hospitalized <- neher$cumulative_hospitalized + 15050
-
 #################################################################
 ## Add data to model_outputs file: cumulative fatalities ########
 #################################################################
@@ -72,7 +59,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 1])
                  "date" = as.Date(neher$time),
                  "location" = "US", ## all data from this model are from the full US
                  "value" = neher$cumulative_fatality,
-                 "notes" = "Model run using default parameters from Neher lab tool, plus US population data from US Census (total population = 327,167,439), and US COVID-19 caseload data from US CDC accessed morning of 4/6/2020 (cumulative cases = 330,891), which is almost certainly an understimate as it suggests a CFR of over 2.6% in the US. Model run assumed to begin on 4/6/20 so prior fatality data from CDC reported as cumulative prior to 4/6/2020.")
+                 "notes" = "")
               )
 }
 
@@ -98,7 +85,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])
                      "date" = neher$time,
                      "location" = "US",
                      "value" = c(NA, diff(neher$cumulative_fatality)),
-                     "notes" = "Model run using default parameters from Neher lab tool, plus US population data from US Census (total population = 327,167,439), and US COVID-19 caseload data from US CDC accessed morning of 4/6/2020 (cumulative cases = 330,891), which is almost certainly an understimate as it suggests a CFR of over 2.6% in the US. Model run assumed to begin on 4/6/20 so prior fatality data from CDC reported as cumulative prior to 4/6/2020.")
+                     "notes" = "")
   )
 }
 
@@ -123,7 +110,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])
                      "date" = neher$time,
                      "location" = "US",
                      "value" = c(NA, diff(neher$cumulative_hospitalized)),
-                     "notes" = "Model run using default parameters from Neher lab tool, plus US population data from US Census (total population = 327,167,439), and US COVID-19 caseload data from US CDC accessed morning of 4/6/2020 (cumulative cases = 330,891), which is almost certainly an understimate as it suggests a CFR of over 2.6% in the US. Model run assumed to begin on 4/6/20 so prior hospitalization data from CDC reported as cumulative prior to 4/6/2020.")
+                     "notes" = "")
   )
 }
 
