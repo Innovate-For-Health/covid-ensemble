@@ -1,1 +1,4 @@
-model_id	model_name	model_snapshot_date	notes
+model_run_id	model_id	model_name	model_snapshot_date	notes
+1	1	IHME COVID-19 Model	4/1/20	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/3/2020"
+2	1	IHME COVID-19 Model	4/5/20	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/6/2020"
+3	2	Neher COVID-19 Scenarios	4/6/20	"Model run using default parameters plus website, plus US population data from US Census (total population = 327,167,439), and US COVID-19 caseload data from US CDC accessed morning of 4/6/2020 (cumulative cases = 330,891), which is almost certainly an understimate as it suggests a CFR of over 2.6% in the US. All input assumptions documented in data structure stored in model_export/ subdirectory."
