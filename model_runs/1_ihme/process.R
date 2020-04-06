@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 1
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_01.csv"
+model_run_id <- 2
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_05.csv"
 
 #################################################################
 ## Load required packages #######################################
@@ -14,7 +14,7 @@ file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_01.csv"
 #################################################################
 
 ## read in new dataset of IHME exported data
-ihme <- read.csv(file_name)
+ihme <- read.csv(file_name, stringsAsFactors = FALSE)
 
 ## read in models (file that tracks all models)
 models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
@@ -36,7 +36,7 @@ model_name <- models$model_name[which(models$model_id == 1)]
 ## Format data ##################################################
 #################################################################
 
-## set data as a date
+## set date as a date
 ihme$date <- as.Date(ihme$date)
 model_outputs$date <- as.Date(model_outputs$date)
 
