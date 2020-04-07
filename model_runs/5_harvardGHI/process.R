@@ -49,6 +49,9 @@ ghi20 <- merge(ghi20, states, by.x = "State", by.y = "abbreviation")
 ghi40 <- merge(ghi40, states, by.x = "State", by.y = "abbreviation")
 ghi60 <- merge(ghi60, states, by.x = "State", by.y = "abbreviation")
 
+## format dates as dates
+model_outputs$date <- as.Date(model_outputs$date)
+
 ## Only available data are for output_id 2: Cumulative infections
 
 ############################################################################
@@ -60,7 +63,7 @@ model_outputs <- rbind.data.frame(
     cbind.data.frame("model_run_id" = 5,
                      "output_id" = 2,
                      "output_name" = "Cumulative infections",
-                     "date" = as.Date("2020-04-07") + 18*30, ## assume infections occur over 18 months
+                     "date" = as.Date(as.Date("2020-04-07") + 18*30), ## assume infections occur over 18 months
                      "location" =  ghi20$Location, ## use full state names
                      "value" = ghi20$`Projected Infected Individuals`,
                      "notes" = "Model assumes that 20% of the population is infected over 18 months, using estimate as of 18 months"))
@@ -70,7 +73,7 @@ model_outputs <- rbind.data.frame(
   cbind.data.frame("model_run_id" = 6,
                    "output_id" = 2,
                    "output_name" = "Cumulative infections",
-                   "date" = as.Date("2020-04-07") + 18*30, ## assume infections occur over 18 months
+                   "date" = as.Date(as.Date("2020-04-07") + 18*30), ## assume infections occur over 18 months
                    "location" =  ghi40$Location, ## use full state names
                    "value" = ghi40$`Projected Infected Individuals`,
                    "notes" = "Model assumes that 20% of the population is infected over 18 months, using estimate as of 18 months"))
@@ -80,7 +83,7 @@ model_outputs <- rbind.data.frame(
   cbind.data.frame("model_run_id" = 7,
                    "output_id" = 2,
                    "output_name" = "Cumulative infections",
-                   "date" = as.Date("2020-04-07") + 18*30, ## assume infections occur over 18 months
+                   "date" = as.Date(as.Date("2020-04-07") + 18*30), ## assume infections occur over 18 months
                    "location" =  ghi60$Location, ## use full state names
                    "value" = ghi60$`Projected Infected Individuals`,
                    "notes" = "Model assumes that 60% of the population is infected over 18 months, using estimate as of 18 months"))

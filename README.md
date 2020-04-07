@@ -16,6 +16,8 @@ The data contained in data/model outputs/ currently contains data from three pub
 
 - [Harvard Global Health Institute's Multiplier-Based Model](https://globalepidemics.org/our-data/hospital-capacity/#data) 
 
+- [COVID Act Now US Intervention Model](https://covidactnow.org/) 
+
 We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available.
 
 Each model is mapped to a common data structure of inputs and outputs to enable clear and rapid comparisons across dates, locations, and types of predictions (e.g., daily ICU admissions vs. cumulative fatalities). Additional information, including data structures, data dictionaries, and an ER diagram, are available in the data/ subdirectory. Below, we have included a brief summary table describing how outputs from each model are mapped to a common standard set of metrics.
