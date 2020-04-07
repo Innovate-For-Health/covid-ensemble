@@ -3,3 +3,4 @@ model_run_id	model_id	model_name	model_snapshot_date	assumed_mitigation	notes
 2	1	IHME COVID-19 Model	4/5/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/6/2020"
 3	2	Neher COVID-19 Scenarios	4/6/20	Strong	"Model run using default parameters for US only, no modifications."
 4	2	Neher COVID-19 Scenarios	4/6/20	Moderate	Model run using default parameters for US with the exception of assumed level of mitigation (changed from strong to moderate)
+5	1	IHME COVID-19 Model	4/7/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/3/2020"

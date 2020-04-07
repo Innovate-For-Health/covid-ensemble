@@ -16,7 +16,7 @@ model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 ## Format data ##################################################
 #################################################################
 
-model_outputs$date <- as.Date(model_outputs$date, format = "%m/%d/%y")
+model_outputs$date <- as.Date(model_outputs$date)
 
 #################################################################
 ## Create master dataset: runs ##################################
@@ -29,6 +29,7 @@ model_outputs$date <- as.Date(model_outputs$date)
 #################################################################
 ## Compare IHME model progression over time #####################
 #################################################################
+
 ihme_hospital_admissions <- model_outputs[which(model_outputs$output_name == "hospital admissions per day" &
                       model_outputs$model_name == "IHME COVID-19 Model" &
                       model_outputs$date >= "2020-03-01" &
@@ -49,7 +50,7 @@ for(loc in unique(ihme_hospital_admissions$location)){
        aes(x = date, y = value, color = model_snapshot_date)) + 
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
-  scale_color_manual(values = rev(c("#2b8cbe",  "#a6bddb"))) +
+  scale_color_manual(values = rev(c("#08519c",  "#3182bd", "#6baed6"))) +
   guides(color = guide_legend(title = "Model Snapshot date")) +  
   ylab(paste("Daily hospital admissions (", loc, ")", sep = "")) +
   xlab("") + 
@@ -60,7 +61,7 @@ for(loc in unique(ihme_hospital_admissions$location)){
                aes(x = date, y = value, color = model_snapshot_date)) + 
           geom_line(size = 1) +
           scale_y_continuous(label = comma) +
-          scale_color_manual(values = rev(c("#2b8cbe",  "#a6bddb"))) +
+          scale_color_manual(values = rev(c("#08519c",  "#3182bd", "#6baed6"))) +
           guides(color = guide_legend(title = "Model Snapshot date")) +  
           ylab(paste("Cumulative fatalities (", loc, ")", sep = "")) +
           xlab("") + 

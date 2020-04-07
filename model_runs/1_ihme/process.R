@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 2
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_05.csv"
+model_run_id <- 5
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_07.csv"
 
 #################################################################
 ## Load required packages #######################################
@@ -40,11 +40,11 @@ model_name <- models$model_name[which(models$model_id == 1)]
 ihme$date <- as.Date(ihme$date)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## for consistency with other data sources for now, consistently code IHME data locations as "US" vs. "United States of America"
+## for consistency across data sources, consistently code IHME data locations as "United States of America" vs. "US" 
 ## IHME changed how these data were reported as of 4/5/20 (using full name vs. partial name)
 ## todo: map to FIPS codes and country ISO codes for locations
-if(any(ihme$location == "United States of America")){
-  ihme$location[which(ihme$location == "United States of America")] <- "US"
+if(any(ihme$location == "US")){
+  ihme$location[which(ihme$location == "US")] <- "United States of America"
 }
 
 ## exclude some specific elements of IHME data that are only tracked ih IHME export and won't be 
@@ -70,7 +70,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 1])
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$totdea_mean,
-                     "notes" = "based on data export from model as of 4/1/2020, note that not all death estimates are rounded to nearest whole number")
+                     "notes" = "")
   )
 }
 
@@ -93,7 +93,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$deaths_mean,
-                     "notes" = "based on data export from model as of 4/1/2020, note that not all death estimates are rounded to nearest whole number")
+                     "notes" = "")
   )
 }
 
@@ -114,7 +114,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$totdea_mean,
-                     "notes" = "based on data export from model as of 4/1/2020, note that not all ICU bed demand estimates are rounded to nearest whole number")
+                     "notes" = "")
   )
 }
 
@@ -135,7 +135,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$InvVen_mean,
-                     "notes" = "based on data export from model as of 4/1/2020, note that ventilator demand is not rounded to the nearest number")
+                     "notes" = "")
   )
 }
 
@@ -157,7 +157,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$admis_mean,
-                     "notes" = "based on data export from model as of 4/1/2020, note that hospital admission counts are not rounded to the nearest number")
+                     "notes" = "r")
   )
 }
 
@@ -180,7 +180,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$newICU_mean,
-                     "notes" = "based on data export from model as of 4/1/2020, note that ICU admission counts are not rounded to the nearest number")
+                     "notes" = "")
   )
 }
 
@@ -189,3 +189,4 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])
 #################################################################
 
 write.table(model_outputs, file='data/model_outputs.txt', quote = FALSE, sep='\t', row.names = FALSE)
+
