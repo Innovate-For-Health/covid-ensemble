@@ -1,0 +1,56 @@
+Region	Division	FIPS	Location	abbreviation
+South	East South Central	1	Alabama	AL
+West	Pacific	2	Alaska	AK
+			American Samoa	AS
+West	Mountain	4	Arizona	AZ
+South	West South Central	5	Arkansas	AR
+West	Pacific	6	California	CA
+West	Mountain	8	Colorado	CO
+Northeast	New England	9	Connecticut	CT
+South	South Atlantic	10	Delaware	DE
+South	South Atlantic	11	District of Columbia	DC
+South	South Atlantic	12	Florida	FL
+South	South Atlantic	13	Georgia	GA
+			Guam	GU
+West	Pacific	15	Hawaii	HI
+West	Mountain	16	Idaho	ID
+Midwest	East North Central	17	Illinois	IL
+Midwest	East North Central	18	Indiana	IN
+Midwest	West North Central	19	Iowa	IA
+Midwest	West North Central	20	Kansas	KS
+South	East South Central	21	Kentucky	KY
+South	West South Central	22	Louisiana	LA
+Northeast	New England	23	Maine	ME
+South	South Atlantic	24	Maryland	MD
+Northeast	New England	25	Massachusetts	MA
+Midwest	East North Central	26	Michigan	MI
+Midwest	West North Central	27	Minnesota	MN
+South	East South Central	28	Mississippi	MS
+Midwest	West North Central	29	Missouri	MO
+West	Mountain	30	Montana	MT
+Midwest	West North Central	31	Nebraska	NE
+West	Mountain	32	Nevada	NV
+Northeast	New England	33	New Hampshire	NH
+Northeast	Middle Atlantic	34	New Jersey	NJ
+West	Mountain	35	New Mexico	NM
+Northeast	Middle Atlantic	36	New York	NY
+South	South Atlantic	37	North Carolina	NC
+Midwest	West North Central	38	North Dakota	ND
+Midwest	East North Central	39	Ohio	OH
+South	West South Central	40	Oklahoma	OK
+West	Pacific	41	Oregon	OR
+Northeast	Middle Atlantic	42	Pennsylvania	PA
+			Puerto Rico	PR
+Northeast	New England	44	Rhode Island	RI
+South	South Atlantic	45	South Carolina	SC
+Midwest	West North Central	46	South Dakota	SD
+South	East South Central	47	Tennessee	TN
+South	West South Central	48	Texas	TX
+West	Mountain	49	Utah	UT
+Northeast	New England	50	Vermont	VT
+South	South Atlantic	51	Virginia	VA
+			Virgin Islands	VI
+West	Pacific	53	Washington	WA
+South	South Atlantic	54	West Virginia	WV
+Midwest	East North Central	55	Wisconsin	WI
+West	Mountain	56	Wyoming	WY
