@@ -71,3 +71,18 @@ for(loc in unique(ihme_hospital_admissions$location)){
   dev.off()
 }
 
+#################################################################
+## Compare available models for whole US  #######################
+#################################################################
+
+ggplot(model_outputs[which(model_outputs$location == "United States of America" & 
+                           model_outputs$output_name == "ICU beds per day" &
+                           model_outputs$model_snapshot_date == as.Date("4/7/20")),],
+             aes(x = date, y = value, color = model_name)) + 
+        geom_line(size = 1) +
+        scale_y_continuous(label = comma) +
+        guides(color = guide_legend(title = "Model (as of 4/7/20")) +  
+        ylab("ICU beds needed per day") +
+        xlab("") +
+        ggtitle("Estimated ICU beds needed per day\nin United States") +
+        theme_bw()

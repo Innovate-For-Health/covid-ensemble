@@ -1,1 +1,13 @@
-run_id	input_id	input_name	date	location	value
+run_id	input_id	input_name	date	location	value	reference
+4	1	total population	NA	United States of America	329476690	https://www.census.gov/popclock/
+4	2	hospital market share	NA	United States of America	1	Assume that we're calculating results for all hospitals
+4	3	currently hospitalized COVID-19 patients	4/7/20	United States of America	"45,168"	https://www.statnews.com/2020/03/26/covid-19-tracker/
+4	4	doubling time	4/7/20	United States of America	4 days	CHIME model default as of 4/7/20
+4	5	% reduction in social contact	4/7/20	United States of America	0.3	CHIME model default as of 4/7/20
+4	6	% total infections hospitalized	NA	United States of America	0.025	CHIME model default as of 4/7/20
+4	7	% total infections in ICU	NA	United States of America	0.075	CHIME model default as of 4/7/20
+4	8	% total infections requiring mechanical ventilation	NA	United States of America	0.005	CHIME model default as of 4/7/20
+4	9	infectious days	NA	United States of America	14	CHIME model default as of 4/7/20
+4	10	average hospital length of stay (days)	NA	United States of America	7	CHIME model default as of 4/7/20
+4	11	average ICU length of stay (days)	NA	United States of America	9	CHIME model default as of 4/7/20
+4	12	average days on mechanical ventilator	NA	United States of America	10	CHIME model default as of 4/7/20

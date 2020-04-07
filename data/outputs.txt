@@ -1,8 +1,10 @@
 output_id	output_name	definition
-1	cumulative fatalities	"The total number of patients projected to die of COVID-19 or complications of COVID-19, since the beginning of the outbreak"
-2	cumulative cases	The total number of projected COVID-19 cases
-3	ICU beds per day	"The projected number of ICU beds needed, per day"
-4	ventilators per day	"The projected number of invasive ventilators needed, per day"
-5	hospital admissions per day	"The projected demand for COVID-19 hospital admissions, per day"
-6	ICU admissions per day	"The projected demand for COVID-19 ICU admissions, per day"
-7	fatalities per day	The number of patients projected to die each day of COVID-19 or complications of COVID-19
+1	New infections per day	
+2	Cumulative infections	
+3	Fatalities per day	
+4	Cumulative fatalities	
+5	Hospital beds needed per day	
+6	ICU beds needed per day	
+7	Ventilators needed per day	
+8	Hospital admissions per day	
+9	ICU admissions per day	

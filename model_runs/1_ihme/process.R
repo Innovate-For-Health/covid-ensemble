@@ -2,12 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 5
+model_run_id <- 3
 file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_07.csv"
-
-#################################################################
-## Load required packages #######################################
-#################################################################
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -53,43 +49,21 @@ ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding
                                          "Life Care Center, Kirkland, WA",
                                          "Other Counties, WA")),]
 
+## no data for output_id 1: new infections per day
+## no data for output_id 2: cumulative infections
+
 #################################################################
-## Add data to model_outputs file: cumulative fatalities ########
+## Add data for output_id 3:  Fatalities per day ################
 #################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 1])){
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])){
   
   model_outputs <- rbind.data.frame(
     model_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 1,
-                     "output_name" = "cumulative fatalities",
-                     "date" = ihme$date,
-                     "location" = ihme$location,
-                     "value" = ihme$totdea_mean,
-                     "notes" = "")
-  )
-}
-
-## note IHME has no data on cumulative cases (which is output_id == 2)
-
-#################################################################
-## Add data to model_outputs file: fatalities per day ###########
-#################################################################
-
-## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])){
-  
-  model_outputs <- rbind.data.frame(
-    model_outputs,
-    cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 7,
-                     "output_name" = "fatalities per day",
+                     "output_id" = 3,
+                     "output_name" = "Fatalities per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$deaths_mean,
@@ -98,19 +72,17 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])
 }
 
 #################################################################
-## Add data to model_outputs file: ICU beds per day #############
+## Add data for output_id 4: Cumulative fatalities ##############
 #################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])){
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])){
   
   model_outputs <- rbind.data.frame(
     model_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 3,
-                     "output_name" = "ICU beds per day",
+                     "output_id" = 4,
+                     "output_name" = "Cumulative fatalities",
                      "date" = ihme$date,
                      "location" = ihme$location,
                      "value" = ihme$totdea_mean,
@@ -118,71 +90,101 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
   )
 }
 
-###################################################################
-## Add data to model_outputs file: invasive ventilators per day ###
-###################################################################
+########################################################################
+## Add data for output_id 5: Hospital beds needed per day ##############
+########################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])){
-  
-  model_outputs <- rbind.data.frame(
-    model_outputs,
-    cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 4,
-                     "output_name" = "ventilators per day",
-                     "date" = ihme$date,
-                     "location" = ihme$location,
-                     "value" = ihme$InvVen_mean,
-                     "notes" = "")
-  )
-}
-
-
-###################################################################
-## Add data to model_outputs file: hospital admissions per day ####
-###################################################################
-
-## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
 if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])){
   
   model_outputs <- rbind.data.frame(
     model_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
                      "output_id" = 5,
-                     "output_name" = "hospital admissions per day",
+                     "output_name" = "Hospital beds needed per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
-                     "value" = ihme$admis_mean,
-                     "notes" = "r")
+                     "value" = ihme$allbed_mean,
+                     "notes" = "")
   )
 }
 
-
-
-###################################################################
-## Add data to model_outputs file: ICU admissions per day #########
-###################################################################
+########################################################################
+## Add data for output_id 6: ICU beds needed per day ###################
+########################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
 if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])){
   
   model_outputs <- rbind.data.frame(
     model_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
                      "output_id" = 6,
-                     "output_name" = "ICU admissions per day",
+                     "output_name" = "ICU beds needed per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
-                     "value" = ihme$newICU_mean,
+                     "value" = ihme$ICUbed_mean,
                      "notes" = "")
   )
 }
+
+############################################################################
+## Add data for output_id 7: Ventilators needed per day ####################
+############################################################################
+
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 7,
+                     "output_name" = "Ventilators needed per day",
+                     "date" = ihme$date,
+                     "location" = ihme$location,
+                     "value" = ihme$InvVen_mean ,
+                     "notes" = "")
+  )
+}
+
+############################################################################
+## Add data for output_id 8: Hospital admissions per day ###################
+############################################################################
+
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 8])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 8,
+                     "output_name" = "Hospital admissions per day",
+                     "date" = ihme$date,
+                     "location" = ihme$location,
+                     "value" = ihme$admis_mean ,
+                     "notes" = "")
+  )
+}
+
+############################################################################
+## Add data for output_id 9: ICU admissions per day ########################
+############################################################################
+
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 9])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 9,
+                     "output_name" = "ICU admissions per day",
+                     "date" = ihme$date,
+                     "location" = ihme$location,
+                     "value" = ihme$newICU_mean ,
+                     "notes" = "")
+  )
+}
+
 
 #################################################################
 ## Save model_outputs as .tsv file ##############################
