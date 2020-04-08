@@ -1,10 +1,11 @@
 output_id	output_name	definition
-1	New infections per day	
-2	Cumulative infections	
-3	Fatalities per day	
-4	Cumulative fatalities	
-5	Hospital beds needed per day	
-6	ICU beds needed per day	
-7	Ventilators needed per day	
-8	Hospital admissions per day	
-9	ICU admissions per day	
+1	New infections per day	The projected number of new COVID-19 infections per week
+2	Cumulative infections	"The projected cumulative number of COVID-19 infections as of a given day, inclusive of new cases that occurred on that day"
+3	Fatalities per day	The projected number of new COVID-19 fatalities per day
+10	Fatalities per week	"The projected number of new COVID-19 fatalities per week, for weeks beginning on Monday and ending on Sunday (to align with Imperial College London estimates as released)"
+4	Cumulative fatalities	"The projected cumulative number of COVID-19 fatalities as of a given day, inclusive of new deaths that occurred on that day"
+5	Hospital beds needed per day	"The projected number of hospital beds needed per day for COVID-19 patients, including ICU beds"
+6	ICU beds needed per day	The projected number of ICU or other acute care beds needed per day for COVID-19 patients
+7	Ventilators needed per day	The projected number of mechanical ventilators needed per day for COVID-19 patients
+8	Hospital admissions per day	The projected number of new hospital admissions per day for COVID-10 patients
+9	ICU admissions per day	The projected number of new ICU or other acute care admissions per day for COVID-19 patients
