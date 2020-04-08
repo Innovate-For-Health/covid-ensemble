@@ -42,10 +42,10 @@ model_name <- models$model_name[which(models$model_id == 7)]
 # "In the analysis for week beginning 29-03-2020, 22 countries/regions were included in the analysis. For the week beginning 05-04-2020, the number of countries/regions included based on these thresholds is 42."
 ## sassume the documentation is correct, so add 6 days to each date to make it a true "week ending" on Saturday and beginning on Sunday
 
-imperial1$date <- as.Date(imperial1$Week.Ending, format = "%d-%m-%Y")
-imperial2$date <- as.Date(imperial2$Week.Ending, format = "%d-%m-%Y")
-imperial3$date <- as.Date(imperial3$Week.Ending, format = "%d-%m-%Y")
-imperial4$date <- as.Date(imperial4$Week.Ending, format = "%d-%m-%Y")
+imperial1$date <- as.Date(imperial1$Week.Ending, format = "%d-%m-%Y") + 6
+imperial2$date <- as.Date(imperial2$Week.Ending, format = "%d-%m-%Y") + 6
+imperial3$date <- as.Date(imperial3$Week.Ending, format = "%d-%m-%Y") + 6
+imperial4$date <- as.Date(imperial4$Week.Ending, format = "%d-%m-%Y") + 6
 
 model_outputs$date <- as.Date(model_outputs$date)
 

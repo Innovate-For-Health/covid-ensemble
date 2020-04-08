@@ -185,6 +185,11 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 9])
   )
 }
 
+############################################################################
+## Add data for output_id 10: Fatalities per week ##########################
+############################################################################
+
+## TODO: add this later once I figure out the weeks in the Imperial College London model, now their documentation doesn't match their data export
 
 #################################################################
 ## Save model_outputs as .tsv file ##############################

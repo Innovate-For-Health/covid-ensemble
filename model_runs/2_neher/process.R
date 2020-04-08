@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 10
-file_name <- "model_runs/2_neher/model_export/10_covid.results.deterministic.csv"
+model_run_id <- 17
+file_name <- "model_runs/2_neher/model_export/17_covid.results.deterministic.csv"
   
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -58,7 +58,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                      "output_id" = 3,
                      "output_name" = "Fatalities per day",
                      "date" = neher$time,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = c(NA, diff(neher$cumulative_fatality)),
                      "notes" = "calculated based on daily differences in cumulative fatalities")
   )
@@ -69,20 +69,21 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
 #################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
+## excluded because this stops working if you specify a start of simulation later then the beginning of the outbreak
 
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])){
-  
-  model_outputs <- rbind.data.frame(
-    model_outputs,
-    cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 4,
-                     "output_name" = "Cumulative fatalities",
-                     "date" = neher$time,
-                     "location" = "United States of America",
-                     "value" = neher$cumulative_fatality,
-                     "notes" = "")
-  )
-}
+# if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])){
+#   
+#   model_outputs <- rbind.data.frame(
+#     model_outputs,
+#     cbind.data.frame("model_run_id" = model_run_id,
+#                      "output_id" = 4,
+#                      "output_name" = "Cumulative fatalities",
+#                      "date" = neher$time,
+#                      "location" = "United States of America",
+#                      "value" = neher$cumulative_fatality,
+#                      "notes" = "")
+#   )
+# }
 
 
 #################################################################
@@ -101,7 +102,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])
                      "output_id" = 6,
                      "output_name" = "ICU beds needed per day",
                      "date" = neher$time,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = neher$ICU + neher$overflow,
                      "notes" = "calculated as the sum of ICU patients plus patient assumed to be diverted from the ICU due to overflow beyond ICU capacity")
   )
@@ -123,9 +124,9 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 8])
                      "output_id" = 8,
                      "output_name" = "Hospital admissions per day",
                      "date" = neher$time,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = c(NA, diff(neher$cumulative_hospitalized)),
-                     "notes" = "calculated based on daily differences in cumulative fatalities")
+                     "notes" = "calculated based on daily differences in cumulative hospitalizations")
   )
 }
 

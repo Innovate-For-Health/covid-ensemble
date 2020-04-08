@@ -2,10 +2,10 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 4
-file_name <- "model_runs/3_chime/model_export/4_2020-04-02_projected_census.csv"
-file_name2 <- "model_runs/3_chime/model_export/4_2020-04-02_sim_sir_w_date.csv"
-file_name3 <- "model_runs/3_chime/model_export/4_2020-04-02_projected_admits.csv"
+model_run_id <- 16
+file_name <- "model_runs/3_chime/model_export/16_2020-04-08_projected_census.csv"
+file_name2 <- "model_runs/3_chime/model_export/16_2020-04-08_sim_sir_w_date.csv"
+file_name3 <- "model_runs/3_chime/model_export/16_2020-04-08_projected_admits.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -42,12 +42,11 @@ model_name <- models$model_name[which(models$model_id == 3)]
 
 ## set date as a date
 chime$date <- as.Date(chime$date)
-chime$date <- as.Date(chime$date)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## exclude data from 1/31/20 which is all NA values
-chime <- chime[-which(chime$date == as.Date("2020-01-31")),]
-chimeadmits <- chimeadmits[-which(chimeadmits$date == as.Date("2020-01-31")),]
+## exclude NA values
+chime <- chime[-which(is.na(chime$hospitalized)),]
+chimeadmits <- chimeadmits[-which(is.na(chimeadmits$hospitalized)),]
 
 ## No data for output_id 1: New infections per day
 ## No data for output_id 2: Cumulative infections
@@ -67,7 +66,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])
                      "output_id" = 5,
                      "output_name" = "Hospital beds needed per day",
                      "date" = chime$date,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = chime$hospitalized,
                      "notes" = "")
   )
@@ -86,7 +85,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])
                      "output_id" = 6,
                      "output_name" = "ICU beds needed per day",
                      "date" = chime$date,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = chime$icu,
                      "notes" = "")
   )
@@ -105,7 +104,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])
                      "output_id" = 7,
                      "output_name" = "Ventilators needed per day",
                      "date" = chime$date,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = chime$ventilated,
                      "notes" = "")
   )
@@ -124,7 +123,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 8])
                      "output_id" = 8,
                      "output_name" = "Hospital admissions per day",
                      "date" = chimeadmits$date,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = chimeadmits$hospitalized,
                      "notes" = "")
   )
@@ -143,7 +142,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 9])
                      "output_id" = 9,
                      "output_name" = "ICU admissions per day",
                      "date" = chimeadmits$date,
-                     "location" = "United States of America",
+                     "location" = "California",
                      "value" = chimeadmits$icu,
                      "notes" = "")
   )

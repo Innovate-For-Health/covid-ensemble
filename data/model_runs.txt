@@ -13,3 +13,6 @@ model_run_id	model_id	run_name	model_name	model_snapshot_date	assumed_mitigation
 12	7	"Imperial College (4/7/10, model 2)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
 13	7	"Imperial College (4/7/10, model 3)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
 14	7	"Imperial College (4/7/10, unweighted ensemble)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
+15	3	"CHIME (4/8/2020, 30% reduction in social contact)"	CHIME	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
+16	3	"CHIME (4/8/2020, 50% reduction in social contact)"	CHIME	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
+17	2	"Neher (4/8/20, moderate motigation)"	Neher COVID-19 Scenarios	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
