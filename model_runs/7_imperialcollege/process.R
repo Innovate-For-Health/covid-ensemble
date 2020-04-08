@@ -37,15 +37,14 @@ model_name <- models$model_name[which(models$model_id == 7)]
 ## Format data ##################################################
 #################################################################
 
-## TODO: review this as things progress // a note on dates:
-## In shiny app as of 11am PT 4/8/20, data labeled as "Week ending" with values of 29-03-2020 and 05-04-2020. However this does not match the documentation, which states 
-# "In the analysis for week beginning 29-03-2020, 22 countries/regions were included in the analysis. For the week beginning 05-04-2020, the number of countries/regions included based on these thresholds is 42."
-## sassume the documentation is correct, so add 6 days to each date to make it a true "week ending" on Saturday and beginning on Sunday
+## imperial college london reports weeks as starting on Sunday and ending on Saturday
+## encode date as the end date of the time inverval, as specified in documentation and data dictionary
+## you can do this by simply adding 6 days to the date
 
-imperial1$date <- as.Date(imperial1$Week.Ending, format = "%d-%m-%Y") + 6
-imperial2$date <- as.Date(imperial2$Week.Ending, format = "%d-%m-%Y") + 6
-imperial3$date <- as.Date(imperial3$Week.Ending, format = "%d-%m-%Y") + 6
-imperial4$date <- as.Date(imperial4$Week.Ending, format = "%d-%m-%Y") + 6
+imperial1$date <- as.Date(imperial1$Week.Starting, format = "%d-%m-%Y") + 6
+imperial2$date <- as.Date(imperial2$Week.Starting, format = "%d-%m-%Y") + 6
+imperial3$date <- as.Date(imperial3$Week.Starting, format = "%d-%m-%Y") + 6
+imperial4$date <- as.Date(imperial4$Week.Starting, format = "%d-%m-%Y") + 6
 
 model_outputs$date <- as.Date(model_outputs$date)
 

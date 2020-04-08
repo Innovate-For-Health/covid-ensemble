@@ -1,4 +1,4 @@
-ID	Country	Week Ending	Predicted Deaths	Observed Deaths	R_t
+ID	Country	Week Starting	Predicted Deaths	Observed Deaths	R_t
 3	Algeria	05-04-2020	1,090 (623 - 1,870)		5.20 (3.87 - 6.81)
 6	Argentina	05-04-2020	34 (9 - 97)		1.35 (0.56 - 2.67)
 9	Austria	05-04-2020	152 (99 - 226)		1.38 (1.06 - 1.75)
