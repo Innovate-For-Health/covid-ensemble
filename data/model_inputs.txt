@@ -11,3 +11,15 @@ run_id	input_id	input_name	date	location	value	reference
 4	10	average hospital length of stay (days)	NA	United States of America	7	CHIME model default as of 4/7/20
 4	11	average ICU length of stay (days)	NA	United States of America	9	CHIME model default as of 4/7/20
 4	12	average days on mechanical ventilator	NA	United States of America	10	CHIME model default as of 4/7/20
+10	1	total population	NA	United States of America	329476690	https://www.census.gov/popclock/
+10	13	infections	3/1/20	United States of America	7403	Default data provided by Neher Lab site
+10	14	imported infections per day	3/1/20	United States of America	20	Default data provided by Neher Lab site
+10	15	average annual R0	3/1/20	United States of America	2.7	Default data provided by Neher Lab site
+10	16	latency period in days	3/1/20	United States of America	5	Default data provided by Neher Lab site
+10	9	infectious days	3/1/20	United States of America	3	Default data provided by Neher Lab site
+10	17	seasonal forcing	NA	NA	0.2	Default data provided by Neher Lab site
+10	18	seasonal peak month	NA	NA	January	Default data provided by Neher Lab site
+10	10	average hospital length of stay (days)	3/1/20	United States of America	4	Default data provided by Neher Lab site
+10	11	average ICU length of stay (days)	3/1/20	United States of America	14	Default data provided by Neher Lab site
+10	19	severity of ICU overflow	3/1/20	United States of America	2	Default data provided by Neher Lab site
+10	20	transmission relative to baseline	3/1/20	United States of America	0.6	"Default data provided by Neher Lab site for ""moderate"" mitigation"

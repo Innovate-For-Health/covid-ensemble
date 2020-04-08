@@ -8,11 +8,13 @@ This effort will enable public health experts, policy-makers, and data scientist
 
 ## Current models supported
 
-The data contained in data/model outputs/ currently contains data from three public models: 
+The data contained in data/model outputs/ currently contains data from five public models: 
 
 - [University of Washington IHME's COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
 
 - [Penn Medicine's COVID-19 Hospital Impact Model for Epidemics (CHIME) app](https://code-for-philly.gitbook.io/chime/)
+
+- [Neher et al.'s COVID-19 Scenarios Model](https://neherlab.org/covid19/)
 
 - [Harvard Global Health Institute's Multiplier-Based Model](https://globalepidemics.org/our-data/hospital-capacity/#data) 
 

@@ -2,13 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 4
-file_name <- "model_runs/2_neher/model_export/4_covid.results.deterministic.csv"
+model_run_id <- 10
+file_name <- "model_runs/2_neher/model_export/10_covid.results.deterministic.csv"
   
-#################################################################
-## Load required packages #######################################
-#################################################################
-
 #################################################################
 ## Load datasets and set fixed parameters #######################
 #################################################################
@@ -40,80 +36,98 @@ model_name <- models$model_name[which(models$model_id == 2)]
 neher$time <- as.Date(neher$time)
 model_outputs$date <- as.Date(model_outputs$date)
 
-#################################################################
-## Add data to model_outputs file: cumulative fatalities ########
-#################################################################
+## focus only on data starting in April 2020
+neher <- neher[which(neher$time >= as.Date("2020-04-01")),]
 
-## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-
-## see notes above (in format data section) on calculation of cumulative fatalities by adding prior CDC data 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 1])){
-
-  model_outputs <- rbind.data.frame(
-              model_outputs,
-              cbind.data.frame("model_run_id" = model_run_id,
-                 "output_id" = 1,
-                 "output_name" = "cumulative fatalities",
-                 "date" = as.Date(neher$time),
-                 "location" = "US", ## all data from this model are from the full US
-                 "value" = neher$cumulative_fatality,
-                 "notes" = "")
-              )
-}
-
+## no data for output_id 1: new infections per day
+## no data for output_id 2: cumulative infections
 
 #################################################################
-## Add data to model_outputs file: fatalities per day ###########
+## Add data for output_id 3:  Fatalities per day ################
 #################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-## note that Neher model export data format (as of 4/6/20) reports only cumulative fatalities, so backtracking
+## note that Neher model export data format reports only cumulative fatalities, so backtracking
 ## from this value to calculate fatalities per day
 
-## see notes above (in format data section) on calculation of cumulative fatalities by adding prior CDC data 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])){
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])){
   
   model_outputs <- rbind.data.frame(
     model_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 7,
-                     "output_name" = "fatalities per day",
+                     "output_id" = 3,
+                     "output_name" = "Fatalities per day",
                      "date" = neher$time,
-                     "location" = "US",
+                     "location" = "United States of America",
                      "value" = c(NA, diff(neher$cumulative_fatality)),
-                     "notes" = "")
+                     "notes" = "calculated based on daily differences in cumulative fatalities")
   )
 }
 
 #################################################################
-## Add data to model_outputs file: hospitalizations per day #####
+## Add data for output_id 4: Cumulative fatalities ##############
 #################################################################
 
 ## only add these new data if you're not reading over model_outputs already stored
-## given a fixed model run_id (specified above) for a given output type 
-## note that Neher model export data format (as of 4/6/20) reports only cumulative hospitalizations, so backtracking
-## from this value to calculate hospitalizations per day
 
-## see notes above (in format data section) on calculation of cumulative hospitalizations by adding prior CDC data 
-
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])){
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])){
   
   model_outputs <- rbind.data.frame(
     model_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
-                     "output_id" = 5,
-                     "output_name" = "hospital admissions per day",
+                     "output_id" = 4,
+                     "output_name" = "Cumulative fatalities",
                      "date" = neher$time,
-                     "location" = "US",
-                     "value" = c(NA, diff(neher$cumulative_hospitalized)),
+                     "location" = "United States of America",
+                     "value" = neher$cumulative_fatality,
                      "notes" = "")
   )
 }
 
+
+#################################################################
+## Add data for output_id 6: ICU beds needed per day ############
+#################################################################
+
+## only add these new data if you're not reading over model_outputs already stored
+## note that Neher model assumes a finite number of ICU beds and then puts patients
+## beyond that finite number into an "overflow" bucket, so address that here
+
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 6,
+                     "output_name" = "ICU beds needed per day",
+                     "date" = neher$time,
+                     "location" = "United States of America",
+                     "value" = neher$ICU + neher$overflow,
+                     "notes" = "calculated as the sum of ICU patients plus patient assumed to be diverted from the ICU due to overflow beyond ICU capacity")
+  )
+}
+
+#################################################################
+## Add data for output_id 8: Hospital admissions per day ########
+#################################################################
+
+## only add these new data if you're not reading over model_outputs already stored
+## note that Neher model export data format reports only cumulative hospitalizations, so backtracking
+## from this value to calculate hospitalizations per day
+
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 8])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 8,
+                     "output_name" = "Hospital admissions per day",
+                     "date" = neher$time,
+                     "location" = "United States of America",
+                     "value" = c(NA, diff(neher$cumulative_hospitalized)),
+                     "notes" = "calculated based on daily differences in cumulative fatalities")
+  )
+}
 
 #################################################################
 ## Save model_outputs as .tsv file ##############################
