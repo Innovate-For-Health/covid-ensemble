@@ -21,8 +21,8 @@ library(readxl)
 
 ## read in dataset (manually extracted on 4/7/20, just for California, and double checked)
 ## this is my last manual data pull, see todo note above about doing this in a smarter way
-cah_manual_strict_sah <- read_excel("model_runs/6_covidactnow/CAH manual california.xlsx", sheet = "strict_sah")
-cah_manual_lax_sah <- read_excel("model_runs/6_covidactnow/CAH manual california.xlsx", sheet = "lax_sah")
+cah_manual_strict_sah <- read_excel("model_runs/6_covidactnow/model_export/CAH manual california.xlsx", sheet = "strict_sah")
+cah_manual_lax_sah <- read_excel("model_runs/6_covidactnow/model_export/CAH manual california.xlsx", sheet = "lax_sah")
 
 ## read in models (file that tracks all models)
 models <- read.delim("data/models.txt", stringsAsFactors = FALSE)

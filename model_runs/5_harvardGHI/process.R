@@ -17,9 +17,9 @@ library(readxl)
 #################################################################
 
 ## read in dataset from GHI assuming 20% infection
-ghi20 <- read_excel("model_runs/5_harvardGHI/Hospital Capacity by State ( 20% _ 40% _ 60% ).xlsx", sheet = "20%")
-ghi40 <- read_excel("model_runs/5_harvardGHI/Hospital Capacity by State ( 20% _ 40% _ 60% ).xlsx", sheet = "40%")
-ghi60 <- read_excel("model_runs/5_harvardGHI/Hospital Capacity by State ( 20% _ 40% _ 60% ).xlsx", sheet = "60%")
+ghi20 <- read_excel("model_runs/5_harvardGHI/model_export/Hospital Capacity by State ( 20% _ 40% _ 60% ).xlsx", sheet = "20%")
+ghi40 <- read_excel("model_runs/5_harvardGHI/model_export/Hospital Capacity by State ( 20% _ 40% _ 60% ).xlsx", sheet = "40%")
+ghi60 <- read_excel("model_runs/5_harvardGHI/model_export/Hospital Capacity by State ( 20% _ 40% _ 60% ).xlsx", sheet = "60%")
 
 ## read in dataset of state abbreviations to get FIPS codes
 states <- read.delim("data/USintermediateFIPS.txt", stringsAsFactors = FALSE)

@@ -3,9 +3,9 @@
 #################################################################
 
 model_run_id <- 4
-file_name <- "model_runs/3_chime/4_2020-04-02_projected_census.csv"
-file_name2 <- "model_runs/3_chime/4_2020-04-02_sim_sir_w_date.csv"
-file_name3 <- "model_runs/3_chime/4_2020-04-02_projected_admits.csv"
+file_name <- "model_runs/3_chime/model_export/4_2020-04-02_projected_census.csv"
+file_name2 <- "model_runs/3_chime/model_export/4_2020-04-02_sim_sir_w_date.csv"
+file_name3 <- "model_runs/3_chime/model_export/4_2020-04-02_projected_admits.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
