@@ -6,6 +6,7 @@ library(ggplot2)
 library(scales)
 library(lubridate)
 library(dplyr)
+library(RColorBrewer)
 
 #################################################################
 ## Load datasets ################################################
@@ -43,7 +44,7 @@ table(outputs$model_name[outputs$geographic_resolution_US_state == TRUE], output
 ## Fatalities per day, change in IHME model: US ##################################
 ##################################################################################
 
-pdf(paste("analysis/static_figures/IHME_cumulative_fatalities", date(), ".pdf", sep = ""), height = 2.5, width = 5)
+#pdf(paste("analysis/static_figures/IHME_daily_fatalities_", date(), ".pdf", sep = ""), height = 2.5, width = 5)
 ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$output_name == "Fatalities per day" &
                      outputs$location == "United States of America" &
                      outputs$run_name != "IHME (4/5/2020)"),],
@@ -56,13 +57,13 @@ ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$outpu
   xlab("") +
   theme_bw() +
   ggtitle("Fatalities per day in the US:\ntwo IHME model versions")
-dev.off()
+#dev.off()
 
 ##################################################################################
 ## Fatalities per day, change in IHME model: US ##################################
 ##################################################################################
 
-pdf(paste("analysis/static_figures/IHME_cumulative_fatalities", date(), ".pdf", sep = ""), height = 2.5, width = 5)
+#pdf(paste("analysis/static_figures/IHME_cumulative_fatalities_", date(), ".pdf", sep = ""), height = 2.5, width = 5)
 ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$output_name == "Cumulative fatalities" &
                        outputs$location == "United States of America" &
                        outputs$run_name != "IHME (4/5/2020)"),],
@@ -75,7 +76,7 @@ ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$outpu
   xlab("") +
   theme_bw() +
   ggtitle("Cumulative fatalities in the US:\ntwo IHME model versions")
-dev.off()
+#dev.off()
 
 ##################################################################################
 ## Hospital beds needed per day, across models: California only ##################
@@ -95,7 +96,7 @@ beds_california$run_name <- factor(beds_california$run_name,
 beds_california$model_name <- factor(beds_california$model_name,
                                      levels = c("IHME COVID-19 Model","CHIME", "COVID Act Now"))
 
-pdf(paste("analysis/static_figures/CA_bed_demand_comparison", date(), ".pdf", sep = ""), height = 2.5, width = 8.5)
+#pdf(paste("analysis/static_figures/CA_bed_demand_comparison_", date(), ".pdf", sep = ""), height = 2.5, width = 8.5)
 ggplot(beds_california,
        aes(x = date, y = value, color = run_name)) +
   geom_line(size = 1) +
@@ -106,7 +107,7 @@ ggplot(beds_california,
   xlab("") +
   theme_bw() +
   facet_wrap(~model_name) +
-  ggtitle("COVID-19 Hospital demand per day in California")
+  ggtitle("COVID-19 Hospital bed demand per day in California")
 
 ## adding 1 just to avoid taking the log of zero, magnitudes are so large that it's impossible to discern from the plot
 ggplot(beds_california,
@@ -119,8 +120,8 @@ ggplot(beds_california,
   xlab("") +
   theme_bw() +
   facet_wrap(~model_name) +
-  ggtitle("COVID-19 Hospital demand per day in California")
-dev.off()
+  ggtitle("COVID-19 Hospital bed demand per day in California")
+#dev.off()
 
 ################################################################################
 ## Which models have which data the whole US?  #################################
@@ -179,10 +180,9 @@ weekly_fatalities$run_name <- factor(weekly_fatalities$run_name,
 weekly_fatalities$model_name <- factor(weekly_fatalities$model_name,
                                      levels = c("IHME COVID-19 Model","Imperial College London COVID-19 Model"))
 
-weekly_growth_rate <- 
   
 
-pdf(paste("analysis/static_figures/US_weekly_fatality_comaprison", date(), ".pdf", sep = ""), height = 2.5, width = 9)
+#pdf(paste("analysis/static_figures/US_weekly_fatality_comaprison_", date(), ".pdf", sep = ""), height = 2.5, width = 9)
 ggplot(weekly_fatalities[which(weekly_fatalities$location == "United States of America" &
                                weekly_fatalities$week_ending >= "2020-03-17" &
                                weekly_fatalities$week_ending <= "2020-04-12"),],
@@ -192,8 +192,30 @@ ggplot(weekly_fatalities[which(weekly_fatalities$location == "United States of A
   scale_color_manual(values = c("#006d2c", "#41ab5d", "#084594", "#2171b5", "#4292c6", "#6baed6")) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("COVID-19 Fatalities per week") +
-  xlab("") +
+  xlab("Week ending") +
   theme_bw() +
   facet_wrap(~model_name) +
   ggtitle("COVID-19 Fatalities per week in the United States")
+#dev.off()
+
+#################################################################
+## Compare available models for Spain  ##########################
+#################################################################
+
+pdf(paste("analysis/static_figures/spain_weekly_fatality_comaprison_", date(), ".pdf", sep = ""), height = 2.5, width = 9)
+ggplot(weekly_fatalities[which(weekly_fatalities$location == "Spain" &
+                                 weekly_fatalities$week_ending >= "2020-03-17" &
+                                 weekly_fatalities$week_ending <= "2020-04-12"),],
+       aes(x = week_ending, y = value, color = run_name)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  scale_color_manual(values = c("#006d2c", "#084594", "#2171b5", "#4292c6", "#6baed6")) +
+  guides(color = guide_legend(title = "Model Run")) +
+  ylab("COVID-19 Fatalities per week") +
+  xlab("Week ending") +
+  theme_bw() +
+  facet_wrap(~model_name) +
+  ggtitle("COVID-19 Fatalities per week in Spain")
 dev.off()
+
+#dev.off()
