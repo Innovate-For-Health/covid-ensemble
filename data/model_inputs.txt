@@ -1,61 +1,61 @@
-run_id	input_id	input_name	date	location	value	reference		
-4	1	total population	NA	United States of America	329476690	https://www.census.gov/popclock/		
-4	2	hospital market share	NA	United States of America	1	Assume that we're calculating results for all hospitals		
-4	3	currently hospitalized COVID-19 patients	4/7/20	United States of America	"45,168"	https://www.statnews.com/2020/03/26/covid-19-tracker/		
-4	4	doubling time	4/7/20	United States of America	4 days	CHIME model default as of 4/7/20		
-4	5	% reduction in social contact	4/7/20	United States of America	0.3	CHIME model default as of 4/7/20		
-4	6	% total infections hospitalized	NA	United States of America	0.025	CHIME model default as of 4/7/20		
-4	7	% total infections in ICU	NA	United States of America	0.075	CHIME model default as of 4/7/20		
-4	8	% total infections requiring mechanical ventilation	NA	United States of America	0.005	CHIME model default as of 4/7/20		
-4	9	infectious days	NA	United States of America	14	CHIME model default as of 4/7/20		
-4	10	average hospital length of stay (days)	NA	United States of America	7	CHIME model default as of 4/7/20		
-4	11	average ICU length of stay (days)	NA	United States of America	9	CHIME model default as of 4/7/20		
-4	12	average days on mechanical ventilator	NA	United States of America	10	CHIME model default as of 4/7/20		
-10	1	total population	NA	United States of America	329476690	https://www.census.gov/popclock/		
-10	13	infections	3/1/20	United States of America	7403	Default data provided by Neher Lab site		
-10	14	imported infections per day	3/1/20	United States of America	20	Default data provided by Neher Lab site		
-10	15	average annual R0	3/1/20	United States of America	2.7	Default data provided by Neher Lab site		
-10	16	latency period in days	3/1/20	United States of America	5	Default data provided by Neher Lab site		
-10	9	infectious days	3/1/20	United States of America	3	Default data provided by Neher Lab site		
-10	17	seasonal forcing	NA	NA	0.2	Default data provided by Neher Lab site		
-10	18	seasonal peak month	NA	NA	January	Default data provided by Neher Lab site		
-10	10	average hospital length of stay (days)	3/1/20	United States of America	4	Default data provided by Neher Lab site		
-10	11	average ICU length of stay (days)	3/1/20	United States of America	14	Default data provided by Neher Lab site		
-10	19	severity of ICU overflow	3/1/20	United States of America	2	Default data provided by Neher Lab site		
-10	20	transmission relative to baseline	3/1/20	United States of America	0.6	"Default data provided by Neher Lab site for ""moderate"" mitigation"		
-15	1	total population	NA	California	"39,512,223"	"Data from US Census (as of July 1, 2019), https://www.census.gov/quickfacts/CA"		
-15	3	currently hospitalized COVID-19 patients	4/9/20	California	2611	California Department of Public Health Dashboard: https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals and confirmed by Governor's press release: https://www.mercurynews.com/2020/04/07/governor-newsom-californias-covid-19-curve-is-stretching-cases-jump-by-10-percent/		
-15	4	doubling time	4/9/20	California	4 days	New York Times https://www.nytimes.com/interactive/2020/us/california-coronavirus-cases.html and https://www.latimes.com/california/story/2020-03-25/california-coronavirus-cases-doubling-rate-newsom		
-15	4	% reduction in social contact	4/9/20	California	0.3	CHIME model default as of 4/7/20		
-15	4	% total infections hospitalized	NA	California	0.025	CHIME model default as of 4/7/20		
-15	4	% total infections in ICU	NA	California	0.075	CHIME model default as of 4/7/20		
-15	4	% total infections requiring mechanical ventilation	NA	California	0.005	CHIME model default as of 4/7/20		
-15	4	infectious days	NA	California	14	CHIME model default as of 4/7/20		
-15	4	average hospital length of stay (days)	NA	California	7	CHIME model default as of 4/7/20		
-15	4	average ICU length of stay (days)	NA	California	9	CHIME model default as of 4/7/20		
-15	4	average days on mechanical ventilator	NA	California	10	CHIME model default as of 4/7/20		
-16	1	total population	NA	California	"39,512,223"	"Data from US Census (as of July 1, 2019), https://www.census.gov/quickfacts/CA"		
-16	3	currently hospitalized COVID-19 patients	4/9/20	California	2611	California Department of Public Health Dashboard: https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals and confirmed by Governor's press release: https://www.mercurynews.com/2020/04/07/governor-newsom-californias-covid-19-curve-is-stretching-cases-jump-by-10-percent/		
-16	4	doubling time	4/9/20	California	4 days	New York Times https://www.nytimes.com/interactive/2020/us/california-coronavirus-cases.html and https://www.latimes.com/california/story/2020-03-25/california-coronavirus-cases-doubling-rate-newsom		
-16	4	% reduction in social contact	4/9/20	California	0.5	"CHIME model default as of 4/8/20 was 30%, but assume this value is 50% for model run"		
-16	4	% total infections hospitalized	NA	California	0.025	CHIME model default as of 4/7/20		
-16	4	% total infections in ICU	NA	California	0.075	CHIME model default as of 4/7/20		
-16	4	% total infections requiring mechanical ventilation	NA	California	0.005	CHIME model default as of 4/7/20		
-16	4	infectious days	NA	California	14	CHIME model default as of 4/7/20		
-16	4	average hospital length of stay (days)	NA	California	7	CHIME model default as of 4/7/20		
-16	4	average ICU length of stay (days)	NA	California	9	CHIME model default as of 4/7/20		
-16	4	average days on mechanical ventilator	NA	California	10	CHIME model default as of 4/7/20		
-17	1	total population	NA	California	"39,512,223"	"Data from US Census (as of July 1, 2019), https://www.census.gov/quickfacts/CA"		
-17	13	infections	3/1/20	California	28262	California Department of Public Health Dashboard: https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals and assuming a (perhaps generous) 60% detection rate https://www.mercurynews.com/2020/04/07/governor-newsom-californias-covid-19-curve-is-stretching-cases-jump-by-10-percent/		
-17	14	imported infections per day	3/1/20	California	5	Assumption		
-17	15	average annual R0	3/1/20	California	2.7	Default data provided by Neher Lab site		
-17	16	latency period in days	3/1/20	California	5	Default data provided by Neher Lab site		
-17	9	infectious days	3/1/20	California	3	Default data provided by Neher Lab site		
-17	17	seasonal forcing	NA	NA	0.2	Default data provided by Neher Lab site		
-17	18	seasonal peak month	NA	NA	January	Default data provided by Neher Lab site		
-17	10	average hospital length of stay (days)	3/1/20	California	4	Default data provided by Neher Lab site		
-17	11	average ICU length of stay (days)	3/1/20	California	14	Default data provided by Neher Lab site		
-17	19	severity of ICU overflow	3/1/20	California	1.2	"Assume lower than default increase assumption about fatalities in situations with ICU overload, (default is 2, assume that hospitals manage to create extra space to drop this significantly)"		
-17	20	transmission relative to baseline	3/1/20	California	0.6	"Default data provided by Neher Lab site for ""moderate"" mitigation"		
-17	21	hospital beds	NA	California	105000	https://www.latimes.com/california/newsletter/2020-03-24/california-coronavirus-hospital-beds-newsletter-essential-california		
-17	22	ICU beds		California	"7,345"	https://www.mercurynews.com/2020/03/24/map-where-are-the-intensive-care-beds-in-california-the-u-s/		
+run_id	input_id	input_name	date	location	value	reference
+4	1	total population	NA	United States of America	329476690	https://www.census.gov/popclock/
+4	2	hospital market share	NA	United States of America	1	Assume that we're calculating results for all hospitals
+4	3	currently hospitalized COVID-19 patients	4/7/20	United States of America	"45,168"	https://www.statnews.com/2020/03/26/covid-19-tracker/
+4	4	doubling time	4/7/20	United States of America	4 days	CHIME model default as of 4/7/20
+4	5	% reduction in social contact	4/7/20	United States of America	0.3	CHIME model default as of 4/7/20
+4	6	% total infections hospitalized	NA	United States of America	0.025	CHIME model default as of 4/7/20
+4	7	% total infections in ICU	NA	United States of America	0.075	CHIME model default as of 4/7/20
+4	8	% total infections requiring mechanical ventilation	NA	United States of America	0.005	CHIME model default as of 4/7/20
+4	9	infectious days	NA	United States of America	14	CHIME model default as of 4/7/20
+4	10	average hospital length of stay (days)	NA	United States of America	7	CHIME model default as of 4/7/20
+4	11	average ICU length of stay (days)	NA	United States of America	9	CHIME model default as of 4/7/20
+4	12	average days on mechanical ventilator	NA	United States of America	10	CHIME model default as of 4/7/20
+10	1	total population	NA	United States of America	329476690	https://www.census.gov/popclock/
+10	13	infections	3/1/20	United States of America	7403	Default data provided by Neher Lab site
+10	14	imported infections per day	3/1/20	United States of America	20	Default data provided by Neher Lab site
+10	15	average annual R0	3/1/20	United States of America	2.7	Default data provided by Neher Lab site
+10	16	latency period in days	3/1/20	United States of America	5	Default data provided by Neher Lab site
+10	9	infectious days	3/1/20	United States of America	3	Default data provided by Neher Lab site
+10	17	seasonal forcing	NA	NA	0.2	Default data provided by Neher Lab site
+10	18	seasonal peak month	NA	NA	January	Default data provided by Neher Lab site
+10	10	average hospital length of stay (days)	3/1/20	United States of America	4	Default data provided by Neher Lab site
+10	11	average ICU length of stay (days)	3/1/20	United States of America	14	Default data provided by Neher Lab site
+10	19	severity of ICU overflow	3/1/20	United States of America	2	Default data provided by Neher Lab site
+10	20	transmission relative to baseline	3/1/20	United States of America	0.6	"Default data provided by Neher Lab site for ""moderate"" mitigation"
+15	1	total population	NA	California	"39,512,223"	"Data from US Census (as of July 1, 2019), https://www.census.gov/quickfacts/CA"
+15	3	currently hospitalized COVID-19 patients	4/9/20	California	2611	California Department of Public Health Dashboard: https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals and confirmed by Governor's press release: https://www.mercurynews.com/2020/04/07/governor-newsom-californias-covid-19-curve-is-stretching-cases-jump-by-10-percent/
+15	4	doubling time	4/9/20	California	4 days	New York Times https://www.nytimes.com/interactive/2020/us/california-coronavirus-cases.html and https://www.latimes.com/california/story/2020-03-25/california-coronavirus-cases-doubling-rate-newsom
+15	4	% reduction in social contact	4/9/20	California	0.3	CHIME model default as of 4/7/20
+15	4	% total infections hospitalized	NA	California	0.025	CHIME model default as of 4/7/20
+15	4	% total infections in ICU	NA	California	0.075	CHIME model default as of 4/7/20
+15	4	% total infections requiring mechanical ventilation	NA	California	0.005	CHIME model default as of 4/7/20
+15	4	infectious days	NA	California	14	CHIME model default as of 4/7/20
+15	4	average hospital length of stay (days)	NA	California	7	CHIME model default as of 4/7/20
+15	4	average ICU length of stay (days)	NA	California	9	CHIME model default as of 4/7/20
+15	4	average days on mechanical ventilator	NA	California	10	CHIME model default as of 4/7/20
+16	1	total population	NA	California	"39,512,223"	"Data from US Census (as of July 1, 2019), https://www.census.gov/quickfacts/CA"
+16	3	currently hospitalized COVID-19 patients	4/9/20	California	2611	California Department of Public Health Dashboard: https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals and confirmed by Governor's press release: https://www.mercurynews.com/2020/04/07/governor-newsom-californias-covid-19-curve-is-stretching-cases-jump-by-10-percent/
+16	4	doubling time	4/9/20	California	4 days	New York Times https://www.nytimes.com/interactive/2020/us/california-coronavirus-cases.html and https://www.latimes.com/california/story/2020-03-25/california-coronavirus-cases-doubling-rate-newsom
+16	4	% reduction in social contact	4/9/20	California	0.5	"CHIME model default as of 4/8/20 was 30%, but assume this value is 50% for model run"
+16	4	% total infections hospitalized	NA	California	0.025	CHIME model default as of 4/7/20
+16	4	% total infections in ICU	NA	California	0.075	CHIME model default as of 4/7/20
+16	4	% total infections requiring mechanical ventilation	NA	California	0.005	CHIME model default as of 4/7/20
+16	4	infectious days	NA	California	14	CHIME model default as of 4/7/20
+16	4	average hospital length of stay (days)	NA	California	7	CHIME model default as of 4/7/20
+16	4	average ICU length of stay (days)	NA	California	9	CHIME model default as of 4/7/20
+16	4	average days on mechanical ventilator	NA	California	10	CHIME model default as of 4/7/20
+17	1	total population	NA	California	"39,512,223"	"Data from US Census (as of July 1, 2019), https://www.census.gov/quickfacts/CA"
+17	13	infections	3/1/20	California	28262	California Department of Public Health Dashboard: https://public.tableau.com/profile/ca.open.data#!/vizhome/COVID-19PublicDashboard/Covid-19Hospitals and assuming a (perhaps generous) 60% detection rate https://www.mercurynews.com/2020/04/07/governor-newsom-californias-covid-19-curve-is-stretching-cases-jump-by-10-percent/
+17	14	imported infections per day	3/1/20	California	5	Assumption
+17	15	average annual R0	3/1/20	California	2.7	Default data provided by Neher Lab site
+17	16	latency period in days	3/1/20	California	5	Default data provided by Neher Lab site
+17	9	infectious days	3/1/20	California	3	Default data provided by Neher Lab site
+17	17	seasonal forcing	NA	NA	0.2	Default data provided by Neher Lab site
+17	18	seasonal peak month	NA	NA	January	Default data provided by Neher Lab site
+17	10	average hospital length of stay (days)	3/1/20	California	4	Default data provided by Neher Lab site
+17	11	average ICU length of stay (days)	3/1/20	California	14	Default data provided by Neher Lab site
+17	19	severity of ICU overflow	3/1/20	California	1.2	"Assume lower than default increase assumption about fatalities in situations with ICU overload, (default is 2, assume that hospitals manage to create extra space to drop this significantly)"
+17	20	transmission relative to baseline	3/1/20	California	0.6	"Default data provided by Neher Lab site for ""moderate"" mitigation"
+17	21	hospital beds	NA	California	105000	https://www.latimes.com/california/newsletter/2020-03-24/california-coronavirus-hospital-beds-newsletter-essential-california
+17	22	ICU beds		California	"7,345"	https://www.mercurynews.com/2020/03/24/map-where-are-the-intensive-care-beds-in-california-the-u-s/

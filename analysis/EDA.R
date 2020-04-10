@@ -79,6 +79,10 @@ ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$outpu
 #dev.off()
 
 ##################################################################################
+## Hospital beds needed per day, by state ########################################
+##################################################################################
+
+##################################################################################
 ## Hospital beds needed per day, across models: California only ##################
 ##################################################################################
 
@@ -91,7 +95,7 @@ beds_california <- outputs[which(outputs$output_name == "Hospital beds needed pe
 beds_california$run_name <- factor(beds_california$run_name,
                                    levels = c("IHME (4/7/2020)", "IHME (4/1/2020)",
                                               "CHIME (4/8/2020, 50% reduction in social contact)", "CHIME (4/8/2020, 30% reduction in social contact)",
-                                              "COVID Act Now (4/7/20, strict stay at home)", "COVID Act Now (4/7/20, lax stay at home)"))
+                                              "COVID Act Now (4/7/20, strict stay at home)", "COVID Act Now (4/10/20, strict stay at home)", "COVID Act Now (4/7/20, lax stay at home)", "COVID Act Now (4/10/20, lax stay at home)"))
 
 beds_california$model_name <- factor(beds_california$model_name,
                                      levels = c("IHME COVID-19 Model","CHIME", "COVID Act Now"))
@@ -101,7 +105,7 @@ ggplot(beds_california,
        aes(x = date, y = value, color = run_name)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
-  scale_color_manual(values = c("#006d2c", "#a1d99b", "#6a51a3", "#9e9ac8", "#f16913", "#fdae6b")) +
+  scale_color_manual(values = c("#006d2c", "#a1d99b", "#6a51a3", "#9e9ac8", "#7f2704", "#d94801", "#f16913", "#fd8d3c")) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("Hospital beds needed per day") +
   xlab("") +
@@ -114,7 +118,7 @@ ggplot(beds_california,
        aes(x = date, y = value + 1, color = run_name)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma, trans = "log10") +
-  scale_color_manual(values = c("#006d2c", "#a1d99b", "#6a51a3", "#9e9ac8", "#f16913", "#fdae6b")) +
+  scale_color_manual(values = c("#006d2c", "#a1d99b", "#6a51a3", "#9e9ac8", "#7f2704", "#d94801", "#f16913", "#fd8d3c")) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("Hospital beds needed per day (Log scale)") +
   xlab("") +
