@@ -6,9 +6,9 @@ This project was developed to facilitate open-source, reproducible epidemiologic
 
 This effort will enable public health experts, policy-makers, and data scientists to make direct and meaningful comparisons between model results (e.g., projected caseload over time) under different sets of assumptions, input data, and modeling approaches.
 
-## Current models supported
+## Current models included
 
-The data contained in data/model outputs/ currently contains data from six public models: 
+The data contained in data/model outputs/ currently contains data from seven models with publicly available results:
 
 - [University of Washington IHME's COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
 
@@ -21,6 +21,8 @@ The data contained in data/model outputs/ currently contains data from six publi
 - [COVID Act Now US Intervention Model](https://covidactnow.org/) 
 
 - [Imperial College London COVID-19 Model (multiple versions)](https://sangeetabhatia03.github.io/covid19-short-term-forecasts/index.html) 
+
+- [Colorado COVID-19 Modeling Group Model](https://covid19.colorado.gov/press-release/state-provides-covid-19-modeling-data)
 
 
 We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available.

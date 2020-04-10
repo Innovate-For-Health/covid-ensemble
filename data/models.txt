@@ -6,3 +6,5 @@ model_id	model_name	model_developer	intended_use	source_documentation	geographic
 5	Harvard Global Health Institute Model	Harvard Global Health Institute	"give hospital leaders and policy makers a clear sense of when they will hit capacity, and strategic information on how to prepare for rising numbers of patients with COVID-19 needing care"	https://globalepidemics.org/our-data/hospital-capacity/#data	TRUE	TRUE
 6	COVID Act Now US Intervention Model	covidactnow.org	help decision makers understand when and how COVID will affect their communities in order to make better decisions that save lives	https://covidactnow.org/faq	TRUE	TRUE
 7	Imperial College London COVID-19 Model	Imperial College London	 produce forecasts of the number of deaths in the week ahead for each country with active transmission	https://sangeetabhatia03.github.io/covid19-short-term-forecasts/index.html	FALSE	TRUE
+8	Colorado COVID-19 Modeling Group Model	Colorado COVID-19 Modeling Group 	"project the impacts of social distancing interventions that were
+implemented in Colorado in March"	https://drive.google.com/file/d/19ST3tRnntUGV3h7YI0tQHJDnCoL5dRE7/view	TRUE	FALSE

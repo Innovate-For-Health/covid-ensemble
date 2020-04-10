@@ -16,3 +16,13 @@ model_run_id	model_id	run_name	model_name	model_snapshot_date	assumed_mitigation
 15	3	"CHIME (4/8/2020, 30% reduction in social contact)"	CHIME	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
 16	3	"CHIME (4/8/2020, 50% reduction in social contact)"	CHIME	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
 17	2	"Neher (4/8/20, moderate motigation)"	Neher COVID-19 Scenarios	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
+18	8	"CO Modeling Group (R0 3.5, 0% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 0% indefinite social distancing and R0 of 3.5
+19	8	"CO Modeling Group (R0 3.5, 40% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 40% indefinite social distancing and R0 of 3.5
+20	8	"CO Modeling Group (R0 3.5, 50% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 50% indefinite social distancing and R0 of 3.5
+21	8	"CO Modeling Group (R0 3.5, 60% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 60% indefinite social distancing and R0 of 3.5
+22	8	"CO Modeling Group (R0 3.5, 80% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 80% indefinite social distancing and R0 of 3.5
+23	8	"CO Modeling Group (R0 3.5, 0% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 0% indefinite social distancing and R0 of 4
+24	8	"CO Modeling Group (R0 3.5, 40% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 40% indefinite social distancing and R0 of 4
+25	8	"CO Modeling Group (R0 3.5, 50% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 50% indefinite social distancing and R0 of 4
+26	8	"CO Modeling Group (R0 3.5, 60% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 60% indefinite social distancing and R0 of 4
+27	8	"CO Modeling Group (R0 3.5, 80% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 80% indefinite social distancing and R0 of 4
