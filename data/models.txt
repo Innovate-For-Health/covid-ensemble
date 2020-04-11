@@ -8,3 +8,4 @@ model_id	model_name	model_developer	intended_use	source_documentation	geographic
 7	Imperial College London COVID-19 Model	Imperial College London	 produce forecasts of the number of deaths in the week ahead for each country with active transmission	https://sangeetabhatia03.github.io/covid19-short-term-forecasts/index.html	FALSE	TRUE
 8	Colorado COVID-19 Modeling Group Model	Colorado COVID-19 Modeling Group 	"project the impacts of social distancing interventions that were
 implemented in Colorado in March"	https://drive.google.com/file/d/19ST3tRnntUGV3h7YI0tQHJDnCoL5dRE7/view	TRUE	FALSE
+9	Shaman Lab Model	"Shaman Lab, Columbia University"	"project daily hospital demand, at the county level, in the United States"	https://github.com/shaman-lab/COVID-19Projection_0324	TRUE	FALSE
