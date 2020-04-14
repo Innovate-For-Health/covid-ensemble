@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 3
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_07.csv"
+model_run_id <- 36
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_13.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
