@@ -21,7 +21,9 @@ US_states <- read.delim("data/USintermediateFIPS.txt", stringsAsFactors = FALSE)
 ## Format data ##################################################
 #################################################################
 
+## format dates as dates
 model_outputs$date <- as.Date(model_outputs$date)
+model_runs$model_snapshot_date <- as.Date(model_runs$model_snapshot_date, format = "%m/%d/%y")
 
 #################################################################
 ## Create master dataset: runs ##################################
@@ -31,8 +33,9 @@ model_outputs$date <- as.Date(model_outputs$date)
 outputs <- merge(model_outputs, model_runs[,-which(names(model_runs) == "notes"),], by = "model_run_id", all.x = TRUE, all.y = FALSE)
 outputs <- merge(outputs, models[,-which(names(models) %in% c("source_documentation", "intended_use", "model_developer", "model_name")),], by = "model_id", all.x = TRUE, all.y = FALSE)
 
-## format date as date
-outputs$date <- as.Date(outputs$date)
+## sort outputs by model snapshot date to make plots below cleaner
+outputs <- outputs[order(outputs$model_snapshot_date),]
+outputs$run_name <- factor(outputs$run_name, levels = unique(outputs$run_name))
 
 ################################################################################
 ## Which models have which data for US states?  ################################
@@ -51,32 +54,32 @@ ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$outpu
        aes(x = date, y = value, color = run_name)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
-  scale_color_manual(values = rev(c("#006d2c", "#a1d99b"))) +
+  scale_color_manual(values = rev(c("#006d2c", "#41ae76", "#99d8c9"))) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("Fatalities per day (US)") +
   xlab("") +
   theme_bw() +
-  ggtitle("Fatalities per day in the US:\ntwo IHME model versions")
+  ggtitle("Fatalities per day in the US:\nIHME model")
 #dev.off()
 
 ##################################################################################
 ## Fatalities per day, change in IHME model: US ##################################
 ##################################################################################
 
-#pdf(paste("analysis/static_figures/IHME_cumulative_fatalities_", date(), ".pdf", sep = ""), height = 2.5, width = 5)
+pdf(paste("analysis/static_figures/IHME_cumulative_fatalities_", date(), ".pdf", sep = ""), height = 2.5, width = 5)
 ggplot(outputs[which(outputs$model_name == "IHME COVID-19 Model" & outputs$output_name == "Cumulative fatalities" &
                        outputs$location == "United States of America" &
                        outputs$run_name != "IHME (4/5/2020)"),],
        aes(x = date, y = value, color = run_name)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
-  scale_color_manual(values = rev(c("#006d2c", "#a1d99b"))) +
+  scale_color_manual(values = rev(c("#006d2c", "#41ae76", "#99d8c9"))) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("Cumulative fatalities (US)") +
   xlab("") +
   theme_bw() +
-  ggtitle("Cumulative fatalities in the US:\ntwo IHME model versions")
-#dev.off()
+  ggtitle("Cumulative fatalities in the US:\nIHME model versions")
+dev.off()
 
 ##################################################################################
 ## Hospital beds needed per day, by state ########################################
@@ -93,7 +96,7 @@ beds_california <- outputs[which(outputs$output_name == "Hospital beds needed pe
                                  ),]
 
 beds_california$run_name <- factor(beds_california$run_name,
-                                   levels = c("IHME (4/7/2020)", "IHME (4/1/2020)",
+                                   levels = c("IHME (4/7/2020)", "IHME (4/1/2020)", "IHME (4/10/20)",
                                               "CHIME (4/8/2020, 50% reduction in social contact)", "CHIME (4/8/2020, 30% reduction in social contact)",
                                               "COVID Act Now (4/7/20, strict stay at home)", "COVID Act Now (4/10/20, strict stay at home)", "COVID Act Now (4/7/20, lax stay at home)", "COVID Act Now (4/10/20, lax stay at home)"))
 
@@ -105,7 +108,7 @@ ggplot(beds_california,
        aes(x = date, y = value, color = run_name)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
-  scale_color_manual(values = c("#006d2c", "#a1d99b", "#6a51a3", "#9e9ac8", "#7f2704", "#d94801", "#f16913", "#fd8d3c")) +
+  scale_color_manual(values = c("#006d2c", "#41ae76", "#99d8c9", "#6a51a3", "#9e9ac8", "#7f2704", "#d94801", "#f16913", "#fd8d3c")) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("Hospital beds needed per day") +
   xlab("") +
@@ -118,7 +121,7 @@ ggplot(beds_california,
        aes(x = date, y = value + 1, color = run_name)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma, trans = "log10") +
-  scale_color_manual(values = c("#006d2c", "#a1d99b", "#6a51a3", "#9e9ac8", "#7f2704", "#d94801", "#f16913", "#fd8d3c")) +
+  scale_color_manual(values = c("#006d2c", "#41ae76", "#99d8c9", "#6a51a3", "#9e9ac8", "#7f2704", "#d94801", "#f16913", "#fd8d3c")) +
   guides(color = guide_legend(title = "Model Run")) +
   ylab("Hospital beds needed per day (Log scale)") +
   xlab("") +

@@ -1,4 +1,4 @@
-# COVID-19 Model Inventory and Archive
+# Essential information: consolidating the data and models that drive COVID-19 policy decisions
 
 ## This work is still in progress.
 

@@ -2,12 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-## model run 8: 3 months strict say at home orders, manually extracted data for California only
-## model run 9: 3 months lax say at home orders, manually extracted data for California only
-## that code is archived before now that I've figured out a way to pull these data by scraping the actual jsons that power the figures
-
-run_id_strict <- 28
-run_id_lax <- 29
+run_id_strict <- 34
+run_id_lax <- 35
 
 #################################################################
 ## Load required libraries ######################################
@@ -43,7 +39,7 @@ model_name <- models$model_name[which(models$model_id == 6)]
 #################################################################
 
 ## treat dates as dates
-model_outputs$date <- as.Date(model_outputs$date, format = "%m/%d/%y")
+model_outputs$date <- as.Date(model_outputs$date)
 
 #################################################################
 ## Read in Covid Act Now data: Strict model ####################
@@ -143,7 +139,7 @@ additional_outputs$date <- as.Date(additional_outputs$date, format = "%m/%d/%y")
 
 model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 
-write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep='\t', row.names = FALSE)
+#write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep='\t', row.names = FALSE)
 
 #################################################################
 ## Archived old code ############################################
