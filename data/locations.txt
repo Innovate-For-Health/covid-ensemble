@@ -1,0 +1,167 @@
+iso2	iso3	location_type	area_level	location_name	abbreviation	FIPS
+US	USA	Province/State	Intermediate	Alabama	AL	1
+US	USA	Province/State	Intermediate	Alaska	AK	2
+US	USA	Province/State	Intermediate	American Samoa	AS	
+US	USA	Province/State	Intermediate	Arizona	AZ	4
+US	USA	Province/State	Intermediate	Arkansas	AR	5
+US	USA	Province/State	Intermediate	California	CA	6
+US	USA	Province/State	Intermediate	Colorado	CO	8
+US	USA	Province/State	Intermediate	Connecticut	CT	9
+US	USA	Province/State	Intermediate	Delaware	DE	10
+US	USA	Province/State	Intermediate	District of Columbia	DC	11
+US	USA	Province/State	Intermediate	Florida	FL	12
+US	USA	Province/State	Intermediate	Georgia	GA	13
+US	USA	Province/State	Intermediate	Guam	GU	
+US	USA	Province/State	Intermediate	Hawaii	HI	15
+US	USA	Province/State	Intermediate	Idaho	ID	16
+US	USA	Province/State	Intermediate	Illinois	IL	17
+US	USA	Province/State	Intermediate	Indiana	IN	18
+US	USA	Province/State	Intermediate	Iowa	IA	19
+US	USA	Province/State	Intermediate	Kansas	KS	20
+US	USA	Province/State	Intermediate	Kentucky	KY	21
+US	USA	Province/State	Intermediate	Louisiana	LA	22
+US	USA	Province/State	Intermediate	Maine	ME	23
+US	USA	Province/State	Intermediate	Maryland	MD	24
+US	USA	Province/State	Intermediate	Massachusetts	MA	25
+US	USA	Province/State	Intermediate	Michigan	MI	26
+US	USA	Province/State	Intermediate	Minnesota	MN	27
+US	USA	Province/State	Intermediate	Mississippi	MS	28
+US	USA	Province/State	Intermediate	Missouri	MO	29
+US	USA	Province/State	Intermediate	Montana	MT	30
+US	USA	Province/State	Intermediate	Nebraska	NE	31
+US	USA	Province/State	Intermediate	Nevada	NV	32
+US	USA	Province/State	Intermediate	New Hampshire	NH	33
+US	USA	Province/State	Intermediate	New Jersey	NJ	34
+US	USA	Province/State	Intermediate	New Mexico	NM	35
+US	USA	Province/State	Intermediate	New York	NY	36
+US	USA	Province/State	Intermediate	North Carolina	NC	37
+US	USA	Province/State	Intermediate	North Dakota	ND	38
+US	USA	Province/State	Intermediate	Ohio	OH	39
+US	USA	Province/State	Intermediate	Oklahoma	OK	40
+US	USA	Province/State	Intermediate	Oregon	OR	41
+US	USA	Province/State	Intermediate	Pennsylvania	PA	42
+US	USA	Province/State	Intermediate	Puerto Rico	PR	
+US	USA	Province/State	Intermediate	Rhode Island	RI	44
+US	USA	Province/State	Intermediate	South Carolina	SC	45
+US	USA	Province/State	Intermediate	South Dakota	SD	46
+US	USA	Province/State	Intermediate	Tennessee	TN	47
+US	USA	Province/State	Intermediate	Texas	TX	48
+US	USA	Province/State	Intermediate	Utah	UT	49
+US	USA	Province/State	Intermediate	Vermont	VT	50
+US	USA	Province/State	Intermediate	Virginia	VA	51
+US	USA	Province/State	Intermediate	Virgin Islands	VI	
+US	USA	Province/State	Intermediate	Washington	WA	53
+US	USA	Province/State	Intermediate	West Virginia	WV	54
+US	USA	Province/State	Intermediate	Wisconsin	WI	55
+US	USA	Province/State	Intermediate	Wyoming	WY	56
+IT	ITA	Other	Intermediate	Veneto		
+IT	ITA	Other	Intermediate	Valle d'Aosta		
+ES	ESP	Other	Intermediate	Valencian Community		
+GB	GBR	Country	Country	United Kingdom		
+IT	ITA	Other	Intermediate	Umbria		
+IT	ITA	Other	Intermediate	Toscana		
+DE	DEU	Province/State	Intermediate	Thuringia		
+SE	SWE	Country	Country	Sweden		
+ES	ESP	Country	Country	Spain		
+SI	SVN	Country	Country	Slovenia		
+SK	SVK	Country	Country	Slovakia		
+IT	ITA	Other	Intermediate	Sicilia		
+DE	DEU	Province/State	Intermediate	Schleswig-Holstein		
+DE	DEU	Province/State	Intermediate	Saxony		
+DE	DEU	Province/State	Intermediate	Saxony-Anhalt		
+IT	ITA	Other	Intermediate	Sardegna		
+DE	DEU	Province/State	Intermediate	Saarland		
+RO	ROU	Country	Intermediate	Romania		
+DE	DEU	Province/State	Intermediate	Rhineland-Palatinate		
+IT	ITA	Other	Intermediate	Puglia		
+IT	ITA	Province/State	Intermediate	Provincia autonoma di Trento		
+IT	ITA	Province/State	Intermediate	Provincia autonoma di Bolzano		
+PT	PRT	Country	Country	Portugal		
+PL	POL	Country	Country	Poland		
+IT	ITA	Other	Intermediate	Piemonte		
+NO	NOR	Country	Country	Norway		
+DE	DEU	Province/State	Intermediate	North Rhine-Westphalia		
+NL	NLD	Country	Country	Netherlands		
+ES	ESP	Other	Intermediate	Navarre		
+ES	ESP	Other	Intermediate	Murcia		
+IT	ITA	Other	Intermediate	Molise		
+IT	ITA	Other	Intermediate	Melilla		
+DE	DEU	Province/State	Intermediate	Mecklenburg-Vorpommern		
+IT	ITA	Other	Intermediate	Marche		
+MT	MLT	Country	Country	Malta		
+LU	LUX	Country	Country	Luxembourg		
+DE	DEU	Province/State	Intermediate	Lower Saxony		
+IT	ITA	Other	Intermediate	Lombardia		
+LT	LTU	Country	Country	Lithuania		
+IT	ITA	Other	Intermediate	Liguria		
+IT	ITA	Other	Intermediate	Lazio		
+LV	LVA	Country	Country	Latvia		
+ES	ESP	Province/State	Intermediate	La Rioja		
+IT	ITA	Country	Country	Italy		
+IE	IRL	Country	Country	Ireland		
+HU	HUN	Country	Country	Hungary		
+DE	DEU	Province/State	Intermediate	Hesse		
+DE	DEU	Other	Intermediate	Hamburg		
+GR	GRC	Country	Country	Greece		
+DE	DEU	Country	Country	Germany		
+ES	ESP	Other	Intermediate	Galicia		
+IT	ITA	Other	Intermediate	Friuli-Venezia Giulia		
+FR	FRA	Country	Country	France		
+FI	FIN	Country	Country	Finland		
+ES	ESP	Other	Intermediate	Extremadura		
+EE	EST	Country	Country	Estonia		
+ES	ESP	Other	Intermediate	Emilia-Romagna		
+DK	DNK	Country	Country	Denmark		
+CZ	CZE	Country	Country	Czechia		
+CY	CYP	Country	Country	Cyprus		
+HR	HRV	Country	Country	Croatia		
+ES	ESP	Other	Local	Community of Madrid		
+ES	ESP	Other	Intermediate	Ceuta		
+ES	ESP	Other	Intermediate	Catalonia		
+ES	ESP	Other	Intermediate	Castilla-La Mancha		
+ES	ESP	Other	Intermediate	Castile and Leon		
+ES	ESP	Other	Intermediate	Cantabria		
+ES	ESP	Other	Intermediate	Canary Islands		
+IT	ITA	Other	Intermediate	Campania		
+IT	ITA	Other	Intermediate	Calabria		
+BG	BGR	Country	Country	Bulgaria		
+DE	DEU	Other	Intermediate	Bremen		
+DE	DEU	Other	Intermediate	Brandenburg		
+DE	DEU	Other	Intermediate	Berlin		
+BE	BEL	Country	Country	Belgium		
+DE	DEU	Province/State	Intermediate	Bavaria		
+ES	ESP	Other	Intermediate	Basque County		
+IT	ITA	Other	Intermediate	Basilicata		
+ES	ESP	Other	Intermediate	Balearic Islands		
+DE	DEU	Province/State	Intermediate	Baden-Wurttemberg		
+AT	AUT	Country	Country	Austria		
+ES	ESP	Other	Intermediate	Asturias		
+ES	ESP	Other	Intermediate	Aragon		
+ES	ESP	Other	Intermediate	Andalucia		
+IT	ITA	Other	Intermediate	Abruzzo		
+PR	PRI	Other	Intermediate	Puerto Rico		
+AZ	DZA	Country	Country	Algeria		
+AR	ARG	Country	Country	Argentina		
+BR	BRA	Country	Country	Brazil		
+CA	CAN	Country	Country	Canada		
+CN	CHN	Country	Country	China		
+DO	DOM	Country	Country	Dominican Republic		
+EC	ECU	Country	Country	Ecuador		
+EG	EGY	Country	Country	Egypt		
+IN	IND	Country	Country	India		
+ID	IDN	Country	Country	Indonesia		
+IR	IRN	Country	Country	Iran		
+IQ	IRQ	Country	Country	Iraq		
+IL	ISL	Country	Country	Israel		
+JP	JPN	Country	Country	Japan		
+MY	MYS	Country	Country	Malaysia		
+MX	MEX	Country	Country	Mexico		
+MA	MAR	Country	Country	Morocco		
+PA	PAN	Country	Country	Panama		
+PE	PER	Country	Country	Peru		
+PH	PHL	Country	Country	Philippines		
+KR	KOR	Country	Country	South Korea		
+CH	CHE	Country	Country	Switzerland		
+TR	TUR	Country	Country	Turkey		
+ES	ESP	Other	Intermediate	Basque Country		
+IS	ISL	Country	Country	Iceland		
