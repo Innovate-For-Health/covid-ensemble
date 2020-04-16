@@ -11,4 +11,5 @@ library(shiny)
 ## Run the app ####################################################################
 ###################################################################################
 
+source("/Users/seaneff/Documents/covid-ensemble/analysis/shiny/data_processing.R")
 runApp("/Users/seaneff/Documents/covid-ensemble/analysis/shiny")

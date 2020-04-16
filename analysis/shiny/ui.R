@@ -20,7 +20,7 @@ tabPanel("View models",
              selectInput(inputId = "location",
                          label = "Select location:",
                          choices = locations_agg,
-                         selected = "United States of America"),
+                         selected = "California"),
              
              selectInput(inputId = "output_name",
                      label = "Select model outputs:",

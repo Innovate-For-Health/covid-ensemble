@@ -10,7 +10,6 @@ library(DT)
 
 server <- function(input, output, session) {
   
-source("data_processing.R")
     
     ######################################################################
     ## Update UI filters based on other UI filters #######################
@@ -79,7 +78,7 @@ source("data_processing.R")
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
         xlab("") +
-        theme_bw() 
+        theme_light() 
     })
     
     ######################################################################
@@ -105,7 +104,7 @@ source("data_processing.R")
                             ## gradient should make the darket color the most recent
                             direction = 1) +
         xlab("") +
-        theme_bw() 
+        theme_light() 
     })
     
     ######################################################################
