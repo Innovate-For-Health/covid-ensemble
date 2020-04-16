@@ -7,6 +7,8 @@ library(ggplot2)
 library(scales)
 library(DT)
 
+## TODO: make plots not appear when there aren't data to power them
+## TODO: colors consistent for a given model
 
 server <- function(input, output, session) {
   
@@ -56,12 +58,16 @@ server <- function(input, output, session) {
         arrange(desc(model_snapshot_date))
     })
     
-    ## debugging
-    # selectedOutputsModel <- outputs %>% 
-    #   filter(location %in% "United States of America" & 
-    #            output_name %in% "Hospital beds needed per day" &
-    #            model_name %in% "COVID Act Now (strict stay at home)") %>%
-    #   arrange(desc(model_snapshot_date))
+    ## filter data based on the location, model output, and specific model selected
+    ## this is used for the "compare assumptions" plot
+    selectedOutputsModelAssumption <- reactive({
+      outputs[which(outputs$compare_across_assumptions == TRUE),] %>% 
+        filter(location %in% input$location & 
+                 output_name %in% input$output_name &
+                 model_name %in% input$model_name) %>%
+        arrange(desc(model_snapshot_date))
+    })
+    
     
     ######################################################################
     ## Generate plot: most recent models #################################
@@ -94,6 +100,32 @@ server <- function(input, output, session) {
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
                  color = factor(run_name, levels = rev(unique(selectedOutputsModelTime()$run_name))))) +
+        geom_line(size = 1) +
+        scale_y_continuous(label = comma) +
+        guides(color = guide_legend(title = "Model Run")) +
+        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
+        ylab(input$output_name) +
+        scale_colour_brewer(palette = "Greens",
+                            ## colors are sequential -- show a gradient here
+                            type = "seq",
+                            ## gradient should make the darket color the most recent
+                            direction = 1) +
+        xlab("") +
+        theme_light() 
+    })
+    
+    ######################################################################
+    ## Generate plot: compare model assumptions ##########################
+    ######################################################################
+    
+    output$compare_models_over_assumptions <- renderPlot({
+      
+      ggplot(selectedOutputsModelAssumption()[which( ## for now set focus to April through June
+        selectedOutputsModelAssumption()$date >= as.Date("2020-04-01") &
+          selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),],
+        aes(x = date, y = value, 
+            ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
+            color = factor(key_assumptions, levels = rev(unique(selectedOutputsModelAssumption()$key_assumptions))))) +
         geom_line(size = 1) +
         scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +
