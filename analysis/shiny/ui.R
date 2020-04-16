@@ -25,13 +25,14 @@ tabPanel("View models",
              selectInput(inputId = "output_name",
                      label = "Select model outputs:",
                      choices = output_options,
-                     selected = "Hospital beds needed per day"),
+                     ## could eventually change this to all output_options by making choices = output_options,  but limiting for now
+                     selected = "Ventilators needed per day"),
              
              ## if you want to look at changes in a model over time, you need to pick one model to look at
              conditionalPanel(condition = "input.model_tab == 'monitor'",
                        selectInput(inputId = "model_name", 
                                    label = "Select model:", 
-                                   choices = c("IHME COVID-19 Model", "COVID Act Now (strict stay at home)")))
+                                   choices = c("IHME COVID-19 Model", "COVID Act Now (strict stay at home)", "Shaman Lab Model")))
              
            ),
          
@@ -45,7 +46,8 @@ tabPanel("View models",
                           tabPanel(value = "compare", title = "Compare multiple models",
                                    plotOutput("compare_most_recent_models")),
                           tabPanel(value = "monitor", title = "Monitor changes over time", 
-                                   plotOutput("compare_models_over_time"))
+                                   plotOutput("compare_models_over_time")),
+                          tabPanel(value = "parameters", title = "Explore impact of assumptions")
                           )
               
               

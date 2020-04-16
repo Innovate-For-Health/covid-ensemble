@@ -47,8 +47,9 @@ server <- function(input, output, session) {
     })
     
     ## filter data based on the location, model output, and specific model selected
-    selectedOutputsModel <- reactive({
-      outputs %>% 
+    ## this is used for the "monitor changes over time" plot
+    selectedOutputsModelTime <- reactive({
+      outputs[which(outputs$compare_over_time == TRUE),] %>% 
         filter(location %in% input$location & 
                output_name %in% input$output_name &
                model_name %in% input$model_name) %>%
@@ -68,8 +69,8 @@ server <- function(input, output, session) {
     
     output$compare_most_recent_models <- renderPlot({
       ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
-                                       ## for now set focus to March through June
-                                     selectedOutputs()$date >= as.Date("2020-03-01") &
+                                       ## for now set focus to April through June
+                                     selectedOutputs()$date >= as.Date("2020-04-01") &
                                      selectedOutputs()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
@@ -87,12 +88,12 @@ server <- function(input, output, session) {
     
     output$compare_models_over_time <- renderPlot({
       
-      ggplot(selectedOutputsModel()[which( ## for now set focus to March through June
-                selectedOutputsModel()$date >= as.Date("2020-03-01") &
-                  selectedOutputsModel()$date < as.Date("2020-07-01")),],
+      ggplot(selectedOutputsModelTime()[which( ## for now set focus to April through June
+                selectedOutputsModelTime()$date >= as.Date("2020-04-01") &
+                  selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
-                 color = factor(run_name, levels = rev(unique(selectedOutputsModel()$run_name))))) +
+                 color = factor(run_name, levels = rev(unique(selectedOutputsModelTime()$run_name))))) +
         geom_line(size = 1) +
         scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +

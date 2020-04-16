@@ -21,7 +21,7 @@ locations_agg = list("Countries" = sort(locations[which(locations$location_type 
 model_runs$model_snapshot_date <- as.Date(model_runs$model_snapshot_date, format = "%m/%d/%y")
 
 ## find the most recent model run for each specified model
-most_recent_model_runs <- model_runs %>%
+most_recent_model_runs <- model_runs[which(model_runs$compare_across_models == TRUE),] %>%
   group_by(model_name) %>% 
   arrange(desc(model_snapshot_date)) %>% 
   slice(1)

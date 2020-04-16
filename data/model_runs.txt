@@ -1,12 +1,16 @@
-model_run_id	model_id	run_name	model_name	model_snapshot_date	notes
-1	1	IHME COVID-19 Model (3/25/20)	IHME COVID-19 Model	3/25/20	
-2	1	IHME COVID-19 Model (3/29/20)	IHME COVID-19 Model	3/29/20	
-3	1	IHME COVID-19 Model (4/1/20)	IHME COVID-19 Model	4/1/20	
-4	1	IHME COVID-19 Model (4/5/20)	IHME COVID-19 Model	4/5/20	
-5	1	IHME COVID-19 Model (4/7/20)	IHME COVID-19 Model	4/7/20	
-6	1	IHME COVID-19 Model (4/10/20)	IHME COVID-19 Model	4/10/20	
-7	1	IHME COVID-19 Model (4/13/20)	IHME COVID-19 Model	4/13/20	
-8	6	"COVID Act Now (4/7/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/7/20	Model run assuming 3 months of strict say at home orders. Data manually pulled from hover-overs on charts just for California.
-9	6	"COVID Act Now (4/10/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/10/20	Model run assuming 3 months of strict say at home orders.
-10	6	"COVID Act Now (4/15/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/15/20	Model run assuming 3 months of strict say at home orders.
-11	6	"COVID Act Now (4/16/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/16/20	"Similar to prior model runs assuming 3 months of strict say at home orders, but now stored in a different API and described as ""projected based on current trends"""
+model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	notes	compare_across_models	compare_over_time	compare_across_assumptions
+1	1	IHME COVID-19 Model (3/25/20)	Standard model release	IHME COVID-19 Model	3/25/20		TRUE	TRUE	TRUE
+2	1	IHME COVID-19 Model (3/29/20)	Standard model release	IHME COVID-19 Model	3/29/20		TRUE	TRUE	TRUE
+3	1	IHME COVID-19 Model (4/1/20)	Standard model release	IHME COVID-19 Model	4/1/20		TRUE	TRUE	TRUE
+4	1	IHME COVID-19 Model (4/5/20)	Standard model release	IHME COVID-19 Model	4/5/20		TRUE	TRUE	TRUE
+5	1	IHME COVID-19 Model (4/7/20)	Standard model release	IHME COVID-19 Model	4/7/20		TRUE	TRUE	TRUE
+6	1	IHME COVID-19 Model (4/10/20)	Standard model release	IHME COVID-19 Model	4/10/20		TRUE	TRUE	TRUE
+7	1	IHME COVID-19 Model (4/13/20)	Standard model release	IHME COVID-19 Model	4/13/20		TRUE	TRUE	TRUE
+8	6	"COVID Act Now (4/7/20, strict stay at home)"	Assume strict stay at home policies	COVID Act Now (strict stay at home)	4/7/20	Model run assuming 3 months of strict say at home orders. Data manually pulled from hover-overs on charts just for California.	TRUE	TRUE	TRUE
+9	6	"COVID Act Now (4/10/20, strict stay at home)"	Assume strict stay at home policies	COVID Act Now (strict stay at home)	4/10/20	Model run assuming 3 months of strict say at home orders.	TRUE	TRUE	TRUE
+10	6	"COVID Act Now (4/15/20, strict stay at home)"	Assume strict stay at home policies	COVID Act Now (strict stay at home)	4/15/20	Model run assuming 3 months of strict say at home orders.	TRUE	TRUE	TRUE
+11	6	"COVID Act Now (4/16/20, continuation of current trends)"	"Assume ""continuation of current trends"""	COVID Act Now (strict stay at home)	4/16/20	"Similar to prior model runs assuming 3 months of strict say at home orders, but now stored in a different API and described as ""projected based on current trends"""	TRUE	TRUE	TRUE
+12	9	"Shaman Lab Model (4/12/20, no interventions)"	Assume no intervention	Shaman Lab Model	4/12/20	Model assumes no interventions	FALSE	FALSE	TRUE
+13	9	"Shaman Lab Model (4/12/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Shaman Lab Model	4/12/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	TRUE
+14	9	"Shaman Lab Model (4/12/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Shaman Lab Model	4/12/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	TRUE
+15	9	"Shaman Lab Model (4/12/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/12/20	Model assumes 40% reduction in contact rates	TRUE	FALSE	TRUE
