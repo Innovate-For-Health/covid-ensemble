@@ -29,7 +29,8 @@ tabPanel("View models",
                      selected = "Ventilators needed per day"),
              
              ## if you want to look at changes in a model over time, you need to pick one model to look at
-             conditionalPanel(condition = "input.model_tab == 'monitor' || input.model_tab = 'parameters'",
+             ## TODO: fix this I want or but not it's broken
+             conditionalPanel(condition = "input.model_tab == 'monitor' || input.model_tab == 'parameters'" ,
                        selectInput(inputId = "model_name", 
                                    label = "Select model:", 
                                    choices = c("IHME COVID-19 Model", "COVID Act Now (strict stay at home)", "Shaman Lab Model")))
