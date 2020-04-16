@@ -5,39 +5,12 @@
 library(dplyr) 
 library(ggplot2)
 library(scales)
+library(DT)
 
 
 server <- function(input, output, session) {
   
-  ######################################################################
-  ## Read in data ######################################################
-  ######################################################################
-  
-  ## read in full list  of model outputs, model runs, and locations
-  model_outputs <- read.delim("~/Documents/covid-ensemble/data/model_outputs.txt", stringsAsFactors = FALSE)
-  model_runs <- read.delim("~/Documents/covid-ensemble/data/model_runs.txt", stringsAsFactors = FALSE)
-  locations <- read.delim("~/Documents/covid-ensemble/data/locations.txt", stringsAsFactors = FALSE)
-  output_options <- unique(model_outputs$output_name)
-  model_options <- unique(model_outputs$output_name)
-  
-    ######################################################################
-    ## Calculate derivative datasets, lists, etc  ########################
-    ######################################################################
-    
-  ## format dates as dates
-  model_runs$model_snapshot_date <- as.Date(model_runs$model_snapshot_date, format = "%m/%d/%y")
-  
-    ## find the most recent model run for each specified model
-    most_recent_model_runs <- model_runs %>%
-      group_by(model_name) %>% 
-      arrange(desc(model_snapshot_date)) %>% 
-      slice(1)
-    
-    ## generate master dataset of outputs
-    outputs <- merge(model_outputs, model_runs[,-which(names(model_runs) == "notes"),], by = "model_run_id", all.x = TRUE, all.y = FALSE)
-  
-    ## format date as a date
-    outputs$date <- as.Date(outputs$date)
+source("data_processing.R")
     
     ######################################################################
     ## Update UI filters based on other UI filters #######################
@@ -96,14 +69,16 @@ server <- function(input, output, session) {
     
     output$compare_most_recent_models <- renderPlot({
       ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
-                                       ## for now set focus to March and later
-                                     selectedOutputs()$date >= as.Date("2020-03-01")),],
+                                       ## for now set focus to March through June
+                                     selectedOutputs()$date >= as.Date("2020-03-01") &
+                                     selectedOutputs()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
         scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +
+        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
-        xlab("Date") +
+        xlab("") +
         theme_bw() 
     })
     
@@ -113,22 +88,41 @@ server <- function(input, output, session) {
     
     output$compare_models_over_time <- renderPlot({
       
-      ggplot(selectedOutputsModel()[which(## for now set focus to March and later
-                selectedOutputsModel()$date >= as.Date("2020-03-01")),],
+      ggplot(selectedOutputsModel()[which( ## for now set focus to March through June
+                selectedOutputsModel()$date >= as.Date("2020-03-01") &
+                  selectedOutputsModel()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
                  color = factor(run_name, levels = rev(unique(selectedOutputsModel()$run_name))))) +
         geom_line(size = 1) +
         scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +
+        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
         ylab(input$output_name) +
         scale_colour_brewer(palette = "Greens",
                             ## colors are sequential -- show a gradient here
                             type = "seq",
                             ## gradient should make the darket color the most recent
                             direction = 1) +
-        xlab("Date") +
+        xlab("") +
         theme_bw() 
+    })
+    
+    ######################################################################
+    ## Let people view the data #########################################
+    ######################################################################
+    
+    output$output_table = DT::renderDataTable({
+      datatable(
+        outputs[,c(10, 11, 9, 3, 4, 5, 6)],
+        rownames = FALSE,
+        extensions = "Buttons",
+        options = list(pageLength = 25, 
+                       autoWidth = TRUE,
+                       buttons = c("copy", "csv", "excel"),
+                       dom = "Bfrtip"),
+        class = "display"
+      )
     })
     
 

@@ -16,9 +16,10 @@ ui <- navbarPage("COVID Modeling Dashboard", id = "tabs",
 tabPanel("View models",
 
            sidebarPanel(
+             
              selectInput(inputId = "location",
                          label = "Select location:",
-                         choices = sort(locations[which(locations$location_type == "Country"),]$location_name),
+                         choices = locations_agg,
                          selected = "United States of America"),
              
              selectInput(inputId = "output_name",
@@ -44,8 +45,7 @@ tabPanel("View models",
                           tabPanel(value = "compare", title = "Compare multiple models",
                                    plotOutput("compare_most_recent_models")),
                           tabPanel(value = "monitor", title = "Monitor changes over time", 
-                                   plotOutput("compare_models_over_time")),
-                          tabPanel(value = "inventory", title = "Model inventory")
+                                   plotOutput("compare_models_over_time"))
                           )
               
               
@@ -58,15 +58,19 @@ tabPanel("View models",
 ## Map View #######################################################################
 ###################################################################################
 
-tabPanel("View map",
-         mainPanel()),
+tabPanel("Model inventory",
+         mainPanel(
+           h3("Overview of models currently incorporated"),
+           h4("IHME COVID-19 Model"),
+           h4("COVID Act Now (strict stay at home model)")
+         )),
 
 ###################################################################################
 ## Download Data Tab ##############################################################
 ###################################################################################
 
 tabPanel("Download data",
-         mainPanel()),
+         mainPanel(DT::dataTableOutput("output_table"))), 
 
 ###################################################################################
 ## About tab ######################################################################
