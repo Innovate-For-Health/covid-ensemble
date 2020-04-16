@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_strict <- 34
-run_id_lax <- 35
+run_id_strict <- 10
+#run_id_lax <- 35
 
 #################################################################
 ## Load required libraries ######################################
@@ -28,7 +28,8 @@ model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of US states and their abbreviations
-states <- read.delim("data/USintermediateFIPS.txt", stringsAsFactors = FALSE)
+locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- locations[which(locations$iso3 == "USA" & locations$area_level == "Intermediate"),]
 
 ## Covid Act Now model ID is always 6, model name is always whatever model_id 6 is named in the file data/models.txt
 model_id <- 6
@@ -39,7 +40,7 @@ model_name <- models$model_name[which(models$model_id == 6)]
 #################################################################
 
 ## treat dates as dates
-model_outputs$date <- as.Date(model_outputs$date)
+model_outputs$date <- as.Date(model_outputs$date, format = "%m/%d/%y")
 
 #################################################################
 ## Read in Covid Act Now data: Strict model ####################
@@ -63,11 +64,11 @@ additional_outputs <- cbind.data.frame(
   "value" = NA,
   "notes" = NA)
 
-for(state in 1:nrow(states[which(complete.cases(states$FIPS)),])){
+for(state in 1:nrow(locations[which(complete.cases(locations$FIPS)),])){
   
-  print(states[which(complete.cases(states$FIPS)),]$Location[state])
+  print(locations[which(complete.cases(locations$FIPS)),]$location_name[state])
   
-  strict <- fromJSON(file = paste("https://covidactnow.org/data/", states[which(complete.cases(states$FIPS)),][state,]$abbreviation, ".1.json", sep = ""))
+  strict <- fromJSON(file = paste("https://covidactnow.org/data/", locations[which(complete.cases(locations$FIPS)),][state,]$abbreviation, ".1.json", sep = ""))
   
   date_strict <- c()
   hosp_strict <- c()
@@ -84,7 +85,7 @@ for(state in 1:nrow(states[which(complete.cases(states$FIPS)),])){
     "output_id" = 5,
     "output_name" = "Hospital beds needed per day",
     "date" = date_strict,
-    "location" =  states[which(complete.cases(states$FIPS)),]$Location[state],
+    "location" =  locations[which(complete.cases(locations$FIPS)),]$location_name[state],
     "value" = hosp_strict,
     "notes" = "assuming three months of strict stay at home compliance")
   )
@@ -97,82 +98,64 @@ for(state in 1:nrow(states[which(complete.cases(states$FIPS)),])){
 
 ## note: as of April 10th, file .1 json corresponds to the strict model and file .3 json corresponds to the lax model
 ## this needs to be double checked every time the code is run, in case they change something (documentation not clear)
-
-date_lax<- c(); hosp_lax <- c()
-
-for(state in 1:nrow(states[which(complete.cases(states$FIPS)),])){
-  
-  print(states[which(complete.cases(states$FIPS)),]$Location[state])
-  
-  lax <- fromJSON(file = paste("https://covidactnow.org/data/", states[which(complete.cases(states$FIPS)),][state,]$abbreviation, ".3.json", sep = ""))
-  
-  date_lax <- c()
-  hosp_lax <- c()
-  
-  for(i in 1:length(strict)){
-    date_lax <- c(date_lax, unlist(lax[[i]][2]))
-    hosp_lax <- c(hosp_lax, as.numeric(unlist(lax[[i]][10])))
-  }
-  
-  
-  additional_outputs <- rbind.data.frame(additional_outputs,
-                                         cbind.data.frame(
-                                           "model_run_id" = run_id_lax,
-                                           "output_id" = 5,
-                                           "output_name" = "Hospital beds needed per day",
-                                           "date" = date_strict, 
-                                           "location" =  states[which(complete.cases(states$FIPS)),]$Location[state],
-                                           "value" = hosp_lax,
-                                           "notes" = "assuming three months of lax stay at home compliance")
-  )
-  
-}
-
-
-## remove the first row of this, just used for initialization and all it has are missing values
-additional_outputs <- additional_outputs[-1,]
-additional_outputs$date <- as.Date(additional_outputs$date, format = "%m/%d/%y")
+# 
+# date_lax <- c(); hosp_lax <- c()
+# 
+# for(state in 1:nrow(states[which(complete.cases(states$FIPS)),])){
+#   
+#   print(states[which(complete.cases(states$FIPS)),]$Location[state])
+#   
+#   lax <- fromJSON(file = paste("https://covidactnow.org/data/", states[which(complete.cases(states$FIPS)),][state,]$abbreviation, ".3.json", sep = ""))
+#   
+#   date_lax <- c()
+#   hosp_lax <- c()
+#   
+#   for(i in 1:length(strict)){
+#     date_lax <- c(date_lax, unlist(lax[[i]][2]))
+#     hosp_lax <- c(hosp_lax, as.numeric(unlist(lax[[i]][10])))
+#   }
+#   
+#   
+#   additional_outputs <- rbind.data.frame(additional_outputs,
+#                                          cbind.data.frame(
+#                                            "model_run_id" = run_id_lax,
+#                                            "output_id" = 5,
+#                                            "output_name" = "Hospital beds needed per day",
+#                                            "date" = date_strict, 
+#                                            "location" =  states[which(complete.cases(states$FIPS)),]$Location[state],
+#                                            "value" = hosp_lax,
+#                                            "notes" = "assuming three months of lax stay at home compliance")
+#   )
+#   
+# }
+# 
+# 
 
 #################################################################
 ## Save model_outputs as .tsv file ##############################
 #################################################################
 
-model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
+## remove the first row of this, just used for initialization and all it has are missing values
+additional_outputs <- additional_outputs[-1,]
+additional_outputs$date <- as.Date(additional_outputs$date, format = "%m/%d/%y")
+
+## calculate totals for whole US as sum across states and DC
+us_totals <- additional_outputs %>% 
+  group_by(model_run_id, output_id, output_name, date) %>% 
+  summarise(value = sum(value))
+
+#################################################################
+## Save model_outputs as .tsv file ##############################
+#################################################################
+
+model_outputs <- rbind.data.frame(model_outputs, 
+                                  additional_outputs,
+                                  cbind.data.frame(model_run_id = us_totals$model_run_id,
+                                                   output_id = us_totals$output_id,
+                                                   output_name = us_totals$output_name,
+                                                   date = us_totals$date,
+                                                   location = "United States of America",
+                                                   value = us_totals$value,
+                                                   notes = "US total bed count calculated as sum across states and DC"))
 
 #write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep='\t', row.names = FALSE)
-
-#################################################################
-## Archived old code ############################################
-#################################################################
-# 
-# library(readxl)
-# 
-# ## read in dataset (manually extracted on 4/7/20, just for California, and double checked)
-# ## this is my last manual data pull, see todo note above about doing this in a smarter way
-# cah_manual_strict_sah <- read_excel("model_runs/6_covidactnow/model_export/CAH manual california.xlsx", sheet = "strict_sah")
-# cah_manual_lax_sah <- read_excel("model_runs/6_covidactnow/model_export/CAH manual california.xlsx", sheet = "lax_sah")
-# 
-# model_outputs$date <- as.Date(model_outputs$date)
-# cah_manual_lax_sah$date <- as.Date(cah_manual_lax_sah$date)
-# cah_manual_strict_sah$date <- as.Date(cah_manual_strict_sah$date)
-# 
-# model_outputs <- rbind.data.frame(
-#     model_outputs,
-#     cbind.data.frame("model_run_id" = 8,
-#                      "output_id" = 5,
-#                      "output_name" = "Hospital beds needed per day",
-#                      "date" = as.Date(cah_manual_strict_sah$date),
-#                      "location" =  "California", ## for now, just have data from California
-#                      "value" = cah_manual_strict_sah$hospitalizations_strict_sah,
-#                      "notes" = "Data manually extracted from covidactnow.org site on 4/7/20, just for the state of California (strict stay at home orders)"))
-# 
-# model_outputs <- rbind.data.frame(
-#   model_outputs,
-#   cbind.data.frame("model_run_id" = 9,
-#                    "output_id" = 5,
-#                    "output_name" = "Hospital beds needed per day",
-#                    "date" = cah_manual_lax_sah$date,
-#                    "location" =  "California", ## for now, just have data from California
-#                    "value" = cah_manual_lax_sah$hospitalizations_lax_sah,
-#                    "notes" = "Data manually extracted from covidactnow.org site on 4/7/20, just for the state of California (lax stay at home orders)"))
-

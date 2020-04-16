@@ -165,3 +165,4 @@ CH	CHE	Country	Country	Switzerland
 TR	TUR	Country	Country	Turkey		
 ES	ESP	Other	Intermediate	Basque Country		
 IS	ISL	Country	Country	Iceland		
+US	USA	Country	Country	United States of America		

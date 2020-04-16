@@ -29,15 +29,18 @@ model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
-## Imperial College model ID is always 7, model name is always whatever model_id 7 is named in the file data/models.txt
-model_id <- 7
-model_name <- models$model_name[which(models$model_id == 7)]
+## read in dataset of locations
+locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+
+## check locations
+all(imperial1$Country %in% locations$location_name)
+unique(imperial1$Country[-which(imperial1$Country %in% locations$location_name)])
 
 #################################################################
 ## Format data ##################################################
 #################################################################
 
-## imperial college london reports weeks as starting on Sunday and ending on Saturday
+## Imperial College London short-term forecasts reports weeks as starting on Sunday and ending on Saturday
 ## encode date as the end date of the time inverval, as specified in documentation and data dictionary
 ## you can do this by simply adding 6 days to the date
 
@@ -53,6 +56,15 @@ imperial1$deaths <- as.numeric(gsub(",", "", gsub(" ", "", sub("\\(.*", "", impe
 imperial2$deaths <- as.numeric(gsub(",", "", gsub(" ", "", sub("\\(.*", "", imperial2$Predicted.Deaths))))
 imperial3$deaths <- as.numeric(gsub(",", "", gsub(" ", "", sub("\\(.*", "", imperial3$Predicted.Deaths))))
 imperial4$deaths <- as.numeric(gsub(",", "", gsub(" ", "", sub("\\(.*", "", imperial4$Predicted.Deaths))))
+
+## for consistency across data sources
+if(any(imperial1$Country == "Czech Republic")){
+  imperial1$Country[which(imperial1$Country == "Czech Republic")] <- "Czechia"
+  imperial2$Country[which(imperial2$Country == "Czech Republic")] <- "Czechia"
+  imperial3$Country[which(imperial3$Country == "Czech Republic")] <- "Czechia"
+  imperial4$Country[which(imperial4$Country == "Czech Republic")] <- "Czechia"
+}
+
 
 ## only available data are for output_id 10: Fatalities per week
 

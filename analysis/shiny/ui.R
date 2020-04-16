@@ -18,25 +18,32 @@ tabPanel("View models",
            sidebarPanel(
              selectInput(inputId = "location",
                          label = "Select location:",
-                         choices = c("California", "Colorado")),
+                         choices = sort(locations[which(locations$location_type == "Country"),]$location_name),
+                         selected = "United States of America"),
              
              selectInput(inputId = "output_name",
                      label = "View projections by:",
-                     choices = c("Hospital beds needed per day", "Fatalities per day"))
+                     choices = output_options,
+                     selected = "Hospital beds needed per day"),
+             
+             conditionalPanel(condition = "input.model_tab == 'monitor'",
+                       selectInput(inputId = "model_name", 
+                                   label = "Select model:", 
+                                   choices = c("IHME COVID-19 Model", "COVID Act Now (strict stay at home)")))
            ),
          
-         
             mainPanel(
-              
-              
-              tabsetPanel(type = "tabs",
+              tabsetPanel(type = "tab", id = "model_tab",
                           
                           ###################################################################################
                           ## View Models: Compare Models ####################################################
                           ###################################################################################
                           
-                          tabPanel("Most recent projections", plotOutput("compare_most_recent_models")),
-                          tabPanel("Model changes over time", plotOutput("compare_models_over_time"))
+                          tabPanel(value = "compare", title = "Compare multiple models",
+                                   plotOutput("compare_most_recent_models")),
+                          tabPanel(value = "monitor", title = "Monitor changes over time", 
+                                   plotOutput("compare_models_over_time")),
+                          tabPanel(value = "inventory", title = "Model inventory")
                           )
               
               
@@ -46,14 +53,21 @@ tabPanel("View models",
 
 
 ###################################################################################
-## Monitor Tab ####################################################################
+## Map View #######################################################################
+###################################################################################
+
+tabPanel("View map",
+         mainPanel()),
+
+###################################################################################
+## Download Data Tab ##############################################################
 ###################################################################################
 
 tabPanel("Download data",
          mainPanel()),
 
 ###################################################################################
-## View Data#######################################################################
+## About tab ######################################################################
 ###################################################################################
 
 tabPanel("About",

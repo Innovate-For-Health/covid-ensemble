@@ -1,37 +1,15 @@
-model_run_id	model_id	run_name	model_name	model_snapshot_date	assumed_mitigation	notes
-1	1	IHME (4/1/2020)	IHME COVID-19 Model	4/1/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/3/2020"
-2	1	IHME (4/5/2020)	IHME COVID-19 Model	4/5/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/6/2020"
-3	1	IHME (4/7/2020)	IHME COVID-19 Model	4/7/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/3/2020"
-4	3	CHIME (4/7/2020)	CHIME	4/7/20	Moderate	"Model run using parameters specified in model_inputs, for whole US"
-5	5	"GHI (4/7/20, 20% infection)"	Harvard Global Health Institute Model	4/7/20	Moderate	"Model run assuming that 20% of the population contracts the virus, citing a revised estimate from Marc Lipsitch who estimated that 20-60% of adults will be infected (https://www.hsph.harvard.edu/news/hsph-in-the-news/the-latest-on-the-coronavirus/)"
-6	5	"GHI (4/7/20, 40% infection)"	Harvard Global Health Institute Model	4/7/20	Moderate	"Model run assuming that 40% of the population contracts the virus, citing an estimate from Marc Lipsitch to CBS news, who estimated that 40-70% of adults will be infected (https://www.cbsnews.com/news/coronavirus-infection-outbreak-worldwide-virus-expert-warning-today-2020-03-02/)"
-7	5	"GHI  (4/7/20, 60% infection)"	Harvard Global Health Institute Model	4/7/20	Low	"Model run assuming that 60% of the population contracts the virus, citing an estimate from Deutsche Gesellschaft für Epidemiologie (https://www.dgepi.de/assets/Stellungnahmen/Stellungnahme2020Corona_DGEpi-20200319.pdf)"
-8	6	"COVID Act Now (4/7/20, strict stay at home)"	COVID Act Now	4/7/20	Strong	"Model run assuming 3 months of strict say at home orders. Data manually pulled from hover-overs on charts just for California, but there 100% has to be a better way to scrape these data than manually in the future."
-9	6	"COVID Act Now (4/7/20, lax stay at home)"	COVID Act Now	4/7/20	Moderate	"Model run assuming 3 months of lax say at home orders. Data manually pulled from hover-overs on charts just for California, but there 100% has to be a better way to scrape these data than manually in the future."
-10	2	"Neher (4/7/20, moderate mitigation)"	Neher COVID-19 Scenarios	4/7/20	Moderate	"Model run assuming moderate mitigation, using input parameters specified in model_inputs file"
-11	7	"Imperial College (4/7/10, model 1)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
-12	7	"Imperial College (4/7/10, model 2)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
-13	7	"Imperial College (4/7/10, model 3)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
-14	7	"Imperial College (4/7/10, unweighted ensemble)"	Imperial College London COVID-19 Model	4/7/20	Not specified	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
-15	3	"CHIME (4/8/2020, 30% reduction in social contact)"	CHIME	4/8/20	Low	"Model run using parameters specified in model_inputs, for California only"
-16	3	"CHIME (4/8/2020, 50% reduction in social contact)"	CHIME	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
-17	2	"Neher (4/8/20, moderate motigation)"	Neher COVID-19 Scenarios	4/8/20	Moderate	"Model run using parameters specified in model_inputs, for California only"
-18	8	"CO Modeling Group (R0 3.5, 0% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 0% indefinite reduction in physical contact and R0 of 3.5
-19	8	"CO Modeling Group (R0 3.5, 40% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 40% indefinite reduction in physical contact and R0 of 3.5
-20	8	"CO Modeling Group (R0 3.5, 50% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 50% indefinite reduction in physical contact and R0 of 3.5
-21	8	"CO Modeling Group (R0 3.5, 60% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 60%  indefinite reduction in physical contact and R0 of 3.5
-22	8	"CO Modeling Group (R0 3.5, 80% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 80%  indefinite reduction in physical contact and R0 of 3.5
-23	8	"CO Modeling Group (R0 3.5, 0% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 0%  indefinite reduction in physical contact and R0 of 4
-24	8	"CO Modeling Group (R0 3.5, 40% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 40%  indefinite reduction in physical contact and R0 of 4
-25	8	"CO Modeling Group (R0 3.5, 50% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 50%  indefinite reduction in physical contact and R0 of 4
-26	8	"CO Modeling Group (R0 3.5, 60% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 60% indefinite reduction in physical contact and R0 of 4
-27	8	"CO Modeling Group (R0 3.5, 80% SD)"	Colorado COVID-19 Modeling Group Model	4/1/20	None	Model run assuming 80%  indefinite reduction in physical contact and R0 of 4
-28	6	"COVID Act Now (4/10/20, strict stay at home)"	COVID Act Now	4/10/20	Strong	Model run assuming 3 months of strict say at home orders
-29	6	"COVID Act Now (4/10/20, lax stay at home)"	COVID Act Now	4/10/20	Moderate	Model run assuming 3 months of lax say at home orders
-30	1	IHME (4/10/20)	IHME COVID-19 Model	4/10/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/13/2020 (results as of 4/10/20)"
-31	9	"Shaman Lab Model (3/31/20, 0% SD)"	Shaman Lab Model	3/31/20	None	Model run assuming 0% reduction in physical contact
-32	9	"Shaman Lab Model (3/31/20, 25% SD)"	Shaman Lab Model	3/31/20	None	Model run assuming 25% reduction in physical contact
-33	9	"Shaman Lab Model (3/31/20, 50% SD)"	Shaman Lab Model	3/31/20	None	Model run assuming 50% reduction in physical contact
-34	6	"COVID Act Now (4/14/20, strict stay at home)"	COVID Act Now	4/14/20	Strong	Model run assuming 3 months of strict say at home orders. 
-35	6	"COVID Act Now (4/14/20, lax stay at home)"	COVID Act Now	4/14/20	Moderate	Model run assuming 3 months of lax say at home orders. 
-36	1	IHME (4/14/20)	IHME COVID-19 Model	4/14/20	Strong	"Model sourcecode not available, run using default parameters only, results accessed online from IHME website on 4/14/2020"
+model_run_id	model_id	run_name	model_name	model_snapshot_date	notes
+1	1	IHME COVID-19 Model (3/25/20)	IHME COVID-19 Model	3/25/20	
+2	1	IHME COVID-19 Model (3/29/20)	IHME COVID-19 Model	3/29/20	
+3	1	IHME COVID-19 Model (4/1/20)	IHME COVID-19 Model	4/1/20	
+4	1	IHME COVID-19 Model (4/5/20)	IHME COVID-19 Model	4/5/20	
+5	1	IHME COVID-19 Model (4/7/20)	IHME COVID-19 Model	4/7/20	
+6	1	IHME COVID-19 Model (4/10/20)	IHME COVID-19 Model	4/10/20	
+7	1	IHME COVID-19 Model (4/13/20)	IHME COVID-19 Model	4/13/20	
+11	12	"Imperial College (4/7/10, model 1)"	"Imperial College London COVID-19 short term forecast, model 1"	4/7/20	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
+12	13	"Imperial College (4/7/10, model 2)"	"Imperial College London COVID-19 short term forecasts, model 2"	4/7/20	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
+13	14	"Imperial College (4/7/10, model 3)"	"Imperial College London COVID-19 short term forecasts, model 3"	4/7/20	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
+14	15	"Imperial College (4/7/10, unweighted ensemble)"	"Imperial College London COVID-19 short term forecasts, ensemble"	4/7/20	"Model sourcecode not available, run using default parameters only for models 1, 2, and 3 reported online as of 4/8/2020"
+8	6	"COVID Act Now (4/7/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/7/20	Model run assuming 3 months of strict say at home orders. Data manually pulled from hover-overs on charts just for California.
+9	6	"COVID Act Now (4/10/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/10/20	Model run assuming 3 months of strict say at home orders.
+10	6	"COVID Act Now (4/15/20, strict stay at home)"	COVID Act Now (strict stay at home)	4/15/20	Model run assuming 3 months of strict say at home orders.

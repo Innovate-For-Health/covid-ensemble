@@ -2,7 +2,7 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 36
+model_run_id <- 7
 file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_13.csv"
 
 #################################################################
@@ -24,17 +24,20 @@ model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
+## read in dataset of locations
+locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+
 ## IHME model ID is always 1, model name is always whatever model_id 1 is named in the file data/models.txt
 model_id <- 1
 model_name <- models$model_name[which(models$model_id == 1)]
 
 #################################################################
-## Format data ##################################################
+## Check: any locations not in the locations file? ##############
+## then check: do we care? ######################################
 #################################################################
 
-## set date as a date
-ihme$date <- as.Date(ihme$date)
-model_outputs$date <- as.Date(model_outputs$date)
+all(ihme$location_name %in% locations$location_name)
+unique(ihme[-which(ihme$location_name %in% locations$location_name),]$location_name)
 
 ## for consistency across data sources, consistently code IHME data locations as "United States of America" vs. "US" 
 ## IHME changed how these data were reported as of 4/5/20 (using full name vs. partial name)
@@ -48,6 +51,14 @@ if(any(ihme$location == "US")){
 ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
                                          "Life Care Center, Kirkland, WA",
                                          "Other Counties, WA")),]
+
+#################################################################
+## Format data ##################################################
+#################################################################
+
+## set date as a date
+ihme$date <- as.Date(ihme$date)
+model_outputs$date <- as.Date(model_outputs$date)
 
 ## no data for output_id 1: new infections per day
 ## no data for output_id 2: cumulative infections

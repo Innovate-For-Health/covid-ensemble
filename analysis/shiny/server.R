@@ -6,27 +6,49 @@ library(dplyr)
 library(ggplot2)
 library(scales)
 
-server <- function(input, output) {
+
+server <- function(input, output, session) {
   
   ######################################################################
   ## Read in data ######################################################
   ######################################################################
+  
+  ## read in full list  of model outputs, model runs, and locations
+  model_outputs <- read.delim("~/Documents/covid-ensemble/data/model_outputs.txt", stringsAsFactors = FALSE)
+  model_runs <- read.delim("~/Documents/covid-ensemble/data/model_runs.txt", stringsAsFactors = FALSE)
+  locations <- read.delim("~/Documents/covid-ensemble/data/locations.txt", stringsAsFactors = FALSE)
+  output_options <- unique(model_outputs$output_name)
+  model_options <- unique(model_outputs$output_name)
+  
+    ######################################################################
+    ## Calculate derivative datasets, lists, etc  ########################
+    ######################################################################
     
-    ## read in full list  of model outputs
-    outputs <- read.delim("~/Documents/covid-ensemble/data/model_outputs.txt", stringsAsFactors = FALSE)
-    model_runs <- read.delim("~/Documents/covid-ensemble/data/model_runs.txt", stringsAsFactors = FALSE)
-    
+  ## format dates as dates
+  model_runs$model_snapshot_date <- as.Date(model_runs$model_snapshot_date, format = "%m/%d/%y")
+  
     ## find the most recent model run for each specified model
     most_recent_model_runs <- model_runs %>%
-      group_by(model_name, assumed_mitigation) %>% 
+      group_by(model_name) %>% 
       arrange(desc(model_snapshot_date)) %>% 
       slice(1)
     
-    outputs <- merge(outputs, model_runs[,-which(names(model_runs) == "notes"),], by = "model_run_id", all.x = TRUE, all.y = FALSE)
+    ## generate master dataset of outputs
+    outputs <- merge(model_outputs, model_runs[,-which(names(model_runs) == "notes"),], by = "model_run_id", all.x = TRUE, all.y = FALSE)
   
-    
     ## format date as a date
     outputs$date <- as.Date(outputs$date)
+    
+    ######################################################################
+    ## Update UI filters #################################################
+    ######################################################################
+    
+    observe({
+      x <- input$location
+    
+      updateSelectInput(session, "output_name",
+                      choices = outputs$output_name[which(outputs$location == x)])
+      })
     
   ######################################################################
   ## Filter data as needed #############################################
@@ -35,10 +57,11 @@ server <- function(input, output) {
     ## filter data based on the location and input selected
     selectedOutputs <- reactive({
       outputs %>% 
-        dplyr::filter(location %in% input$location & 
-                      output_name %in% input$output_name
-        )
+         filter(location %in% input$location & 
+                output_name %in% input$output_name) %>%
+        arrange(desc(model_snapshot_date))
     })
+    
     
     ######################################################################
     ## Generate plot: most recent models #################################
@@ -52,9 +75,7 @@ server <- function(input, output) {
         guides(color = guide_legend(title = "Model Run")) +
         ylab(input$output_name) +
         xlab("Date") +
-        theme_bw() +
-        facet_wrap(~model_name) 
-        #ggtitle("COVID-19 Hospital bed demand per day in California")
+        theme_bw() 
     })
     
     ######################################################################
@@ -62,17 +83,20 @@ server <- function(input, output) {
     ######################################################################
     
     output$compare_models_over_time <- renderPlot({
-      ggplot(selectedOutputs(),
-             aes(x = date, y = value, color = run_name)) +
+      
+      ggplot(selectedOutputs()[which(selectedOutputs()$model_name %in% input$model_name),],
+             aes(x = date, y = value, 
+                 ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
+                 color = factor(run_name, levels = rev(unique(selectedOutputs()$run_name))))) +
         geom_line(size = 1) +
         scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +
         ylab(input$output_name) +
+        scale_colour_brewer(palette = "Greens") +
         xlab("Date") +
-        theme_bw() +
-        facet_wrap(~model_name) 
-      #ggtitle("COVID-19 Hospital bed demand per day in California")
+        theme_bw() 
     })
     
-    
+
+  
   }
