@@ -30,14 +30,21 @@ tabPanel("Overview",
                public health experts, and policy-makers to understand how models have changed over time and how they differ 
                in their underlying assumptions, approaches, and results."),
            
-           h3("How to use this site"),
-           p("Click on the", tags$b("View models"), "tab to view available modeling results
-             for a given location. Compare results across different models,
-             see how a single model has changed over time, or explore multiple iterations
-             of a single model run under a series of different future scenarios (e.g., with and without social distancing)."),
+           # h3("How to use this site"),
+           # p("Click on the", tags$b("View models"), "tab to view available modeling results
+           #   for a given location. Compare results across different models,
+           #   see how a single model has changed over time, or explore multiple iterations
+           #   of a single model run under a series of different future scenarios (e.g., with and without social distancing)."),
+           # 
+           # p("Access key assumptions and links to additional information and documentation about each model in the",
+           #   tags$b("Model inventory"), "tab. Use the", tags$b("Download data"), "to access available results across models."),
            
-           p("Access key assumptions and links to additional information and documentation about each model in the",
-             tags$b("Model inventory"), "tab. Use the", tags$b("Download data"), "to access available results across models."))),
+           h4("Disclaimer"),
+           
+           p("This site is not intended to act as a substitute for accessing each individual model developer's data visualizations and available documentation.
+           If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
+           most recently available results. This site was developed specifically to archive publicly available modeling results and to highlight changes and differences 
+           assumptions and approaches between models, but is not indended to be used as an operational response tool."))),
 
 ###################################################################################
 ## View Models: Sidebar selections  ###############################################
@@ -58,11 +65,10 @@ tabPanel("View models",
                      selected = "Hospital beds needed per day"),
              
              ## if you want to look at changes in a model over time, you need to pick one model to look at
-             ## TODO: fix this I want or but not it's broken
              conditionalPanel(condition = "input.model_tab == 'monitor' || input.model_tab == 'parameters'" ,
                        selectInput(inputId = "model_name", 
                                    label = "Select model:", 
-                                   choices = c("IHME COVID-19 Model", "CCOVID Act Now US Intervention Model", "Shaman Lab Model")))
+                                   choices = c("IHME COVID-19 Model", "COVID Act Now US Intervention Model", "Shaman Lab Model")))
              
            ),
          
@@ -74,11 +80,39 @@ tabPanel("View models",
 ###################################################################################
                           
                           tabPanel(value = "compare", title = "Compare multiple models",
-                                   plotOutput("compare_most_recent_models")),
+                                   h4("How do the results of different models compare?"),
+                                   plotOutput("compare_most_recent_models"),
+                                   h5("What does this plot show? How should it be interpreted?"),
+                                  p("This plot shows the most recent available model estimates, over time, for each model that estimates the number of",
+                                  textOutput("model_output", inline = TRUE), "."),
+                                  p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
+                                    This plot is intended to illustrate how different models may produce different results over time, based on differences in underlying data inputs, parameters, or assumptions.
+                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
+                                    most recently available results.")
+                                  
+                                   ),
                           tabPanel(value = "monitor", title = "Monitor changes over time", 
-                                   plotOutput("compare_models_over_time")),
+                                   h4("How have the results of a single model changed over time?"),
+                                   plotOutput("compare_models_over_time"),
+                                   h5("What does this plot show? How should it be interpreted?"),
+                                 #  p("This plot shows the most recent available model estimates, over time, for each model that estimates the number of",
+                                  #   textOutput("model_output", inline = TRUE), "."),
+                                   p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
+                                    This plot is intended to illustrate how different models may produce different results over time, based on differences in underlying data inputs, parameters, or assumptions.
+                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
+                                    most recently available results.")
+                                   
+                                   ),
                           tabPanel(value = "parameters", title = "Explore impact of assumptions",
-                                   plotOutput("compare_models_over_assumptions"))
+                                   h4("How do the assumptions or inputs of a single model impact its results?"),
+                                   plotOutput("compare_models_over_assumptions"),
+                                   h5("What does this plot show? How should it be interpreted?"),
+                                   #  p("This plot shows the most recent available model estimates, over time, for each model that estimates the number of",
+                                   #   textOutput("model_output", inline = TRUE), "."),
+                                   p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
+                                    This plot is intended to illustrate how different models may produce different results over time, based on differences in underlying data inputs, parameters, or assumptions.
+                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
+                                    most recently available results."))
                           )
 
          )),

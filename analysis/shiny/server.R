@@ -17,26 +17,31 @@ server <- function(input, output, session) {
     ## Update UI filters based on other UI filters #######################
     ######################################################################
     
-    ## if someone changes the location, only show potential outputs that are actually available for that location
-  ## TODO fix this
-    # observe({
-    #   x_loc <- input$location
-    # 
-    #   updateSelectInput(session, "output_name",
-    #                   choices = outputs$output_name[which(outputs$location == x_loc)],
-    #                   selected = "Hospital beds needed per day")
-    #   })
-    
+  ## update select model outputs tab
+  ## if someone changes the location, only show potential outputs that are actually available for that location
+    observe({
+      x_loc <- input$location
+
+      updateSelectInput(session, "output_name",
+                      choices = list("Caseload and fatalities" = outputs_agg$`Caseload and fatalities`[which(outputs_agg$`Caseload and fatalities` %in% outputs$output_name[which(outputs$location == x_loc)])],
+                                     "Healthcare demand" = outputs_agg$`Healthcare demand`[which(outputs_agg$`Healthcare demand` %in% outputs$output_name[which(outputs$location == x_loc)])]),
+                      selected = "Hospital beds needed per day")
+      })
+
   
+    ## update select model input
     ## if someone changes the location, and the model outputs, only show potential models that are actually available for that location
-  ## TODO fix this
-    # observe({
-    #   x_loc <- input$location
-    #   x_output <- input$output_name
-    #   
-    #   updateSelectInput(session, "model_name",
-    #                     choices = unlist(outputs_agg)[which(outputs$location == x_loc & outputs$output_name == x_output)])
-    # })
+    observe({
+      x_loc <- input$location
+      x_output <- input$output_name
+
+      updateSelectInput(session, "model_name",
+                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output),]$model_name))
+    })
+    
+    
+    output$model_output <- renderText({ print(input$output_name) })
+    
     
   ######################################################################
   ## Filter data as needed #############################################
@@ -50,6 +55,13 @@ server <- function(input, output, session) {
         arrange(desc(model_snapshot_date))
     })
     
+    ## for debugging
+    # selectedOutputs <- outputs %>%
+    #     filter(location %in% "Alaska" &
+    #              output_name %in%  "Hospital beds needed per day") %>%
+    #     arrange(desc(model_snapshot_date))
+
+    
     ## filter data based on the location, model output, and specific model selected
     ## this is used for the "monitor changes over time" plot
     selectedOutputsModelTime <- reactive({
@@ -59,6 +71,14 @@ server <- function(input, output, session) {
                model_name %in% input$model_name) %>%
         arrange(desc(model_snapshot_date))
     })
+    
+    ## for debugging
+    # selectedOutputsModelTime <- 
+    #   outputs[which(outputs$compare_over_time == TRUE),] %>% 
+    #     filter(location %in% "Alabama" & 
+    #              output_name %in% "Fatalities per day" &
+    #              model_name %in% c("IHME COVID-19 Model")) %>%
+    #     arrange(desc(model_snapshot_date))
     
     ## filter data based on the location, model output, and specific model selected
     ## this is used for the "compare assumptions" plot
@@ -70,6 +90,35 @@ server <- function(input, output, session) {
         arrange(desc(model_snapshot_date))
     })
     
+    ######################################################################
+    ## Pick primary color palette depending on model ######################
+    ######################################################################
+
+    ## for compare models plot
+    model_palette_cm <- reactive({
+      if(all(c("COVID Act Now US Intervention Model", "IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+        c("#fd8d3c", "#31a354", "#756bb1") else 
+      if(all(c("COVID Act Now US Intervention Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+        c("#fd8d3c", "#756bb1") else 
+          c("#006d2c", "#3182bd", "#e6550d")
+    })  
+    
+    
+    ## for compare model over time plot
+    model_palette_mt <- reactive({
+      unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
+                       ifelse(selectedOutputsModelTime()$model_name == "Shaman Lab Model", "Purples",
+                       ifelse(selectedOutputsModelTime()$model_name == "COVID Act Now US Intervention Model", "Oranges",   
+                       "Reds"))))
+    })  
+    
+    ## for compare model assumptions plot
+    model_palette_ma <- reactive({
+      unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
+             ifelse(selectedOutputsModelTime()$model_name == "Shaman Lab Model", "Purples",
+             ifelse(selectedOutputsModelTime()$model_name == "COVID Act Now US Intervention Model", "Oranges",   
+             "Reds"))))
+    })  
     
     ######################################################################
     ## Generate plot: most recent models #################################
@@ -87,15 +136,15 @@ server <- function(input, output, session) {
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
         xlab("") +
+        scale_color_manual(values = model_palette_cm()) +
         theme_light() 
     })
     
     ######################################################################
-    ## Generate plot: compare models over time ###########################
+    ## Generate plot: compare model over time ############################
     ######################################################################
     
     output$compare_models_over_time <- renderPlot({
-      
       ggplot(selectedOutputsModelTime()[which( ## for now set focus to April through June
                 selectedOutputsModelTime()$date >= as.Date("2020-04-01") &
                   selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
@@ -107,7 +156,7 @@ server <- function(input, output, session) {
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
         ylab(input$output_name) +
-        scale_colour_brewer(palette = "Greens",
+        scale_colour_brewer(palette = model_palette_mt(),
                             ## colors are sequential -- show a gradient here
                             type = "seq",
                             ## gradient should make the darket color the most recent
@@ -133,7 +182,7 @@ server <- function(input, output, session) {
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
         ylab(input$output_name) +
-        scale_colour_brewer(palette = "Greens",
+        scale_colour_brewer(palette = model_palette_ma(),
                             ## colors are sequential -- show a gradient here
                             type = "seq",
                             ## gradient should make the darket color the most recent
@@ -161,4 +210,4 @@ server <- function(input, output, session) {
     
 
   
-  }
+}
