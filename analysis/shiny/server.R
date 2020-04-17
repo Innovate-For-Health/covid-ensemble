@@ -18,23 +18,25 @@ server <- function(input, output, session) {
     ######################################################################
     
     ## if someone changes the location, only show potential outputs that are actually available for that location
-    observe({
-      x_loc <- input$location
-    
-      updateSelectInput(session, "output_name",
-                      choices = outputs$output_name[which(outputs$location == x_loc)],
-                      selected = "Hospital beds needed per day")
-      })
+  ## TODO fix this
+    # observe({
+    #   x_loc <- input$location
+    # 
+    #   updateSelectInput(session, "output_name",
+    #                   choices = outputs$output_name[which(outputs$location == x_loc)],
+    #                   selected = "Hospital beds needed per day")
+    #   })
     
   
     ## if someone changes the location, and the model outputs, only show potential models that are actually available for that location
-    observe({
-      x_loc <- input$location
-      x_output <- input$output_name
-      
-      updateSelectInput(session, "model_name",
-                        choices = outputs$model_name[which(outputs$location == x_loc & outputs$output_name == x_output)])
-    })
+  ## TODO fix this
+    # observe({
+    #   x_loc <- input$location
+    #   x_output <- input$output_name
+    #   
+    #   updateSelectInput(session, "model_name",
+    #                     choices = unlist(outputs_agg)[which(outputs$location == x_loc & outputs$output_name == x_output)])
+    # })
     
   ######################################################################
   ## Filter data as needed #############################################

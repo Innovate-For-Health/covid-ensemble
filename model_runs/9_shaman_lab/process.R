@@ -5,11 +5,11 @@
 model_run_id_no_iv <- 12
 model_run_id_20_red <- 13
 model_run_id_30_red <- 14
-model_run_id_40_red <- 15
+model_run_id_40_red <- 17
 file_name_beds_no_iv <- "model_runs/9_shaman_lab/model_export/12_bed_nointerv.csv"
 file_name_cases_no_iv <- "model_runs/9_shaman_lab/model_export/12_Projection_nointerv.csv"
-file_name_beds_40_red <- "model_runs/9_shaman_lab/model_export/15_bed_60contact.csv"
-file_name_cases_40_red <- "model_runs/9_shaman_lab/model_export/15_Projection_60contact.csv"
+file_name_beds_40_red <- "model_runs/9_shaman_lab/model_export/17_bed_60contact.csv"
+file_name_cases_40_red <- "model_runs/9_shaman_lab/model_export/17_Projection_60contact.csv"
 file_name_beds_20_red <- "model_runs/9_shaman_lab/model_export/13_bed_80contact.csv"
 file_name_cases_20_red <- "model_runs/9_shaman_lab/model_export/13_Projection_80contact.csv"
 file_name_beds_30_red <- "model_runs/9_shaman_lab/model_export/14_bed_70contact.csv"

@@ -1,7 +1,7 @@
 iso2	iso3	location_type	area_level	location_name	abbreviation	FIPS
 US	USA	Province/State	Intermediate	Alabama	AL	1
 US	USA	Province/State	Intermediate	Alaska	AK	2
-US	USA	Province/State	Intermediate	American Samoa	AS	60
+US	USA	Other	Intermediate	American Samoa	AS	60
 US	USA	Province/State	Intermediate	Arizona	AZ	4
 US	USA	Province/State	Intermediate	Arkansas	AR	5
 US	USA	Province/State	Intermediate	California	CA	6
@@ -11,7 +11,7 @@ US	USA	Province/State	Intermediate	Delaware	DE	10
 US	USA	Province/State	Intermediate	District of Columbia	DC	11
 US	USA	Province/State	Intermediate	Florida	FL	12
 US	USA	Province/State	Intermediate	Georgia	GA	13
-US	USA	Province/State	Intermediate	Guam	GU	66
+US	USA	Other	Intermediate	Guam	GU	66
 US	USA	Province/State	Intermediate	Hawaii	HI	15
 US	USA	Province/State	Intermediate	Idaho	ID	16
 US	USA	Province/State	Intermediate	Illinois	IL	17
@@ -40,7 +40,7 @@ US	USA	Province/State	Intermediate	Ohio	OH	39
 US	USA	Province/State	Intermediate	Oklahoma	OK	40
 US	USA	Province/State	Intermediate	Oregon	OR	41
 US	USA	Province/State	Intermediate	Pennsylvania	PA	42
-US	USA	Province/State	Intermediate	Puerto Rico	PR	
+US	USA	Other	Intermediate	Puerto Rico	PR	
 US	USA	Province/State	Intermediate	Rhode Island	RI	44
 US	USA	Province/State	Intermediate	South Carolina	SC	45
 US	USA	Province/State	Intermediate	South Dakota	SD	46
@@ -49,7 +49,7 @@ US	USA	Province/State	Intermediate	Texas	TX	48
 US	USA	Province/State	Intermediate	Utah	UT	49
 US	USA	Province/State	Intermediate	Vermont	VT	50
 US	USA	Province/State	Intermediate	Virginia	VA	51
-US	USA	Province/State	Intermediate	Virgin Islands	VI	78
+US	USA	Other	Intermediate	Virgin Islands	VI	78
 US	USA	Province/State	Intermediate	Washington	WA	53
 US	USA	Province/State	Intermediate	West Virginia	WV	54
 US	USA	Province/State	Intermediate	Wisconsin	WI	55
@@ -166,319 +166,319 @@ TR	TUR	Country	Country	Turkey
 ES	ESP	Other	Intermediate	Basque Country		
 IS	ISL	Country	Country	Iceland		
 US	USA	Country	Country	United States of America		
-US	USA	County	Local	Autauga		01001
-US	USA	County	Local	Baldwin		01003
-US	USA	County	Local	Barbour		01005
-US	USA	County	Local	Bibb		01007
-US	USA	County	Local	Blount		01009
-US	USA	County	Local	Bullock		01011
-US	USA	County	Local	Butler		01013
-US	USA	County	Local	Calhoun		01015
-US	USA	County	Local	Chambers		01017
-US	USA	County	Local	Cherokee		01019
-US	USA	County	Local	Chilton		01021
-US	USA	County	Local	Choctaw		01023
-US	USA	County	Local	Clarke		01025
-US	USA	County	Local	Clay		01027
-US	USA	County	Local	Cleburne		01029
-US	USA	County	Local	Coffee		01031
-US	USA	County	Local	Colbert		01033
-US	USA	County	Local	Conecuh		01035
-US	USA	County	Local	Coosa		01037
-US	USA	County	Local	Covington		01039
-US	USA	County	Local	Crenshaw		01041
-US	USA	County	Local	Cullman		01043
-US	USA	County	Local	Dale		01045
-US	USA	County	Local	Dallas		01047
-US	USA	County	Local	De Kalb		01049
-US	USA	County	Local	Elmore		01051
-US	USA	County	Local	Escambia		01053
-US	USA	County	Local	Etowah		01055
-US	USA	County	Local	Fayette		01057
-US	USA	County	Local	Franklin		01059
-US	USA	County	Local	Geneva		01061
-US	USA	County	Local	Greene		01063
-US	USA	County	Local	Hale		01065
-US	USA	County	Local	Henry		01067
-US	USA	County	Local	Houston		01069
-US	USA	County	Local	Jackson		01071
-US	USA	County	Local	Jefferson		01073
-US	USA	County	Local	Lamar		01075
-US	USA	County	Local	Lauderdale		01077
-US	USA	County	Local	Lawrence		01079
-US	USA	County	Local	Lee		01081
-US	USA	County	Local	Limestone		01083
-US	USA	County	Local	Lowndes		01085
-US	USA	County	Local	Macon		01087
-US	USA	County	Local	Madison		01089
-US	USA	County	Local	Marengo		01091
-US	USA	County	Local	Marion		01093
-US	USA	County	Local	Marshall		01095
-US	USA	County	Local	Mobile		01097
-US	USA	County	Local	Monroe		01099
-US	USA	County	Local	Montgomery		01101
-US	USA	County	Local	Morgan		01103
-US	USA	County	Local	Perry		01105
-US	USA	County	Local	Pickens		01107
-US	USA	County	Local	Pike		01109
-US	USA	County	Local	Randolph		01111
-US	USA	County	Local	Russell		01113
-US	USA	County	Local	St Clair		01115
-US	USA	County	Local	Shelby		01117
-US	USA	County	Local	Sumter		01119
-US	USA	County	Local	Talladega		01121
-US	USA	County	Local	Tallapoosa		01123
-US	USA	County	Local	Tuscaloosa		01125
-US	USA	County	Local	Walker		01127
-US	USA	County	Local	Washington		01129
-US	USA	County	Local	Wilcox		01131
-US	USA	County	Local	Winston		01133
-US	USA	County	Local	Aleutians East		02013
-US	USA	County	Local	Aleutians West		02016
-US	USA	County	Local	Anchorage		02020
-US	USA	County	Local	Bethel		02050
-US	USA	County	Local	Bristol Bay		02060
-US	USA	County	Local	Denali		02068
-US	USA	County	Local	Dillingham		02070
-US	USA	County	Local	Fairbanks North Star		02090
-US	USA	County	Local	Haines		02100
-US	USA	County	Local	Juneau		02110
-US	USA	County	Local	Kenai Peninsula		02122
-US	USA	County	Local	Ketchikan Gateway		02130
-US	USA	County	Local	Kodiak Island		02150
-US	USA	County	Local	Lake and Peninsula		02164
-US	USA	County	Local	Matanuska-Susitna		02170
-US	USA	County	Local	Nome		02180
-US	USA	County	Local	North Slope		02185
-US	USA	County	Local	Northwest Arctic		02188
-US	USA	County	Local	Prince of Wales-Outer Ketchikan		02201
-US	USA	County	Local	Sitka		02220
-US	USA	County	Local	Skagway-Hoonah-Angoon		02232
-US	USA	County	Local	Southeast Fairbanks		02240
-US	USA	County	Local	Valdez-Cordova		02261
-US	USA	County	Local	Wade Hampton		02270
-US	USA	County	Local	Wrangell-Petersburg		02280
-US	USA	County	Local	Yakutat		02282
-US	USA	County	Local	Yukon-Koyukuk		02290
-US	USA	County	Local	Apache		04001
-US	USA	County	Local	Cochise		04003
-US	USA	County	Local	Coconino		04005
-US	USA	County	Local	Gila		04007
-US	USA	County	Local	Graham		04009
-US	USA	County	Local	Greenlee		04011
-US	USA	County	Local	La Paz		04012
-US	USA	County	Local	Maricopa		04013
-US	USA	County	Local	Mohave		04015
-US	USA	County	Local	Navajo		04017
-US	USA	County	Local	Pima		04019
-US	USA	County	Local	Pinal		04021
-US	USA	County	Local	Santa Cruz		04023
-US	USA	County	Local	Yavapai		04025
-US	USA	County	Local	Yuma		04027
-US	USA	County	Local	Arkansas		05001
-US	USA	County	Local	Ashley		05003
-US	USA	County	Local	Baxter		05005
-US	USA	County	Local	Benton		05007
-US	USA	County	Local	Boone		05009
-US	USA	County	Local	Bradley		05011
-US	USA	County	Local	Calhoun		05013
-US	USA	County	Local	Carroll		05015
-US	USA	County	Local	Chicot		05017
-US	USA	County	Local	Clark		05019
-US	USA	County	Local	Clay		05021
-US	USA	County	Local	Cleburne		05023
-US	USA	County	Local	Cleveland		05025
-US	USA	County	Local	Columbia		05027
-US	USA	County	Local	Conway		05029
-US	USA	County	Local	Craighead		05031
-US	USA	County	Local	Crawford		05033
-US	USA	County	Local	Crittenden		05035
-US	USA	County	Local	Cross		05037
-US	USA	County	Local	Dallas		05039
-US	USA	County	Local	Desha		05041
-US	USA	County	Local	Drew		05043
-US	USA	County	Local	Faulkner		05045
-US	USA	County	Local	Franklin		05047
-US	USA	County	Local	Fulton		05049
-US	USA	County	Local	Garland		05051
-US	USA	County	Local	Grant		05053
-US	USA	County	Local	Greene		05055
-US	USA	County	Local	Hempstead		05057
-US	USA	County	Local	Hot Spring		05059
-US	USA	County	Local	Howard		05061
-US	USA	County	Local	Independence		05063
-US	USA	County	Local	Izard		05065
-US	USA	County	Local	Jackson		05067
-US	USA	County	Local	Jefferson		05069
-US	USA	County	Local	Johnson		05071
-US	USA	County	Local	Lafayette		05073
-US	USA	County	Local	Lawrence		05075
-US	USA	County	Local	Lee		05077
-US	USA	County	Local	Lincoln		05079
-US	USA	County	Local	Little River		05081
-US	USA	County	Local	Logan		05083
-US	USA	County	Local	Lonoke		05085
-US	USA	County	Local	Madison		05087
-US	USA	County	Local	Marion		05089
-US	USA	County	Local	Miller		05091
-US	USA	County	Local	Mississippi		05093
-US	USA	County	Local	Monroe		05095
-US	USA	County	Local	Montgomery		05097
-US	USA	County	Local	Nevada		05099
-US	USA	County	Local	Newton		05101
-US	USA	County	Local	Ouachita		05103
-US	USA	County	Local	Perry		05105
-US	USA	County	Local	Phillips		05107
-US	USA	County	Local	Pike		05109
-US	USA	County	Local	Poinsett		05111
-US	USA	County	Local	Polk		05113
-US	USA	County	Local	Pope		05115
-US	USA	County	Local	Prairie		05117
-US	USA	County	Local	Pulaski		05119
-US	USA	County	Local	Randolph		05121
-US	USA	County	Local	St Francis		05123
-US	USA	County	Local	Saline		05125
-US	USA	County	Local	Scott		05127
-US	USA	County	Local	Searcy		05129
-US	USA	County	Local	Sebastian		05131
-US	USA	County	Local	Sevier		05133
-US	USA	County	Local	Sharp		05135
-US	USA	County	Local	Stone		05137
-US	USA	County	Local	Union		05139
-US	USA	County	Local	Van Buren		05141
-US	USA	County	Local	Washington		05143
-US	USA	County	Local	White		05145
-US	USA	County	Local	Woodruff		05147
-US	USA	County	Local	Yell		05149
-US	USA	County	Local	Alameda		06001
-US	USA	County	Local	Alpine		06003
-US	USA	County	Local	Amador		06005
-US	USA	County	Local	Butte		06007
-US	USA	County	Local	Calaveras		06009
-US	USA	County	Local	Colusa		06011
-US	USA	County	Local	Contra Costa		06013
-US	USA	County	Local	Del Norte		06015
-US	USA	County	Local	El Dorado		06017
-US	USA	County	Local	Fresno		06019
-US	USA	County	Local	Glenn		06021
-US	USA	County	Local	Humboldt		06023
-US	USA	County	Local	Imperial		06025
-US	USA	County	Local	Inyo		06027
-US	USA	County	Local	Kern		06029
-US	USA	County	Local	Kings		06031
-US	USA	County	Local	Lake		06033
-US	USA	County	Local	Lassen		06035
-US	USA	County	Local	Los Angeles		06037
-US	USA	County	Local	Madera		06039
-US	USA	County	Local	Marin		06041
-US	USA	County	Local	Mariposa		06043
-US	USA	County	Local	Mendocino		06045
-US	USA	County	Local	Merced		06047
-US	USA	County	Local	Modoc		06049
-US	USA	County	Local	Mono		06051
-US	USA	County	Local	Monterey		06053
-US	USA	County	Local	Napa		06055
-US	USA	County	Local	Nevada		06057
-US	USA	County	Local	Orange		06059
-US	USA	County	Local	Placer		06061
-US	USA	County	Local	Plumas		06063
-US	USA	County	Local	Riverside		06065
-US	USA	County	Local	Sacramento		06067
-US	USA	County	Local	San Benito		06069
-US	USA	County	Local	San Bernardino		06071
-US	USA	County	Local	San Diego		06073
-US	USA	County	Local	San Francisco		06075
-US	USA	County	Local	San Joaquin		06077
-US	USA	County	Local	San Luis Obispo		06079
-US	USA	County	Local	San Mateo		06081
-US	USA	County	Local	Santa Barbara		06083
-US	USA	County	Local	Santa Clara		06085
-US	USA	County	Local	Santa Cruz		06087
-US	USA	County	Local	Shasta		06089
-US	USA	County	Local	Sierra		06091
-US	USA	County	Local	Siskiyou		06093
-US	USA	County	Local	Solano		06095
-US	USA	County	Local	Sonoma		06097
-US	USA	County	Local	Stanislaus		06099
-US	USA	County	Local	Sutter		06101
-US	USA	County	Local	Tehama		06103
-US	USA	County	Local	Trinity		06105
-US	USA	County	Local	Tulare		06107
-US	USA	County	Local	Tuolumne		06109
-US	USA	County	Local	Ventura		06111
-US	USA	County	Local	Yolo		06113
-US	USA	County	Local	Yuba		06115
-US	USA	County	Local	Adams		08001
-US	USA	County	Local	Alamosa		08003
-US	USA	County	Local	Arapahoe		08005
-US	USA	County	Local	Archuleta		08007
-US	USA	County	Local	Baca		08009
-US	USA	County	Local	Bent		08011
-US	USA	County	Local	Boulder		08013
-US	USA	County	Local	Chaffee		08015
-US	USA	County	Local	Cheyenne		08017
-US	USA	County	Local	Clear Creek		08019
-US	USA	County	Local	Conejos		08021
-US	USA	County	Local	Costilla		08023
-US	USA	County	Local	Crowley		08025
-US	USA	County	Local	Custer		08027
-US	USA	County	Local	Delta		08029
-US	USA	County	Local	Denver		08031
-US	USA	County	Local	Dolores		08033
-US	USA	County	Local	Douglas		08035
-US	USA	County	Local	Eagle		08037
-US	USA	County	Local	Elbert		08039
-US	USA	County	Local	El Paso		08041
-US	USA	County	Local	Fremont		08043
-US	USA	County	Local	Garfield		08045
-US	USA	County	Local	Gilpin		08047
-US	USA	County	Local	Grand		08049
-US	USA	County	Local	Gunnison		08051
-US	USA	County	Local	Hinsdale		08053
-US	USA	County	Local	Huerfano		08055
-US	USA	County	Local	Jackson		08057
-US	USA	County	Local	Jefferson		08059
-US	USA	County	Local	Kiowa		08061
-US	USA	County	Local	Kit Carson		08063
-US	USA	County	Local	Lake		08065
-US	USA	County	Local	La Plata		08067
-US	USA	County	Local	Larimer		08069
-US	USA	County	Local	Las Animas		08071
-US	USA	County	Local	Lincoln		08073
-US	USA	County	Local	Logan		08075
-US	USA	County	Local	Mesa		08077
-US	USA	County	Local	Mineral		08079
-US	USA	County	Local	Moffat		08081
-US	USA	County	Local	Montezuma		08083
-US	USA	County	Local	Montrose		08085
-US	USA	County	Local	Morgan		08087
-US	USA	County	Local	Otero		08089
-US	USA	County	Local	Ouray		08091
-US	USA	County	Local	Park		08093
-US	USA	County	Local	Phillips		08095
-US	USA	County	Local	Pitkin		08097
-US	USA	County	Local	Prowers		08099
-US	USA	County	Local	Pueblo		08101
-US	USA	County	Local	Rio Blanco		08103
-US	USA	County	Local	Rio Grande		08105
-US	USA	County	Local	Routt		08107
-US	USA	County	Local	Saguache		08109
-US	USA	County	Local	San Juan		08111
-US	USA	County	Local	San Miguel		08113
-US	USA	County	Local	Sedgwick		08115
-US	USA	County	Local	Summit		08117
-US	USA	County	Local	Teller		08119
-US	USA	County	Local	Washington		08121
-US	USA	County	Local	Weld		08123
-US	USA	County	Local	Yuma		08125
-US	USA	County	Local	Fairfield		09001
-US	USA	County	Local	Hartford		09003
-US	USA	County	Local	Litchfield		09005
-US	USA	County	Local	Middlesex		09007
-US	USA	County	Local	New Haven		09009
-US	USA	County	Local	New London		09011
-US	USA	County	Local	Tolland		09013
-US	USA	County	Local	Windham		09015
+US	USA	County	Local	Autauga		1001
+US	USA	County	Local	Baldwin		1003
+US	USA	County	Local	Barbour		1005
+US	USA	County	Local	Bibb		1007
+US	USA	County	Local	Blount		1009
+US	USA	County	Local	Bullock		1011
+US	USA	County	Local	Butler		1013
+US	USA	County	Local	Calhoun		1015
+US	USA	County	Local	Chambers		1017
+US	USA	County	Local	Cherokee		1019
+US	USA	County	Local	Chilton		1021
+US	USA	County	Local	Choctaw		1023
+US	USA	County	Local	Clarke		1025
+US	USA	County	Local	Clay		1027
+US	USA	County	Local	Cleburne		1029
+US	USA	County	Local	Coffee		1031
+US	USA	County	Local	Colbert		1033
+US	USA	County	Local	Conecuh		1035
+US	USA	County	Local	Coosa		1037
+US	USA	County	Local	Covington		1039
+US	USA	County	Local	Crenshaw		1041
+US	USA	County	Local	Cullman		1043
+US	USA	County	Local	Dale		1045
+US	USA	County	Local	Dallas		1047
+US	USA	County	Local	De Kalb		1049
+US	USA	County	Local	Elmore		1051
+US	USA	County	Local	Escambia		1053
+US	USA	County	Local	Etowah		1055
+US	USA	County	Local	Fayette		1057
+US	USA	County	Local	Franklin		1059
+US	USA	County	Local	Geneva		1061
+US	USA	County	Local	Greene		1063
+US	USA	County	Local	Hale		1065
+US	USA	County	Local	Henry		1067
+US	USA	County	Local	Houston		1069
+US	USA	County	Local	Jackson		1071
+US	USA	County	Local	Jefferson		1073
+US	USA	County	Local	Lamar		1075
+US	USA	County	Local	Lauderdale		1077
+US	USA	County	Local	Lawrence		1079
+US	USA	County	Local	Lee		1081
+US	USA	County	Local	Limestone		1083
+US	USA	County	Local	Lowndes		1085
+US	USA	County	Local	Macon		1087
+US	USA	County	Local	Madison		1089
+US	USA	County	Local	Marengo		1091
+US	USA	County	Local	Marion		1093
+US	USA	County	Local	Marshall		1095
+US	USA	County	Local	Mobile		1097
+US	USA	County	Local	Monroe		1099
+US	USA	County	Local	Montgomery		1101
+US	USA	County	Local	Morgan		1103
+US	USA	County	Local	Perry		1105
+US	USA	County	Local	Pickens		1107
+US	USA	County	Local	Pike		1109
+US	USA	County	Local	Randolph		1111
+US	USA	County	Local	Russell		1113
+US	USA	County	Local	St Clair		1115
+US	USA	County	Local	Shelby		1117
+US	USA	County	Local	Sumter		1119
+US	USA	County	Local	Talladega		1121
+US	USA	County	Local	Tallapoosa		1123
+US	USA	County	Local	Tuscaloosa		1125
+US	USA	County	Local	Walker		1127
+US	USA	County	Local	Washington		1129
+US	USA	County	Local	Wilcox		1131
+US	USA	County	Local	Winston		1133
+US	USA	County	Local	Aleutians East		2013
+US	USA	County	Local	Aleutians West		2016
+US	USA	County	Local	Anchorage		2020
+US	USA	County	Local	Bethel		2050
+US	USA	County	Local	Bristol Bay		2060
+US	USA	County	Local	Denali		2068
+US	USA	County	Local	Dillingham		2070
+US	USA	County	Local	Fairbanks North Star		2090
+US	USA	County	Local	Haines		2100
+US	USA	County	Local	Juneau		2110
+US	USA	County	Local	Kenai Peninsula		2122
+US	USA	County	Local	Ketchikan Gateway		2130
+US	USA	County	Local	Kodiak Island		2150
+US	USA	County	Local	Lake and Peninsula		2164
+US	USA	County	Local	Matanuska-Susitna		2170
+US	USA	County	Local	Nome		2180
+US	USA	County	Local	North Slope		2185
+US	USA	County	Local	Northwest Arctic		2188
+US	USA	County	Local	Prince of Wales-Outer Ketchikan		2201
+US	USA	County	Local	Sitka		2220
+US	USA	County	Local	Skagway-Hoonah-Angoon		2232
+US	USA	County	Local	Southeast Fairbanks		2240
+US	USA	County	Local	Valdez-Cordova		2261
+US	USA	County	Local	Wade Hampton		2270
+US	USA	County	Local	Wrangell-Petersburg		2280
+US	USA	County	Local	Yakutat		2282
+US	USA	County	Local	Yukon-Koyukuk		2290
+US	USA	County	Local	Apache		4001
+US	USA	County	Local	Cochise		4003
+US	USA	County	Local	Coconino		4005
+US	USA	County	Local	Gila		4007
+US	USA	County	Local	Graham		4009
+US	USA	County	Local	Greenlee		4011
+US	USA	County	Local	La Paz		4012
+US	USA	County	Local	Maricopa		4013
+US	USA	County	Local	Mohave		4015
+US	USA	County	Local	Navajo		4017
+US	USA	County	Local	Pima		4019
+US	USA	County	Local	Pinal		4021
+US	USA	County	Local	Santa Cruz		4023
+US	USA	County	Local	Yavapai		4025
+US	USA	County	Local	Yuma		4027
+US	USA	County	Local	Arkansas		5001
+US	USA	County	Local	Ashley		5003
+US	USA	County	Local	Baxter		5005
+US	USA	County	Local	Benton		5007
+US	USA	County	Local	Boone		5009
+US	USA	County	Local	Bradley		5011
+US	USA	County	Local	Calhoun		5013
+US	USA	County	Local	Carroll		5015
+US	USA	County	Local	Chicot		5017
+US	USA	County	Local	Clark		5019
+US	USA	County	Local	Clay		5021
+US	USA	County	Local	Cleburne		5023
+US	USA	County	Local	Cleveland		5025
+US	USA	County	Local	Columbia		5027
+US	USA	County	Local	Conway		5029
+US	USA	County	Local	Craighead		5031
+US	USA	County	Local	Crawford		5033
+US	USA	County	Local	Crittenden		5035
+US	USA	County	Local	Cross		5037
+US	USA	County	Local	Dallas		5039
+US	USA	County	Local	Desha		5041
+US	USA	County	Local	Drew		5043
+US	USA	County	Local	Faulkner		5045
+US	USA	County	Local	Franklin		5047
+US	USA	County	Local	Fulton		5049
+US	USA	County	Local	Garland		5051
+US	USA	County	Local	Grant		5053
+US	USA	County	Local	Greene		5055
+US	USA	County	Local	Hempstead		5057
+US	USA	County	Local	Hot Spring		5059
+US	USA	County	Local	Howard		5061
+US	USA	County	Local	Independence		5063
+US	USA	County	Local	Izard		5065
+US	USA	County	Local	Jackson		5067
+US	USA	County	Local	Jefferson		5069
+US	USA	County	Local	Johnson		5071
+US	USA	County	Local	Lafayette		5073
+US	USA	County	Local	Lawrence		5075
+US	USA	County	Local	Lee		5077
+US	USA	County	Local	Lincoln		5079
+US	USA	County	Local	Little River		5081
+US	USA	County	Local	Logan		5083
+US	USA	County	Local	Lonoke		5085
+US	USA	County	Local	Madison		5087
+US	USA	County	Local	Marion		5089
+US	USA	County	Local	Miller		5091
+US	USA	County	Local	Mississippi		5093
+US	USA	County	Local	Monroe		5095
+US	USA	County	Local	Montgomery		5097
+US	USA	County	Local	Nevada		5099
+US	USA	County	Local	Newton		5101
+US	USA	County	Local	Ouachita		5103
+US	USA	County	Local	Perry		5105
+US	USA	County	Local	Phillips		5107
+US	USA	County	Local	Pike		5109
+US	USA	County	Local	Poinsett		5111
+US	USA	County	Local	Polk		5113
+US	USA	County	Local	Pope		5115
+US	USA	County	Local	Prairie		5117
+US	USA	County	Local	Pulaski		5119
+US	USA	County	Local	Randolph		5121
+US	USA	County	Local	St Francis		5123
+US	USA	County	Local	Saline		5125
+US	USA	County	Local	Scott		5127
+US	USA	County	Local	Searcy		5129
+US	USA	County	Local	Sebastian		5131
+US	USA	County	Local	Sevier		5133
+US	USA	County	Local	Sharp		5135
+US	USA	County	Local	Stone		5137
+US	USA	County	Local	Union		5139
+US	USA	County	Local	Van Buren		5141
+US	USA	County	Local	Washington		5143
+US	USA	County	Local	White		5145
+US	USA	County	Local	Woodruff		5147
+US	USA	County	Local	Yell		5149
+US	USA	County	Local	Alameda		6001
+US	USA	County	Local	Alpine		6003
+US	USA	County	Local	Amador		6005
+US	USA	County	Local	Butte		6007
+US	USA	County	Local	Calaveras		6009
+US	USA	County	Local	Colusa		6011
+US	USA	County	Local	Contra Costa		6013
+US	USA	County	Local	Del Norte		6015
+US	USA	County	Local	El Dorado		6017
+US	USA	County	Local	Fresno		6019
+US	USA	County	Local	Glenn		6021
+US	USA	County	Local	Humboldt		6023
+US	USA	County	Local	Imperial		6025
+US	USA	County	Local	Inyo		6027
+US	USA	County	Local	Kern		6029
+US	USA	County	Local	Kings		6031
+US	USA	County	Local	Lake		6033
+US	USA	County	Local	Lassen		6035
+US	USA	County	Local	Los Angeles		6037
+US	USA	County	Local	Madera		6039
+US	USA	County	Local	Marin		6041
+US	USA	County	Local	Mariposa		6043
+US	USA	County	Local	Mendocino		6045
+US	USA	County	Local	Merced		6047
+US	USA	County	Local	Modoc		6049
+US	USA	County	Local	Mono		6051
+US	USA	County	Local	Monterey		6053
+US	USA	County	Local	Napa		6055
+US	USA	County	Local	Nevada		6057
+US	USA	County	Local	Orange		6059
+US	USA	County	Local	Placer		6061
+US	USA	County	Local	Plumas		6063
+US	USA	County	Local	Riverside		6065
+US	USA	County	Local	Sacramento		6067
+US	USA	County	Local	San Benito		6069
+US	USA	County	Local	San Bernardino		6071
+US	USA	County	Local	San Diego		6073
+US	USA	County	Local	San Francisco		6075
+US	USA	County	Local	San Joaquin		6077
+US	USA	County	Local	San Luis Obispo		6079
+US	USA	County	Local	San Mateo		6081
+US	USA	County	Local	Santa Barbara		6083
+US	USA	County	Local	Santa Clara		6085
+US	USA	County	Local	Santa Cruz		6087
+US	USA	County	Local	Shasta		6089
+US	USA	County	Local	Sierra		6091
+US	USA	County	Local	Siskiyou		6093
+US	USA	County	Local	Solano		6095
+US	USA	County	Local	Sonoma		6097
+US	USA	County	Local	Stanislaus		6099
+US	USA	County	Local	Sutter		6101
+US	USA	County	Local	Tehama		6103
+US	USA	County	Local	Trinity		6105
+US	USA	County	Local	Tulare		6107
+US	USA	County	Local	Tuolumne		6109
+US	USA	County	Local	Ventura		6111
+US	USA	County	Local	Yolo		6113
+US	USA	County	Local	Yuba		6115
+US	USA	County	Local	Adams		8001
+US	USA	County	Local	Alamosa		8003
+US	USA	County	Local	Arapahoe		8005
+US	USA	County	Local	Archuleta		8007
+US	USA	County	Local	Baca		8009
+US	USA	County	Local	Bent		8011
+US	USA	County	Local	Boulder		8013
+US	USA	County	Local	Chaffee		8015
+US	USA	County	Local	Cheyenne		8017
+US	USA	County	Local	Clear Creek		8019
+US	USA	County	Local	Conejos		8021
+US	USA	County	Local	Costilla		8023
+US	USA	County	Local	Crowley		8025
+US	USA	County	Local	Custer		8027
+US	USA	County	Local	Delta		8029
+US	USA	County	Local	Denver		8031
+US	USA	County	Local	Dolores		8033
+US	USA	County	Local	Douglas		8035
+US	USA	County	Local	Eagle		8037
+US	USA	County	Local	Elbert		8039
+US	USA	County	Local	El Paso		8041
+US	USA	County	Local	Fremont		8043
+US	USA	County	Local	Garfield		8045
+US	USA	County	Local	Gilpin		8047
+US	USA	County	Local	Grand		8049
+US	USA	County	Local	Gunnison		8051
+US	USA	County	Local	Hinsdale		8053
+US	USA	County	Local	Huerfano		8055
+US	USA	County	Local	Jackson		8057
+US	USA	County	Local	Jefferson		8059
+US	USA	County	Local	Kiowa		8061
+US	USA	County	Local	Kit Carson		8063
+US	USA	County	Local	Lake		8065
+US	USA	County	Local	La Plata		8067
+US	USA	County	Local	Larimer		8069
+US	USA	County	Local	Las Animas		8071
+US	USA	County	Local	Lincoln		8073
+US	USA	County	Local	Logan		8075
+US	USA	County	Local	Mesa		8077
+US	USA	County	Local	Mineral		8079
+US	USA	County	Local	Moffat		8081
+US	USA	County	Local	Montezuma		8083
+US	USA	County	Local	Montrose		8085
+US	USA	County	Local	Morgan		8087
+US	USA	County	Local	Otero		8089
+US	USA	County	Local	Ouray		8091
+US	USA	County	Local	Park		8093
+US	USA	County	Local	Phillips		8095
+US	USA	County	Local	Pitkin		8097
+US	USA	County	Local	Prowers		8099
+US	USA	County	Local	Pueblo		8101
+US	USA	County	Local	Rio Blanco		8103
+US	USA	County	Local	Rio Grande		8105
+US	USA	County	Local	Routt		8107
+US	USA	County	Local	Saguache		8109
+US	USA	County	Local	San Juan		8111
+US	USA	County	Local	San Miguel		8113
+US	USA	County	Local	Sedgwick		8115
+US	USA	County	Local	Summit		8117
+US	USA	County	Local	Teller		8119
+US	USA	County	Local	Washington		8121
+US	USA	County	Local	Weld		8123
+US	USA	County	Local	Yuma		8125
+US	USA	County	Local	Fairfield		9001
+US	USA	County	Local	Hartford		9003
+US	USA	County	Local	Litchfield		9005
+US	USA	County	Local	Middlesex		9007
+US	USA	County	Local	New Haven		9009
+US	USA	County	Local	New London		9011
+US	USA	County	Local	Tolland		9013
+US	USA	County	Local	Windham		9015
 US	USA	County	Local	Kent		10001
 US	USA	County	Local	New Castle		10003
 US	USA	County	Local	Sussex		10005

@@ -3,7 +3,7 @@
 #################################################################
 
 run_id_strict <- 11
-#run_id_lax <- 35
+run_id_lax <- 16
 
 #################################################################
 ## Load required libraries ######################################
@@ -56,8 +56,6 @@ model_outputs$date <- as.Date(model_outputs$date)
 ## as of April 16th: projected based on current trends
 ## this is the 3 month strict stay at home model (strict): "https://covidactnow.org/data/CA.2.json"
 
-date_strict <- c(); hosp_strict <- c()
-
 additional_outputs <- cbind.data.frame(
   "model_run_id" = NA,
   "output_id" = NA,
@@ -101,38 +99,34 @@ for(state in 1:nrow(locations[which(complete.cases(locations$FIPS)),])){
 
 ## note: as of April 10th, file .1 json corresponds to the strict model and file .3 json corresponds to the lax model
 ## this needs to be double checked every time the code is run, in case they change something (documentation not clear)
-# 
-# date_lax <- c(); hosp_lax <- c()
-# 
-# for(state in 1:nrow(states[which(complete.cases(states$FIPS)),])){
-#   
-#   print(states[which(complete.cases(states$FIPS)),]$Location[state])
-#   
-#   lax <- fromJSON(file = paste("https://covidactnow.org/data/", states[which(complete.cases(states$FIPS)),][state,]$abbreviation, ".3.json", sep = ""))
-#   
-#   date_lax <- c()
-#   hosp_lax <- c()
-#   
-#   for(i in 1:length(strict)){
-#     date_lax <- c(date_lax, unlist(lax[[i]][2]))
-#     hosp_lax <- c(hosp_lax, as.numeric(unlist(lax[[i]][10])))
-#   }
-#   
-#   
-#   additional_outputs <- rbind.data.frame(additional_outputs,
-#                                          cbind.data.frame(
-#                                            "model_run_id" = run_id_lax,
-#                                            "output_id" = 5,
-#                                            "output_name" = "Hospital beds needed per day",
-#                                            "date" = date_strict, 
-#                                            "location" =  states[which(complete.cases(states$FIPS)),]$Location[state],
-#                                            "value" = hosp_lax,
-#                                            "notes" = "assuming three months of lax stay at home compliance")
-#   )
-#   
-# }
-# 
-# 
+
+for(state in 1:nrow(locations[which(locations$iso3 == "USA" & locations$location_type == "Province/State"),])){
+  
+  print(locations[which(locations$iso3 == "USA" & locations$location_type == "Province/State"),]$location_name[state])
+  
+  lax <- fromJSON(file = paste("https://covidactnow.org/data/", locations[which(locations$iso3 == "USA" & locations$location_type == "Province/State"),][state,]$abbreviation, ".3.json", sep = ""))
+  
+  date_lax <- c()
+  hosp_lax <- c()
+  
+  for(i in 1:length(lax)){
+    date_lax <- c(date_lax, unlist(lax[[i]][2]))
+    hosp_lax <- c(hosp_lax, as.numeric(unlist(lax[[i]][10])))
+  }
+  
+  
+  additional_outputs <- rbind.data.frame(additional_outputs,
+                                         cbind.data.frame(
+                                           "model_run_id" = run_id_lax,
+                                           "output_id" = 5,
+                                           "output_name" = "Hospital beds needed per day",
+                                           "date" = date_lax,
+                                           "location" =  locations[which(complete.cases(locations$FIPS)),]$location_name[state],
+                                           "value" = hosp_lax,
+                                           "notes" = "assumed lifted restrictions")
+  )
+  
+}
 
 
 #################################################################
@@ -145,7 +139,7 @@ additional_outputs$date <- as.Date(additional_outputs$date, format = "%m/%d/%y")
 
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "Mississippi"),],
+ggplot(additional_outputs[which(additional_outputs$location == "California"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
@@ -173,14 +167,14 @@ model_outputs <- rbind.data.frame(model_outputs,
                                   additional_outputs)
 
 
-# model_outputs <- rbind.data.frame(model_outputs, 
-#                                   additional_outputs,
-#                                   cbind.data.frame(model_run_id = us_totals$model_run_id,
-#                                                    output_id = us_totals$output_id,
-#                                                    output_name = us_totals$output_name,
-#                                                    date = us_totals$date,
-#                                                    location = "United States of America",
-#                                                    value = us_totals$value,
-#                                                    notes = "US total bed count calculated as sum across states and DC"))
+new_model_outputs <- rbind.data.frame(model_outputs,
+                                  additional_outputs,
+                                  cbind.data.frame(model_run_id = us_totals$model_run_id,
+                                                   output_id = us_totals$output_id,
+                                                   output_name = us_totals$output_name,
+                                                   date = us_totals$date,
+                                                   location = "United States of America",
+                                                   value = us_totals$value,
+                                                   notes = "US total bed count calculated as sum across states and DC"))
 
 write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep='\t', row.names = FALSE)
