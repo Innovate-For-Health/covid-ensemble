@@ -8,7 +8,6 @@ library(scales)
 library(DT)
 
 ## TODO: make plots not appear when there aren't data to power them
-## TODO: colors consistent for a given model
 
 server <- function(input, output, session) {
   
@@ -39,9 +38,12 @@ server <- function(input, output, session) {
                         choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output),]$model_name))
     })
     
+    ######################################################################
+    ## Generate explanatory text blurbs ##################################
+    ######################################################################
     
     output$model_output <- renderText({ print(input$output_name) })
-    
+    output$model_name <- renderText({ print(input$model_name) }) 
     
   ######################################################################
   ## Filter data as needed #############################################
