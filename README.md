@@ -1,4 +1,5 @@
-# Essential information: consolidating the data and models that drive COVID-19 policy decisions
+# Essential information: 
+# consolidating the models and assumptions that drive COVID-19 policy decisions
 
 ## This work is still in progress.
 
@@ -21,16 +22,12 @@ All of the COVID-19 models identified below have been documented as being used b
 
 - [University of Washington IHME's COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
 
-- [Penn Medicine's COVID-19 Hospital Impact Model for Epidemics (CHIME) app](https://code-for-philly.gitbook.io/chime/)
-
-- [Harvard Global Health Institute's Multiplier-Based Model](https://globalepidemics.org/our-data/hospital-capacity/#data) 
-
 - [COVID Act Now US Intervention Model](https://covidactnow.org/) 
 
-- [Colorado COVID-19 Modeling Group Model](https://covid19.colorado.gov/press-release/state-provides-covid-19-modeling-data)
+- [Shaman Lab COVID-19 Projections](https://github.com/shaman-lab/COVID-19Projection)
 
 
-We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available.
+We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available. Only models that produce estimates at daily, weekly, or monthly temporal resolutions over time are currently included.
 
 ## Data architecture
 
