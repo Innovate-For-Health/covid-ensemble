@@ -1,5 +1,4 @@
-# Essential information: 
-# consolidating the models and assumptions that drive COVID-19 policy decisions
+# Essential information: consolidating the models and assumptions that drive COVID-19 policy decisions
 
 ## This work is still in progress.
 
@@ -105,6 +104,7 @@ A brief overview of key tables and data elements is included below.
     - `date:` the date associated with the model output value
     - `location:` the location associated with the model output value
     - `value:` the value produced by the model for the given output, date, and location
+    - `value type:` whether the value specified is a single point estimate (e.g., single point estimate produced by the model) or a percentile-based estimate (e.g., 50th percentile of estimates produced across model runs)
 
 
     
