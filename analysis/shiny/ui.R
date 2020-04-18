@@ -68,7 +68,7 @@ tabPanel("View models",
              conditionalPanel(condition = "input.model_tab == 'monitor' || input.model_tab == 'parameters'" ,
                        selectInput(inputId = "model_name", 
                                    label = "Select model:", 
-                                   choices = c("IHME COVID-19 Model", "COVID Act Now US Intervention Model", "Shaman Lab Model")))
+                                   choices = c("IHME COVID-19 Model", "LANL COVID-19 Model", "COVID Act Now US Intervention Model", "Shaman Lab Model")))
              
            ),
          
@@ -83,8 +83,8 @@ tabPanel("View models",
                                    h4("How do the results of different models compare?"),
                                    plotOutput("compare_most_recent_models"),
                                    h5("What does this plot show? How should it be interpreted?"),
-                                  p("This plot shows the most recent available model estimates, over time, for each model that estimates the number of",
-                                  textOutput("model_output", inline = TRUE), "."),
+                                  p("This plot shows the most recent available model estimates for each model that estimates the number of",
+                                  textOutput("model_output", inline = TRUE)),
                                   p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
                                     This plot is intended to illustrate how different models may produce different results over time, based on differences in underlying data inputs, parameters, or assumptions.
                                     If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
@@ -122,13 +122,11 @@ tabPanel("View models",
 
 tabPanel("Model inventory",
          mainPanel(
-
-
-        
            h3("Model inventory"),
            h4("IHME COVID-19 Model"),
            h4("COVID Act Now"),
-           h4("Shaman Lab Model")
+           h4("Shaman Lab Model"),
+           h4("Los Alamos National Lab Model")
          )),
 
 ###################################################################################
@@ -157,50 +155,6 @@ tabPanel("Documentation",
               or export their results in formats that make it difficult to compare results across models.
              This project was developed to fill that gap."),
            
-           h3("How are models being used to inform COVID response and recovery?"),
-           p("Public health responders, healthcare organizations, and policy-makers rely on 
-             epidemiological forecast models for COVID-19 to inform their policy decisions and develop plans based on how the outbreak may unfold."),
-           
-           p("For example, in California, Governor Gavin Newsom described how the state's early shelter-in-place orders
-            were informed by", tags$a(href="https://www.kqed.org/science/1959566/california-gov-gavin-newsom-orders-state-to-shelter-in-place", 
-                                      "statewide pandemic planning models"), "developed to forecast how the outbreak might spread.
-             Similarly, Muriel Bowser, the Mayor of Washington DC, cited results from both",
-             tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model"), "and",
-             tags$a(href = "http://www.healthdata.org/", "University of Washington's IHME model"), 
-             "when outlining emergency legislative provisions for the District of Columbia.
-           Leaders within healthcare organizations also use the results of these models to",
-             tags$a(href = "https://www.nytimes.com/2020/04/01/us/coronavirus-california-new-york-testing.html", "inform their own planning efforts"),
-             "."),
-           
-           h3("What types of models are included in this inventory?"),
-           p("All of the COVID-19 models identified below have been documented as being used by policy-makers or public health
-           responders during the 2019-2020 COVID-19 pandemic. Each model was developed for a different purpose, and relies on different data inputs, key assumptions, and underlying methods. The intended use of a model impacts how it is developed, how it should be used, and 
-              the context based on which its results should be interpreted."),
-           
-           h4("Models to inform policy decisions"),
-           
-           p("Models to inform policy decisions often explore the potential impact of interventions. These models are not necessarily intended to 'predict the future',
-           but rather, to help policy-makers make informed decisions about which types of interventions might be best for their
-            communities, based on available data."),
-           
-           p("One example of such a model is the",
-             tags$a(href = "https://covidactnow.org/", "COVID Act Now US Intervention model"),
-             "which was developed to visualize two possible future scenarios, one with, and one without, the implementation of
-             statewide social distancing measures. As is the case for many models to inform policy decisions, the model
-             is described by its developers as 'not intended to predict the future', and illustrates, amongst other things, a 
-             'worst case scenario' assuming no interventions."),
-           
-           h4("Models to plan for operations"),
-           
-           p("Other models are more tactically focused and are intended to help public health responders and healthcare 
-             organizations make and implement concrete plans for emergency response. Often, these models are routinely updated 
-             to generate the best possible estimate of what is likely to happen in the coming weeks and months."),
-           
-           p("One example of such a model is the",  tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model"),
-             "which was developed 'to assist hospitals and public health officials with hospital capacity planning' based on the best available 
-             information available for their regional populations."),
-           
-           
            h3("Approach"),
             
            p("To monitor how different models have changed over time, compare the assumptions and results of these models, 
@@ -219,9 +173,54 @@ tabPanel("Documentation",
              documentation in a data dictionary. As new model results become available, they are documented, archived,
              and processed via a series of routinely run R scripts to add them to a relational data structure
                (currently managed as a series of flat tab-delimited files stored in git)."),
+        
+           h3("FAQ"),
            
-           p("This is a work in progress! New models are currently being assessed and added in a rolling fashion. 
-             This site itself is also being updated regularly, including improvements to its design, underlying
-             data visualizations, and documentation.")))
+           h4("What types of models are included in this inventory?"),
+           p("All of the COVID-19 models identified below have been documented as being used by policy-makers or public health
+           responders during the 2019-2020 COVID-19 pandemic. However, this inventory of models is by no means comprehensive, and 
+           new models are currently being assessed and added in a rolling fashion."),
+           
+           h4("How are models currently being used to inform COVID response and recovery?"),
+           
+           p("Public health responders, healthcare organizations, and policy-makers rely on 
+             epidemiological forecast models for COVID-19 to inform their policy decisions and to
+             develop operational plans based on how the outbreak may unfold."),
+           
+           p("For example, in California, Governor Gavin Newsom described how the state's early shelter-in-place orders
+            were informed by", tags$a(href="https://www.kqed.org/science/1959566/california-gov-gavin-newsom-orders-state-to-shelter-in-place", 
+                                      "statewide pandemic planning models"), "developed to forecast how the outbreak might spread.
+             Similarly, Muriel Bowser, the Mayor of Washington DC, cited results from both",
+             tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model"), "and",
+             tags$a(href = "http://www.healthdata.org/", "University of Washington's IHME model"), 
+             "when outlining emergency legislative provisions for the District of Columbia.
+           Leaders within healthcare organizations also use the results of these models to",
+             tags$a(href = "https://www.nytimes.com/2020/04/01/us/coronavirus-california-new-york-testing.html", "inform their own planning efforts"),
+             "."),
+           
+           h5("Models to inform policy decisions"),
+           
+           p("Models to inform policy decisions often explore the potential impact of interventions. These models are not necessarily intended to 'predict the future',
+           but rather, to help policy-makers make informed decisions about which types of interventions might be best for their
+            communities, based on available data."),
+           
+           p("One example of such a model is the",
+             tags$a(href = "https://covidactnow.org/", "COVID Act Now US Intervention model"),
+             "which was developed to visualize two possible future scenarios, one with, and one without, the implementation of
+             statewide social distancing measures. As is the case for many models to inform policy decisions, the model
+             is described by its developers as 'not intended to predict the future', and illustrates, amongst other things, a 
+             'worst case scenario' assuming no interventions."),
+           
+           h5("Models to plan for operations"),
+           
+           p("Other models are more tactically focused and are intended to help public health responders and healthcare 
+             organizations make and implement concrete plans for emergency response. Often, these models are routinely updated 
+             to generate the best possible estimate of what is likely to happen in the coming weeks and months."),
+           
+           p("One example of such a model is the",  tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model"),
+             "which was developed 'to assist hospitals and public health officials with hospital capacity planning' based on the best available 
+             information available for their regional populations.")
+
+           ))
 )
 

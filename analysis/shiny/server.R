@@ -42,8 +42,8 @@ server <- function(input, output, session) {
     ## Generate explanatory text blurbs ##################################
     ######################################################################
     
-    output$model_output <- renderText({ print(input$output_name) })
-    output$model_name <- renderText({ print(input$model_name) }) 
+    output$model_output <- renderText({ print(tolower(input$output_name)) })
+    output$model_name <- renderText({ print(tolower(input$model_name)) }) 
     
   ######################################################################
   ## Filter data as needed #############################################
@@ -97,14 +97,15 @@ server <- function(input, output, session) {
     ######################################################################
 
     ## for compare models plot
-    model_palette_cm <- reactive({
-      if(all(c("COVID Act Now US Intervention Model", "IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-        c("#fd8d3c", "#31a354", "#756bb1") else 
-      if(all(c("COVID Act Now US Intervention Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-        c("#fd8d3c", "#756bb1") else 
-          c("#006d2c", "#3182bd", "#e6550d")
-    })  
-    
+    ## TODO: get this working again
+    # model_palette_cm <- reactive({
+    #   if(all(c("COVID Act Now US Intervention Model", "IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+    #     c("#fd8d3c", "#31a354", "#756bb1") else 
+    #   if(all(c("COVID Act Now US Intervention Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+    #     c("#fd8d3c", "#756bb1") else 
+    #       c("#006d2c", "#3182bd", "#e6550d")
+    # })  
+    # 
     
     ## for compare model over time plot
     model_palette_mt <- reactive({
@@ -138,7 +139,8 @@ server <- function(input, output, session) {
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
         xlab("") +
-        scale_color_manual(values = model_palette_cm()) +
+        ## TODO: get this working again
+        #scale_color_manual(values = model_palette_cm()) +
         theme_light() 
     })
     

@@ -17,3 +17,6 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 16	9	"Shaman Lab Model (4/5/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/5/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
 17	9	"Shaman Lab Model (4/9/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/9/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
 18	13	LANL COVID-19 Model (4/15)	Update with new training data (4/15)	LANL COVID-19 Model	4/15/20		TRUE	TRUE	TRUE
+19	13	LANL COVID-19 Model (4/12)	Update with new training data (4/12)	LANL COVID-19 Model	4/12/20		FALSE	TRUE	TRUE
+20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	TRUE	TRUE
+21	13	LANL COVID-19 Model (4/5)	Initial archived model release (4/5)	LANL COVID-19 Model	4/5/20		FALSE	TRUE	TRUE

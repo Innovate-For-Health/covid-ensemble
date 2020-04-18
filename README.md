@@ -25,6 +25,8 @@ All of the COVID-19 models identified below have been documented as being used b
 
 - [Shaman Lab COVID-19 Projections](https://github.com/shaman-lab/COVID-19Projection)
 
+- [Los Alamos National Lab COVID-19 Model](https://covid-19.bsvgateway.org/)
+
 
 We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available. Only models that produce estimates at daily, weekly, or monthly temporal resolutions over time are currently included.
 
