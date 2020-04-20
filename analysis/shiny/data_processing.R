@@ -12,8 +12,9 @@ model_options <- unique(model_outputs$output_name)
 locations_agg = list("Countries" = sort(locations[which(locations$location_type == "Country" & locations$location_name %in% unique(model_outputs$location)),]$location_name),
                      "US states, territories, and DC" = sort(locations[which(locations$area_level == "Intermediate" & locations$iso2 == "US"  & locations$location_name %in% unique(model_outputs$location)),]$location_name))
 
-outputs_agg = list("Caseload and fatalities" = c("New confirmed cases per day",
-                                                 "Cumulative fatalities"),
+outputs_agg = list("Caseload and fatalities" = c("New confirmed cases per day"),
+                   ## TODO: fix LANL cumulative fatality data and add this back in
+                                              #   "Cumulative fatalities"),
                    "Healthcare demand" = c("Hospital beds needed per day",
                                            "ICU beds needed per day",
                                            "Ventilators needed per day"))
