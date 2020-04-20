@@ -58,10 +58,10 @@ server <- function(input, output, session) {
     })
     
     ## for debugging
-    # selectedOutputs <- outputs %>%
-    #     filter(location %in% "Alaska" &
-    #              output_name %in%  "Hospital beds needed per day") %>%
-    #     arrange(desc(model_snapshot_date))
+     # selectedOutputs <- outputs %>%
+     #     filter(location %in% "United States of America" &
+     #              output_name %in%  "Cumulative fatalities" ) %>%
+     #     arrange(desc(model_snapshot_date))
 
     
     ## filter data based on the location, model output, and specific model selected
@@ -96,22 +96,29 @@ server <- function(input, output, session) {
     ## Pick primary color palette depending on model ######################
     ######################################################################
 
+    ## LANL COVID-19 Model: #fd8d3c
+    ## IHME: #31a354
+    ## Shaman: #756bb1
+    
     ## for compare models plot
-    ## TODO: get this working again
-    # model_palette_cm <- reactive({
-    #   if(all(c("COVID Act Now US Intervention Model", "IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-    #     c("#fd8d3c", "#31a354", "#756bb1") else 
-    #   if(all(c("COVID Act Now US Intervention Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-    #     c("#fd8d3c", "#756bb1") else 
-    #       c("#006d2c", "#3182bd", "#e6550d")
-    # })  
-    # 
+    model_palette_cm <- reactive({
+      if(all(c("IHME COVID-19 Model", "LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+        c("#31a354","#fd8d3c", "#756bb1") else
+      if(all(c("LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+        c("#fd8d3c", "#756bb1") else
+      if(all(c("IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+          c("#31a354", "#756bb1") else    
+     if(all(c("IHME COVID-19 Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
+              c("#31a354", "#fd8d3c") else    
+          c("#006d2c", "#3182bd", "#e6550d")
+    })
+
     
     ## for compare model over time plot
     model_palette_mt <- reactive({
       unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
                        ifelse(selectedOutputsModelTime()$model_name == "Shaman Lab Model", "Purples",
-                       ifelse(selectedOutputsModelTime()$model_name == "COVID Act Now US Intervention Model", "Oranges",   
+                       ifelse(selectedOutputsModelTime()$model_name == "LANL COVID-19 Model", "Oranges",   
                        "Reds"))))
     })  
     
@@ -119,7 +126,7 @@ server <- function(input, output, session) {
     model_palette_ma <- reactive({
       unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
              ifelse(selectedOutputsModelTime()$model_name == "Shaman Lab Model", "Purples",
-             ifelse(selectedOutputsModelTime()$model_name == "COVID Act Now US Intervention Model", "Oranges",   
+             ifelse(selectedOutputsModelTime()$model_name == "LANL COVID-19 Model", "Oranges",   
              "Reds"))))
     })  
     
@@ -130,7 +137,7 @@ server <- function(input, output, session) {
     output$compare_most_recent_models <- renderPlot({
       ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                        ## for now set focus to April through June
-                                     selectedOutputs()$date >= as.Date("2020-04-01") &
+                                     selectedOutputs()$date >= as.Date("2020-04-15") &
                                      selectedOutputs()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
@@ -139,8 +146,7 @@ server <- function(input, output, session) {
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
         xlab("") +
-        ## TODO: get this working again
-        #scale_color_manual(values = model_palette_cm()) +
+        scale_color_manual(values = model_palette_cm()) +
         theme_light() 
     })
     
@@ -149,8 +155,8 @@ server <- function(input, output, session) {
     ######################################################################
     
     output$compare_models_over_time <- renderPlot({
-      ggplot(selectedOutputsModelTime()[which( ## for now set focus to April through June
-                selectedOutputsModelTime()$date >= as.Date("2020-04-01") &
+      ggplot(selectedOutputsModelTime()[which( ## for now set focus to April 15th through June
+                selectedOutputsModelTime()$date >= as.Date("2020-04-15") &
                   selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
@@ -176,7 +182,7 @@ server <- function(input, output, session) {
     output$compare_models_over_assumptions <- renderPlot({
       
       ggplot(selectedOutputsModelAssumption()[which( ## for now set focus to April through June
-        selectedOutputsModelAssumption()$date >= as.Date("2020-04-01") &
+        selectedOutputsModelAssumption()$date >= as.Date("2020-04-15") &
           selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),],
         aes(x = date, y = value, 
             ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
