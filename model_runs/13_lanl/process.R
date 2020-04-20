@@ -114,15 +114,18 @@ national_total_deaths <- lanl_deaths %>%
   group_by(dates) %>%
   summarise(value = sum(q.50))
 
+## sanity check
+plot(national_total_deaths$dates, national_total_deaths$value)
+
 model_outputs <- rbind.data.frame(
   model_outputs,
   cbind.data.frame("model_run_id" = model_run_id,
                    "output_id" = 4,
                    "output_name" = "Cumulative fatalities",
-                   "date" = national_total_cases$dates,
+                   "date" = national_total_deaths$dates,
                    "location" = "United States of America",
                    "value_type" = "percentile (50)",
-                   "value" = lanl_cases$daily_new_cases,
+                   "value" = national_total_deaths$value,
                    "notes" = "50th percentile produced across model runs, US totals calculated as sum over US states, DC, Virgin Islands, and Puerto Rico"))
 
 model_outputs <- rbind.data.frame(
@@ -130,10 +133,10 @@ model_outputs <- rbind.data.frame(
   cbind.data.frame("model_run_id" = model_run_id,
                    "output_id" = 11,
                    "output_name" = "New confirmed cases per day",
-                   "date" = national_total_deaths$dates,
+                   "date" = national_total_cases$dates,
                    "location" = "United States of America",
                    "value_type" = "percentile (50)",
-                   "value" = national_total_deaths$value,
+                   "value" = national_total_cases$value,
                    "notes" = "50th percentile produced across model runs, US totals calculated as sum over US states, DC, Virgin Islands, and Puerto Rico"))
 
 #################################################################
