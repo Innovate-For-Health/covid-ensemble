@@ -11,5 +11,9 @@ library(shiny)
 ## Run the app ####################################################################
 ###################################################################################
 
-source("/Users/seaneff/Documents/covid-ensemble/analysis/shiny/data_processing.R")
-runApp("/Users/seaneff/Documents/covid-ensemble/analysis/shiny")
+## set working directory to source file location (covid-ensemble as pulled from git)
+## if you're not Steph, this will need to change
+setwd("/Users/seaneff/Documents/covid-ensemble/")
+
+source("analysis/shiny/data_processing.R")
+runApp("analysis/shiny")
