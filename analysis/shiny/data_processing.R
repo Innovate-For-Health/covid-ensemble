@@ -4,6 +4,7 @@
 
 ## read in full list  of model outputs, model runs, and locations
 model_outputs <- read.delim("~/Documents/covid-ensemble/data/model_outputs.txt", stringsAsFactors = FALSE)
+models <- read.delim("~/Documents/covid-ensemble/data/models.txt", stringsAsFactors = FALSE)
 model_runs <- read.delim("~/Documents/covid-ensemble/data/model_runs.txt", stringsAsFactors = FALSE)
 locations <- read.delim("~/Documents/covid-ensemble/data/locations.txt", stringsAsFactors = FALSE)
 output_options <- unique(model_outputs$output_name)

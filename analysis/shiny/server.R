@@ -62,8 +62,8 @@ server <- function(input, output, session) {
     
     ## for debugging
      # selectedOutputs <- outputs %>%
-     #     filter(location %in% "United States of America" &
-     #              output_name %in%  "Cumulative fatalities" ) %>%
+     #     filter(location %in% "Austria" &
+     #              output_name %in%  "ICU beds needed per day" ) %>%
      #     arrange(desc(model_snapshot_date))
 
     
@@ -142,6 +142,7 @@ server <- function(input, output, session) {
     ## Generate plot: most recent models #################################
     ######################################################################
     
+    ## also checked out renderPlotly
     output$compare_most_recent_models <- renderPlot({
       ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                        ## for now set focus to April through June
@@ -155,7 +156,8 @@ server <- function(input, output, session) {
         ylab(input$output_name) +
         xlab("") +
         scale_color_manual(values = model_palette_cm()) +
-        theme_light() 
+        theme_light() %>%
+        config(displayModeBar = F)
     })
     
     ######################################################################
@@ -227,5 +229,4 @@ server <- function(input, output, session) {
     })
     
 
-  
 }

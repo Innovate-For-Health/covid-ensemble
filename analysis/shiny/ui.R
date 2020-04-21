@@ -71,7 +71,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                  
                                                  h4("How do the results of different models compare?"),
                                                  
-                                                 plotOutput("compare_most_recent_models"),
+                                                 plotOutput("compare_most_recent_models",  hover = "plot_hover_recent", hoverDelay = 0),
                                                  
                                                  h5("What does this plot show? How should it be interpreted?"),
                                                  
@@ -125,20 +125,187 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                  
                  tabPanel("Model inventory",
                           mainPanel(
-                            h3("Model inventory"),
-                            h4("IHME COVID-19 Model"),
-                            h4("COVID Act Now"),
-                            h4("Shaman Lab Model"),
-                            h4("Los Alamos National Lab Model"),
-                            h4("GLEAM")
-                          )),
+                            navlistPanel("Select model",
+                                         
+                ###################################################################################
+                ## IHME Model Details #############################################################
+                ###################################################################################
+                
+                            tabPanel("IHME COVID-19 Model",
+                                     
+                                     h3("IHME COVID-19 Model"),
+                                     hr(),
+                                     
+                                     p(tags$b("Intended use:"), "forecast the extent and timing of deaths and excess demand for hospital services due to COVID-19"),
+                                     hr(),
+                                     
+                                     p(tags$b("Developer:"), "University of Washington Institute for Health Metrics and Evaluation"),
+                                     hr(),
+                                     
+                                     p(tags$b("Key assumptions:") ,
+                                       tags$ul(
+                                         tags$li("assumes continuation of social distancing in all US states and subsequent effective implementation of containment (e.g., testing, contact tracing, restrictions on public gatherings)",
+                                                 tags$a(href = "http://www.healthdata.org/covid/updates", "(as of 4/17)", target = "_blank")),
+                                         br(),
+                                         tags$li("assumes effects from social distancing will be similar in locations around the world (e.g., Hubei, China vs. United States)"),
+                                         br(),
+                                         tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                                       hr(),
+                                       
+                                       p(tags$b("Reference and source documentation:"),
+                                         tags$ul(
+                                           tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1", "https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1", target = "_blank")),
+                                           tags$li("model results and visualization:", tags$a(href="https://covid19.healthdata.org/united-states-of-america", "https://covid19.healthdata.org/united-states-of-america", target="_blank")),
+                                           tags$li("history of model updates:", tags$a(href= "http://www.healthdata.org/covid/updates", "http://www.healthdata.org/covid/updates", target="_blank")))),
+                                       hr(),
+                                       
+                                       p(tags$b("Media coverage, responses from other researchers:"),
+                                         tags$ul(
+                                           tags$li(tags$a(href = "https://annals.org/aim/fullarticle/2764774/caution-warranted-using-institute-health-metrics-evaluation-model-predicting-course",
+                                                          "Jewell NP et al. 'Caution Warranted: Using the Institute for Health Metrics and Evaluation Model for Predicting the Course of the COVID-19 Pandemic'. Ann Intern Med. 2020.")),
+                                           tags$li(tags$a(href = "https://annals.org/aim/fullarticle/2764774/caution-warranted-using-institute-health-metrics-evaluation-model-predicting-course",
+                                                          "Jewell NP et al.'Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles and Value of Projections.' JAMA. 2020.")
+                                           ))),
+                                       hr(),
+                                       
+                                       p(tags$b("Most recent data update in Model Inventory:"), "April 17, 2020"),
+                                       hr()
+                                     )),
+                
+                ###################################################################################
+                ## IHME Model Details #############################################################
+                ###################################################################################
+                
+                tabPanel("Shaman Lab Model",
+                         
+                         h3("Shaman Lab Model"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), "project daily hospital demand, at the county level, in the United States"),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Sen Pei and Jeffrey Shaman, Mailman School of Public Health, Columbia University"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("assumes variable levels of social distancing across multiple model runs (0-40% reduction in weekly social contact)"),
+                             br(),
+                             tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
+                             br(),
+                             tags$li("assumes contact reductions are never relaxed over the course of the model run"),
+                             br(),
+                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                           
+                            hr(),
+                           
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", target = "_blank")),
+                               tags$li("model results and source code:", tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "https://github.com/shaman-lab/COVID-19Projection", target="_blank"))
+                             )),
+                           hr(),
+                           
+                           p(tags$b("Most recent data update in Model Inventory:"), "April 12, 2020"),
+                           hr()
+                         )),                
+                
+                ###################################################################################
+                ## Los Alamos Model Details #######################################################
+                ###################################################################################
+                
+                tabPanel("LANL COVID-19 Model",
+                         
+                         h3("Los Alamos National Lab (LANL) COVID-19 Model"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), "forecast the number of future confirmed cases and deaths as reported by the Johns Hopkins University (JHU) Coronavirus Resource Center dashboard"),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Los Alamos National Lab (LANL)"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("assumes that interventions will be implemented and will be upheld in the future"),
+                             br(),
+                             tags$li("assumes no more than approximately 60% of individuals could eventually become confirmed cases"),
+                             br(),
+                             tags$li("assumes no increase in case fatality rate, even if/as hospitals become overloaded"),
+                             br(),
+                             tags$li("assumes that, if a confirmed case dies, that death happens in synchrony with receiving positive test results"),
+                             br(),
+                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                           
+                           hr(),
+                           
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("model results and visualizations:", tags$a(href="https://covid-19.bsvgateway.org/", "https://covid-19.bsvgateway.org/", target="_blank"))
+                             )),
+                           hr(),
+                           
+                           p(tags$b("Most recent data update in Model Inventory:"), "April 9, 2020"),
+                           hr()
+                         )),                
+                
+                ###################################################################################
+                ## Los Alamos Model Details #######################################################
+                ###################################################################################
+                
+                tabPanel("GLEAM Model",
+                         
+                         h3("Global Epidemic and Mobility Model (GLEAM) Model"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), "forecast newly generated infections, times of disease arrival in different regions, and the number of traveling infection carriers"),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Global Epidemic and Mobility Model project team"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("assumes stay-at-home policies result in a '70% transmissibility reduction'"),
+                             br(),
+                             tags$li("assumes no pre-symptomatic transmission"),
+                             br(),
+                             tags$li("assumes sustained adherence to existing shelter-in-place orders"),
+                             br(),
+                             tags$li("please consult available documentation below for additional information on key model assumptions."))
+                           ),
+                           
+                           hr(),
+                           
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("public documentation for COVID-19:", tags$a(href="https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", "https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", target="_blank")),
+                               tags$li("GLEAM website:", tags$a(href="http://www.gleamviz.org/model/", "http://www.gleamviz.org/model/", target="_blank")),
+                               tags$li("model results and visualizations:", tags$a(href = "https://covid19.gleamproject.org/", "https://covid19.gleamproject.org/", target = "_blank"))
+                                       )
+                               
+                             ),
+                           hr(),
+                           
+                           p(tags$b("Most recent data update in Model Inventory:"), "April 4, 2020"),
+                           hr()
+                         )                
+                
+                
+                
+                
+                
+                
+                ))),
+              
+
                  
                  ###################################################################################
                  ## Download Data Tab ##############################################################
                  ###################################################################################
                  
-                 tabPanel("Download data",
-                          mainPanel(DT::dataTableOutput("output_table"))),
+                 # tabPanel("Download data",
+                 #          mainPanel(DT::dataTableOutput("output_table"))),
                  
                  ###################################################################################
                  ## Documentation Tab ##############################################################
@@ -188,42 +355,32 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             h4("How are models currently being used to inform COVID response and recovery?"),
                             
                             p("Public health responders, healthcare organizations, and policy-makers rely on 
-             epidemiological forecast models for COVID-19 to inform their policy decisions and to
-             develop operational plans based on how the outbreak may unfold."),
+                              epidemiological forecast models for COVID-19 to inform their policy decisions and to
+                              develop operational plans based on how the outbreak may unfold."),
                             
                             p("For example, in California, Governor Gavin Newsom described how the state's early shelter-in-place orders
-            were informed by", tags$a(href="https://www.kqed.org/science/1959566/california-gov-gavin-newsom-orders-state-to-shelter-in-place", 
-                                      "statewide pandemic planning models"), "developed to forecast how the outbreak might spread.
-             Similarly, Muriel Bowser, the Mayor of Washington DC, cited results from both",
+                              were informed by", tags$a(href="https://www.kqed.org/science/1959566/california-gov-gavin-newsom-orders-state-to-shelter-in-place", 
+                              "statewide pandemic planning models"), "developed to forecast how the outbreak might spread.
+                               Similarly, Muriel Bowser, the Mayor of Washington DC, cited results from both",
                               tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model"), "and",
                               tags$a(href = "http://www.healthdata.org/", "University of Washington's IHME model"), 
                               "when outlining emergency legislative provisions for the District of Columbia.
-           Leaders within healthcare organizations also use the results of these models to",
+                              Leaders within healthcare organizations also use the results of these models to",
                               tags$a(href = "https://www.nytimes.com/2020/04/01/us/coronavirus-california-new-york-testing.html", "inform their own planning efforts"),
                               "."),
                             
                             h5("Models to inform policy decisions"),
                             
                             p("Models to inform policy decisions often explore the potential impact of interventions. These models are not necessarily intended to 'predict the future',
-           but rather, to help policy-makers make informed decisions about which types of interventions might be best for their
-            communities, based on available data."),
-                            
-                            p("One example of such a model is the",
-                              tags$a(href = "https://covidactnow.org/", "COVID Act Now US Intervention model"),
-                              "which was developed to visualize two possible future scenarios, one with, and one without, the implementation of
-             statewide social distancing measures. As is the case for many models to inform policy decisions, the model
-             is described by its developers as 'not intended to predict the future', and illustrates, amongst other things, a 
-             'worst case scenario' assuming no interventions."),
+                              but rather, to help policy-makers make informed decisions about which types of interventions might be best for their
+                              communities, based on available data. Many such models forecast two or more possible future scenarios assuming the implementation of
+                              different types of interventions."),
                             
                             h5("Models to plan for operations"),
                             
                             p("Other models are more tactically focused and are intended to help public health responders and healthcare 
-             organizations make and implement concrete plans for emergency response. Often, these models are routinely updated 
-             to generate the best possible estimate of what is likely to happen in the coming weeks and months."),
-                            
-                            p("One example of such a model is the",  tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model"),
-                              "which was developed 'to assist hospitals and public health officials with hospital capacity planning' based on the best available 
-             information available for their regional populations.")
+                               organizations make and implement concrete plans for emergency response. Often, these models are routinely updated 
+                                to generate the best possible estimate of what is likely to happen in the coming weeks and months."),
                             
                           ))
 )
