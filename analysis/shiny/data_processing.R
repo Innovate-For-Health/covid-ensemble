@@ -9,10 +9,13 @@ locations <- read.delim("~/Documents/covid-ensemble/data/locations.txt", strings
 output_options <- unique(model_outputs$output_name)
 model_options <- unique(model_outputs$output_name)
 
-locations_agg = list("Countries" = sort(locations[which(locations$location_type == "Country" & locations$location_name %in% unique(model_outputs$location)),]$location_name),
-                     "US states, territories, and DC" = sort(locations[which(locations$area_level == "Intermediate" & locations$iso2 == "US"  & locations$location_name %in% unique(model_outputs$location)),]$location_name))
+locations_agg <- list("Countries" = sort(locations[which(locations$location_type == "Country" & locations$location_name %in% unique(model_outputs$location)),]$location_name),
+                     "US states, territories, and DC" = sort(locations[which(locations$area_level == "Intermediate" & locations$iso2 == "US" &
+                                                             ## unfortunately data from VI are not reliable now, so manually exclude and hopefully add back later if and as data become available
+                                                                             locations$location_name != "Virgin Islands" & 
+                                                                             locations$location_name %in% unique(model_outputs$location)),]$location_name))
 
-outputs_agg = list("Caseload and fatalities" = c("New confirmed cases per day",
+outputs_agg <- list("Caseload and fatalities" = c("New confirmed cases per day",
                                                  "Cumulative fatalities"),
                    "Healthcare demand" = c("Hospital beds needed per day",
                                            "ICU beds needed per day",

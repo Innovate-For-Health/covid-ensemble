@@ -99,18 +99,23 @@ server <- function(input, output, session) {
     ## LANL COVID-19 Model: #fd8d3c
     ## IHME: #31a354
     ## Shaman: #756bb1
+    ## GLEAM: #dd1c77
     
     ## for compare models plot
+    ## TODO: figure out a better way to do this, maybe using c())?
     model_palette_cm <- reactive({
-      if(all(c("IHME COVID-19 Model", "LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-        c("#31a354","#fd8d3c", "#756bb1") else
+      temp <- c()
+      if(all(c("GLEAM", "IHME COVID-19 Model", "LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+        c("#dd1c77", "#31a354","#fd8d3c", "#756bb1") else
       if(all(c("LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
         c("#fd8d3c", "#756bb1") else
+      if(all(c("GLEAM", "IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
+          c("#dd1c77", "#31a354", "#756bb1") else    
       if(all(c("IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
           c("#31a354", "#756bb1") else    
      if(all(c("IHME COVID-19 Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
               c("#31a354", "#fd8d3c") else    
-          c("#006d2c", "#3182bd", "#e6550d")
+          c("#006d2c", "#3182bd", "#e6550d", "#dd1c77")
     })
 
     

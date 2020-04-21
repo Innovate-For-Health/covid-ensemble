@@ -126,7 +126,8 @@ tabPanel("Model inventory",
            h4("IHME COVID-19 Model"),
            h4("COVID Act Now"),
            h4("Shaman Lab Model"),
-           h4("Los Alamos National Lab Model")
+           h4("Los Alamos National Lab Model"),
+           h4("GLEAM")
          )),
 
 ###################################################################################

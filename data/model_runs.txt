@@ -20,3 +20,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 19	13	LANL COVID-19 Model (4/12)	Update with new training data (4/12)	LANL COVID-19 Model	4/12/20		FALSE	TRUE	TRUE
 20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	TRUE	TRUE
 21	13	LANL COVID-19 Model (4/5)	Initial archived model release (4/5)	LANL COVID-19 Model	4/5/20		FALSE	TRUE	TRUE
+22	10	GLEAM (4/20)	Initial archived results from website (4/20/20)	GLEAM	4/20/20		TRUE	FALSE	FALSE
