@@ -42,8 +42,11 @@ server <- function(input, output, session) {
     ## Generate explanatory text blurbs ##################################
     ######################################################################
     
-    output$model_output <- renderText({ print(tolower(input$output_name)) })
-    output$model_name <- renderText({ print(tolower(input$model_name)) }) 
+    ## add a period to this one because it will always come at the end of a sentence
+    output$model_output <- renderText({ print(paste(tolower(input$output_name), ".", sep = "")) })
+    
+    ## remove the word "model" from this based on how it's used in a sentence in the UI
+    output$model_name <- renderText({ print(input$model_name) }) 
     
   ######################################################################
   ## Filter data as needed #############################################
