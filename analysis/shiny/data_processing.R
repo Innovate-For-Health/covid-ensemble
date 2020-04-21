@@ -8,7 +8,8 @@ models <- read.delim("~/Documents/covid-ensemble/data/models.txt", stringsAsFact
 model_runs <- read.delim("~/Documents/covid-ensemble/data/model_runs.txt", stringsAsFactors = FALSE)
 locations <- read.delim("~/Documents/covid-ensemble/data/locations.txt", stringsAsFactors = FALSE)
 output_options <- unique(model_outputs$output_name)
-model_options <- unique(model_outputs$output_name)
+## exclude GLEAM for now as there's only one set of results
+model_options <- unique(model_outputs$output_name)[-which(unique(model_outputs$output_name) == "GLEAM")]
 
 locations_agg <- list("Countries" = sort(locations[which(locations$location_type == "Country" & locations$location_name %in% unique(model_outputs$location)),]$location_name),
                      "US states, territories, and DC" = sort(locations[which(locations$area_level == "Intermediate" & locations$iso2 == "US" &

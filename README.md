@@ -21,9 +21,9 @@ All of the COVID-19 models identified below have been documented as being used b
 
 - [University of Washington IHME's COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
 
-- [COVID Act Now US Intervention Model](https://covidactnow.org/) 
+- [GLEAM](https://covidactnow.org/) 
 
-- [Shaman Lab COVID-19 Projections](https://github.com/shaman-lab/COVID-19Projection)
+- [Shaman Lab COVID-19 Projections](https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf)
 
 - [Los Alamos National Lab COVID-19 Model](https://covid-19.bsvgateway.org/)
 

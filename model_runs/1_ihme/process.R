@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 7
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_13.csv"
+model_run_id <- 23
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_17.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -77,6 +77,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                      "output_name" = "Fatalities per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$deaths_mean,
                      "notes" = "")
   )
@@ -96,6 +97,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
                      "output_name" = "Cumulative fatalities",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$totdea_mean,
                      "notes" = "")
   )
@@ -115,6 +117,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])
                      "output_name" = "Hospital beds needed per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$allbed_mean,
                      "notes" = "")
   )
@@ -134,6 +137,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])
                      "output_name" = "ICU beds needed per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$ICUbed_mean,
                      "notes" = "")
   )
@@ -153,6 +157,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])
                      "output_name" = "Ventilators needed per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$InvVen_mean ,
                      "notes" = "")
   )
@@ -172,6 +177,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 8])
                      "output_name" = "Hospital admissions per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$admis_mean ,
                      "notes" = "")
   )
@@ -191,6 +197,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 9])
                      "output_name" = "ICU admissions per day",
                      "date" = ihme$date,
                      "location" = ihme$location,
+                     "value_type" = "point estimate",
                      "value" = ihme$newICU_mean ,
                      "notes" = "")
   )

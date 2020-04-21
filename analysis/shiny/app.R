@@ -6,7 +6,6 @@
 ## running the code below, which is currently commented out
 #install.packages(c("shiny"))
 library(shiny)
-library(plotly)
 
 ###################################################################################
 ## Run the app ####################################################################

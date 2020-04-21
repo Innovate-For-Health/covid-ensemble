@@ -16,23 +16,24 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             
                             h3("Goals and Audience"),
                             
-                            p("Public health researchers and responders have rapidly responded to the COVID-19 
+                            p("Public health researchers have rapidly responded to the COVID-19 
              outbreak by developing models to forecast how the outbreak might unfold under various possible scenarios. 
              In the absence of a central data repository or coordinating body for public health response modeling, 
-             it is often difficult to rapidly access, understand, and compare results from different models currently being used to inform policy decisions."),
+             it is often difficult to rapidly access, understand, and compare results from different models currently 
+                              being used to inform policy decisions and operational planning."),
                             
                             p("This project was developed to allow users to:"),
                             
                             tags$ul(
-                              tags$li("monitor how different models have changed over time"), 
+                              tags$li("monitor how different COVID-19 models have changed over time"), 
                               tags$li("compare the assumptions and results of these models"), 
                               tags$li("understand how differences in assumptions and methods may drive differences in results")),
                             h4("Disclaimer"),
                             
-                            p("This site is not intended to act as a substitute for accessing each individual model developer's data visualizations and available documentation.
-           If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
-           most recently available results. This site was developed specifically to archive publicly available modeling results and to highlight changes and differences 
-           assumptions and approaches between models, but is not indended to be used as an operational response tool."))),
+                            p("This site is not intended to act as a substitute for accessing each individual model’s visualizations and 
+                              available documentation. If you are using these results to develop plans or prioritize response efforts, 
+                              please also consult each model’s documentation. This site was developed to archive publicly available modeling 
+                              results and is not intended to be used as an operational response tool."))),
                  
                  ###################################################################################
                  ## View Models: Sidebar selections  ###############################################
@@ -71,7 +72,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                  
                                                  h4("How do the results of different models compare?"),
                                                  
-                                                 plotOutput("compare_most_recent_models",  hover = "plot_hover_recent", hoverDelay = 0),
+                                                 plotOutput("compare_most_recent_models"),
                                                  
                                                  h5("What does this plot show? How should it be interpreted?"),
                                                  
@@ -79,8 +80,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                    textOutput("model_output", inline = TRUE)),
                                                  
                                                  p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
-                                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
-                                                    most recently available results.")),
+                                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation.")),
                                         
                                         tabPanel(value = "monitor", title = "Monitor changes over time",
                                                  
@@ -91,13 +91,12 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                  h5("What does this plot show? How should it be interpreted?"),
                                                  
                                                  p("This plot shows outputs from multiple iterations of the", textOutput("model_name", inline = TRUE), 
-                                                 "model over time, as the input data and/or the model itself have been updated.
+                                                 "over time, as the input data and/or the model itself have been updated.
                                                   Older iterations are shown in lighter colors, with the most recent iteration of the model being shown as the darkest line.
                                                   Changes in results may reflect changes in model assumptions, input data, or modeling approaches."),
                                                  
                                                  p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
-                                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
-                                                    most recently available results.")),
+                                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation.")),
                                         
                                         tabPanel(value = "parameters", title = "Explore impact of assumptions",
                                                  
@@ -112,8 +111,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
 
                                                  
                                                  p("Models are developed for different intended uses and should be interpreted based on the context for which they were developed.
-                                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation and 
-                                                    most recently available results."))
+                                                    If you are using these model results to develop plans or prioritize response efforts, please also consult each model developer's original documentation."))
                             )
                             
                           )),
@@ -164,7 +162,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                            tags$li(tags$a(href = "https://annals.org/aim/fullarticle/2764774/caution-warranted-using-institute-health-metrics-evaluation-model-predicting-course",
                                                           "Jewell NP et al. 'Caution Warranted: Using the Institute for Health Metrics and Evaluation Model for Predicting the Course of the COVID-19 Pandemic'. Ann Intern Med. 2020.")),
                                            tags$li(tags$a(href = "https://annals.org/aim/fullarticle/2764774/caution-warranted-using-institute-health-metrics-evaluation-model-predicting-course",
-                                                          "Jewell NP et al.'Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles and Value of Projections.' JAMA. 2020.")
+                                                          "Jewell NP et al. 'Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles and Value of Projections.' JAMA. 2020.")
                                            ))),
                                        hr(),
                                        
