@@ -29,15 +29,16 @@ server <- function(input, output, session) {
 
   
     ## update select model input
-    ## if someone changes the location, and the model outputs, only show potential models that are actually available for that location
+    # if someone changes the location, and the model outputs, only show potential models that are actually available for that location
     observe({
-      x_loc <- input$location
       x_output <- input$output_name
+      x_loc <- input$location
 
+      ## exclude GLEAM for now (as of 4/22) because there's only one version of it so nothing to compare with itself
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output),]$model_name))
+                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output & outputs$model_name != "GLEAM"),]$model_name))
     })
-    
+
     ######################################################################
     ## Generate explanatory text blurbs ##################################
     ######################################################################

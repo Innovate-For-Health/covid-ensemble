@@ -57,7 +57,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             conditionalPanel(condition = "input.model_tab == 'monitor' || input.model_tab == 'parameters'" ,
                                              selectInput(inputId = "model_name", 
                                                          label = "Select model:", 
-                                                         choices = c("IHME COVID-19 Model", "LANL COVID-19 Model", "COVID Act Now US Intervention Model", "Shaman Lab Model")))
+                                                         choices = c("IHME COVID-19 Model", "LANL COVID-19 Model", "Shaman Lab Model")))
                             
                           ),
                           
@@ -187,8 +187,6 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
-                             tags$li("assumes variable levels of social distancing across multiple model runs (0-40% reduction in weekly social contact)"),
-                             br(),
                              tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
                              br(),
                              tags$li("assumes contact reductions are never relaxed over the course of the model run"),
@@ -197,14 +195,35 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                             hr(),
                            
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US county"),
+                           hr(),
+                           
+                           p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
+                           hr(),
+                          
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
                                tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", target = "_blank")),
+                               br(),
                                tags$li("model results and source code:", tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "https://github.com/shaman-lab/COVID-19Projection", target="_blank"))
                              )),
                            hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "April 12, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "April 19, 2020"),
+                           hr(),
+                           
+                           p(tags$b("Data processing in Model Inventory:"),
+                             tags$ul(
+                               tags$li("state and national estimates calculated based on sum of relevant values reported at the county level"),
+                               br(),
+                               tags$li("point estimates taken as median produced value across model iterations, for any given location, date, and county"),
+                               br(),
+                               tags$li("when comparing Shaman model to other models in the Inventory, show model associated with initial 40% reduction in social contact")),
+                             
+                             
+                             
+                             
+                             ),
                            hr()
                          )),                
                 
@@ -365,20 +384,6 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                               "when outlining emergency legislative provisions for the District of Columbia.
                               Leaders within healthcare organizations also use the results of these models to",
                               tags$a(href = "https://www.nytimes.com/2020/04/01/us/coronavirus-california-new-york-testing.html", "inform their own planning efforts"),
-                              "."),
-                            
-                            h5("Models to inform policy decisions"),
-                            
-                            p("Models to inform policy decisions often explore the potential impact of interventions. These models are not necessarily intended to 'predict the future',
-                              but rather, to help policy-makers make informed decisions about which types of interventions might be best for their
-                              communities, based on available data. Many such models forecast two or more possible future scenarios assuming the implementation of
-                              different types of interventions."),
-                            
-                            h5("Models to plan for operations"),
-                            
-                            p("Other models are more tactically focused and are intended to help public health responders and healthcare 
-                               organizations make and implement concrete plans for emergency response. Often, these models are routinely updated 
-                                to generate the best possible estimate of what is likely to happen in the coming weeks and months."),
-                            
+                              ".")
                           ))
 )

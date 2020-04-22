@@ -2,18 +2,18 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_no_iv <- 12
-model_run_id_20_red <- 13
-model_run_id_30_red <- 14
-model_run_id_40_red <- 17
-file_name_beds_no_iv <- "model_runs/9_shaman_lab/model_export/12_bed_nointerv.csv"
-file_name_cases_no_iv <- "model_runs/9_shaman_lab/model_export/12_Projection_nointerv.csv"
-file_name_beds_40_red <- "model_runs/9_shaman_lab/model_export/17_bed_60contact.csv"
-file_name_cases_40_red <- "model_runs/9_shaman_lab/model_export/17_Projection_60contact.csv"
-file_name_beds_20_red <- "model_runs/9_shaman_lab/model_export/13_bed_80contact.csv"
-file_name_cases_20_red <- "model_runs/9_shaman_lab/model_export/13_Projection_80contact.csv"
-file_name_beds_30_red <- "model_runs/9_shaman_lab/model_export/14_bed_70contact.csv"
-file_name_cases_30_red <- "model_runs/9_shaman_lab/model_export/14_Projection_70contact.csv"
+model_run_id_no_iv <- 28
+model_run_id_20_red <- 29
+model_run_id_30_red <- 30
+model_run_id_40_red <- 31
+file_name_beds_no_iv <- "model_runs/9_shaman_lab/model_export/28_bed_nointerv.csv"
+file_name_cases_no_iv <- "model_runs/9_shaman_lab/model_export/28_Projection_nointerv.csv"
+file_name_beds_20_red <- "model_runs/9_shaman_lab/model_export/29_bed_80contact.csv"
+file_name_cases_20_red <- "model_runs/9_shaman_lab/model_export/29_Projection_80contact.csv"
+file_name_beds_30_red <- "model_runs/9_shaman_lab/model_export/30_bed_70contact.csv"
+file_name_cases_30_red <- "model_runs/9_shaman_lab/model_export/30_Projection_70contact.csv"
+file_name_beds_40_red <- "model_runs/9_shaman_lab/model_export/31_bed_60contact.csv"
+file_name_cases_40_red <- "model_runs/9_shaman_lab/model_export/31_Projection_60contact.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -37,6 +37,9 @@ model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
 model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
+
+## for debugging
+#model_outputs <- read.delim("https://raw.githubusercontent.com/Innovate-For-Health/covid-ensemble/master/data/model_outputs.txt", stringsAsFactors = FALSE)
 
 ## read in locations their their fips codes
 locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
@@ -109,6 +112,7 @@ new_model_outputs <- cbind.data.frame("model_run_id" = model_run_id_no_iv,
                      "output_name" = "New infections per day",
                      "date" = no_iv_cases$Date,
                      "location" = no_iv_cases$county,
+                     "value_type" = "percentile (50)",
                      "fips" = no_iv_cases$fips,
                      "value" = no_iv_cases$total_50,
                      "notes" = "use median new infections (model calculates percentiles across runs), assume no interventions")
@@ -118,6 +122,7 @@ new_model_outputs <- cbind.data.frame("model_run_id" = model_run_id_40_red,
                                       "output_name" = "New infections per day",
                                       "date" = red40_cases$Date,
                                       "location" = red40_cases$county,
+                                      "value_type" = "percentile (50)",
                                       "fips" = red40_cases$fips,
                                       "value" = red40_cases$total_50,
                                       "notes" = "use median new infections (model calculates percentiles across runs), assume 40% reduction in contact rate")
@@ -127,6 +132,7 @@ new_model_outputs <- cbind.data.frame("model_run_id" = model_run_id_20_red,
                                       "output_name" = "New infections per day",
                                       "date" = red20_cases$Date,
                                       "location" = red20_cases$county,
+                                      "value_type" = "percentile (50)",
                                       "fips" = red20_cases$fips,
                                       "value" = red20_cases$total_50,
                                       "notes" = "use median new infections (model calculates percentiles across runs), assume 20% reduction in contact rate")
@@ -136,10 +142,10 @@ new_model_outputs <- cbind.data.frame("model_run_id" = model_run_id_30_red,
                                       "output_name" = "New infections per day",
                                       "date" = red30_cases$Date,
                                       "location" = red30_cases$county,
+                                      "value_type" = "percentile (50)",
                                       "fips" = red30_cases$fips,
                                       "value" = red30_cases$total_50,
                                       "notes" = "use median new infections (model calculates percentiles across runs), assume 30% reduction in contact rate")
-
 
 #################################################################
 ## Add data for output_id 2: Cumulative infections ##############
@@ -158,8 +164,9 @@ new_model_outputs <- rbind.data.frame(
           "output_name" = "New confirmed cases per day",
           "date" = no_iv_cases$Date,
           "location" = no_iv_cases$county,
+          "value_type" = "percentile (50)",
           "fips" = no_iv_cases$fips,
-           "value" = no_iv_cases$report_50,
+          "value" = no_iv_cases$report_50,
           "notes" = "use median new confirmed cases (model calculates percentiles across runs), assume no interventions")
   )
 
@@ -170,6 +177,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "New confirmed cases per day",
                    "date" = red40_cases$Date,
                    "location" = red40_cases$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red40_cases$fips,
                    "value" = red40_cases$report_50,
                    "notes" = "use median new confirmed cases (model calculates percentiles across runs), assume 40% reduction in contact rate")
@@ -182,6 +190,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "New confirmed cases per day",
                    "date" = red20_cases$Date,
                    "location" = red20_cases$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red20_cases$fips,
                    "value" = red20_cases$report_50,
                    "notes" = "use median new confirmed cases (model calculates percentiles across runs), assume 20% reduction in contact rate"))
@@ -193,6 +202,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "New confirmed cases per day",
                    "date" = red30_cases$Date,
                    "location" = red30_cases$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red30_cases$fips,
                    "value" = red30_cases$report_50,
                    "notes" = "use median new confirmed cases (model calculates percentiles across runs), assume 30% reduction in contact rate"))
@@ -208,6 +218,7 @@ new_model_outputs <- rbind.data.frame(
            "output_name" = "Hospital beds needed per day",
           "date" = no_iv_beds$Date,
           "location" = no_iv_beds$county,
+          "value_type" = "percentile (50)",
           "fips" = no_iv_beds$fips,
           "value" = no_iv_beds$hosp_need_50,
           "notes" = "use median bed demand (model calculates percentiles across runs), assume no interventions"))
@@ -219,6 +230,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "Hospital beds needed per day",
                    "date" = red40_beds$Date,
                    "location" = red40_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red40_beds$fips,
                    "value" = red40_beds$hosp_need_50,
                    "notes" = "use median bed demand (model calculates percentiles across runs), assume 40% reduction in contact rate"))
@@ -230,6 +242,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "Hospital beds needed per day",
                    "date" = red20_beds$Date,
                    "location" = red20_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red20_beds$fips,
                    "value" = red20_beds$hosp_need_50,
                    "notes" = "use median bed demand (model calculates percentiles across runs), assume 20% reduction in contact rate"))
@@ -241,10 +254,10 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "Hospital beds needed per day",
                    "date" = red30_beds$Date,
                    "location" = red30_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red30_beds$fips,
                    "value" = red30_beds$hosp_need_50,
                    "notes" = "use median bed demand (model calculates percentiles across runs), assume 30% reduction in contact rate"))
-
 
 #################################################################
 ## Add data for output_id 6: ICU beds needed per day ############
@@ -257,6 +270,7 @@ new_model_outputs <- rbind.data.frame(
           "output_name" = "ICU beds needed per day",
           "date" = no_iv_beds$Date,
           "location" = no_iv_beds$county,
+          "value_type" = "percentile (50)",
           "fips" = no_iv_beds$fips,
           "value" = no_iv_beds$ICU_need_50,
           "notes" = "use median ICU bed demand (model calculates percentiles across runs), assume no interventions"))
@@ -268,6 +282,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "ICU beds needed per day",
                    "date" = red40_beds$Date,
                    "location" = red40_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red40_beds$fips,
                    "value" = red40_beds$ICU_need_50,
                    "notes" = "use median ICU bed demand (model calculates percentiles across runs), assume 40% reduction in contact rate"))
@@ -279,6 +294,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "ICU beds needed per day",
                    "date" = red20_beds$Date,
                    "location" = red20_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red20_beds$fips,
                    "value" = red20_beds$ICU_need_50,
                    "notes" = "use median ICU bed demand (model calculates percentiles across runs), assume 20% reduction in contact rate"))
@@ -290,10 +306,10 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "ICU beds needed per day",
                    "date" = red30_beds$Date,
                    "location" = red30_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red30_beds$fips,
                    "value" = red30_beds$ICU_need_50,
                    "notes" = "use median ICU bed demand (model calculates percentiles across runs), assume 30% reduction in contact rate"))
-
 
 #################################################################
 ## Add data for output_id 7: Ventilators needed per day #########
@@ -306,6 +322,7 @@ new_model_outputs <- rbind.data.frame(
           "output_name" = "Ventilators needed per day",
           "date" = no_iv_beds$Date,
           "location" = no_iv_beds$county,
+          "value_type" = "percentile (50)",
           "fips" = no_iv_beds$fips,
           "value" = no_iv_beds$vent_need_50,
           "notes" = "use median vent demand (model calculates percentiles across runs), assume no interventions"))
@@ -317,6 +334,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "Ventilators needed per day",
                    "date" = red40_beds$Date,
                    "location" = red40_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red40_beds$fips,
                    "value" = red40_beds$vent_need_50,
                    "notes" = "use median vent demand (model calculates percentiles across runs), assume 40% reduction in contact rate"))
@@ -328,6 +346,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "Ventilators needed per day",
                    "date" = red20_beds$Date,
                    "location" = red20_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red20_beds$fips,
                    "value" = red20_beds$vent_need_50,
                    "notes" = "use median vent demand (model calculates percentiles across runs), assume 20% reduction in contact rate"))
@@ -339,6 +358,7 @@ new_model_outputs <- rbind.data.frame(
                    "output_name" = "Ventilators needed per day",
                    "date" = red30_beds$Date,
                    "location" = red30_beds$county,
+                   "value_type" = "percentile (50)",
                    "fips" = red30_beds$fips,
                    "value" = red30_beds$vent_need_50,
                    "notes" = "use median vent demand (model calculates percentiles across runs), assume 30% reduction in contact rate"))
@@ -365,14 +385,29 @@ state_listing$value <- as.numeric(as.character(state_listing$value))
 
 ## sum across counties to get totals by state
 state_totals <- state_listing %>%
-  group_by(model_run_id, output_id, output_name, date, location_name) %>%
+  group_by(model_run_id, output_id, output_name, value_type, date, location_name) %>%
   summarise(value = sum(value))
+
+## check data
+ggplot(state_totals[which(state_totals$location_name == "California" & 
+                          state_totals$output_name == "Hospital beds needed per day"),], 
+       aes(x = date, y = value, color = factor(model_run_id))) +
+  geom_line(size = 1) +
+  guides(color = guide_legend(title = "Model Run ID")) +
+  xlab("") +
+  theme_light()
 
 ## sum across states to get national
 national_total <- state_totals %>%
-  group_by(model_run_id, output_id, output_name, date) %>%
+  group_by(model_run_id, output_id, output_name, value_type, date) %>%
   summarise(value = sum(value))
 
+ggplot(national_total[which(national_total$output_name == "Hospital beds needed per day"),], 
+       aes(x = date, y = value, color = factor(model_run_id))) +
+  geom_line(size = 1) +
+  guides(color = guide_legend(title = "Model Run ID")) +
+  xlab("") +
+  theme_light()
 
 model_outputs <- rbind.data.frame(cbind.data.frame(
                                         model_run_id = state_totals$model_run_id,
@@ -380,6 +415,7 @@ model_outputs <- rbind.data.frame(cbind.data.frame(
                                         output_name = state_totals$output_name,
                                         date = state_totals$date,
                                         location = state_totals$location_name,
+                                        value_type = state_totals$value_type,
                                         value = state_totals$value,
                                         notes = "state totals calculated as the sum across all county-level projections in state, using median forecasted value across ensemble model runs"),
                                     cbind.data.frame(
@@ -388,6 +424,7 @@ model_outputs <- rbind.data.frame(cbind.data.frame(
                                           output_name = national_total$output_name,
                                           date = national_total$date,
                                           location = "United States of America",
+                                          value_type = national_total$value_type,
                                           value = national_total$value,
                                           notes = "national totals calculated as the sum across all county-level projections in state, using median forecasted value across ensemble model runs"),
                                   model_outputs)
