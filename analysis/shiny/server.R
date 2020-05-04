@@ -96,6 +96,13 @@ server <- function(input, output, session) {
         arrange(desc(model_snapshot_date))
     })
     
+    ## for debugging
+    # selectedOutputsModelAssumption <-  outputs[which(outputs$compare_across_assumptions == TRUE),] %>%
+    #     filter(location %in% "California" &
+    #              output_name %in% "Hospital beds needed per day" &
+    #              model_name %in% "Shaman Lab Model") %>%
+    #     arrange(desc(model_snapshot_date))
+    
     ######################################################################
     ## Pick primary color palette depending on model ######################
     ######################################################################
@@ -200,7 +207,7 @@ server <- function(input, output, session) {
         geom_line(size = 1) +
         scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +
-        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
+        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name, sep = "")) + 
         ylab(input$output_name) +
         scale_colour_brewer(palette = model_palette_ma(),
                             ## colors are sequential -- show a gradient here

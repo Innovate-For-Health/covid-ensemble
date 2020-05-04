@@ -2,18 +2,18 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_no_iv <- 28
-model_run_id_20_red <- 29
-model_run_id_30_red <- 30
-model_run_id_40_red <- 31
-file_name_beds_no_iv <- "model_runs/9_shaman_lab/model_export/28_bed_nointerv.csv"
-file_name_cases_no_iv <- "model_runs/9_shaman_lab/model_export/28_Projection_nointerv.csv"
-file_name_beds_20_red <- "model_runs/9_shaman_lab/model_export/29_bed_80contact.csv"
-file_name_cases_20_red <- "model_runs/9_shaman_lab/model_export/29_Projection_80contact.csv"
-file_name_beds_30_red <- "model_runs/9_shaman_lab/model_export/30_bed_70contact.csv"
-file_name_cases_30_red <- "model_runs/9_shaman_lab/model_export/30_Projection_70contact.csv"
-file_name_beds_40_red <- "model_runs/9_shaman_lab/model_export/31_bed_60contact.csv"
-file_name_cases_40_red <- "model_runs/9_shaman_lab/model_export/31_Projection_60contact.csv"
+model_run_id_no_iv <- 38
+model_run_id_20_red <- 39
+model_run_id_30_red <- 40
+model_run_id_40_red <- 41
+file_name_beds_no_iv <- "model_runs/9_shaman_lab/model_export/38_bed_nointerv.csv"
+file_name_cases_no_iv <- "model_runs/9_shaman_lab/model_export/38_Projection_nointerv.csv"
+file_name_beds_20_red <- "model_runs/9_shaman_lab/model_export/39_bed_80contact.csv"
+file_name_cases_20_red <- "model_runs/9_shaman_lab/model_export/39_Projection_80contact.csv"
+file_name_beds_30_red <- "model_runs/9_shaman_lab/model_export/40_bed_70contact.csv"
+file_name_cases_30_red <- "model_runs/9_shaman_lab/model_export/40_Projection_70contact.csv"
+file_name_beds_40_red <- "model_runs/9_shaman_lab/model_export/41_bed_60contact.csv"
+file_name_cases_40_red <- "model_runs/9_shaman_lab/model_export/41_Projection_60contact.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -36,7 +36,7 @@ models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
 model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
-model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
+model_outputs <- readRDS("data/model_outputs.RDS")
 
 ## for debugging
 #model_outputs <- read.delim("https://raw.githubusercontent.com/Innovate-For-Health/covid-ensemble/master/data/model_outputs.txt", stringsAsFactors = FALSE)
@@ -430,9 +430,9 @@ model_outputs <- rbind.data.frame(cbind.data.frame(
                                   model_outputs)
 
 #################################################################
-## Save model_outputs as .tsv file ##############################
+## Save model_outputs as .RDS file ##############################
 #################################################################
 
-write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep = '\t', row.names = FALSE)
+saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)
 
 

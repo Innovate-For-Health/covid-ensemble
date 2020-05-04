@@ -166,7 +166,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                            ))),
                                        hr(),
                                        
-                                       p(tags$b("Most recent data update in Model Inventory:"), "April 17, 2020"),
+                                       p(tags$b("Most recent data update in Model Inventory:"), "April 29, 2020"),
                                        hr()
                                      )),
                 
@@ -209,7 +209,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                              )),
                            hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "April 19, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
                            hr(),
                            
                            p(tags$b("Data processing in Model Inventory:"),
