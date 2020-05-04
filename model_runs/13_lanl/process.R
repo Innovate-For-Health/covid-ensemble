@@ -2,9 +2,11 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 21
-file_name_cases <- "model_runs/13_lanl/model_export/21_2020-04-05_confirmed_quantiles_us.csv"
-file_name_deaths <- "model_runs/13_lanl/model_export/21_2020-04-05_deaths_quantiles_us.csv"
+## TODO: add global results
+
+model_run_id <- 45
+file_name_cases <- "model_runs/13_lanl/model_export/45_2020-04-19_confirmed_quantiles_us.csv"
+file_name_deaths <- "model_runs/13_lanl/model_export/45_2020-04-19_deaths_quantiles_us.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -21,7 +23,7 @@ models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
 model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
-model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
+model_outputs <- readRDS("data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
@@ -102,7 +104,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 11]
 }
 
 #################################################################
-## Calculate data for the whole US###############################
+## Calculate data for the whole US ##############################
 #################################################################
 
 ## sum across states to get national
@@ -140,9 +142,9 @@ model_outputs <- rbind.data.frame(
                    "notes" = "50th percentile produced across model runs, US totals calculated as sum over US states, DC, Virgin Islands, and Puerto Rico"))
 
 #################################################################
-## Save model_outputs as .tsv file ##############################
+## Save model_outputs as .RDS file ##############################
 #################################################################
 
-write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep = '\t', row.names = FALSE)
+saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE) 
 
 
