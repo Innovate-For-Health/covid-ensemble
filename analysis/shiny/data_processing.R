@@ -3,11 +3,12 @@
 ######################################################################
 
 ## read in full list  of model outputs, model runs, and locations
-model_outputs <- read.delim("~/Documents/covid-ensemble/data/model_outputs.txt", stringsAsFactors = FALSE)
-models <- read.delim("~/Documents/covid-ensemble/data/models.txt", stringsAsFactors = FALSE)
-model_runs <- read.delim("~/Documents/covid-ensemble/data/model_runs.txt", stringsAsFactors = FALSE)
-locations <- read.delim("~/Documents/covid-ensemble/data/locations.txt", stringsAsFactors = FALSE)
+model_outputs <- readRDS(here("data", "model_outputs.RDS"))
+models <- read.delim(here("data", "models.txt"), stringsAsFactors = FALSE)
+model_runs <- read.delim(here("data", "model_runs.txt"), stringsAsFactors = FALSE)
+locations <- read.delim(here("data", "locations.txt"), stringsAsFactors = FALSE)
 output_options <- unique(model_outputs$output_name)
+
 ## exclude GLEAM for now as there's only one set of results
 model_options <- unique(model_outputs$output_name)[-which(unique(model_outputs$output_name) == "GLEAM")]
 

@@ -3,17 +3,18 @@
 ###################################################################################
 
 ## if you haven't already installed these, run installation for each package by 
-## running the code below, which is currently commented out
+## running the "install.packages" code below, which is currently commented out
 #install.packages(c("shiny"))
+#install.packages(c("dplyr"))
+#install.packages(c("here"))
 library(shiny)
+library(dplyr)
+library(here)
 
 ###################################################################################
 ## Run the app ####################################################################
 ###################################################################################
 
-## set working directory to source file location (covid-ensemble as pulled from git)
-## if you're not Steph, this will need to change
-setwd("/Users/seaneff/Documents/covid-ensemble/")
 
-source("analysis/shiny/data_processing.R")
-runApp("analysis/shiny")
+source(here("analysis", "shiny", "data_processing.R"))
+runApp(here("analysis", "shiny"))

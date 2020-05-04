@@ -157,8 +157,7 @@ server <- function(input, output, session) {
         ylab(input$output_name) +
         xlab("") +
         scale_color_manual(values = model_palette_cm()) +
-        theme_light() %>%
-        config(displayModeBar = F)
+        theme_light()
     })
     
     ######################################################################
