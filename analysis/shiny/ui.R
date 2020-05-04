@@ -39,7 +39,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                  ## View Models: Sidebar selections  ###############################################
                  ###################################################################################
                  
-                 tabPanel("View models",
+                 tabPanel("Model results",
                           
                           sidebarPanel(
                             

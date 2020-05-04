@@ -2,8 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 23
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_04_17.csv"
+## working directory should be covid-ensemble
+model_run_id <- 33
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_4_22.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -18,8 +19,8 @@ models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
 ## read in model_runs (file that tracks model runs)
 model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 
-## read in model_outputs (file that tracks model outputs)
-model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
+## read in model_outputs (saved as RDS due to large file size)
+model_outputs <- readRDS("data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
@@ -48,9 +49,18 @@ if(any(ihme$location == "US")){
 
 ## exclude some specific elements of IHME data that are only tracked ih IHME export and won't be 
 ## comparable to results of other models
-ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
+## note that field location_name was once called location
+if(any(names(ihme) == "location_name")){
+ihme <- ihme[-which(ihme$location_name %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
                                          "Life Care Center, Kirkland, WA",
                                          "Other Counties, WA")),]
+}
+
+if(any(names(ihme) == "location")){
+  ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
+                                                "Life Care Center, Kirkland, WA",
+                                                "Other Counties, WA")),]
+}
 
 #################################################################
 ## Format data ##################################################
@@ -204,8 +214,8 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 9])
 }
 
 #################################################################
-## Save model_outputs as .tsv file ##############################
+## Save model_outputs as .RDS file ##############################
 #################################################################
 
-write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep = '\t', row.names = FALSE)
+saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)
 

@@ -3398,3 +3398,6 @@ US	USA	County	Local	Yauco		72153
 US	USA	County	Local	St. Croix		78010
 US	USA	County	Local	St. John		78020
 US	USA	County	Local	St. Thomas		78030
+CA	CAN	Province/State	Intermediate	British Columbia		
+CA	CAN	Province/State	Intermediate	Quebec		
+CA	CAN	Province/State	Intermediate	Alberta		
