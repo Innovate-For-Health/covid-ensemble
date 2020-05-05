@@ -10,37 +10,41 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 9	6	"COVID Act Now (4/10/20, strict stay at home)"	Update with new training data (4/10)	COVID Act Now US Intervention Model	4/10/20	Model run assuming 3 months of strict say at home orders.	FALSE	TRUE	TRUE
 10	6	"COVID Act Now (4/15/20, strict stay at home)"	Update with new training data (4/15)	COVID Act Now US Intervention Model	4/15/20	Model run assuming 3 months of strict say at home orders.	FALSE	TRUE	TRUE
 11	6	"COVID Act Now (4/16/20, continuation of current trends)"	"Model update to assume ""continuation of current trends"""	COVID Act Now US Intervention Model	4/16/20	"Similar to prior model runs assuming 3 months of strict say at home orders, but now stored in a different API and described as ""projected based on current trends"""	FALSE	TRUE	TRUE
-12	9	"Shaman Lab Model (4/12/20, no interventions)"	Assume no intervention	Shaman Lab Model	4/12/20	Model assumes no interventions	FALSE	FALSE	FALSE
-13	9	"Shaman Lab Model (4/12/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Shaman Lab Model	4/12/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
-14	9	"Shaman Lab Model (4/12/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Shaman Lab Model	4/12/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-15	9	"Shaman Lab Model (4/12/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/12/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
-16	9	"Shaman Lab Model (4/5/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/5/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
-17	9	"Shaman Lab Model (4/9/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/9/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
+12	9	"Columbia University Model (4/12/20, no interventions)"	Assume no intervention	Columbia University Model	4/12/20	Model assumes no interventions	FALSE	FALSE	FALSE
+13	9	"Columbia University Model (4/12/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
+14	9	"Columbia University Model (4/12/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
+15	9	"Columbia University Model (4/12/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
+16	9	"Columbia University Model (4/5/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/5/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
+17	9	"Columbia University Model (4/9/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/9/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
 18	13	LANL COVID-19 Model (4/15)	Update with new training data (4/15)	LANL COVID-19 Model	4/15/20		TRUE	TRUE	TRUE
 19	13	LANL COVID-19 Model (4/12)	Update with new training data (4/12)	LANL COVID-19 Model	4/12/20		FALSE	TRUE	TRUE
 20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	TRUE	TRUE
 21	13	LANL COVID-19 Model (4/5)	Initial archived model release (4/5)	LANL COVID-19 Model	4/5/20		FALSE	TRUE	TRUE
-22	10	GLEAM (4/20)	Initial archived results from website (4/20/20)	GLEAM	4/20/20		TRUE	FALSE	FALSE
+22	10	GLEAM (early April)	"Initial archived results from website (4/3/20, accessed 4/20/20)"	GLEAM	4/3/20		TRUE	TRUE	TRUE
 23	1	IHME COVID-19 Model (4/17/20)	Update with new training data (4/17)	IHME COVID-19 Model	4/17/20		TRUE	TRUE	TRUE
-24	9	"Shaman Lab Model (4/16/20, no interventions)"	Assume no intervention	Shaman Lab Model	4/16/20	Model assumes no interventions	FALSE	FALSE	FALSE
-25	9	"Shaman Lab Model (4/16/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Shaman Lab Model	4/16/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
-26	9	"Shaman Lab Model (4/16/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Shaman Lab Model	4/16/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-27	9	"Shaman Lab Model (4/16/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/16/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
-28	9	"Shaman Lab Model (4/19/20, no interventions)"	Assume no intervention	Shaman Lab Model	4/19/20	Model assumes no interventions	FALSE	FALSE	FALSE
-29	9	"Shaman Lab Model (4/19/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Shaman Lab Model	4/19/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	TRUE
-30	9	"Shaman Lab Model (4/19/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Shaman Lab Model	4/19/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	TRUE
-31	9	"Shaman Lab Model (4/19/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/19/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	TRUE
+24	9	"Columbia University Model (4/16/20, no interventions)"	Assume no intervention	Columbia University Model	4/16/20	Model assumes no interventions	FALSE	FALSE	FALSE
+25	9	"Columbia University Model (4/16/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
+26	9	"Columbia University Model (4/16/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
+27	9	"Columbia University Model (4/16/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
+28	9	"Columbia University Model (4/19/20, no interventions)"	Assume no intervention	Columbia University Model	4/19/20	Model assumes no interventions	FALSE	FALSE	FALSE
+29	9	"Columbia University Model (4/19/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	TRUE
+30	9	"Columbia University Model (4/19/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	TRUE
+31	9	"Columbia University Model (4/19/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	TRUE
 32	1	IHME COVID-19 Model (4/29/20)	Update with new training data (4/29)	IHME COVID-19 Model	4/29/20		TRUE	TRUE	TRUE
 33	1	IHME COVID-19 Model (4/22/20)	Update with new training data (4/22)	IHME COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
-34	9	"Shaman Lab Model (4/26/20, no interventions)"	Assume no intervention	Shaman Lab Model	4/26/20	Model assumes no interventions	FALSE	FALSE	FALSE
-35	9	"Shaman Lab Model (4/26/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Shaman Lab Model	4/26/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
-36	9	"Shaman Lab Model (4/26/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Shaman Lab Model	4/26/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-37	9	"Shaman Lab Model (4/26/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/26/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
-38	9	"Shaman Lab Model (4/23/20, no interventions)"	Assume no intervention	Shaman Lab Model	4/23/20	Model assumes no interventions	FALSE	FALSE	FALSE
-39	9	"Shaman Lab Model (4/23/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Shaman Lab Model	4/23/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
-40	9	"Shaman Lab Model (4/23/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Shaman Lab Model	4/23/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-41	9	"Shaman Lab Model (4/23/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Shaman Lab Model	4/23/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
+34	9	"Columbia University Model (4/26/20, no interventions)"	Assume no intervention	Columbia University Model	4/26/20	Model assumes no interventions	FALSE	FALSE	FALSE
+35	9	"Columbia University Model (4/26/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
+36	9	"Columbia University Model (4/26/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
+37	9	"Columbia University Model (4/26/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
+38	9	"Columbia University Model (4/23/20, no interventions)"	Assume no intervention	Columbia University Model	4/23/20	Model assumes no interventions	FALSE	FALSE	FALSE
+39	9	"Columbia University Model (4/23/20, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
+40	9	"Columbia University Model (4/23/20, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
+41	9	"Columbia University Model (4/23/20, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
 42	13	LANL COVID-19 Model (4/29)	Update with new training data (4/29)	LANL COVID-19 Model	4/29/20		TRUE	TRUE	TRUE
 43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		TRUE	TRUE	TRUE
 44	13	LANL COVID-19 Model (4/22)	Update with new training data (4/22)	LANL COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
 45	13	LANL COVID-19 Model (4/19)	Update with new training data (4/19)	LANL COVID-19 Model	4/19/20		TRUE	TRUE	TRUE
+46	10	GLEAM (4/15)	"Update with new data (4/15/20, accessed 5/4/20)"	GLEAM	4/15/20		TRUE	TRUE	TRUE
+47	6	"COVID Act Now (5/4/2020, ""observed intervention"")"	Assume continuation of state's current trends		5/4/20		TRUE	TRUE	TRUE
+48	6	"COVID Act Now (5/4/2020, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"		5/4/20		FALSE	FALSE	TRUE
+49	6	"COVID Act Now (5/4/2020, ""weak intervention"")"	"Assume strong intervention (e.g., limited social distancing)"		5/4/20		FALSE	FALSE	TRUE

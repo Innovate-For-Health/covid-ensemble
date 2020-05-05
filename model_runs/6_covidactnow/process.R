@@ -2,8 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_strict <- 11
-run_id_lax <- 16
+run_id_observed <- 47
+run_id_strong <- 48
+run_id_weak <- 49
 
 #################################################################
 ## Load required libraries ######################################
@@ -22,7 +23,7 @@ models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
 model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
-model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
+model_outputs <- readRDS("data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
@@ -42,139 +43,192 @@ model_name <- models$model_name[which(models$model_id == 6)]
 ## treat dates as dates
 model_outputs$date <- as.Date(model_outputs$date)
 
-#################################################################
-## Read in Covid Act Now data: Strict model ####################
-#################################################################
+#########################################################################
+## Read in Covid Act Now data: Observed Intervention ####################
+#########################################################################
 
-## note: as of April 10th, file .1 json corresponds to the strict model and file .3 json corresponds to the lax model
-## this needs to be double checked every time the code is run, in case they change something (documentation not clear)
-
-## as of April 10th:
-## this is the 3 month strict stay at home model (strict): "https://covidactnow.org/data/CA.1.json"
-## this is the 3 month stay at home model (lax): "https://covidactnow.org/data/CA.3.json")
-
-## as of April 16th: projected based on current trends
-## this is the 3 month strict stay at home model (strict): "https://covidactnow.org/data/CA.2.json"
+location_options <- locations[which(locations$location_type == "Province/State" & locations$iso2 == "US"),]
 
 additional_outputs <- cbind.data.frame(
-  "model_run_id" = NA,
-  "output_id" = NA,
-  "output_name" = NA,
-  "date" =  NA,
-  "location" =  NA,
-  "value" = NA,
-  "notes" = NA)
+    "model_run_id" = NA,
+    "output_id" = NA,
+    "output_name" =  NA,
+    "date" =  NA,
+    "location" =  NA,
+    "value_type" = NA,
+    "value" = NA,
+    "notes" = NA)
 
-for(state in 1:nrow(locations[which(complete.cases(locations$FIPS)),])){
+
+for(state in 1:nrow(location_options)){
   
-  print(locations[which(complete.cases(locations$FIPS)),]$location_name[state])
+  print(location_options$location_name[state])
   
-  strict <- fromJSON(file = paste("https://covidactnow.org/data/", locations[which(complete.cases(locations$FIPS)),][state,]$abbreviation, ".2.json", sep = ""))
+  data <- rjson::fromJSON(file = paste("https://data.covidactnow.org/latest/us/states/", location_options[state,]$abbreviation, ".OBSERVED_INTERVENTION.timeseries.json", sep = ""))
   
-  date_strict <- c()
-  hosp_strict <- c()
+  date <- c()
+  hosp_beds  <- c()
+  cumu_deaths <- c()
+  loc_counter <- c()
   
-  for(i in 1:length(strict)){
-    date_strict <- c(date_strict, unlist(strict[[i]][2]))
-    hosp_strict <- c(hosp_strict, as.numeric(unlist(strict[[i]][10])))
+  for(i in 1:length(data$timeseries)){
+    date <- c(date, data$timeseries[[i]]$date)
+    hosp_beds <- c(hosp_beds, as.numeric(as.character(data$timeseries[[i]]$hospitalBedsRequired)))
+    cumu_deaths <- c(cumu_deaths, as.numeric(as.character(data$timeseries[[i]]$cumulativeDeaths)))
+    loc_counter <- c(loc_counter, location_options$location_name[state])
+    
   }
   
-  
-  additional_outputs <- rbind.data.frame(additional_outputs,
+  additional_outputs <- rbind.data.frame(
+    
+    additional_outputs,
+    
     cbind.data.frame(
-    "model_run_id" = run_id_strict,
+    "model_run_id" = run_id_observed,
     "output_id" = 5,
     "output_name" = "Hospital beds needed per day",
-    "date" = date_strict,
-    "location" =  locations[which(complete.cases(locations$FIPS)),]$location_name[state],
-    "value" = hosp_strict,
-    "notes" = "model described on site as 'projected based on current trends'")
-  )
+    "date" =  date,
+    "location" =  loc_counter,
+    "value_type" = "point estimate",
+    "value" = hosp_beds,
+    "notes" = '"estimates based on the actually observed effect of mitigations and other factors in a given state"'),
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_observed,
+      "output_id" = 4,
+      "output_name" = "Cumulative fatalities",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = cumu_deaths,
+      "notes" = '"estimates based on the actually observed effect of mitigations and other factors in a given state"')
+  
+    )
   
 }
 
-#################################################################
-## Read in Covid Act Now data: Lax model ########################
-#################################################################
+#########################################################################
+## Read in Covid Act Now data: Stay at home orders ######################
+#########################################################################
 
-## note: as of April 10th, file .1 json corresponds to the strict model and file .3 json corresponds to the lax model
-## this needs to be double checked every time the code is run, in case they change something (documentation not clear)
-
-for(state in 1:nrow(locations[which(locations$iso3 == "USA" & locations$location_type == "Province/State"),])){
+for(state in 1:nrow(location_options)){
   
-  print(locations[which(locations$iso3 == "USA" & locations$location_type == "Province/State"),]$location_name[state])
+  print(location_options$location_name[state])
   
-  lax <- fromJSON(file = paste("https://covidactnow.org/data/", locations[which(locations$iso3 == "USA" & locations$location_type == "Province/State"),][state,]$abbreviation, ".3.json", sep = ""))
+  data <- rjson::fromJSON(file = paste("https://data.covidactnow.org/latest/us/states/", location_options[state,]$abbreviation, ".STRONG_INTERVENTION.timeseries.json", sep = ""))
   
-  date_lax <- c()
-  hosp_lax <- c()
+  date <- c()
+  hosp_beds  <- c()
+  cumu_deaths <- c()
+  loc_counter <- c()
   
-  for(i in 1:length(lax)){
-    date_lax <- c(date_lax, unlist(lax[[i]][2]))
-    hosp_lax <- c(hosp_lax, as.numeric(unlist(lax[[i]][10])))
+  for(i in 1:length(data$timeseries)){
+    date <- c(date, data$timeseries[[i]]$date)
+    hosp_beds <- c(hosp_beds, as.numeric(as.character(data$timeseries[[i]]$hospitalBedsRequired)))
+    cumu_deaths <- c(cumu_deaths, as.numeric(as.character(data$timeseries[[i]]$cumulativeDeaths)))
+    loc_counter <- c(loc_counter, location_options$location_name[state])
+    
   }
   
-  
-  additional_outputs <- rbind.data.frame(additional_outputs,
-                                         cbind.data.frame(
-                                           "model_run_id" = run_id_lax,
-                                           "output_id" = 5,
-                                           "output_name" = "Hospital beds needed per day",
-                                           "date" = date_lax,
-                                           "location" =  locations[which(complete.cases(locations$FIPS)),]$location_name[state],
-                                           "value" = hosp_lax,
-                                           "notes" = "assumed lifted restrictions")
+  additional_outputs <- rbind.data.frame(
+    
+    additional_outputs,
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_strong,
+      "output_id" = 5,
+      "output_name" = "Hospital beds needed per day",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = hosp_beds,
+      "notes" = 'assuming "strong intervention" (stay at home orders)'),
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_strong,
+      "output_id" = 4,
+      "output_name" = "Cumulative fatalities",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = cumu_deaths,
+      "notes" = 'assuming "strong intervention" (stay at home orders)')
+    
   )
   
 }
 
+#########################################################################
+## Read in Covid Act Now data: Social distancing ########################
+#########################################################################
+
+for(state in 1:nrow(location_options)){
+  
+  print(location_options$location_name[state])
+  
+  data <- rjson::fromJSON(file = paste("https://data.covidactnow.org/latest/us/states/", location_options[state,]$abbreviation, ".WEAK_INTERVENTION.timeseries.json", sep = ""))
+  
+  date <- c()
+  hosp_beds  <- c()
+  cumu_deaths <- c()
+  loc_counter <- c()
+  
+  for(i in 1:length(data$timeseries)){
+    date <- c(date, data$timeseries[[i]]$date)
+    hosp_beds <- c(hosp_beds, as.numeric(as.character(data$timeseries[[i]]$hospitalBedsRequired)))
+    cumu_deaths <- c(cumu_deaths, as.numeric(as.character(data$timeseries[[i]]$cumulativeDeaths)))
+    loc_counter <- c(loc_counter, location_options$location_name[state])
+    
+  }
+  
+  additional_outputs <- rbind.data.frame(
+    
+    additional_outputs,
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_weak,
+      "output_id" = 5,
+      "output_name" = "Hospital beds needed per day",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = hosp_beds,
+      "notes" = 'assuming "weak intervention" (social distancing, no stay at home orders)'),
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_weak,
+      "output_id" = 4,
+      "output_name" = "Cumulative fatalities",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = cumu_deaths,
+      "notes" = 'assuming "weak intervention" (social distancing, no stay at home orders)')
+    
+  )
+  
+}
 
 #################################################################
-## Save model_outputs as .tsv file ##############################
+## Do some processing ###########################################
 #################################################################
 
-## remove the first row of this, just used for initialization and all it has are missing values
+## drop first row with nulls
 additional_outputs <- additional_outputs[-1,]
-additional_outputs$date <- as.Date(additional_outputs$date, format = "%m/%d/%y")
 
+## format dates as dates
+additional_outputs$date <- as.Date(additional_outputs$date)
 
-## check data
-ggplot(additional_outputs[which(additional_outputs$location == "California"),],
-       aes(x = date, y = value)) +
-  geom_line(size = 1) +
-  scale_y_continuous(label = comma) +
-  xlab("") +
-  theme_light() 
+## drop all dates before today, that's just old data appended on
+additional_outputs <- additional_outputs[which(additional_outputs$date >= Sys.Date()),]
 
-## calculate totals for whole US as sum across states and DC
-us_totals <- additional_outputs %>%
-  group_by(model_run_id, output_id, output_name, date) %>%
-  summarise(value = sum(value))
-
-## check data
-ggplot(us_totals,
-       aes(x = date, y = value)) +
-  geom_line(size = 1) +
-  scale_y_continuous(label = comma) +
-  xlab("") +
-  theme_light()
+## sanity checks
+table(additional_outputs$model_run_id, additional_outputs$output_name)
 
 #################################################################
-## Save model_outputs as .tsv file ##############################
+## Save model_outputs as .RDS file ##############################
 #################################################################
 
-model_outputs <- rbind.data.frame(model_outputs,
-                                  additional_outputs)
+model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 
-
-new_model_outputs <- rbind.data.frame(model_outputs,
-                                  additional_outputs,
-                                  cbind.data.frame(model_run_id = us_totals$model_run_id,
-                                                   output_id = us_totals$output_id,
-                                                   output_name = us_totals$output_name,
-                                                   date = us_totals$date,
-                                                   location = "United States of America",
-                                                   value = us_totals$value,
-                                                   notes = "US total bed count calculated as sum across states and DC"))
-
-write.table(model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep='\t', row.names = FALSE)
+saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)

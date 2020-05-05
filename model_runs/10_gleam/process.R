@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_unmitigated <- 22
-model_run_id_mitigated <- 23
+model_run_id_unmitigated <- 46
+model_run_id_mitigated <- 47
 
 #################################################################
 ## Load required libraries ######################################
@@ -23,7 +23,7 @@ models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
 model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
-model_outputs <- read.delim("data/model_outputs.txt", stringsAsFactors = FALSE)
+model_outputs <- readRDS("data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
@@ -63,19 +63,18 @@ additional_outputs <- cbind.data.frame(
   "value" = NA,
   "notes" = NA)
 
+## states that don't have data changed between updates
 location_options <- gsub(" ", "%20", c(locations[which(locations$location_type == "Province/State" & 
                                                          locations$iso2 == "US" &
                                                          locations$location_name != "District of Columbia" &
                                                          locations$location_name != "Washington" &
-                                                         locations$location_name != "Alaska" &
-                                                         locations$location_name != "Georgia" &
                                                          locations$location_name != "Hawaii" &
-                                                         locations$location_name != "Kentucky" &
-                                                         locations$location_name != "Louisiana" &
-                                                         locations$location_name != "Mississippi" &
-                                                         locations$location_name != "New York"
+                                                         locations$location_name != "New York" &
+                                                         locations$location_name != "New Jersey" &
+                                                         locations$location_name != "Pennsylvania"
                                                        ),]$location_name,
                                        "Washington State", "New York State"))
+
 
 for(state in location_options){
   
@@ -144,6 +143,8 @@ write.table(additional_outputs,
             file = paste("model_runs/10_gleam/model_export/", model_run_id_unmitigated, "_backup_data.txt", sep = ""),
             quote = FALSE, sep='\t', row.names = FALSE)
 
+#additional_outputs <- read.delim("model_runs/10_gleam/model_export/46_backup_data.txt", stringsAsFactors = FALSE)
+
 ## remove the first row of this, just used for initialization and all it has are missing values
 additional_outputs <- additional_outputs[-1,]
 
@@ -162,7 +163,7 @@ additional_outputs <- unique(additional_outputs)
 #################################################################
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Hospital beds needed per day"),],
+ggplot(additional_outputs[which(additional_outputs$location == "Ohio" & additional_outputs$output_name == "Hospital beds needed per day"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
@@ -175,4 +176,4 @@ ggplot(additional_outputs[which(additional_outputs$location == "California" & ad
 
 new_model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 
-write.table(new_model_outputs, file = 'data/model_outputs.txt', quote = FALSE, sep ='\t', row.names = FALSE)
+saveRDS(new_model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)

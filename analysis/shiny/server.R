@@ -16,15 +16,13 @@ server <- function(input, output, session) {
     ## Update UI filters based on other UI filters #######################
     ######################################################################
     
-  ## update select model outputs tab
   ## if someone changes the location, only show potential outputs that are actually available for that location
     observe({
       x_loc <- input$location
 
       updateSelectInput(session, "output_name",
-                      choices = list("Caseload and fatalities" = outputs_agg$`Caseload and fatalities`[which(outputs_agg$`Caseload and fatalities` %in% outputs$output_name[which(outputs$location == x_loc)])],
-                                     "Healthcare demand" = outputs_agg$`Healthcare demand`[which(outputs_agg$`Healthcare demand` %in% outputs$output_name[which(outputs$location == x_loc)])]),
-                      selected = "Hospital beds needed per day")
+                      choices = list("Healthcare demand" = outputs_agg$`Healthcare demand`[which(outputs_agg$`Healthcare demand` %in% outputs$output_name[which(outputs$location == x_loc)])],
+                                     "Caseload and fatalities" = outputs_agg$`Caseload and fatalities`[which(outputs_agg$`Caseload and fatalities` %in% outputs$output_name[which(outputs$location == x_loc)])]))
       })
 
   
@@ -34,9 +32,8 @@ server <- function(input, output, session) {
       x_output <- input$output_name
       x_loc <- input$location
 
-      ## exclude GLEAM for now (as of 4/22) because there's only one version of it so nothing to compare with itself
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output & outputs$model_name != "GLEAM"),]$model_name))
+                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output),]$model_name))
     })
 
     ######################################################################
@@ -100,7 +97,7 @@ server <- function(input, output, session) {
     # selectedOutputsModelAssumption <-  outputs[which(outputs$compare_across_assumptions == TRUE),] %>%
     #     filter(location %in% "California" &
     #              output_name %in% "Hospital beds needed per day" &
-    #              model_name %in% "Shaman Lab Model") %>%
+    #              model_name %in% "Columbia University Model") %>%
     #     arrange(desc(model_snapshot_date))
     
     ######################################################################
@@ -109,21 +106,21 @@ server <- function(input, output, session) {
 
     ## LANL COVID-19 Model: #fd8d3c
     ## IHME: #31a354
-    ## Shaman: #756bb1
+    ## Columbia University (previously Shaman): #756bb1
     ## GLEAM: #dd1c77
     
     ## for compare models plot
     ## TODO: figure out a better way to do this, maybe using c())?
     model_palette_cm <- reactive({
       temp <- c()
-      if(all(c("GLEAM", "IHME COVID-19 Model", "LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-        c("#dd1c77", "#31a354","#fd8d3c", "#756bb1") else
-      if(all(c("LANL COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-        c("#fd8d3c", "#756bb1") else
-      if(all(c("GLEAM", "IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-          c("#dd1c77", "#31a354", "#756bb1") else    
-      if(all(c("IHME COVID-19 Model", "Shaman Lab Model") %in% unique(selectedOutputs()$model_name)))
-          c("#31a354", "#756bb1") else    
+      if(all(c("Columbia University Model", "GLEAM", "IHME COVID-19 Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
+        c("#756bb1", "#dd1c77", "#31a354","#fd8d3c") else
+      if(all(c("Columbia University Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
+        c("#756bb1", "#fd8d3c") else
+      if(all(c("Columbia University Model", "GLEAM", "IHME COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
+          c("#756bb1", "#dd1c77", "#31a354") else    
+      if(all(c("Columbia University Model", "IHME COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
+          c("#756bb1", "#31a354") else    
      if(all(c("IHME COVID-19 Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
               c("#31a354", "#fd8d3c") else    
           c("#006d2c", "#3182bd", "#e6550d", "#dd1c77")
@@ -133,7 +130,7 @@ server <- function(input, output, session) {
     ## for compare model over time plot
     model_palette_mt <- reactive({
       unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
-                       ifelse(selectedOutputsModelTime()$model_name == "Shaman Lab Model", "Purples",
+                       ifelse(selectedOutputsModelTime()$model_name == "Columbia University Model", "Purples",
                        ifelse(selectedOutputsModelTime()$model_name == "LANL COVID-19 Model", "Oranges",   
                        "Reds"))))
     })  
@@ -141,7 +138,7 @@ server <- function(input, output, session) {
     ## for compare model assumptions plot
     model_palette_ma <- reactive({
       unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
-             ifelse(selectedOutputsModelTime()$model_name == "Shaman Lab Model", "Purples",
+             ifelse(selectedOutputsModelTime()$model_name == "Columbia University Model", "Purples",
              ifelse(selectedOutputsModelTime()$model_name == "LANL COVID-19 Model", "Oranges",   
              "Reds"))))
     })  

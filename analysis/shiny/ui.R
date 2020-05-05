@@ -126,6 +126,118 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             navlistPanel("Select model",
                                          
                 ###################################################################################
+                ## Columbia Model Details #########################################################
+                ###################################################################################
+                                         
+                                         tabPanel("Columbia University Model",
+                                                  
+                                                  h3("Columbia University Model"),
+                                                  hr(),
+                                                  
+                                                  p(tags$b("Intended use:"), "project daily hospital demand, at the county level, in the United States"),
+                                                  hr(),
+                                                  
+                                                  p(tags$b("Developer:"), "Sen Pei and Jeffrey Shaman, Mailman School of Public Health, Columbia University"),
+                                                  hr(),
+                                                  
+                                                  p(tags$b("Key assumptions:") ,
+                                                    tags$ul(
+                                                      tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
+                                                      br(),
+                                                      tags$li("assumes contact reductions are never relaxed over the course of the model run"),
+                                                      br(),
+                                                      tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                                                    
+                                                    hr(),
+                                                    
+                                                    p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US county"),
+                                                    hr(),
+                                                    
+                                                    p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
+                                                    hr(),
+                                                    
+                                                    p(tags$b("Reference and source documentation:"),
+                                                      tags$ul(
+                                                        tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", target = "_blank")),
+                                                        br(),
+                                                        tags$li("model results and source code:", tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "https://github.com/shaman-lab/COVID-19Projection", target="_blank"))
+                                                      )),
+                                                    hr(),
+                                                    
+                                                    p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
+                                                    hr(),
+                                                    
+                                                    p(tags$b("Data processing in Model Inventory:"),
+                                                      tags$ul(
+                                                        tags$li("state and national estimates calculated based on sum of relevant values reported at the county level"),
+                                                        br(),
+                                                        tags$li("point estimates taken as median produced value across model iterations, for any given location, date, and county"),
+                                                        br(),
+                                                        tags$li("when comparing Shaman model to other models in the Inventory, show model associated with initial 40% reduction in social contact")),
+                                                      
+                                                      
+                                                      
+                                                      
+                                                    ),
+                                                    hr()
+                                                  )),       
+                
+                ###################################################################################
+                ## COVID-Act Now Model Details ####################################################
+                ###################################################################################
+                
+                tabPanel("COVID Act Now Model",
+                         
+                         h3("COVID Act Now Model"),
+                         hr(),
+                         h5("Additional details coming soon!")
+                         ),       
+                
+                ###################################################################################
+                ## GLEAM Details ##################################################################
+                ###################################################################################
+                
+                tabPanel("GLEAM Model",
+                         
+                         h3("Global Epidemic and Mobility Model (GLEAM) Model"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), "forecast newly generated infections, times of disease arrival in different regions, and the number of traveling infection carriers"),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Global Epidemic and Mobility Model project team"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("assumes stay-at-home policies result in a '70% transmissibility reduction'"),
+                             br(),
+                             tags$li("assumes no pre-symptomatic transmission"),
+                             br(),
+                             tags$li("assumes sustained adherence to existing shelter-in-place orders"),
+                             br(),
+                             tags$li("please consult available documentation below for additional information on key model assumptions."))
+                         ),
+                         
+                         hr(),
+                         
+                         p(tags$b("Reference and source documentation:"),
+                           tags$ul(
+                             tags$li("public documentation for COVID-19:", tags$a(href="https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", "https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", target="_blank")),
+                             tags$li("GLEAM website:", tags$a(href="http://www.gleamviz.org/model/", "http://www.gleamviz.org/model/", target="_blank")),
+                             tags$li("model results and visualizations:", tags$a(href = "https://covid19.gleamproject.org/", "https://covid19.gleamproject.org/", target = "_blank"))
+                           )
+                           
+                         ),
+                         hr(),
+                         
+                         p(tags$b("Most recent data update in Model Inventory:"), "April 15, 2020 (data accessed online May 4, 2020)"),
+                         hr()
+                ),                
+                
+                                         
+                                         
+                ###################################################################################
                 ## IHME Model Details #############################################################
                 ###################################################################################
                 
@@ -170,63 +282,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                        hr()
                                      )),
                 
-                ###################################################################################
-                ## IHME Model Details #############################################################
-                ###################################################################################
-                
-                tabPanel("Shaman Lab Model",
-                         
-                         h3("Shaman Lab Model"),
-                         hr(),
-                         
-                         p(tags$b("Intended use:"), "project daily hospital demand, at the county level, in the United States"),
-                         hr(),
-                         
-                         p(tags$b("Developer:"), "Sen Pei and Jeffrey Shaman, Mailman School of Public Health, Columbia University"),
-                         hr(),
-                         
-                         p(tags$b("Key assumptions:") ,
-                           tags$ul(
-                             tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
-                             br(),
-                             tags$li("assumes contact reductions are never relaxed over the course of the model run"),
-                             br(),
-                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
-                           
-                            hr(),
-                           
-                           p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US county"),
-                           hr(),
-                           
-                           p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
-                           hr(),
-                          
-                           p(tags$b("Reference and source documentation:"),
-                             tags$ul(
-                               tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", target = "_blank")),
-                               br(),
-                               tags$li("model results and source code:", tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "https://github.com/shaman-lab/COVID-19Projection", target="_blank"))
-                             )),
-                           hr(),
-                           
-                           p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
-                           hr(),
-                           
-                           p(tags$b("Data processing in Model Inventory:"),
-                             tags$ul(
-                               tags$li("state and national estimates calculated based on sum of relevant values reported at the county level"),
-                               br(),
-                               tags$li("point estimates taken as median produced value across model iterations, for any given location, date, and county"),
-                               br(),
-                               tags$li("when comparing Shaman model to other models in the Inventory, show model associated with initial 40% reduction in social contact")),
-                             
-                             
-                             
-                             
-                             ),
-                           hr()
-                         )),                
-                
+
                 ###################################################################################
                 ## Los Alamos Model Details #######################################################
                 ###################################################################################
@@ -256,6 +312,12 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            hr(),
                            
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates for selected US states"),
+                           hr(),
+                           
+                           p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands, Puerto Rico, and selected US states including New Jersey)"),
+                           hr(),
+                           
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
                                tags$li("model results and visualizations:", tags$a(href="https://covid-19.bsvgateway.org/", "https://covid-19.bsvgateway.org/", target="_blank"))
@@ -264,53 +326,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "April 29, 2020"),
                            hr()
-                         )),                
-                
-                ###################################################################################
-                ## Los Alamos Model Details #######################################################
-                ###################################################################################
-                
-                tabPanel("GLEAM Model",
-                         
-                         h3("Global Epidemic and Mobility Model (GLEAM) Model"),
-                         hr(),
-                         
-                         p(tags$b("Intended use:"), "forecast newly generated infections, times of disease arrival in different regions, and the number of traveling infection carriers"),
-                         hr(),
-                         
-                         p(tags$b("Developer:"), "Global Epidemic and Mobility Model project team"),
-                         hr(),
-                         
-                         p(tags$b("Key assumptions:") ,
-                           tags$ul(
-                             tags$li("assumes stay-at-home policies result in a '70% transmissibility reduction'"),
-                             br(),
-                             tags$li("assumes no pre-symptomatic transmission"),
-                             br(),
-                             tags$li("assumes sustained adherence to existing shelter-in-place orders"),
-                             br(),
-                             tags$li("please consult available documentation below for additional information on key model assumptions."))
-                           ),
-                           
-                           hr(),
-                           
-                           p(tags$b("Reference and source documentation:"),
-                             tags$ul(
-                               tags$li("public documentation for COVID-19:", tags$a(href="https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", "https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", target="_blank")),
-                               tags$li("GLEAM website:", tags$a(href="http://www.gleamviz.org/model/", "http://www.gleamviz.org/model/", target="_blank")),
-                               tags$li("model results and visualizations:", tags$a(href = "https://covid19.gleamproject.org/", "https://covid19.gleamproject.org/", target = "_blank"))
-                                       )
-                               
-                             ),
-                           hr(),
-                           
-                           p(tags$b("Most recent data update in Model Inventory:"), "April 4, 2020"),
-                           hr()
-                         )                
-                
-                
-                
-                
+                         ))              
                 
                 
                 ))),
@@ -328,7 +344,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                  ## Documentation Tab ##############################################################
                  ###################################################################################
                  
-                 tabPanel("Documentation",
+                 tabPanel("About",
                           mainPanel(
                             
                             
@@ -384,6 +400,16 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                               "when outlining emergency legislative provisions for the District of Columbia.
                               Leaders within healthcare organizations also use the results of these models to",
                               tags$a(href = "https://www.nytimes.com/2020/04/01/us/coronavirus-california-new-york-testing.html", "inform their own planning efforts"),
-                              ".")
+                              "."),
+                            
+                            h3("Team and acknowledgements"),
+                            
+                            p("This site was designed, built, and developed by", 
+                              tags$a(href="https://bids.berkeley.edu/people/stephanie-eaneff", 
+                                     "Steph Eaneff"), "."),
+                            
+                            p("This work was made possible by support from the Innovate for Health Data Science Health Innovation program, 
+                              including support from the UCSF Bakar Computational Health Sciences Institute, the UC Berkeley Institute for Data Science, 
+                              and Johnson & Johnson.")
                           ))
 )
