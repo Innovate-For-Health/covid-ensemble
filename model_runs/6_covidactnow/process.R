@@ -220,10 +220,18 @@ additional_outputs <- additional_outputs[-1,]
 additional_outputs$date <- as.Date(additional_outputs$date)
 
 ## drop all dates before today, that's just old data appended on
-additional_outputs <- additional_outputs[which(additional_outputs$date >= Sys.Date()),]
+## (decided not to do this for now)
+#additional_outputs <- additional_outputs[which(additional_outputs$date >= Sys.Date()),]
 
 ## sanity checks
 table(additional_outputs$model_run_id, additional_outputs$output_name)
+
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Hospital beds needed per day"),],
+               aes(x = date, y = value, group = model_run_id)) +
+     geom_line(size = 1) +
+     scale_y_continuous(label = comma) +
+     xlab("") +
+     theme_light()
 
 #################################################################
 ## Save model_outputs as .RDS file ##############################

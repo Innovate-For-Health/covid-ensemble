@@ -19,14 +19,15 @@ The researchers that developed the models incorporated in this repository and da
 
 All of the COVID-19 models identified below have been documented as being used by policy-makers or public health responders during the 2019-2020 COVID-19 pandemic. Each model was developed for a different purpose, and relies on different data inputs, key assumptions, and underlying methods. The intended use of a model impacts how it is developed, how it should be used, and the context based on which its results should be interpreted. 
 
-- [University of Washington IHME's COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
+- [Columbia University Model](https://github.com/shaman-lab/COVID-19Projection)
 
-- [GLEAM](https://covidactnow.org/) 
+- [COVID Act Now US Intervention Model](https://covidactnow.org/)
 
-- [Shaman Lab COVID-19 Projections](https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf)
+- [GLEAM](https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf) 
+
+- [IHME COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
 
 - [Los Alamos National Lab COVID-19 Model](https://covid-19.bsvgateway.org/)
-
 
 We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available. Only models that produce estimates at daily, weekly, or monthly temporal resolutions over time are currently included.
 

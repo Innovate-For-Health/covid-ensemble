@@ -45,6 +45,6 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 44	13	LANL COVID-19 Model (4/22)	Update with new training data (4/22)	LANL COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
 45	13	LANL COVID-19 Model (4/19)	Update with new training data (4/19)	LANL COVID-19 Model	4/19/20		TRUE	TRUE	TRUE
 46	10	GLEAM (4/15)	"Update with new data (4/15/20, accessed 5/4/20)"	GLEAM	4/15/20		TRUE	TRUE	TRUE
-47	6	"COVID Act Now (5/4/2020, ""observed intervention"")"	Assume continuation of state's current trends		5/4/20		TRUE	TRUE	TRUE
-48	6	"COVID Act Now (5/4/2020, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"		5/4/20		FALSE	FALSE	TRUE
-49	6	"COVID Act Now (5/4/2020, ""weak intervention"")"	"Assume strong intervention (e.g., limited social distancing)"		5/4/20		FALSE	FALSE	TRUE
+47	6	"COVID Act Now (5/4/2020, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/5/20		TRUE	TRUE	TRUE
+48	6	"COVID Act Now (5/4/2020, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	TRUE
+49	6	"COVID Act Now (5/4/2020, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	TRUE

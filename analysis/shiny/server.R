@@ -60,8 +60,8 @@ server <- function(input, output, session) {
     
     ## for debugging
      # selectedOutputs <- outputs %>%
-     #     filter(location %in% "Austria" &
-     #              output_name %in%  "ICU beds needed per day" ) %>%
+     #     filter(location %in% "United States of America" &
+     #              output_name %in%  "Hospital beds needed per day" ) %>%
      #     arrange(desc(model_snapshot_date))
 
     
@@ -104,43 +104,47 @@ server <- function(input, output, session) {
     ## Pick primary color palette depending on model ######################
     ######################################################################
 
-    ## LANL COVID-19 Model: #fd8d3c
+    ## LANL COVID-19 Model: #1f78b4
     ## IHME: #31a354
     ## Columbia University (previously Shaman): #756bb1
     ## GLEAM: #dd1c77
+    ## COVID-Act Now: #fd8d3c
+
+    color_function_cm <- function(model_name){
+      temp <- c()
+      if("Columbia University Model" %in% model_name){temp <- c(temp, "#756bb1")}
+      if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
+      if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
+      if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
+      if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "#1f78b4")}
+      return(temp)
+    }
     
     ## for compare models plot
-    ## TODO: figure out a better way to do this, maybe using c())?
     model_palette_cm <- reactive({
-      temp <- c()
-      if(all(c("Columbia University Model", "GLEAM", "IHME COVID-19 Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
-        c("#756bb1", "#dd1c77", "#31a354","#fd8d3c") else
-      if(all(c("Columbia University Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
-        c("#756bb1", "#fd8d3c") else
-      if(all(c("Columbia University Model", "GLEAM", "IHME COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
-          c("#756bb1", "#dd1c77", "#31a354") else    
-      if(all(c("Columbia University Model", "IHME COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
-          c("#756bb1", "#31a354") else    
-     if(all(c("IHME COVID-19 Model", "LANL COVID-19 Model") %in% unique(selectedOutputs()$model_name)))
-              c("#31a354", "#fd8d3c") else    
-          c("#006d2c", "#3182bd", "#e6550d", "#dd1c77")
+       color_function_cm(selectedOutputs()$model_name)
     })
-
     
+    color_function_mt <- function(model_name){
+      temp <- c()
+      if("Columbia University Model" %in% model_name){temp <- c(temp, "Purples")}
+      if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "Oranges")}
+      if("GLEAM" %in% model_name){temp <- c(temp, "RdPu")}
+      if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
+      if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
+      return(temp)
+    }
+
     ## for compare model over time plot
     model_palette_mt <- reactive({
-      unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
-                       ifelse(selectedOutputsModelTime()$model_name == "Columbia University Model", "Purples",
-                       ifelse(selectedOutputsModelTime()$model_name == "LANL COVID-19 Model", "Oranges",   
-                       "Reds"))))
+      color_function_mt(selectedOutputsModelTime()$model_name)
     })  
     
+
     ## for compare model assumptions plot
     model_palette_ma <- reactive({
-      unique(ifelse(selectedOutputsModelTime()$model_name == "IHME COVID-19 Model", "Greens",
-             ifelse(selectedOutputsModelTime()$model_name == "Columbia University Model", "Purples",
-             ifelse(selectedOutputsModelTime()$model_name == "LANL COVID-19 Model", "Oranges",   
-             "Reds"))))
+      color_function_mt(selectedOutputsModelAssumption()$model_name)
+      
     })  
     
     ######################################################################
