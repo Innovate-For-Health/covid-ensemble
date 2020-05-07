@@ -12,22 +12,24 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                           mainPanel(
                             h2("COVID Model Inventory"),
                             
-                            p("The COVID Model Inventory was developed to facilitate reproducible epidemiological modeling for COVID-19 response and recovery."),
+                            p("The COVID Model Inventory was developed support transparency 
+                              in epidemiological modeling for COVID-19, including by highlighting
+                              key differences between models."),
                             
                             h3("Goals and Audience"),
                             
-                            p("Public health researchers have rapidly responded to the COVID-19 
-             outbreak by developing models to forecast how the outbreak might unfold under various possible scenarios. 
-             In the absence of a central data repository or coordinating body for public health response modeling, 
-             it is often difficult to rapidly access, understand, and compare results from different models currently 
-                              being used to inform policy decisions and operational planning."),
+                            p("Public health researchers have developed models to forecast how the COVID-19 pandemic might 
+                            unfold under various possible scenarios. However, it is often difficult to rapidly access, 
+                            understand, and compare results from the numerous models currently 
+                            being used to inform policy decisions and operational planning."),
                             
                             p("This project was developed to allow users to:"),
                             
                             tags$ul(
-                              tags$li("monitor how different COVID-19 models have changed over time"), 
-                              tags$li("compare the assumptions and results of these models"), 
-                              tags$li("understand how differences in assumptions and methods may drive differences in results")),
+                              tags$li("compare results across models"), 
+                              tags$li("monitor how models have changed over time"), 
+                              tags$li("understand how key assumptions influence results")), 
+
                             h4("Disclaimer"),
                             
                             p("This site is not intended to act as a substitute for accessing each individual model’s visualizations and 
