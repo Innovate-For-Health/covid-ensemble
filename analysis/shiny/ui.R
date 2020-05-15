@@ -125,13 +125,22 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                  
                  tabPanel("Model inventory",
                           mainPanel(
-                            navlistPanel("Select model",
+                            navlistPanel("Select model:",
                                          
                 ###################################################################################
                 ## Columbia Model Details #########################################################
                 ###################################################################################
                                          
-                                         tabPanel("Columbia University Model",
+                                        tabPanel("Overview",  
+                                        h3("Model inventory"),
+                                        
+                                        p("All models are developed with a specific purpose in mind. This intended purpose impacts how each model 
+                                        is developed, how it should be used, and the context based on which its results should be interpreted."),
+                                        
+                                        p("Use the panel to the right to explore additional details 
+                                          about each model included in this inventory.")),
+                                        
+                                        tabPanel("Columbia University Model",
                                                   
                                                   h3("Columbia University Model"),
                                                   hr(),
@@ -141,6 +150,17 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                   
                                                   p(tags$b("Developer:"), "Sen Pei and Jeffrey Shaman, Mailman School of Public Health, Columbia University"),
                                                   hr(),
+                                                 
+                                                 p(tags$b("What is predicted:"),
+                                                   tags$ul(
+                                                     tags$li("new confirmed cases per day"),
+                                                     tags$li("new reported infections per day"),
+                                                     tags$li("new total infections per day (reported or unreported)*"),
+                                                     tags$li("demand for hospital beds per day")
+                                                   ),
+                                                   p('* indicates predictions incorporated in "model results" tab')
+                                                   ),
+                                                 hr(),
                                                   
                                                   p(tags$b("Key assumptions:") ,
                                                     tags$ul(
@@ -158,6 +178,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                     p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
                                                     hr(),
                                                     
+                                                    
                                                     p(tags$b("Reference and source documentation:"),
                                                       tags$ul(
                                                         tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", target = "_blank")),
@@ -167,20 +188,19 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                     hr(),
                                                     
                                                     p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
-                                                    hr(),
-                                                    
-                                                    p(tags$b("Data processing in Model Inventory:"),
-                                                      tags$ul(
-                                                        tags$li("state and national estimates calculated based on sum of relevant values reported at the county level"),
-                                                        br(),
-                                                        tags$li("point estimates taken as median produced value across model iterations, for any given location, date, and county"),
-                                                        br(),
-                                                        tags$li("when comparing Shaman model to other models in the Inventory, show model associated with initial 40% reduction in social contact")),
+                                                    # hr(),
+                                                    # 
+                                                    # p(tags$b("Data processing in Model Inventory:"),
+                                                    #   tags$ul(
+                                                    #     tags$li("state and national estimates calculated based on sum of relevant values reported at the county level"),
+                                                    #     br(),
+                                                    #     tags$li("point estimates taken as median produced value across model iterations, for any given location, date, and county"),
+                                                    #     br(),
+                                                    #     tags$li("when comparing Shaman model to other models in the Inventory, show model associated with initial 40% reduction in social contact"))),
                                                       
                                                       
                                                       
                                                       
-                                                    ),
                                                     hr()
                                                   )),       
                 
@@ -280,7 +300,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                            ))),
                                        hr(),
                                        
-                                       p(tags$b("Most recent data update in Model Inventory:"), "April 29, 2020"),
+                                       p(tags$b("Most recent data update in Model Inventory:"), "May 10, 2020"),
                                        hr()
                                      )),
                 

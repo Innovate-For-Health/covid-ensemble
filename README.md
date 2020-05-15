@@ -15,7 +15,7 @@ However, different models are being produced and used by different groups, each 
 
 ## Models currently incorporated
 
-The researchers that developed the models incorporated in this repository and dashboard are doing important work. They have made their results publicly accessible in a way that supports and promotes reproducible research. We have included their data use and reuse licenses (when available) and complete references in each model's model_runs subdirectories.
+The researchers that developed the models incorporated in this repository are doing important work. They have made their results publicly accessible in a way that supports and promotes reproducible research. We have included their data use and reuse licenses (when available) and complete references in each model's model_runs subdirectories.
 
 All of the COVID-19 models identified below have been documented as being used by policy-makers or public health responders during the 2019-2020 COVID-19 pandemic. Each model was developed for a different purpose, and relies on different data inputs, key assumptions, and underlying methods. The intended use of a model impacts how it is developed, how it should be used, and the context based on which its results should be interpreted. 
 

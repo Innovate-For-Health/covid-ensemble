@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 33
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_4_22.csv"
+model_run_id <- 50
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_10.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -50,17 +50,17 @@ if(any(ihme$location == "US")){
 ## exclude some specific elements of IHME data that are only tracked ih IHME export and won't be 
 ## comparable to results of other models
 ## note that field location_name was once called location
-if(any(names(ihme) == "location_name")){
-ihme <- ihme[-which(ihme$location_name %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
-                                         "Life Care Center, Kirkland, WA",
-                                         "Other Counties, WA")),]
-}
+# if(any(names(ihme) == "location_name")){
+# ihme <- ihme[-which(ihme$location_name %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
+#                                          "Life Care Center, Kirkland, WA",
+#                                          "Other Counties, WA")),]
+# }
 
-if(any(names(ihme) == "location")){
-  ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
-                                                "Life Care Center, Kirkland, WA",
-                                                "Other Counties, WA")),]
-}
+# if(any(names(ihme) == "location")){
+#   ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
+#                                                 "Life Care Center, Kirkland, WA",
+#                                                 "Other Counties, WA")),]
+# }
 
 #################################################################
 ## Format data ##################################################
