@@ -2,11 +2,11 @@
 ## Specify some initial details #################################
 #################################################################
 
-## TODO: add global results
+## TODO: add global data
 
-model_run_id <- 45
-file_name_cases <- "model_runs/13_lanl/model_export/45_2020-04-19_confirmed_quantiles_us.csv"
-file_name_deaths <- "model_runs/13_lanl/model_export/45_2020-04-19_deaths_quantiles_us.csv"
+model_run_id <- 57
+file_name_cases <- "model_runs/13_lanl/model_export/57_2020-05-06_confirmed_quantiles_us_website.csv"
+file_name_deaths <- "model_runs/13_lanl/model_export/57_2020-05-06_deaths_quantiles_us_website.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################

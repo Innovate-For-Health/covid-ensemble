@@ -41,7 +41,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 40	9	"Columbia University Model (4/23, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
 41	9	"Columbia University Model (4/23, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
 42	13	LANL COVID-19 Model (4/29)	Update with new training data (4/29)	LANL COVID-19 Model	4/29/20		TRUE	TRUE	TRUE
-43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		TRUE	TRUE	TRUE
+43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		TRUE	FALSE	FALSE
 44	13	LANL COVID-19 Model (4/22)	Update with new training data (4/22)	LANL COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
 45	13	LANL COVID-19 Model (4/19)	Update with new training data (4/19)	LANL COVID-19 Model	4/19/20		TRUE	TRUE	TRUE
 46	10	GLEAM (4/15)	Update with new data (4/15)	GLEAM	4/15/20		TRUE	TRUE	TRUE
@@ -54,3 +54,5 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 53	6	"COVID Act Now (5/15, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	TRUE
 54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		TRUE	TRUE	TRUE
 55	10	GLEAM (5/10)	Update with new data (5/10)	GLEAM	5/10/20		TRUE	TRUE	TRUE
+56	13	LANL COVID-19 Model (5/13)	Update with new training data (5/13)	LANL COVID-19 Model	5/13/20		TRUE	TRUE	TRUE
+57	13	LANL COVID-19 Model (5/6)	Update with new training data (5/6)	LANL COVID-19 Model	5/6/20		TRUE	TRUE	TRUE
