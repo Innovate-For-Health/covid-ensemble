@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 50
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_10.csv"
+model_run_id <- 54
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_04.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################

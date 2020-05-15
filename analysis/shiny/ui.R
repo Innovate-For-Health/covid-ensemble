@@ -276,11 +276,6 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                      
                                      p(tags$b("Key assumptions:") ,
                                        tags$ul(
-                                         tags$li("assumes continuation of social distancing in all US states and subsequent effective implementation of containment (e.g., testing, contact tracing, restrictions on public gatherings)",
-                                                 tags$a(href = "http://www.healthdata.org/covid/updates", "(as of 4/17)", target = "_blank")),
-                                         br(),
-                                         tags$li("assumes effects from social distancing will be similar in locations around the world (e.g., Hubei, China vs. United States)"),
-                                         br(),
                                          tags$li("please consult available documentation below for additional information on key model assumptions.")),
                                        hr(),
                                        
