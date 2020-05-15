@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_unmitigated <- 46
-model_run_id_mitigated <- 47
+model_run_id_unmitigated <- 55
+model_run_id_mitigated <- 56
 
 #################################################################
 ## Load required libraries ######################################
@@ -68,10 +68,7 @@ location_options <- gsub(" ", "%20", c(locations[which(locations$location_type =
                                                          locations$iso2 == "US" &
                                                          locations$location_name != "District of Columbia" &
                                                          locations$location_name != "Washington" &
-                                                         locations$location_name != "Hawaii" &
-                                                         locations$location_name != "New York" &
-                                                         locations$location_name != "New Jersey" &
-                                                         locations$location_name != "Pennsylvania"
+                                                         locations$location_name != "New York"
                                                        ),]$location_name,
                                        "Washington State", "New York State"))
 

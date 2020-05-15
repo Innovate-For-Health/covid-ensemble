@@ -20,7 +20,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 19	13	LANL COVID-19 Model (4/12)	Update with new training data (4/12)	LANL COVID-19 Model	4/12/20		FALSE	TRUE	TRUE
 20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	TRUE	TRUE
 21	13	LANL COVID-19 Model (4/5)	Initial archived model release (4/5)	LANL COVID-19 Model	4/5/20		FALSE	TRUE	TRUE
-22	10	GLEAM (early April)	"Initial archived results from website (4/3/20, accessed 4/20/20)"	GLEAM	4/3/20		TRUE	TRUE	TRUE
+22	10	GLEAM (4/3)	Initial archived results from website (4/3)	GLEAM	4/3/20		TRUE	TRUE	TRUE
 23	1	IHME COVID-19 Model (4/17)	Update with new training data (4/17)	IHME COVID-19 Model	4/17/20		TRUE	TRUE	TRUE
 24	9	"Columbia University Model (4/16, no interventions)"	Assume no intervention	Columbia University Model	4/16/20	Model assumes no interventions	FALSE	FALSE	FALSE
 25	9	"Columbia University Model (4/16, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
@@ -44,7 +44,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		TRUE	TRUE	TRUE
 44	13	LANL COVID-19 Model (4/22)	Update with new training data (4/22)	LANL COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
 45	13	LANL COVID-19 Model (4/19)	Update with new training data (4/19)	LANL COVID-19 Model	4/19/20		TRUE	TRUE	TRUE
-46	10	GLEAM (4/15)	"Update with new data (4/15/20, accessed 5/4/20)"	GLEAM	4/15/20		TRUE	TRUE	TRUE
+46	10	GLEAM (4/15)	Update with new data (4/15)	GLEAM	4/15/20		TRUE	TRUE	TRUE
 47	6	"COVID Act Now (5/4, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/5/20		TRUE	TRUE	FALSE
 48	6	"COVID Act Now (5/4, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
 49	6	"COVID Act Now (5/4, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
@@ -53,3 +53,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 52	6	"COVID Act Now (5/15, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	TRUE
 53	6	"COVID Act Now (5/15, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	TRUE
 54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		TRUE	TRUE	TRUE
+55	10	GLEAM (5/10)	Update with new data (5/10)	GLEAM	5/10/20		TRUE	TRUE	TRUE
