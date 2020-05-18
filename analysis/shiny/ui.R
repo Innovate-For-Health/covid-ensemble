@@ -155,11 +155,10 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                    tags$ul(
                                                      tags$li("new confirmed cases per day"),
                                                      tags$li("new reported infections per day"),
-                                                     tags$li("new total infections per day (reported or unreported)*"),
+                                                     tags$li("new total infections per day (reported or unreported)"),
                                                      tags$li("demand for hospital beds per day")
-                                                   ),
-                                                   p('* indicates predictions incorporated in "model results" tab')
-                                                   ),
+                                                   )),
+                                                 
                                                  hr(),
                                                   
                                                   p(tags$b("Key assumptions:") ,
@@ -212,7 +211,42 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          
                          h3("COVID Act Now Model"),
                          hr(),
-                         h5("Additional details coming soon!")
+                         
+                         p(tags$b("Intended use:"), "provide disease intelligence and data analysis on COVID in the US"),
+                         hr(),
+
+                         p(tags$b("Developer:"), "COVIDActNow.org"),
+                         hr(),
+
+                         p(tags$b("What is predicted:"), "demand for hospital beds per day"),
+                         hr(),
+
+                         p(tags$b("Key assumptions:"),"please consult available documentation below for additional information on key model assumptions."),
+
+                           hr(),
+
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US state and for selected counties"),
+                           hr(),
+
+                           p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
+                           hr(),
+
+
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("visualizations and model results:", tags$a(href = "https://covidactnow.org/", "https://covidactnow.org/", target = "_blank")),
+                               br(),
+                               tags$li("source code:", tags$a(href="https://github.com/covid-projections/covid-projections", "https://github.com/covid-projections/covid-projections", target="_blank")),
+                               br(),
+                               tags$li("API documentation:", tags$a(href = "https://blog.covidactnow.org/covid-act-now-api-intervention-model/", "https://blog.covidactnow.org/covid-act-now-api-intervention-model/", target = "_blank")),
+                               br(),
+                               tags$li("additional documentation:", tags$a(href = "https://data.covidactnow.org/Covid_Act_Now_Model_References_and_Assumptions.pdf", "https://data.covidactnow.org/Covid_Act_Now_Model_References_and_Assumptions.pdf", target = "_blank")),
+                               br()
+                             )),
+                           hr(),
+                           
+                           p(tags$b("Most recent data update in Model Inventory:"), "May 28, 2020")
+                         
                          ),       
                 
                 ###################################################################################

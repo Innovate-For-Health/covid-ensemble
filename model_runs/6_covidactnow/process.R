@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 51
-run_id_strong <- 52
-run_id_weak <- 53
+run_id_observed <- 58
+run_id_strong <- 59
+run_id_weak <- 60
 
 #################################################################
 ## Load required libraries ######################################
@@ -15,6 +15,8 @@ library(rjson)
 #################################################################
 ## Load datasets other than Covid Act Now data ##################
 #################################################################
+
+## expects working directory to be "covid-ensemble"
 
 ## read in models (file that tracks all models)
 models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
@@ -91,7 +93,7 @@ for(state in 1:nrow(location_options)){
     "location" =  loc_counter,
     "value_type" = "point estimate",
     "value" = hosp_beds,
-    "notes" = '"estimates based on the actually observed effect of mitigations and other factors in a given state"'),
+    "notes" = '"estimates based on the observed effect of mitigations and other factors in a given state"'),
     
     cbind.data.frame(
       "model_run_id" = run_id_observed,
@@ -101,7 +103,7 @@ for(state in 1:nrow(location_options)){
       "location" =  loc_counter,
       "value_type" = "point estimate",
       "value" = cumu_deaths,
-      "notes" = '"estimates based on the actually observed effect of mitigations and other factors in a given state"')
+      "notes" = '"estimates based on the observed effect of mitigations and other factors in a given state"')
   
     )
   
