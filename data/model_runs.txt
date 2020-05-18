@@ -13,9 +13,9 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 12	9	"Columbia University Model (4/12, no interventions)"	Assume no intervention	Columbia University Model	4/12/20	Model assumes no interventions	FALSE	FALSE	FALSE
 13	9	"Columbia University Model (4/12, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
 14	9	"Columbia University Model (4/12, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-15	9	"Columbia University Model (4/12, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
-16	9	"Columbia University Model (4/5, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/5/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
-17	9	"Columbia University Model (4/9, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/9/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
+15	9	"Columbia University Model (4/12, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
+16	9	"Columbia University Model (4/5, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/5/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
+17	9	"Columbia University Model (4/9, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/9/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
 18	13	LANL COVID-19 Model (4/15)	Update with new training data (4/15)	LANL COVID-19 Model	4/15/20		TRUE	TRUE	TRUE
 19	13	LANL COVID-19 Model (4/12)	Update with new training data (4/12)	LANL COVID-19 Model	4/12/20		FALSE	TRUE	TRUE
 20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	TRUE	TRUE
@@ -25,21 +25,21 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 24	9	"Columbia University Model (4/16, no interventions)"	Assume no intervention	Columbia University Model	4/16/20	Model assumes no interventions	FALSE	FALSE	FALSE
 25	9	"Columbia University Model (4/16, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
 26	9	"Columbia University Model (4/16, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-27	9	"Columbia University Model (4/16, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
+27	9	"Columbia University Model (4/16, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/16/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
 28	9	"Columbia University Model (4/19, no interventions)"	Assume no intervention	Columbia University Model	4/19/20	Model assumes no interventions	FALSE	FALSE	FALSE
-29	9	"Columbia University Model (4/19, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	TRUE
-30	9	"Columbia University Model (4/19, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	TRUE
-31	9	"Columbia University Model (4/19, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	TRUE
+29	9	"Columbia University Model (4/19, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
+30	9	"Columbia University Model (4/19, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
+31	9	"Columbia University Model (4/19, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/19/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
 32	1	IHME COVID-19 Model (4/29)	Update with new training data (4/29)	IHME COVID-19 Model	4/29/20		TRUE	TRUE	TRUE
 33	1	IHME COVID-19 Model (4/22)	Update with new training data (4/22)	IHME COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
 34	9	"Columbia University Model (4/26, no interventions)"	Assume no intervention	Columbia University Model	4/26/20	Model assumes no interventions	FALSE	FALSE	FALSE
 35	9	"Columbia University Model (4/26, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
 36	9	"Columbia University Model (4/26, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-37	9	"Columbia University Model (4/26, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
+37	9	"Columbia University Model (4/26, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/26/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
 38	9	"Columbia University Model (4/23, no interventions)"	Assume no intervention	Columbia University Model	4/23/20	Model assumes no interventions	FALSE	FALSE	FALSE
 39	9	"Columbia University Model (4/23, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
 40	9	"Columbia University Model (4/23, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
-41	9	"Columbia University Model (4/23, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 40% reduction in contact rates	TRUE	TRUE	FALSE
+41	9	"Columbia University Model (4/23, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 40% reduction in contact rates	FALSE	FALSE	FALSE
 42	13	LANL COVID-19 Model (4/29)	Update with new training data (4/29)	LANL COVID-19 Model	4/29/20		TRUE	TRUE	TRUE
 43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		TRUE	FALSE	FALSE
 44	13	LANL COVID-19 Model (4/22)	Update with new training data (4/22)	LANL COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
@@ -56,3 +56,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 55	10	GLEAM (5/10)	Update with new data (5/10)	GLEAM	5/10/20		TRUE	TRUE	TRUE
 56	13	LANL COVID-19 Model (5/13)	Update with new training data (5/13)	LANL COVID-19 Model	5/13/20		TRUE	TRUE	TRUE
 57	13	LANL COVID-19 Model (5/6)	Update with new training data (5/6)	LANL COVID-19 Model	5/6/20		TRUE	TRUE	TRUE
+									
