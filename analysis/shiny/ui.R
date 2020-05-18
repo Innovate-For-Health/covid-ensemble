@@ -282,9 +282,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                              tags$li("public documentation for COVID-19:", tags$a(href="https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", "https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf", target="_blank")),
                              tags$li("GLEAM website:", tags$a(href="http://www.gleamviz.org/model/", "http://www.gleamviz.org/model/", target="_blank")),
                              tags$li("model results and visualizations:", tags$a(href = "https://covid19.gleamproject.org/", "https://covid19.gleamproject.org/", target = "_blank"))
-                           )
-                           
-                         ),
+                           )),
                          hr(),
                          
                          p(tags$b("Most recent data update in Model Inventory:"), "May 10, 2020 (data accessed online May 15, 2020)"),
@@ -377,7 +375,53 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "May 13, 2020"),
                            hr()
-                         ))              
+                         )),
+                
+                ###################################################################################
+                ## Los Alamos Model Details #######################################################
+                ###################################################################################
+                
+                tabPanel("MIT DELPHI Model",
+                         
+                         h3("MIT DELPHI Model"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), "forecasts infections, hospitalizations, and deaths due to COVID-19"),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "MIT Operations Reseach Center"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("forecasts detected deaths, so counts may exclude deaths not detected by existing surveillance infrastructure"),
+                             br(),
+                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                           
+                           hr(),
+                           
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates by country and for US states"),
+                           hr(),
+                           
+                           p(tags$b("Geographic coverage of estimates:"), "Global"),
+                           hr(),
+                           
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("results and visualizations", tags$a(href="https://www.covidanalytics.io/projections", "https://www.covidanalytics.io/projections", target="_blank")),
+                               tags$li("source code:", tags$a(href="https://github.com/COVIDAnalytics/DELPHI", "https://github.com/COVIDAnalytics/DELPHI", target="_blank")),
+                               tags$li("additional documentation:", tags$a(href = "https://www.covidanalytics.io/DELPHI_documentation_pdf", "https://www.covidanalytics.io/DELPHI_documentation_pdf", target = "_blank"))
+                             )),
+                           hr(),
+
+                           p(tags$b("Most recent data update in Model Inventory:"), "May 18, 2020")
+                         ))
+                
+                
+                
+                
+                
+                
                 
                 
                 ))),

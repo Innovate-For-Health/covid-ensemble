@@ -28,12 +28,13 @@ server <- function(input, output, session) {
   
     ## update select model input
     # if someone changes the location, and the model outputs, only show potential models that are actually available for that location
+  ## exclude MIT Delphi model for now since we only have one observation
     observe({
       x_output <- input$output_name
       x_loc <- input$location
 
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output),]$model_name))
+                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output & outputs$model_name != "MIT DELPHI Model"),]$model_name))
     })
 
     ######################################################################
@@ -117,6 +118,8 @@ server <- function(input, output, session) {
       if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "#1f78b4")}
+      if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")} ## right now showing this instead of Columbia due to lack of documentation
+      
       return(temp)
     }
     
@@ -132,6 +135,9 @@ server <- function(input, output, session) {
       if("GLEAM" %in% model_name){temp <- c(temp, "RdPu")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
+      if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "Purples")}  ## right now showing this instead of Columbia due to lack of documentation
+      
+      
       return(temp)
     }
 
@@ -154,8 +160,8 @@ server <- function(input, output, session) {
     ## also checked out renderPlotly
     output$compare_most_recent_models <- renderPlot({
       ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
-                                       ## for now set focus to April through June
-                                     selectedOutputs()$date >= as.Date("2020-04-15") &
+                                       ## for now set focus to  May through June
+                                     selectedOutputs()$date >= as.Date("2020-05-01") &
                                      selectedOutputs()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
@@ -173,8 +179,8 @@ server <- function(input, output, session) {
     ######################################################################
     
     output$compare_models_over_time <- renderPlot({
-      ggplot(selectedOutputsModelTime()[which( ## for now set focus to April 15th through June
-                selectedOutputsModelTime()$date >= as.Date("2020-04-15") &
+      ggplot(selectedOutputsModelTime()[which( ## for now set focus on May through June
+                selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
                   selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
@@ -199,8 +205,8 @@ server <- function(input, output, session) {
     
     output$compare_models_over_assumptions <- renderPlot({
       
-      ggplot(selectedOutputsModelAssumption()[which( ## for now set focus to April through June
-        selectedOutputsModelAssumption()$date >= as.Date("2020-04-15") &
+      ggplot(selectedOutputsModelAssumption()[which( ## for now set focus on May through June
+        selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
           selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),],
         aes(x = date, y = value, 
             ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want

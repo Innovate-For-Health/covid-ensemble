@@ -10,7 +10,7 @@ locations <- read.delim(here("data", "locations.txt"), stringsAsFactors = FALSE)
 output_options <- unique(model_outputs$output_name)
 
 ## models that you can choose to look at in the second two tabs
-model_options <- as.character(unique(model_outputs$output_name))
+#model_options <- as.character(unique(model_outputs$output_name[-which(model_ou)]))
 
 ## locations for which you can view data, grouped separately by countries and US states/territories/intermediate areas
 ## note: intentionally not including county data at this time

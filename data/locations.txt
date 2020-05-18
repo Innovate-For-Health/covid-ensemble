@@ -3401,3 +3401,21 @@ US	USA	County	Local	St. Thomas		78030
 CA	CAN	Province/State	Intermediate	British Columbia		
 CA	CAN	Province/State	Intermediate	Quebec		
 CA	CAN	Province/State	Intermediate	Alberta		
+		Country		Burkina Faso		
+				Cabo Verde		
+				Cameroon		
+				Chad		
+				Cote d'Ivoire		
+				Djibouti		
+				Equatorial Guinea		
+				Ethiopia		
+				Gabon		
+				Ghana		
+				Guinea		
+				Guinea-Bissau		
+				Jamaica		
+				Kenya		
+				Liberia		
+				Madagascar		
+				Mali		
+				Mauritius		

@@ -13,6 +13,8 @@ However, different models are being produced and used by different groups, each 
 
 - monitor how the projections of a given model have changed over time
 
+The team at [https://github.com/reichlab/covid19-forecast-hub](https://github.com/reichlab/covid19-forecast-hub) is also doing fantastic work in this area. I highly recommend checking out their related efforts as well, which are focused primarily on generating ensemble-based predictions.
+
 ## Models currently incorporated
 
 The researchers that developed the models incorporated in this repository are doing important work. They have made their results publicly accessible in a way that supports and promotes reproducible research. We have included their data use and reuse licenses (when available) and complete references in each model's model_runs subdirectories.
@@ -28,6 +30,8 @@ All of the COVID-19 models identified below have been documented as being used b
 - [IHME COVID-19 model](https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1.full.pdf)
 
 - [Los Alamos National Lab COVID-19 Model](https://covid-19.bsvgateway.org/)
+
+- [MIT DELPHI Model](https://www.covidanalytics.io/projections)
 
 We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available. Only models that produce estimates at daily, weekly, or monthly temporal resolutions over time are currently included.
 
