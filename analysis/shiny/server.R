@@ -27,14 +27,12 @@ server <- function(input, output, session) {
 
   
     ## update select model input
-    # if someone changes the location, and the model outputs, only show potential models that are actually available for that location
-  ## exclude MIT Delphi model for now since we only have one observation
+    #if someone changes the model outputs, only show potential models that are actually available for that location
     observe({
       x_output <- input$output_name
-      x_loc <- input$location
 
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$location == x_loc & outputs$output_name == x_output & outputs$model_name != "MIT DELPHI Model"),]$model_name))
+                        choices = unique(outputs[which(outputs$output_name == x_output),]$model_name))
     })
 
     ######################################################################
@@ -136,8 +134,7 @@ server <- function(input, output, session) {
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "Purples")}  ## right now showing this instead of Columbia due to lack of documentation
-      
-      
+
       return(temp)
     }
 
