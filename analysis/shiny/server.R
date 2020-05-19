@@ -113,7 +113,7 @@ server <- function(input, output, session) {
 
     color_function_cm <- function(model_name){
       temp <- c()
-      if("Columbia University Model" %in% model_name){temp <- c(temp, "#756bb1")}
+      #if("Columbia University Model" %in% model_name){temp <- c(temp, "#756bb1")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
       if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
@@ -130,7 +130,7 @@ server <- function(input, output, session) {
     
     color_function_mt <- function(model_name){
       temp <- c()
-      if("Columbia University Model" %in% model_name){temp <- c(temp, "Purples")}
+      #if("Columbia University Model" %in% model_name){temp <- c(temp, "Purples")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "Oranges")}
       if("GLEAM" %in% model_name){temp <- c(temp, "RdPu")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
