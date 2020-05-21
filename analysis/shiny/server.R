@@ -17,13 +17,13 @@ server <- function(input, output, session) {
     ######################################################################
     
   ## if someone changes the location, only show potential outputs that are actually available for that location
-    observe({
-      x_loc <- input$location
-
-      updateSelectInput(session, "output_name",
-                      choices = list("Healthcare demand" = outputs_agg$`Healthcare demand`[which(outputs_agg$`Healthcare demand` %in% outputs$output_name[which(outputs$location == x_loc)])],
-                                     "Caseload and fatalities" = outputs_agg$`Caseload and fatalities`[which(outputs_agg$`Caseload and fatalities` %in% outputs$output_name[which(outputs$location == x_loc)])]))
-      })
+    # observe({
+    #   x_loc <- input$location
+    # 
+    #   updateSelectInput(session, "output_name",
+    #                   choices = list("Healthcare demand" = outputs_agg$`Healthcare demand`[which(outputs_agg$`Healthcare demand` %in% outputs$output_name[which(outputs$location == x_loc)])],
+    #                                  "Caseload and fatalities" = outputs_agg$`Caseload and fatalities`[which(outputs_agg$`Caseload and fatalities` %in% outputs$output_name[which(outputs$location == x_loc)])]))
+    #   })
 
   
     ## update select model input

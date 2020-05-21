@@ -37,10 +37,15 @@ model_name <- models$model_name[which(models$model_id == 14)]
 
 ## todo: finish adding countries to locations.txt
 all(delphi$Country %in% locations$location_name)
-unique(delphi$Country[-which(delphi$Country %in% locations$location_name)])
 delphi$Country[which(delphi$Country == "US")] <- "United States of America"
+delphi$Country[which(delphi$Country == "Korea, South")] <- "South Korea"
+delphi$Country[which(delphi$Country == "Congo (Brazzaville)")] <- "Brazzaville"
+delphi$Country[which(delphi$Country == "Congo (Kinshasa)")] <- "Kinshasa"
 
-## for now just look at locations already specified in locations.txt
+## the "Nones" are continents
+unique(delphi$Country[-which(delphi$Country %in% locations$location_name)])
+
+## just look at locations already specified in locations.txt
 delphi <- delphi[which(delphi$Country %in% locations$location_name),]
 
 ## for everywhere but the US, just look at country-level data

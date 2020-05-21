@@ -3401,21 +3401,90 @@ US	USA	County	Local	St. Thomas		78030
 CA	CAN	Province/State	Intermediate	British Columbia		
 CA	CAN	Province/State	Intermediate	Quebec		
 CA	CAN	Province/State	Intermediate	Alberta		
-		Country		Burkina Faso		
-				Cabo Verde		
-				Cameroon		
-				Chad		
-				Cote d'Ivoire		
-				Djibouti		
-				Equatorial Guinea		
-				Ethiopia		
-				Gabon		
-				Ghana		
-				Guinea		
-				Guinea-Bissau		
-				Jamaica		
-				Kenya		
-				Liberia		
-				Madagascar		
-				Mali		
-				Mauritius		
+BF	BFA	Country	Country	Burkina Faso		
+CV	CPV	Country	Country	Cabo Verde		
+CM	CMR	Country	Country	Cameroon		
+TD	TCD	Country	Country	Chad		
+CI	CIV	Country	Country	Cote d'Ivoire		
+DJ	DJI	Country	Country	Djibouti		
+GQ	GNQ	Country	Country	Equatorial Guinea		
+ET	ETH	Country	Country	Ethiopia		
+GA	GAB	Country	Country	Gabon		
+GH	GHA	Country	Country	Ghana		
+GN	GIN	Country	Country	Guinea		
+GW	GNB	Country	Country	Guinea-Bissau		
+JM	JAM	Country	Country	Jamaica		
+KE	KEN	Country	Country	Kenya		
+LR	LBR	Country	Country	Liberia		
+MG	MDG	Country	Country	Madagascar		
+ML	MLI	Country	Country	Mali		
+MU	MUS	Country	Country	Mauritius		
+BJ	BEN	Country	Country	Benin		
+CF	CAF	Country	Country	Central African Republic		
+NE	NER	Country	Country	Niger		
+ZA	ZAF	Country	Country	South Africa		
+TG	TGO	Country	Country	Togo		
+AF	AFG	Country	Country	Afghanistan		
+TN	TUN	Country	Country	Tunisia		
+		Country	Country	Senegal		
+SG	SGP	Country	Country	Singapore		
+TH	THA	Country	Country	Thailand		
+OM	OMN	Country	Country	Oman		
+BD	BGD	Country	Country	Bangladesh		
+PK	PAK	Country	Country	Pakistan		
+KW	KWT	Country	Country	Kuwait		
+AL	ALB	Country	Country	Albania		
+CU	CUB	Country	Country	Cuba		
+RS	SRB	Country	Country	Serbia		
+BY	BLR	Country	Country	Belarus		
+LK	LKA	Country	Country	Sri Lanka		
+QA	QAT	Country	Country	Qatar		
+AU	AUS	Country	Country	Australia		
+TT	TTO	Country	Country	Trinidad and Tobago		
+UY	URY	Country	Country	Uruguay		
+NG	NGA	Country	Country	Nigeria		
+RW	RWA	Country	Country	Rwanda		
+ST	STP	Country	Country	Sao Tome and Principe		
+SL	SLE	Country	Country	Sierra Leone		
+SO	SOM	Country	Country	Somalia		
+SS	SSD	Country	Country	South Sudan		
+SD	SDN	Country	Country	Sudan		
+TZ	TZA	Country	Country	Tanzania		
+UG	UGA	Country	Country	Uganda		
+ZM	ZMB	Country	Country	Zambia		
+AM	ARM	Country	Country	Armenia		
+AZ	AZE	Country	Country	Azerbaijan		
+BH	BHR	Country	Country	Bahrain		
+KH	KHM	Country	Country	Cambodia		
+JO	JOR	Country	Country	Jordan		
+KZ	KAZ	Country	Country	Kazakhstan		
+MV	MDV	Country	Country	Maldives		
+NP	NPL	Country	Country	Nepal		
+RU	RUS	Country	Country	Russia		
+SA	SAU	Country	Country	Saudi Arabia		
+TJ	TJK	Country	Country	Tajikistan		
+AE	ARE	Country	Country	United Arab Emirates		
+UZ	UZB	Country	Country	Uzbekistan		
+VN	VNM	Country	Country	Vietnam		
+AD	AND	Country	Country	Andorra		
+BA	BIH	Country	Country	Bosnia and Herzegovina		
+		partially-recognised state	Intermediate	Kosovo		
+MD	MDA	Country	Country	Moldova		
+ME	MNE	Country	Country	Montenegro		
+MK	MKD	Country	Country	North Macedonia		
+SM	SMR	Country	Country	San Marino		
+UA	UKR	Country	Country	Ukraine		
+CR	CRI	Country	Country	Costa Rica		
+SV	SLV	Country	Country	El Salvador		
+GT	GTM	Country	Country	Guatemala		
+VE	VEN	Country	Country	Venezuela		
+PY	PRY	Country	Country	Paraguay		
+NZ	NZL	Country	Country	New Zealand		
+GY	GUY	Country	Country	Guyana		
+HT	HTI	Country	Country	Haiti		
+HN	HND	Country	Country	Honduras		
+CL	CHL	Country	Country	Chile		
+BO	BOL	Country	Country	Bolivia		
+CO	COL	Country	Country	Colombia		
+CG	COG	Province/State	Local	Brazzaville		
+CD	COD	Province/State	Local	Kinshasa		
