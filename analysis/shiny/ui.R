@@ -383,7 +383,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          )),
                 
                 ###################################################################################
-                ## Los Alamos Model Details #######################################################
+                ## MIT DELPHI Model Details #######################################################
                 ###################################################################################
                 
                 tabPanel("MIT DELPHI Model",
@@ -421,12 +421,48 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
 
                            p(tags$b("Most recent data update in Model Inventory:"), "May 19, 2020"),
                            hr()
+                         )),
+                ###################################################################################
+                ## NotreDame-FRED Forecast Details ################################################
+                ###################################################################################
+                
+                tabPanel("NotreDame-FRED Forecast",
+                         
+                         h3("NotreDame-FRED Forecast"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), "make short term forecasts of COVID-19, with a focus on incidence of cases and deaths and the impacts of NPIs"),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Perkins lab at the University of Notre Dame"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                           
+                           hr(),
+                           
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates for selected US states"),
+                           hr(),
+                           
+                           p(tags$b("Geographic coverage of estimates:"), "selected US states (IL, IN, KY, MI, MN, OH, WI)"),
+                           hr(),
+                           
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("FRED model documentation", tags$a(href="https://fred.publichealth.pitt.edu/", "https://fred.publichealth.pitt.edu/", target="_blank")),
+                               tags$li("model outputs:", tags$a(href="https://github.com/confunguido/covid19_ND_forecasting/tree/master/output", "https://github.com/confunguido/covid19_ND_forecasting/tree/master/output", target="_blank")),
+                               tags$li("additional documentation:", tags$a(href = "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", target = "_blank"))
+                             )),
+                           hr(),
+                           
+                           p(tags$b("Most recent data update in Model Inventory:"), "May 18, 2020"),
+                           hr()
                          ))
                 
                 
-                
-                
-                
+
                 
                 
                 

@@ -117,6 +117,7 @@ server <- function(input, output, session) {
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "#1f78b4")}
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")} ## right now showing this instead of Columbia due to lack of documentation
+      if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "#6f94c5")}
       
       return(temp)
     }
@@ -126,6 +127,9 @@ server <- function(input, output, session) {
        color_function_cm(selectedOutputs()$model_name)
     })
     
+    #fredfunc <- colorRampPalette(c( "#cbe2ff", "#6f94c5"))
+    #barplot(1:8, col=fredfunc(8)); # https://encycolorpedia.com/a6bddb
+             
     color_function_mt <- function(model_name){
       temp <- c()
       #if("Columbia University Model" %in% model_name){temp <- c(temp, "Purples")}
@@ -134,7 +138,8 @@ server <- function(input, output, session) {
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "Purples")}  ## right now showing this instead of Columbia due to lack of documentation
-
+      if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "GnBu")} 
+      
       return(temp)
     }
 
