@@ -3488,3 +3488,4 @@ BO	BOL	Country	Country	Bolivia
 CO	COL	Country	Country	Colombia		
 CG	COG	Province/State	Local	Brazzaville		
 CD	COD	Province/State	Local	Kinshasa		
+GE	GEO	Country	Country	Georgia (country)		

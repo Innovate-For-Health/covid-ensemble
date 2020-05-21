@@ -32,7 +32,7 @@ server <- function(input, output, session) {
       x_output <- input$output_name
 
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$output_name == x_output),]$model_name))
+                        choices = unique(outputs[which(outputs$output_name == x_output & outputs$model_name != "Columbia University Model"),]$model_name))
     })
 
     ######################################################################

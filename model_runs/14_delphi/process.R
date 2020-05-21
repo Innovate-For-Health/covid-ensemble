@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 62
-file_name_cases <- "model_runs/14_delphi/model_export/62_covid_analytics_projections.csv"
+model_run_id <- 61
+file_name_cases <- "model_runs/14_delphi/model_export/61_covid_analytics_projections.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -35,12 +35,12 @@ model_name <- models$model_name[which(models$model_id == 14)]
 ## Check: any locations not in the locations file? ##############
 #################################################################
 
-## todo: finish adding countries to locations.txt
 all(delphi$Country %in% locations$location_name)
 delphi$Country[which(delphi$Country == "US")] <- "United States of America"
 delphi$Country[which(delphi$Country == "Korea, South")] <- "South Korea"
 delphi$Country[which(delphi$Country == "Congo (Brazzaville)")] <- "Brazzaville"
 delphi$Country[which(delphi$Country == "Congo (Kinshasa)")] <- "Kinshasa"
+delphi$Country[which(delphi$Country == "Georgia")] <- "Georgia (country)"
 
 ## the "Nones" are continents
 unique(delphi$Country[-which(delphi$Country %in% locations$location_name)])
@@ -50,7 +50,6 @@ delphi <- delphi[which(delphi$Country %in% locations$location_name),]
 
 ## for everywhere but the US, just look at country-level data
 ## within the US, also look at state-level data
-
 dephi <- delphi[which(delphi$Province == "None" | delphi$Country == "United States of America"),]
 delphi$location <- ifelse((delphi$Country == "United States of America" & delphi$Province != "None"), 
                           delphi$Province,
@@ -108,6 +107,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])
 ## Add data for output_id 5:  Hospital beds needed per day ######
 #################################################################
 
+
 ## only add these new data if you're not reading over model_outputs already stored
 if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])){
   
@@ -126,9 +126,22 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
 
 
 #################################################################
-## Save model_outputs as .RDS file ##############################
+## Run some sanity checks #######################################
 #################################################################
 
+
+ggplot(model_outputs[which(model_outputs$model_run_id == 62 & model_outputs$location == "Georgia" & model_outputs$output_name == "Ventilators needed per day"),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+ggplot(model_outputs[which(model_outputs$model_run_id == 62 & model_outputs$location == "Georgia" & model_outputs$output_name == "Hospital beds needed per day"),],
+               aes(x = date, y = value)) +
+     geom_line(size = 1) +
+     scale_y_continuous(label = comma) +
+     xlab("") +
+     theme_light() 
+
 saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE) 
-
-

@@ -2,8 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_unmitigated <- 55
-model_run_id_mitigated <- 56
+model_run_id_unmitigated <- 66
+model_run_id_mitigated <- 67
 
 #################################################################
 ## Load required libraries ######################################
@@ -13,7 +13,7 @@ library(rjson)
 library(jsonlite)
 
 #################################################################
-## Load datasets other than Covid Act Now data ##################
+## Load other datasets ##########################################
 #################################################################
 
 ## read in models (file that tracks all models)
@@ -46,9 +46,6 @@ model_outputs$date <- as.Date(model_outputs$date)
 #################################################################
 ## Hit API for states ###########################################
 #################################################################
-
-## note: as of April 10th, file .1 json corresponds to the strict model and file .3 json corresponds to the lax model
-## this needs to be double checked every time the code is run, in case they change something (documentation not clear)
 
 ## as of April 18th:
 ## example URL: https://data-tracking-api-dot-mobs-2019-ncov-web.appspot.com/data?state=Maine
