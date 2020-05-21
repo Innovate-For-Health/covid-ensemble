@@ -49,15 +49,18 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 48	6	"COVID Act Now (5/4, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
 49	6	"COVID Act Now (5/4, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
 50	1	IHME COVID-19 Model (5/10)	Update with new training data (5/10)	IHME COVID-19 Model	5/10/20		TRUE	TRUE	TRUE
-51	6	"COVID Act Now (5/15, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/15/20		TRUE	TRUE	FALSE
+51	6	"COVID Act Now (5/15, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/15/20		FALSE	TRUE	FALSE
 52	6	"COVID Act Now (5/15, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	FALSE
 53	6	"COVID Act Now (5/15, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	FALSE
 54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		TRUE	TRUE	TRUE
 55	10	GLEAM (5/10)	Update with new data (5/10)	GLEAM	5/10/20		TRUE	TRUE	TRUE
 56	13	LANL COVID-19 Model (5/13)	Update with new training data (5/13)	LANL COVID-19 Model	5/13/20		TRUE	TRUE	TRUE
 57	13	LANL COVID-19 Model (5/6)	Update with new training data (5/6)	LANL COVID-19 Model	5/6/20		TRUE	TRUE	TRUE
-58	6	"COVID Act Now (5/18, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/18/20		TRUE	TRUE	TRUE
-59	6	"COVID Act Now (5/18, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/18/20		FALSE	FALSE	TRUE
-60	6	"COVID Act Now (5/18, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/18/20		FALSE	FALSE	TRUE
+58	6	"COVID Act Now (5/18, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/18/20		TRUE	TRUE	FALSE
+59	6	"COVID Act Now (5/18, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/18/20		FALSE	FALSE	FALSE
+60	6	"COVID Act Now (5/18, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/18/20		FALSE	FALSE	FALSE
 61	14	MIT DELPHI Model (5/18)	Initial archived model release (5/18)	MIT DELPHI Model	5/18/20		TRUE	TRUE	TRUE
 62	14	MIT DELPHI Model (5/19)	Update with new data (5/19)	MIT DELPHI Model	5/19/20		TRUE	TRUE	TRUE
+63	6	"COVID Act Now (5/21, ""observed intervention"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/21/20		TRUE	TRUE	TRUE
+64	6	"COVID Act Now (5/21, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/21/20		FALSE	FALSE	TRUE
+65	6	"COVID Act Now (5/21, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/21/20		FALSE	FALSE	TRUE
