@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 54
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_04.csv"
+model_run_id <- 67
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_20.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -37,15 +37,29 @@ model_name <- models$model_name[which(models$model_id == 1)]
 ## then check: do we care? ######################################
 #################################################################
 
+if(any(ihme$location_name == "US")){
+  ihme$location_name[which(ihme$location_name == "US")] <- "United States of America"
+}
+
+if(any(ihme$location_name == "Bolivia (Plurinational State of)")){
+  ihme$location_name[which(ihme$location_name == "Bolivia (Plurinational State of)")] <- "Bolivia"
+}
+
+if(any(ihme$location_name == "Mexico_country")){
+  ihme$location_name[which(ihme$location_name == "Mexico_country")] <- "Mexico"
+}
+
+if(any(ihme$location_name == "Republic of Korea")){
+  ihme$location_name[which(ihme$location_name == "Republic of Korea")] <- "South Korea"
+}
+
+if(any(ihme$location_name == "Republic of Moldova")){
+  ihme$location_name[which(ihme$location_name == "Republic of Moldova")] <- "Moldova"
+}
+
 all(ihme$location_name %in% locations$location_name)
 unique(ihme[-which(ihme$location_name %in% locations$location_name),]$location_name)
 
-## for consistency across data sources, consistently code IHME data locations as "United States of America" vs. "US" 
-## IHME changed how these data were reported as of 4/5/20 (using full name vs. partial name)
-## todo: map to FIPS codes and country ISO codes for locations
-if(any(ihme$location == "US")){
-  ihme$location[which(ihme$location == "US")] <- "United States of America"
-}
 
 ## exclude some specific elements of IHME data that are only tracked ih IHME export and won't be 
 ## comparable to results of other models
@@ -69,9 +83,6 @@ if(any(ihme$location == "US")){
 ## set date as a date
 ihme$date <- as.Date(ihme$date)
 model_outputs$date <- as.Date(model_outputs$date)
-
-## no data for output_id 1: new infections per day
-## no data for output_id 2: cumulative infections
 
 #################################################################
 ## Add data for output_id 3:  Fatalities per day ################
