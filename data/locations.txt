@@ -3503,3 +3503,4 @@ BR	BRA	Province/State	Intermediate	Rio de Janeiro
 BR	BRA	City	Local	Sao Paulo			
 MX	MEX	Province/State	Intermediate	Sinaloa			
 MX	MEX	Province/State	Intermediate	Tabasco			
+MZ	MOZ	Country	Country	Mozambique			
