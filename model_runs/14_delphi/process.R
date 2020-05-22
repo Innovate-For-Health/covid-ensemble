@@ -2,15 +2,17 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 61
-file_name_cases <- "model_runs/14_delphi/model_export/61_covid_analytics_projections.csv"
+model_run_id <- 73
+
+## as of May 22, switched to hosting data on git instead of letting you download a flat file
+file_name <- "https://raw.githubusercontent.com/COVIDAnalytics/website/master/data/predicted/Global.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
 #################################################################
 
 ## read in data
-delphi <- read.csv(file_name_cases, stringsAsFactors = FALSE)
+delphi <- read.csv(file_name, stringsAsFactors = FALSE)
 
 ## read in models (file that tracks all models)
 models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
@@ -130,14 +132,14 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
 #################################################################
 
 
-ggplot(model_outputs[which(model_outputs$model_run_id == 62 & model_outputs$location == "Georgia" & model_outputs$output_name == "Ventilators needed per day"),],
+ggplot(model_outputs[which(model_outputs$model_run_id == 73 & model_outputs$location == "California" & model_outputs$output_name == "Ventilators needed per day"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
   xlab("") +
   theme_light() 
 
-ggplot(model_outputs[which(model_outputs$model_run_id == 62 & model_outputs$location == "Georgia" & model_outputs$output_name == "Hospital beds needed per day"),],
+ggplot(model_outputs[which(model_outputs$model_run_id == 73 & model_outputs$location == "California" & model_outputs$output_name == "Hospital beds needed per day"),],
                aes(x = date, y = value)) +
      geom_line(size = 1) +
      scale_y_continuous(label = comma) +
