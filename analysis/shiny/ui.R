@@ -459,7 +459,46 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "May 18, 2020"),
                            hr()
+                         )),
+                
+                ###################################################################################
+                ## UCLA Model Details #############################################################
+                ###################################################################################
+                
+                tabPanel("UCLA COVID-19 Model",
+                         
+                         h3("UCLA COVID-19 Model"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), '"better understand the spread of COVID-19, to facilitate informed decisions by policy makers, and to better allocate the medical resources such as medical workers, personal protective equipment"'),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Statistical Machine Learning Lab at UCLA"),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:") ,
+                           tags$ul(
+                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                           
+                           hr(),
+                           
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates for US states"),
+                           hr(),
+                           
+                           p(tags$b("Geographic coverage of estimates:"), "United States (including Virgin Islands and Puerto Rico)"),
+                           hr(),
+                           
+                           p(tags$b("Reference and source documentation:"),
+                             tags$ul(
+                               tags$li("model outputs and visualizations:", tags$a(href="https://covid19.uclaml.org/index.html", "https://covid19.uclaml.org/index.html", target="_blank")),
+                               tags$li("additional documentation:", tags$a(href = "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", target = "_blank"))
+                             )),
+                           hr(),
+                           
+                           p(tags$b("Most recent data update in Model Inventory:"), "May 22, 2020"),
+                           hr()
                          ))
+                
                 
                 
 

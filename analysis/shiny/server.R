@@ -32,7 +32,7 @@ server <- function(input, output, session) {
       x_output <- input$output_name
 
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$output_name == x_output & outputs$model_name != "Columbia University Model"),]$model_name))
+                        choices = unique(outputs[which(outputs$output_name == x_output & outputs$model_name != "Columbia University Model" & outputs$model_name != "UCLA COVID-19 Model"),]$model_name))
     })
 
     ######################################################################
@@ -118,6 +118,8 @@ server <- function(input, output, session) {
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "#1f78b4")}
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")} ## right now showing this instead of Columbia due to lack of documentation
       if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "#6f94c5")}
+      if("UCLA COVID-19 Model" %in% model_name){temp <- c(temp, "firebrick3")}
+      
       
       return(temp)
     }
@@ -139,6 +141,8 @@ server <- function(input, output, session) {
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "Purples")}  ## right now showing this instead of Columbia due to lack of documentation
       if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "GnBu")} 
+      if("UCLA COVID-19 Model" %in% model_name){temp <- c(temp, "Reds")} 
+      
       
       return(temp)
     }

@@ -70,3 +70,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 69	16	NotreDame-FRED Forecast (5/11)	Incorporate google mobility data (5/11)	NotreDame-FRED Forecast	5/11/20		FALSE	TRUE	TRUE
 71	16	NotreDame-FRED Forecast (5/4)	Update with new data (5/4)	NotreDame-FRED Forecast	5/4/20		FALSE	TRUE	TRUE
 72	16	NotreDame-FRED Forecast (4/27)	Update with new data (4/27)	NotreDame-FRED Forecast	4/27/20		FALSE	TRUE	TRUE
+70	17	UCLA COVID-19 Model (5/22)	Initial archived results from website (5/22)	UCLA COVID-19 Model	5/22/20		TRUE	FALSE	FALSE

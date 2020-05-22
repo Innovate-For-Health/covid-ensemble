@@ -35,6 +35,8 @@ All of the COVID-19 models identified below have been documented as being used b
 
 - [NotreDame-FRED Forecast](https://github.com/confunguido/covid19_ND_forecasting)
 
+- [UCLA COVID-19 Model](https://covid19.uclaml.org/index.html)
+
 
 We are actively working to incorporate data from additional public models as they become available, and are first focusing on epidemiological forecast models that are currently able to ingest real-time or near-real-time caseload data as those data become available. Only models that produce estimates at daily, weekly, or monthly temporal resolutions over time are currently included.
 
