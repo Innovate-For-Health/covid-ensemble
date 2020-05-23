@@ -23,6 +23,8 @@ All of the COVID-19 models identified below have been documented as being used b
 
 - [Columbia University Model](https://github.com/shaman-lab/COVID-19Projection)
 
+- [COVID19-projections.com](COVID19-projections.com)
+
 - [COVID Act Now US Intervention Model](https://covidactnow.org/)
 
 - [GLEAM](https://uploads-ssl.webflow.com/58e6558acc00ee8e4536c1f5/5e8bab44f5baae4c1c2a75d2_GLEAM_web.pdf) 

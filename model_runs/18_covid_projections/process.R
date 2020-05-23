@@ -1,0 +1,202 @@
+#################################################################
+## Specify some initial details #################################
+#################################################################
+
+## working directory should be covid-ensemble
+model_run_id <- 81
+file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-16/"
+
+#################################################################
+## Load required libraries ######################################
+#################################################################
+
+library(rjson)
+library(jsonlite)
+library(ggplot2)
+library(scales)
+
+#################################################################
+## Load other datasets and set fixed parameters #################
+#################################################################
+
+## read in models (file that tracks all models)
+models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
+
+## read in model_runs (file that tracks model runs)
+model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
+
+## read in model_outputs (saved as RDS due to large file size)
+model_outputs <- readRDS("data/model_outputs.RDS")
+
+## read in outputs (file that uniquely identifies each distinct output tracked across models)
+outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
+
+## read in dataset of locations
+locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+
+## This model ID is always 18, model name is always whatever model_id 18 is named in the file data/models.txt
+model_id <- 18
+model_name <- models$model_name[which(models$model_id == 18)]
+
+#################################################################
+## Access state-level data from github ###########################
+#################################################################
+
+## example URL: https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/US_AK.csv
+additional_outputs <- cbind.data.frame(
+  "model_run_id" = NA,
+  "output_id" = NA,
+  "output_name" = NA,
+  "date" =  NA,
+  "location" =  NA,
+  "value_type" = NA,
+  "value" = NA,
+  "notes" = NA)
+
+
+## states that don't have data changed between updates
+location_options <- locations[which(locations$location_type == "Province/State" & 
+                                      locations$iso2 == "US"),]
+
+location_options$github_string <- paste("US_", location_options$abbreviation, ".csv", sep = "")
+
+
+for(i in 1:nrow(location_options)){
+  
+  print(location_options[i,]$location_name)
+  
+  data <- read.csv(paste(file_location_base, location_options$github_string[i], sep = ""))
+
+    additional_outputs <- rbind.data.frame(additional_outputs,
+                                             cbind.data.frame(
+                                               "model_run_id" = model_run_id,
+                                               "output_id" = 1,
+                                               "output_name" = "New infections per day",
+                                               "date" = data$date,
+                                               "location" =  location_options[i,]$location_name,
+                                               "value_type" = "mean estimate",
+                                               "value" = data$predicted_new_infected_mean,
+                                               "notes" = ""))
+
+    additional_outputs <- rbind.data.frame(additional_outputs,
+                                           cbind.data.frame(
+                                             "model_run_id" = model_run_id,
+                                             "output_id" = 2,
+                                             "output_name" = "Cumulative infections",
+                                             "date" = data$date,
+                                             "location" =  location_options[i,]$location_name,
+                                             "value_type" = "mean estimate",
+                                             "value" = data$predicted_total_infected_mean,
+                                             "notes" = ""))
+    
+    additional_outputs <- rbind.data.frame(additional_outputs,
+                                           cbind.data.frame(
+                                             "model_run_id" = model_run_id,
+                                             "output_id" = 4,
+                                             "output_name" = "Cumulative fatalities",
+                                             "date" = data$date,
+                                             "location" =  location_options[i,]$location_name,
+                                             "value_type" = "mean estimate",
+                                             "value" = data$predicted_total_deaths_mean,
+                                             "notes" = ""))
+    }
+
+
+## remove first row that was just a placeholder
+additional_outputs <- additional_outputs[-1,]
+
+#################################################################
+## Access country-level data from github ########################
+#################################################################
+
+international_locations <- c("Algeria", "Argentina", "Austria",
+                             "Bangladesh", "Belgium", "Brazil",
+                             "Bulgaria", "Canada", "Chile", "China",
+                             "Colombia", "Croatia", "Cyprus", "Czechia",
+                             "Denmark", "Dominican-Republic", "Ecuador", 
+                             "Egypt", "Estonia", "Finland", "France", "Germany",
+                             "Greece", "Hungary", "Iceland", "India", "Indonesia",
+                             "Iran", "Ireland", "Israel", "Italy", "Japan",
+                             "Latvia", "Lithuania", "Luxembourg", "Malaysia",
+                             "Malta", "Mexico", "Moldova", "Morocco", "Netherlands",
+                             "Nigeria", "Norway", "Pakistan", "Panama", "Peru",
+                             "Philippines", "Poland", "Portugal", "Romania",
+                             "Russia", "Saudi-Arabia", "Serbia", "Slovakia",
+                             "South-Africa", "South-Korea", "Spain", "Sweden",
+                             "Switzerland", "Turkey", "Ukraine", "United-Kingdom")
+
+#international_locations[-which(international_locations %in% locations$location_name)]
+
+for(i in international_locations){
+
+  print(i)
+
+  data <- read.csv(paste("https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/global/", i, "_ALL.csv", sep = ""))
+
+  additional_outputs <- rbind.data.frame(additional_outputs,
+                                         cbind.data.frame(
+                                           "model_run_id" = model_run_id,
+                                           "output_id" = 1,
+                                           "output_name" = "New infections per day",
+                                           "date" = data$date,
+                                           "location" =  gsub("-", " ", i),
+                                           "value_type" = "mean estimate",
+                                           "value" = data$predicted_new_infected_mean,
+                                           "notes" = ""))
+
+  additional_outputs <- rbind.data.frame(additional_outputs,
+                                         cbind.data.frame(
+                                           "model_run_id" = model_run_id,
+                                           "output_id" = 2,
+                                           "output_name" = "Cumulative infections",
+                                           "date" = data$date,
+                                           "location" =  gsub("-", " ", i),
+                                           "value_type" = "mean estimate",
+                                           "value" = data$predicted_total_infected_mean,
+                                           "notes" = ""))
+
+  additional_outputs <- rbind.data.frame(additional_outputs,
+                                         cbind.data.frame(
+                                           "model_run_id" = model_run_id,
+                                           "output_id" = 4,
+                                           "output_name" = "Cumulative fatalities",
+                                           "date" = data$date,
+                                           "location" =  gsub("-", " ", i),
+                                           "value_type" = "mean estimate",
+                                           "value" = data$predicted_total_deaths_mean,
+                                           "notes" = ""))
+}
+
+
+#################################################################
+## Format data ##################################################
+#################################################################
+
+model_outputs$date <- as.Date(model_outputs$date)
+additional_outputs$date <- as.Date(additional_outputs$date)
+additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value)),]
+
+#################################################################
+## Sanity check #################################################
+#################################################################
+
+## check data
+ggplot(additional_outputs[which(additional_outputs$location == "India" & additional_outputs$output_id == 4),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+#################################################################
+## Add new data to existing model_outputs file ##################
+#################################################################
+
+model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
+
+#################################################################
+## Save model_outputs as .RDS file ##############################
+#################################################################
+
+saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)
+

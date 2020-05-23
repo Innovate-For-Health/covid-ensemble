@@ -161,17 +161,23 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                      tags$li("new total infections per day (reported or unreported)"),
                                                      tags$li("demand for hospital beds per day")
                                                    )),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Selected data inputs:"),
+                                                   tags$ul(
+                                                     tags$li("caseload data:", tags$a(href = "https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/", "usafacts.org", target = "_blank")),
+                                                     tags$li("commute data:", tags$a(href = "https://www.census.gov/topics/employment/commuting.html", "US Census commute data", target = "_blank"))
+                                                   )),
                                                  
                                                  hr(),
                                                   
-                                                  p(tags$b("Key assumptions:") ,
+                                                  p(tags$b("Key assumptions:"),
                                                     tags$ul(
                                                       tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
                                                       br(),
-                                                      tags$li("assumes contact reductions are never relaxed over the course of the model run"),
+                                                      tags$li("Once a state has re-opened, contact rates are assumed to increase by 5% each week"),
                                                       br(),
                                                       tags$li("please consult available documentation below for additional information on key model assumptions.")),
-                                                    
                                                     hr(),
                                                     
                                                     p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US county"),
@@ -180,29 +186,25 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                     p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
                                                     hr(),
                                                     
-                                                    
                                                     p(tags$b("Reference and source documentation:"),
                                                       tags$ul(
-                                                        tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", target = "_blank")),
-                                                        br(),
-                                                        tags$li("model results and source code:", tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "https://github.com/shaman-lab/COVID-19Projection", target="_blank"))
+                                                        tags$li(tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "preprint", target = "_blank")),
+                                                        tags$li(tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "model results and source code", target="_blank"))
                                                       )),
                                                     hr(),
                                                     
+                                                    p(tags$b("Media coverage, responses from other researchers:"),
+                                                      tags$ul(
+                                                        tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                                                       "CDC Forecast Website", target = "_blank"))
+                                                      )),
+                                                    hr(),
+                                                  
+                                                    p(tags$b("Update frequency:"), "approximately twice per week"),
+                                                    hr(),
+                                                    
                                                     p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
-                                                    # hr(),
-                                                    # 
-                                                    # p(tags$b("Data processing in Model Inventory:"),
-                                                    #   tags$ul(
-                                                    #     tags$li("state and national estimates calculated based on sum of relevant values reported at the county level"),
-                                                    #     br(),
-                                                    #     tags$li("point estimates taken as median produced value across model iterations, for any given location, date, and county"),
-                                                    #     br(),
-                                                    #     tags$li("when comparing Shaman model to other models in the Inventory, show model associated with initial 40% reduction in social contact"))),
-                                                      
-                                                      
-                                                      
-                                                      
+
                                                     hr()
                                                   )),       
                 
@@ -221,12 +223,22 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Developer:"), "COVIDActNow.org"),
                          hr(),
 
-                         p(tags$b("What is predicted:"), "demand for hospital beds per day"),
-                         
+                         p(tags$b("Modeling approach:"), "fitted SEIR model"),
                          hr(),
 
-                         p(tags$b("Key assumptions:"),"please consult available documentation below for additional information on key model assumptions."),
+                         p(tags$b("What is predicted:"), "demand for hospital beds per day"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li("caseload data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank")),
+                             tags$li("hospitalization data:", tags$a(href = "https://covidtracking.com/", "COVID Tracking Project", target = "_blank")),
+                             tags$li("hospitalization data:", tags$a(href = "https://coronadatascraper.com/#home", "Corona Data Scraper", target = "_blank")),
+                             tags$li("population size data:", tags$a(href = "https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population", "Wikipedia", target = "_blank"))
+                           )),
+                         hr(),
 
+                         p(tags$b("Key assumptions:"),"please consult available documentation below for additional information on key model assumptions"),
                            hr(),
 
                            p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US state and for selected counties"),
@@ -235,24 +247,104 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
                            hr(),
 
-
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
-                               tags$li("visualizations and model results:", tags$a(href = "https://covidactnow.org/", "https://covidactnow.org/", target = "_blank")),
-                               br(),
-                               tags$li("source code:", tags$a(href="https://github.com/covid-projections/covid-projections", "https://github.com/covid-projections/covid-projections", target="_blank")),
-                               br(),
-                               tags$li("API documentation:", tags$a(href = "https://blog.covidactnow.org/covid-act-now-api-intervention-model/", "https://blog.covidactnow.org/covid-act-now-api-intervention-model/", target = "_blank")),
-                               br(),
-                               tags$li("additional documentation:", tags$a(href = "https://data.covidactnow.org/Covid_Act_Now_Model_References_and_Assumptions.pdf", "https://data.covidactnow.org/Covid_Act_Now_Model_References_and_Assumptions.pdf", target = "_blank")),
-                               br()
+                               tags$li(tags$a(href = "https://covidactnow.org/", "visualizations and model results", target = "_blank")),
+                               tags$li(tags$a(href="https://github.com/covid-projections/covid-projections", "source code", target="_blank")),
+                               tags$li(tags$a(href = "https://blog.covidactnow.org/covid-act-now-api-intervention-model/", "API documentation", target = "_blank")),
+                               tags$li(tags$a(href = "https://data.covidactnow.org/Covid_Act_Now_Model_References_and_Assumptions.pdf", "additional documentation", target = "_blank"))
                              )),
                            hr(),
+                         
+                         p(tags$b("Media coverage, responses from other researchers:"),
+                           tags$ul(
+                             tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                            "CDC Forecast Website", target = "_blank"))
+                             )),
+                         hr(),
+                         
+                         p(tags$b("Update frequency:"), "every three days"),
+                         hr(),
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "May 21, 2020"),
                          hr()
                          
                          ),       
+                
+                ###################################################################################
+                ## COVID-19 Projections.com #######################################################
+                ###################################################################################
+                
+                tabPanel("COVID19-projections.com",
+                         
+                         h3("COVID19-projections.com"),
+                         hr(),
+                         
+                         p(tags$b("Intended use:"), '""make COVID-19 infections and deaths projections for the US, all 50 US states, and more than 60 countries"'),
+                         hr(),
+                         
+                         p(tags$b("Developer:"), "Youyang Gu"),
+                         hr(),
+                         
+                         p(tags$b("Modeling approach:"), "SEIS mechanistic model"),
+                         hr(),
+                         
+                         p(tags$b("What is predicted:"), "cumulative fatalities, fatalities per day, new and current infections"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li("death data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank")),
+                             tags$li("US state re-opening data:", tags$a(href = "https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html", "New York Times", target = "_blank"))
+                           )),
+                         hr(),
+                         
+                         p(tags$b("Key assumptions:"),
+                           tags$ul(
+                             tags$li('assume "heavy" social distancing in US until the reopening dates and "moderate" social distancing afterward'),
+                             br(),
+                             tags$li('"assume "heavy" social distancing in Europe until until mid-May and "moderate" social distancing afterwards'),
+                             br(),
+                             tags$li('"assume that states with a second outbreak will take actions to reduce transmission"'),
+                             br(),
+                             tags$li("please consult available documentation below for additional information on key model assumptions"))),
+                           hr(),
+
+                         p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US state and for selected counties"),
+                         hr(),
+                         
+                         p(tags$b("Geographic coverage of estimates:"), "Global"),
+                         hr(),
+
+                         p(tags$b("Reference and source documentation:"),
+                           tags$ul(
+                             tags$li("visualizations and model results:", tags$a(href = "https://covid19-projections.com/", "https://covid19-projections.com/", target = "_blank")),
+                             br(),
+                             tags$li("archive of historical data:", tags$a(href="https://github.com/youyanggu/covid19_projections/tree/master/projections", "https://github.com/youyanggu/covid19_projections/tree/master/projections", target="_blank")),
+                             br(),
+                             tags$li("model documentation:", tags$a(href = "https://covid19-projections.com/about/#about-the-model", "https://covid19-projections.com/about/#about-the-model", target = "_blank")),
+                             br()
+                           )),
+                         hr(),
+                         
+                         p(tags$b("Media coverage, responses from other researchers:"),
+                           tags$ul(
+                             tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                            "CDC Forecast Website", target = "_blank")),
+                             tags$li(tags$a(href = "https://projects.fivethirtyeight.com/covid-forecasts/",
+                                            "fivethirtyeight", target = "_blank")),
+                             tags$li(tags$a(href = "https://twitter.com/CT_Bergstrom/status/1255343846445195266",
+                                            "twitter (@CT_Bergstrom)", target = "_blank"))
+                           )),
+                         hr(),
+                         
+                         p(tags$b("Update frequency:"), "daily"),
+                         hr(),
+                         
+                         p(tags$b("Most recent data update in Model Inventory:"), "May 21, 2020"),
+                         hr()
+                         
+                ),       
                 
                 ###################################################################################
                 ## GLEAM Details ##################################################################
@@ -269,6 +361,19 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Developer:"), "Global Epidemic and Mobility Model project team"),
                          hr(),
                          
+                         p(tags$b("Modeling approach:"), '"individual-based, stochastic, and spatial epidemic model"'),
+                         hr(),
+                         
+                         p(tags$b("What is predicted:"), "cumulative fatalities, hospital beds needed per day (overall and ICU)"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li('mobility data: "databases collected from 30 countries on five continents"',
+                             tags$li("death data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank"))
+                           ))),
+                         hr(),
+                         
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
                              tags$li("assumes stay-at-home policies result in a '70% transmissibility reduction'"),
@@ -279,7 +384,6 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                              br(),
                              tags$li("please consult available documentation below for additional information on key model assumptions."))
                          ),
-                         
                          hr(),
                          
                          p(tags$b("Reference and source documentation:"),
@@ -288,6 +392,9 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                              tags$li("GLEAM website:", tags$a(href="http://www.gleamviz.org/model/", "http://www.gleamviz.org/model/", target="_blank")),
                              tags$li("model results and visualizations:", tags$a(href = "https://covid19.gleamproject.org/", "https://covid19.gleamproject.org/", target = "_blank"))
                            )),
+                         hr(),
+                         
+                         p(tags$b("Update frequency:"), "approximately weekly"),
                          hr(),
                          
                          p(tags$b("Most recent data update in Model Inventory:"), "May 17, 2020"),
@@ -305,10 +412,26 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                      h3("IHME COVID-19 Model"),
                                      hr(),
                                      
-                                     p(tags$b("Intended use:"), "forecast the extent and timing of deaths and excess demand for hospital services due to COVID-19"),
+                                     p(tags$b("Intended use:"), '"forecast the extent and timing of deaths and excess demand for hospital services due to COVID-19"'),
                                      hr(),
                                      
                                      p(tags$b("Developer:"), "University of Washington Institute for Health Metrics and Evaluation"),
+                                     hr(),
+                                     
+                                     p(tags$b("Modeling approach:"), '"combination of a mechanistic disease transmission model and a curve-fitting approach" (per CDC)'),
+                                     hr(),
+                                     
+                                     p(tags$b("What is predicted:"), "infections, fatalities, and tests performed"),
+                                     hr(),
+                                     
+                                     p(tags$b("Selected data inputs:"),
+                                       tags$ul(
+                                         tags$li("death data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank")),
+                                         br(),
+                                         tags$li('mobility data: "anonymous cellphone data" from Descartes Labs, SafeGraph, and Google COVID-19 Community Mobility Reports'),
+                                         br(),
+                                        tags$li("additional death data: French governmental dashboard, Colorado Department of Public Health and Environment website,  Illinois’s Department of Health website, New York City Department of Health and Mental Hygiene, and NYT data for NY")
+                                         )),
                                      hr(),
                                      
                                      p(tags$b("Key assumptions:") ,
@@ -318,9 +441,10 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                        
                                        p(tags$b("Reference and source documentation:"),
                                          tags$ul(
-                                           tags$li("preprint:", tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1", "https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1", target = "_blank")),
-                                           tags$li("model results and visualization:", tags$a(href="https://covid19.healthdata.org/united-states-of-america", "https://covid19.healthdata.org/united-states-of-america", target="_blank")),
-                                           tags$li("history of model updates:", tags$a(href= "http://www.healthdata.org/covid/updates", "http://www.healthdata.org/covid/updates", target="_blank")))),
+                                           tags$li(tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1", "preprint", target = "_blank")),
+                                           tags$li(tags$a(href = "https://www.medrxiv.org/content/medrxiv/suppl/2020/04/25/2020.04.21.20074732.DC1/2020.04.21.20074732-2.pdf", "preprint (Appendix B)", target = "_blank")),
+                                           tags$li(tags$a(href="https://covid19.healthdata.org/united-states-of-america", "model results and visualization", target="_blank")),
+                                           tags$li(tags$a(href= "http://www.healthdata.org/covid/updates", "history of model updates", target="_blank")))),
                                        hr(),
                                        
                                        p(tags$b("Media coverage, responses from other researchers:"),
@@ -330,6 +454,9 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                            tags$li(tags$a(href = "https://annals.org/aim/fullarticle/2764774/caution-warranted-using-institute-health-metrics-evaluation-model-predicting-course",
                                                           "Jewell NP et al. 'Predictive Mathematical Models of the COVID-19 Pandemic: Underlying Principles and Value of Projections.' JAMA. 2020.")
                                            ))),
+                                       hr(),
+                                       
+                                       p(tags$b("Update frequency:"), "multiple times per week"),
                                        hr(),
                                        
                                        p(tags$b("Most recent data update in Model Inventory:"), "May 20, 2020"),
@@ -352,6 +479,18 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Developer:"), "Los Alamos National Lab (LANL)"),
                          hr(),
                          
+                         p(tags$b("Modeling approach:"), '"statistical dynamical growth model accounting for population susceptibility" (per CDC)'),
+                         hr(),
+                         
+                         p(tags$b("What is predicted:"), "infections, fatalities, and tests performed"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li("death data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank"))
+                           )),
+                         hr(),
+                         
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
                              tags$li("assumes that interventions will be implemented and will be upheld in the future"),
@@ -366,16 +505,26 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            hr(),
                            
-                           p(tags$b("Temporal and geographic resolution:"), "daily estimates for selected US states"),
+                           p(tags$b("Temporal and geographic resolution:"), "daily estimates for selected US states and selected countries"),
                            hr(),
                            
-                           p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands, Puerto Rico, and selected US states including New Jersey)"),
+                           p(tags$b("Geographic coverage of estimates:"), "Global"),
                            hr(),
                            
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
-                               tags$li("model results and visualizations:", tags$a(href="https://covid-19.bsvgateway.org/", "https://covid-19.bsvgateway.org/", target="_blank"))
+                               tags$li(tags$a(href="https://covid-19.bsvgateway.org/", "model results and visualizations", target="_blank")),
+                               tags$li(tags$a(href="https://covid-19.bsvgateway.org/#uncertainty", "additional model documentation", target="_blank"))
                              )),
+                           hr(),
+                           
+                           p(tags$b("Media coverage, responses from other researchers:"),
+                             tags$ul(
+                               tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                              "CDC Forecast Website", target = "_blank")))),
+                           hr(),
+                           
+                           p(tags$b("Update frequency:"), "multiple times per week"),
                            hr(),
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "May 13, 2020"),
@@ -397,6 +546,12 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Developer:"), "MIT Operations Reseach Center"),
                          hr(),
                          
+                         p(tags$b("Modeling approach:"), '"SEIR model fit to reported death and case counts" (per CDC)'),
+                         hr(),
+                         
+                         p(tags$b("What is predicted:"), "detected infections, detected deaths, active cases, and hospitalizations"),
+                         hr(),
+
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
                              tags$li("forecasts detected deaths, so counts may exclude deaths not detected by existing surveillance infrastructure"),
@@ -418,6 +573,15 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                tags$li("additional documentation:", tags$a(href = "https://www.covidanalytics.io/DELPHI_documentation_pdf", "https://www.covidanalytics.io/DELPHI_documentation_pdf", target = "_blank"))
                              )),
                            hr(),
+                           
+                           p(tags$b("Media coverage, responses from other researchers:"),
+                             tags$ul(
+                               tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                              "CDC Forecast Website", target = "_blank")))),
+                           hr(),
+                           
+                           p(tags$b("Update frequency:"), "daily"),
+                           hr(),
 
                            p(tags$b("Most recent data update in Model Inventory:"), "May 22, 2020"),
                            hr()
@@ -437,9 +601,21 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Developer:"), "Perkins lab at the University of Notre Dame"),
                          hr(),
                          
+                         p(tags$b("Modeling approach:"), 'agent-based model'),
+                         hr(),
+                         
+                         p(tags$b("What is predicted:"), "deaths"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li("caseload data:", tags$a(href = "https://github.com/midas-network/COVID-19/tree/master/data/cases/united%20states%20of%20america/nytimes_covid19_data", "New York Times (via midas-network github)", target = "_blank"))
+                           )),
+                         hr(),
+                         
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
-                             tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                             tags$li("please consult available documentation below for additional information on key model assumptions")),
                            
                            hr(),
                            
@@ -451,10 +627,19 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
-                               tags$li("FRED model documentation", tags$a(href="https://fred.publichealth.pitt.edu/", "https://fred.publichealth.pitt.edu/", target="_blank")),
-                               tags$li("model outputs:", tags$a(href="https://github.com/confunguido/covid19_ND_forecasting/tree/master/output", "https://github.com/confunguido/covid19_ND_forecasting/tree/master/output", target="_blank")),
-                               tags$li("additional documentation:", tags$a(href = "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", target = "_blank"))
+                               tags$li(tags$a(href="https://github.com/confunguido/covid19_ND_forecasting/tree/master/output", "model outputs", target="_blank")),
+                               tags$li(tags$a(href="https://fred.publichealth.pitt.edu/", "FRED model documentation", target="_blank")),
+                               tags$li(tags$a(href = "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", "additional documentation", target = "_blank"))
                              )),
+                           hr(),
+                           
+                           p(tags$b("Media coverage, responses from other researchers:"),
+                             tags$ul(
+                               tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                              "CDC Forecast Website", target = "_blank")))),
+                           hr(),
+                           
+                           p(tags$b("Update frequency:"), "daily"),
                            hr(),
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "May 18, 2020"),
@@ -476,6 +661,23 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Developer:"), "Statistical Machine Learning Lab at UCLA"),
                          hr(),
                          
+                         p(tags$b("Modeling approach:"), 'modified SEIR model'),
+                         hr(),
+                         
+                         p(tags$b("What is predicted:"), "confirmed cases, deaths, and recoveries"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li("caseload data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank")),
+                             tags$li("caseload data:", tags$a(href = "https://github.com/nytimes/covid-19-data", "New York Times", target = "_blank")),
+                             tags$li("caseload data:", tags$a(href = "https://www.worldometers.info/coronavirus/", "worldometer", target = "_blank")),
+                             tags$li("caseload data:", tags$a(href = "https://coronavirus.1point3acres.com/", "1point3acres", target = "_blank")),
+                             tags$li("caseload data:", tags$a(href = "http://publichealth.lacounty.gov/", "Los Angeles Department of Public Health", target = "_blank"))
+                             
+                           )),
+                         hr(),
+                         
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
                              tags$li("please consult available documentation below for additional information on key model assumptions.")),
@@ -490,9 +692,14 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
-                               tags$li("model outputs and visualizations:", tags$a(href="https://covid19.uclaml.org/index.html", "https://covid19.uclaml.org/index.html", target="_blank")),
-                               tags$li("additional documentation:", tags$a(href = "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", "https://github.com/confunguido/covid19_ND_forecasting/blob/master/output/metadata-NotreDame-FRED.txt", target = "_blank"))
+                               tags$li(tags$a(href="https://covid19.uclaml.org/index.html", "model outputs and visualizations", target="_blank"))
                              )),
+                           hr(),
+                           
+                           p(tags$b("Media coverage, responses from other researchers:"),
+                             tags$ul(
+                               tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                              "CDC Forecast Website", target = "_blank")))),
                            hr(),
                            
                            p(tags$b("Most recent data update in Model Inventory:"), "May 22, 2020"),

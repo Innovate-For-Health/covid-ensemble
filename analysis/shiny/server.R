@@ -32,7 +32,7 @@ server <- function(input, output, session) {
       x_output <- input$output_name
 
       updateSelectInput(session, "model_name",
-                        choices = unique(outputs[which(outputs$output_name == x_output & outputs$model_name != "Columbia University Model" & outputs$model_name != "UCLA COVID-19 Model"),]$model_name))
+                        choices = sort(unique(outputs[which(outputs$output_name == x_output & outputs$model_name != "Columbia University Model" & outputs$model_name != "UCLA COVID-19 Model"),]$model_name)))
     })
 
     ######################################################################
@@ -113,12 +113,14 @@ server <- function(input, output, session) {
       temp <- c()
       #if("Columbia University Model" %in% model_name){temp <- c(temp, "#756bb1")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
+      if("COVID19-projections.com" %in% model_name){temp <- c(temp, "darkmagenta")}
       if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "#1f78b4")}
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")} ## right now showing this instead of Columbia due to lack of documentation
       if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "#6f94c5")}
       if("UCLA COVID-19 Model" %in% model_name){temp <- c(temp, "firebrick3")}
+
       
       
       return(temp)
@@ -136,6 +138,7 @@ server <- function(input, output, session) {
       temp <- c()
       #if("Columbia University Model" %in% model_name){temp <- c(temp, "Purples")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "Oranges")}
+      if("COVID19-projections.com" %in% model_name){temp <- c(temp, "PuRd")}
       if("GLEAM" %in% model_name){temp <- c(temp, "RdPu")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
@@ -163,7 +166,7 @@ server <- function(input, output, session) {
     ## Generate plot: most recent models #################################
     ######################################################################
     
-    ## also checked out renderPlotly
+
     output$compare_most_recent_models <- renderPlot({
       ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                        ## for now set focus to  May through June
