@@ -170,11 +170,11 @@ server <- function(input, output, session) {
       ## if data exist to make this plot, make this plot!
       if(nrow(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                       ## for now set focus to  May through June
-                                      selectedOutputs()$date >= as.Date("2020-05-01") &
+                                      selectedOutputs()$date >= as.Date("2020-05-20") &
                                       selectedOutputs()$date < as.Date("2020-07-01")),]) > 0){
       print(ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                        ## for now set focus to  May through June
-                                     selectedOutputs()$date >= as.Date("2020-05-01") &
+                                     selectedOutputs()$date >= as.Date("2020-05-20") &
                                      selectedOutputs()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
@@ -188,7 +188,7 @@ server <- function(input, output, session) {
       
       ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
       if(any(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
-             selectedOutputs()$date >= as.Date("2020-05-01") &
+             selectedOutputs()$date >= as.Date("2020-05-20") &
              selectedOutputs()$date < as.Date("2020-07-01")) == FALSE){
 
         print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
@@ -207,11 +207,11 @@ server <- function(input, output, session) {
       
       ## if data exist to make this plot, make this plot!
       if(nrow(selectedOutputsModelTime()[which( 
-        selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
+        selectedOutputsModelTime()$date >= as.Date("2020-05-20") &
         selectedOutputsModelTime()$date < as.Date("2020-07-01")),]) > 0){
         
       print(ggplot(selectedOutputsModelTime()[which( ## for now set focus on May through June
-                selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
+                selectedOutputsModelTime()$date >= as.Date("2020-05-20") &
                   selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
@@ -231,7 +231,7 @@ server <- function(input, output, session) {
       }
       
       ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
-      if(any(selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
+      if(any(selectedOutputsModelTime()$date >= as.Date("2020-05-20") &
              selectedOutputsModelTime()$date < as.Date("2020-07-01")) == FALSE){
         
         print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
@@ -249,11 +249,11 @@ server <- function(input, output, session) {
       
       ## if data exist to make this plot, make this plot!
       if(nrow(selectedOutputsModelAssumption()[which( 
-        selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
+        selectedOutputsModelAssumption()$date >= as.Date("2020-05-20") &
         selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),]) > 0){
       
       print(ggplot(selectedOutputsModelAssumption()[which( ## for now set focus on May through June
-        selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
+        selectedOutputsModelAssumption()$date >= as.Date("2020-05-20") &
           selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),],
         aes(x = date, y = value, 
             ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
@@ -273,7 +273,7 @@ server <- function(input, output, session) {
       }
       
       ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
-      if(any(selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
+      if(any(selectedOutputsModelAssumption()$date >= as.Date("2020-05-20") &
              selectedOutputsModelAssumption()$date < as.Date("2020-07-01")) == FALSE){
         
         print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))

@@ -3517,3 +3517,4 @@ BR	BRA	Province/State	Intermediate	Rio Grande do Sul
 BR	BRA	Province/State	Intermediate	Santa Catarina			
 CD	COD	Country	Country	Democratic Republic of the Congo			
 YE	YEM	Country	Country	Yemen			
+MN	MNG	Country	Country	Mongolia			

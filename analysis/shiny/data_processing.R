@@ -20,8 +20,9 @@ locations_agg <- list("Countries" = sort(locations[which(locations$location_type
 outputs_agg <- list("Healthcare demand" = c("Hospital beds needed per day",
                                            "ICU beds needed per day",
                                            "Ventilators needed per day"),
-                    "Fatalities" = c("Fatalities per day",
-                                    "Cumulative fatalities"))
+                    "Fatalities" = c("Cumulative fatalities",
+                                     #"Cumulative infections",
+                                     "Fatalities per day"))
 
 ####################################################################################
 ## Process cumulative fatality estimates to also estimate fatalities per day #######
