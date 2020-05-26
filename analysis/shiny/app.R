@@ -7,9 +7,12 @@
 #install.packages(c("shiny"))
 #install.packages(c("dplyr"))
 #install.packages(c("here"))
+#install.packages(c("scales"))
+
 library(shiny)
 library(dplyr)
 library(here)
+library(scales)
 
 ###################################################################################
 ## Run the app ####################################################################

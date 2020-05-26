@@ -3515,3 +3515,5 @@ MZ	MOZ	Country	Country	Mozambique
 BR	BRA	Province/State	Intermediate	Rio Grande do Norte			
 BR	BRA	Province/State	Intermediate	Rio Grande do Sul			
 BR	BRA	Province/State	Intermediate	Santa Catarina			
+CD	COD	Country	Country	Democratic Republic of the Congo			
+YE	YEM	Country	Country	Yemen			

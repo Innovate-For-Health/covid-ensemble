@@ -5,9 +5,7 @@
 library(dplyr) 
 library(ggplot2)
 library(scales)
-library(DT)
-
-## TODO: make plots not appear when there aren't data to power them
+#library(DT)
 
 server <- function(input, output, session) {
   

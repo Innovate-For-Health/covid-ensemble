@@ -3,22 +3,18 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 2	1	IHME COVID-19 Model (3/29)	Update with new training data (3/29)	IHME COVID-19 Model	3/29/20		FALSE	FALSE	FALSE
 3	1	IHME COVID-19 Model (4/1)	Update with new training data (4/1)	IHME COVID-19 Model	4/1/20		TRUE	FALSE	FALSE
 4	1	IHME COVID-19 Model (4/5)	Update with new training data (4/5)	IHME COVID-19 Model	4/5/20		TRUE	FALSE	FALSE
-5	1	IHME COVID-19 Model (4/7)	Update with new training data (4/7)	IHME COVID-19 Model	4/7/20		TRUE	TRUE	TRUE
+5	1	IHME COVID-19 Model (4/7)	Update with new training data (4/7)	IHME COVID-19 Model	4/7/20		FALSE	FALSE	FALSE
 6	1	IHME COVID-19 Model (4/10)	Update with new training data (4/10)	IHME COVID-19 Model	4/10/20		TRUE	FALSE	FALSE
 7	1	IHME COVID-19 Model (4/13)	Update with new training data (4/13)	IHME COVID-19 Model	4/13/20		TRUE	TRUE	TRUE
-8	6	"COVID Act Now (4/7, strict stay at home)"	Initial archived model release (4/7)	COVID Act Now US Intervention Model	4/7/20	Model run assuming 3 months of strict say at home orders. Data manually pulled from hover-overs on charts just for California.	FALSE	TRUE	TRUE
-9	6	"COVID Act Now (4/10, strict stay at home)"	Update with new training data (4/10)	COVID Act Now US Intervention Model	4/10/20	Model run assuming 3 months of strict say at home orders.	FALSE	TRUE	TRUE
-10	6	"COVID Act Now (4/15, strict stay at home)"	Update with new training data (4/15)	COVID Act Now US Intervention Model	4/15/20	Model run assuming 3 months of strict say at home orders.	FALSE	TRUE	TRUE
-11	6	"COVID Act Now (4/16, continuation of current trends)"	"Model update to assume ""continuation of current trends"""	COVID Act Now US Intervention Model	4/16/20	"Similar to prior model runs assuming 3 months of strict say at home orders, but now stored in a different API and described as ""projected based on current trends"""	FALSE	TRUE	TRUE
 12	9	"Columbia University Model (4/12, no interventions)"	Assume no intervention	Columbia University Model	4/12/20	Model assumes no interventions	FALSE	FALSE	FALSE
 13	9	"Columbia University Model (4/12, 20% reduction in contact rate)"	Assume 20% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 20% reduction in contact rates	FALSE	FALSE	FALSE
 14	9	"Columbia University Model (4/12, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	FALSE
 15	9	"Columbia University Model (4/12, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/12/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
 16	9	"Columbia University Model (4/5, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/5/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
 17	9	"Columbia University Model (4/9, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/9/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	FALSE
-18	13	LANL COVID-19 Model (4/15)	Update with new training data (4/15)	LANL COVID-19 Model	4/15/20		TRUE	TRUE	TRUE
+18	13	LANL COVID-19 Model (4/15)	Update with new training data (4/15)	LANL COVID-19 Model	4/15/20		FALSE	FALSE	FALSE
 19	13	LANL COVID-19 Model (4/12)	Update with new training data (4/12)	LANL COVID-19 Model	4/12/20		FALSE	TRUE	TRUE
-20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	TRUE	TRUE
+20	13	LANL COVID-19 Model (4/8)	Update with new training data (4/8)	LANL COVID-19 Model	4/8/20		FALSE	FALSE	FALSE
 21	13	LANL COVID-19 Model (4/5)	Initial archived model release (4/5)	LANL COVID-19 Model	4/5/20		FALSE	TRUE	TRUE
 22	10	GLEAM (4/3)	Initial archived results from website (4/3)	GLEAM	4/3/20	Mitigated scenario	TRUE	TRUE	TRUE
 23	1	IHME COVID-19 Model (4/17)	Update with new training data (4/17)	IHME COVID-19 Model	4/17/20		FALSE	FALSE	FALSE
@@ -41,18 +37,18 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 40	9	"Columbia University Model (4/23, 30% reduction in contact rate)"	Assume 30% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 30% reduction in contact rates	FALSE	FALSE	TRUE
 41	9	"Columbia University Model (4/23, 40% reduction in contact rate)"	Assume 40% reduction in contact rate	Columbia University Model	4/23/20	Model assumes 40% reduction in contact rates	FALSE	TRUE	TRUE
 42	13	LANL COVID-19 Model (4/29)	Update with new training data (4/29)	LANL COVID-19 Model	4/29/20		TRUE	TRUE	TRUE
-43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		TRUE	FALSE	FALSE
+43	13	LANL COVID-19 Model (4/26)	Update with new training data (4/26)	LANL COVID-19 Model	4/26/20		FALSE	FALSE	FALSE
 44	13	LANL COVID-19 Model (4/22)	Update with new training data (4/22)	LANL COVID-19 Model	4/22/20		TRUE	TRUE	TRUE
-45	13	LANL COVID-19 Model (4/19)	Update with new training data (4/19)	LANL COVID-19 Model	4/19/20		TRUE	TRUE	TRUE
+45	13	LANL COVID-19 Model (4/19)	Update with new training data (4/19)	LANL COVID-19 Model	4/19/20		FALSE	FALSE	FALSE
 46	10	GLEAM (4/15)	Update with new data (4/15)	GLEAM	4/15/20	Mitigated scenario	TRUE	TRUE	TRUE
-47	6	"COVID Act Now (5/4, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/5/20		TRUE	TRUE	FALSE
-48	6	"COVID Act Now (5/4, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
-49	6	"COVID Act Now (5/4, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
+47	6	"COVID Act Now (5/5, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/5/20		TRUE	TRUE	FALSE
+48	6	"COVID Act Now (5/5, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
+49	6	"COVID Act Now (5/5, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/5/20		FALSE	FALSE	FALSE
 50	1	IHME COVID-19 Model (5/10)	Update with new training data (5/10)	IHME COVID-19 Model	5/10/20		TRUE	TRUE	TRUE
 51	6	"COVID Act Now (5/15, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/15/20		FALSE	TRUE	FALSE
 52	6	"COVID Act Now (5/15, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	FALSE
 53	6	"COVID Act Now (5/15, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	FALSE
-54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		FALSE	FALSE	FALSE
+54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		TRUE	TRUE	TRUE
 55	10	GLEAM (5/10)	Update with new data (5/10)	GLEAM	5/10/20	Mitigated scenario	TRUE	TRUE	TRUE
 56	13	LANL COVID-19 Model (5/13)	Update with new training data (5/13)	LANL COVID-19 Model	5/13/20		TRUE	TRUE	TRUE
 57	13	LANL COVID-19 Model (5/6)	Update with new training data (5/6)	LANL COVID-19 Model	5/6/20		TRUE	TRUE	TRUE
@@ -85,3 +81,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 84	6	"COVID Act Now (5/26, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/26/20		FALSE	FALSE	TRUE
 85	18	COVID19-projections.com (5/25)	"Updated projections ""after analysis of recent studies"" (e.g., treatment results)"	COVID19-projections.com	5/25/20		TRUE	TRUE	TRUE
 86	1	IHME COVID-19 Model (5/25)	Update with new training data (5/25)	IHME COVID-19 Model	5/25/20		TRUE	TRUE	TRUE
+87	13	LANL COVID-19 Model (5/24)	Update with new training data (5/24)	LANL COVID-19 Model	5/24/20		TRUE	TRUE	TRUE
