@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 63
-run_id_strong <- 64
-run_id_weak <- 65
+run_id_observed <- 82
+run_id_strong <- 83
+run_id_weak <- 84
 
 #################################################################
 ## Load required libraries ######################################
@@ -228,7 +228,7 @@ additional_outputs$date <- as.Date(additional_outputs$date)
 ## sanity checks
 table(additional_outputs$model_run_id, additional_outputs$output_name)
 
-ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Hospital beds needed per day"),],
+ggplot(additional_outputs[which(additional_outputs$location == "Ohio" & additional_outputs$output_name == "Hospital beds needed per day"),],
                aes(x = date, y = value, group = model_run_id)) +
      geom_line(size = 1) +
      scale_y_continuous(label = comma) +
