@@ -459,10 +459,10 @@ US	USA	County	Local	Phillips			8095
 US	USA	County	Local	Pitkin			8097
 US	USA	County	Local	Prowers			8099
 US	USA	County	Local	Pueblo			8101
-US	USA	County	Local	Rio Blanco			8103
+US	USA	County	Local	Rio grande			8103
 US	USA	County	Local	Rio Grande			8105
 US	USA	County	Local	Routt			8107
-US	USA	County	Local	Saguache			8109
+US	USA	County	Local	Rio Grande do Norte			8109
 US	USA	County	Local	San Juan			8111
 US	USA	County	Local	San Miguel			8113
 US	USA	County	Local	Sedgwick			8115
@@ -3460,7 +3460,7 @@ JO	JOR	Country	Country	Jordan
 KZ	KAZ	Country	Country	Kazakhstan			
 MV	MDV	Country	Country	Maldives			
 NP	NPL	Country	Country	Nepal			
-RU	RUS	Country	Country	Russia			
+RU	RUS	Country	Country	Russia	Russian Federation		
 SA	SAU	Country	Country	Saudi Arabia			
 TJ	TJK	Country	Country	Tajikistan			
 AE	ARE	Country	Country	United Arab Emirates			
@@ -3500,7 +3500,18 @@ BR	BRA	Province/State	Intermediate	Pernambuco
 MX	MEX	Province/State	Intermediate	Puebla			
 MX	MEX	Province/State	Intermediate	Quintana Roo			
 BR	BRA	Province/State	Intermediate	Rio de Janeiro			
+BR	BRA	Province/State	Intermediate	Acre			
+BR	BRA	Province/State	Intermediate	Alagoas			
+BR	BRA	Province/State	Intermediate	Amapa			
+BR	BRA	Province/State	Intermediate	Espirito Santo			
+BR	BRA	Province/State	Intermediate	Goias			
+BR	BRA	Province/State	Intermediate	Minas Gerais			
+BR	BRA	Province/State	Intermediate	Para			
+BR	BRA	Province/State	Intermediate	Paraiba			
 BR	BRA	City	Local	Sao Paulo			
 MX	MEX	Province/State	Intermediate	Sinaloa			
 MX	MEX	Province/State	Intermediate	Tabasco			
 MZ	MOZ	Country	Country	Mozambique			
+BR	BRA	Province/State	Intermediate	Rio Grande do Norte			
+BR	BRA	Province/State	Intermediate	Rio Grande do Sul			
+BR	BRA	Province/State	Intermediate	Santa Catarina			

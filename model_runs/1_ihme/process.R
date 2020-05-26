@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 67
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_20.csv"
+model_run_id <- 86
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_25.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -55,6 +55,10 @@ if(any(ihme$location_name == "Republic of Korea")){
 
 if(any(ihme$location_name == "Republic of Moldova")){
   ihme$location_name[which(ihme$location_name == "Republic of Moldova")] <- "Moldova"
+}
+
+if(any(ihme$location_name == "Russian Federation")){
+  ihme$location_name[which(ihme$location_name == "Russian Federation")] <- "Russia"
 }
 
 all(ihme$location_name %in% locations$location_name)
