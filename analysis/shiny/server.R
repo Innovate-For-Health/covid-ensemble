@@ -168,7 +168,13 @@ server <- function(input, output, session) {
     
 
     output$compare_most_recent_models <- renderPlot({
-      ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
+      
+      ## if data exist to make this plot, make this plot!
+      if(nrow(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
+                                      ## for now set focus to  May through June
+                                      selectedOutputs()$date >= as.Date("2020-05-01") &
+                                      selectedOutputs()$date < as.Date("2020-07-01")),]) > 0){
+      print(ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                        ## for now set focus to  May through June
                                      selectedOutputs()$date >= as.Date("2020-05-01") &
                                      selectedOutputs()$date < as.Date("2020-07-01")),],
@@ -180,7 +186,19 @@ server <- function(input, output, session) {
         ylab(input$output_name) +
         xlab("") +
         scale_color_manual(values = model_palette_cm()) +
-        theme_light()
+        theme_light())}
+      
+      ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
+      if(any(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
+             selectedOutputs()$date >= as.Date("2020-05-01") &
+             selectedOutputs()$date < as.Date("2020-07-01")) == FALSE){
+
+        print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
+        print(text(x = 0.5, y = 0.5, paste("At this time, no results are available\nfor the selected location and model outputs.\nPlease explore other options from the drop-down menu."),
+             cex = 1, col = "black"))
+      }
+      
+      
     })
     
     ######################################################################
@@ -188,7 +206,13 @@ server <- function(input, output, session) {
     ######################################################################
     
     output$compare_models_over_time <- renderPlot({
-      ggplot(selectedOutputsModelTime()[which( ## for now set focus on May through June
+      
+      ## if data exist to make this plot, make this plot!
+      if(nrow(selectedOutputsModelTime()[which( 
+        selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
+        selectedOutputsModelTime()$date < as.Date("2020-07-01")),]) > 0){
+        
+      print(ggplot(selectedOutputsModelTime()[which( ## for now set focus on May through June
                 selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
                   selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
@@ -205,7 +229,18 @@ server <- function(input, output, session) {
                             ## gradient should make the darket color the most recent
                             direction = 1) +
         xlab("") +
-        theme_light() 
+        theme_light())
+      }
+      
+      ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
+      if(any(selectedOutputsModelTime()$date >= as.Date("2020-05-01") &
+             selectedOutputsModelTime()$date < as.Date("2020-07-01")) == FALSE){
+        
+        print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
+        print(text(x = 0.5, y = 0.5, paste("At this time, no results are available\nfor the selected location, model, and outputs selected.\nPlease explore other options from the drop-down menu."),
+                   cex = 1, col = "black"))
+        
+      }
     })
     
     ######################################################################
@@ -214,7 +249,12 @@ server <- function(input, output, session) {
     
     output$compare_models_over_assumptions <- renderPlot({
       
-      ggplot(selectedOutputsModelAssumption()[which( ## for now set focus on May through June
+      ## if data exist to make this plot, make this plot!
+      if(nrow(selectedOutputsModelAssumption()[which( 
+        selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
+        selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),]) > 0){
+      
+      print(ggplot(selectedOutputsModelAssumption()[which( ## for now set focus on May through June
         selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
           selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),],
         aes(x = date, y = value, 
@@ -231,7 +271,20 @@ server <- function(input, output, session) {
                             ## gradient should make the darket color the most recent
                             direction = 1) +
         xlab("") +
-        theme_light() 
+        theme_light())
+      }
+      
+      ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
+      if(any(selectedOutputsModelAssumption()$date >= as.Date("2020-05-01") &
+             selectedOutputsModelAssumption()$date < as.Date("2020-07-01")) == FALSE){
+        
+        print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
+        print(text(x = 0.5, y = 0.5, paste("At this time, no results are available\nfor the selected location, model, and outputs selected.\nPlease explore other options from the drop-down menu."),
+                   cex = 1, col = "black"))
+        
+      }
+      
+      
     })
     
     ######################################################################
