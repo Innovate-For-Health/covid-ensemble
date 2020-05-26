@@ -72,9 +72,9 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 72	16	NotreDame-FRED Forecast (4/27)	Update with new data (4/27)	NotreDame-FRED Forecast	4/27/20		FALSE	TRUE	TRUE
 70	17	UCLA COVID-19 Model (5/22)	Initial archived results from website (5/22)	UCLA COVID-19 Model	5/22/20		TRUE	FALSE	FALSE
 73	14	MIT DELPHI Model (5/22)	Update with new data (5/22)	MIT DELPHI Model	5/22/20		TRUE	TRUE	TRUE
-74	18	COVID19-projections.com (5/21)	Update with new data (5/21)	COVID19-projections.com	5/21/20		TRUE	TRUE	TRUE
+74	18	COVID19-projections.com (5/21)	Update with new data (5/21)	COVID19-projections.com	5/21/20		FALSE	FALSE	FALSE
 75	18	COVID19-projections.com (4/4)	Initial archived model release (4/4)	COVID19-projections.com	4/4/20	Models prior to 4/4 did not estimate total fatalities	TRUE	TRUE	TRUE
-76	18	COVID19-projections.com (4/11)	Update with new data (4/11)	COVID19-projections.com	4/11/20		TRUE	TRUE	TRUE
+76	18	COVID19-projections.com (4/11)	Update with new data (4/11)	COVID19-projections.com	4/11/20		FALSE	FALSE	FALSE
 77	18	COVID19-projections.com (4/18)	Update with new data (4/18)	COVID19-projections.com	4/18/20		TRUE	TRUE	TRUE
 78	18	COVID19-projections.com (4/25)	Update with new data (4/25)	COVID19-projections.com	4/25/20		TRUE	TRUE	TRUE
 79	18	COVID19-projections.com (5/2)	Update with new data (5/2)	COVID19-projections.com	5/2/20		TRUE	TRUE	TRUE
@@ -83,3 +83,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 82	6	"COVID Act Now (5/26, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/26/20		TRUE	TRUE	TRUE
 83	6	"COVID Act Now (5/26, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/26/20		FALSE	FALSE	TRUE
 84	6	"COVID Act Now (5/26, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/26/20		FALSE	FALSE	TRUE
+85	18	COVID19-projections.com (5/25)	"Updated projections ""after analysis of recent studies"" (e.g., treatment results)"	COVID19-projections.com	5/25/20		TRUE	TRUE	TRUE

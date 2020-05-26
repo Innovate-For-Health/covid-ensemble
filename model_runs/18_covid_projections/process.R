@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 81
-file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-16/"
+model_run_id <- 85
+file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-25/"
 
 #################################################################
 ## Load required libraries ######################################
@@ -181,7 +181,7 @@ additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value))
 #################################################################
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "India" & additional_outputs$output_id == 4),],
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_id == 4),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
