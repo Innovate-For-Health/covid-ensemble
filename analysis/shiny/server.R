@@ -8,7 +8,6 @@ library(scales)
 #library(DT)
 
 server <- function(input, output, session) {
-  
     
     ######################################################################
     ## Update UI filters based on other UI filters #######################

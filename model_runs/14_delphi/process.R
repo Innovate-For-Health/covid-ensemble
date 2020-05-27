@@ -17,7 +17,7 @@ file_name <- "model_runs/14_delphi/model_export/62_covid_analytics_projections.c
 delphi <- read.csv(file_name, stringsAsFactors = FALSE)
 
 ## immediately archive data
-#write.csv(delphi, file = paste("model_runs/14_delphi/model_export/", model_run_id, "_projections.csv", sep = ""))
+write.csv(delphi, file = paste("model_runs/14_delphi/model_export/", model_run_id, "_projections.csv", sep = ""))
 
 ## read in models (file that tracks all models)
 models <- read.delim("data/models.txt", stringsAsFactors = FALSE)

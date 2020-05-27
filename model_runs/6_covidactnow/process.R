@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 82
-run_id_strong <- 83
-run_id_weak <- 84
+run_id_observed <- 88
+run_id_strong <- 89
+run_id_weak <- 90
 
 #################################################################
 ## Load required libraries ######################################
@@ -46,6 +46,14 @@ model_name <- models$model_name[which(models$model_id == 6)]
 model_outputs$date <- as.Date(model_outputs$date)
 
 #########################################################################
+## Function needed to calculate daily fatalities #########################
+#########################################################################
+
+undoCumSum <- function(x) {
+  c(NA, diff(x))
+}
+
+#########################################################################
 ## Read in Covid Act Now data: Observed Intervention ####################
 #########################################################################
 
@@ -72,6 +80,7 @@ for(state in 1:nrow(location_options)){
   hosp_beds  <- c()
   cumu_deaths <- c()
   loc_counter <- c()
+  daily_deaths <- c()
   
   for(i in 1:length(data$timeseries)){
     date <- c(date, data$timeseries[[i]]$date)
@@ -103,7 +112,17 @@ for(state in 1:nrow(location_options)){
       "location" =  loc_counter,
       "value_type" = "point estimate",
       "value" = cumu_deaths,
-      "notes" = '"estimates based on the observed effect of mitigations and other factors in a given state"')
+      "notes" = '"estimates based on the observed effect of mitigations and other factors in a given state"'),
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_observed,
+      "output_id" = 3,
+      "output_name" = "Fatalities per day",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = undoCumSum(cumu_deaths),
+      "notes" = 'estimates based on "the observed effect of mitigations and other factors in a given state", daily fatalities calculated based on reported output of cumulative fatalities')
   
     )
   
@@ -154,7 +173,18 @@ for(state in 1:nrow(location_options)){
       "location" =  loc_counter,
       "value_type" = "point estimate",
       "value" = cumu_deaths,
-      "notes" = 'assuming "strong intervention" (stay at home orders)')
+      "notes" = 'assuming "strong intervention" (stay at home orders)'),
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_strong,
+      "output_id" = 3,
+      "output_name" = "Fatalities per day",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = undoCumSum(cumu_deaths),
+      "notes" = 'assuming "strong intervention" (stay at home orders), daily fatalities calculated based on reported output of cumulative fatalities')
+    
     
   )
   
@@ -205,7 +235,18 @@ for(state in 1:nrow(location_options)){
       "location" =  loc_counter,
       "value_type" = "point estimate",
       "value" = cumu_deaths,
-      "notes" = 'assuming "weak intervention" (social distancing, no stay at home orders)')
+      "notes" = 'assuming "weak intervention" (social distancing, no stay at home orders)'),
+    
+    cbind.data.frame(
+      "model_run_id" = run_id_weak,
+      "output_id" = 3,
+      "output_name" = "Fatalities per day",
+      "date" =  date,
+      "location" =  loc_counter,
+      "value_type" = "point estimate",
+      "value" = undoCumSum(cumu_deaths),
+      "notes" = 'assuming "weak intervention" (social distancing, no stay at home orders), daily fatalities calculated based on reported output of cumulative fatalities"')
+    
     
   )
   
@@ -218,12 +259,18 @@ for(state in 1:nrow(location_options)){
 ## drop first row with nulls
 additional_outputs <- additional_outputs[-1,]
 
+## save data as backup
+write.csv(additional_outputs, file = paste("model_runs/6_covidactnow/model_export/", run_id_observed, "_projections.csv", sep = ""))
+
 ## format dates as dates
 additional_outputs$date <- as.Date(additional_outputs$date)
 
-## drop all dates before today, that's just old data appended on
-## (decided not to do this for now)
-#additional_outputs <- additional_outputs[which(additional_outputs$date >= Sys.Date()),]
+## drop all dates before May 25th (as of May 27th)
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-25")),]
+
+#################################################################
+## Run some sanity checks #######################################
+#################################################################
 
 ## sanity checks
 table(additional_outputs$model_run_id, additional_outputs$output_name)
@@ -234,6 +281,13 @@ ggplot(additional_outputs[which(additional_outputs$location == "Ohio" & addition
      scale_y_continuous(label = comma) +
      xlab("") +
      theme_light()
+
+ggplot(additional_outputs[which(additional_outputs$location == "Georgia" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value, group = model_run_id)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light()
 
 #################################################################
 ## Save model_outputs as .RDS file ##############################
