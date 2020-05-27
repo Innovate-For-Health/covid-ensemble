@@ -12,9 +12,9 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                           mainPanel(
                             h2("COVID Model Inventory"),
                             
-                            p("The COVID Model Inventory was developed support transparency 
-                              in epidemiological modeling for COVID-19, including by highlighting
-                              key differences between models and monitoring changes in models over time."),
+                            p("The COVID Model Inventory highlights key differences between models that forecast 
+                               hospital demand, caseload, and fatalities due to COVID-19,
+                               and monitors changes in model outputs over time."),
                             
                             h3("Goals and Audience"),
                             
@@ -266,7 +266,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "every three days"),
                          hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "May 25, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "May 27, 2020"),
                          hr()
                          
                          ),       
@@ -729,54 +729,29 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                  
                  tabPanel("About",
                           mainPanel(
-                            
-                            
+
                             h3("Motivation"),
-                            p("This project was developed to facilitate open-source, reproducible epidemiological modeling for COVID-19 response and recovery.
-              As the COVID-19 outbreak continues to rapidly progress, policy-makers, public health responders, and researchers 
-              rely, in part, on the results of epidemiological models to understand how the outbreak might progress."),
+                            p("This project was developed to facilitate open-source, reproducible  modeling for COVID-19 response and recovery.
+                            As the COVID-19 outbreak progresses, policy-makers and public health responders
+                            rely, in part, on the results of models that forecast  caseload and fatalities
+                            to understand how the outbreak might progress."),
                             
-                            p("However, different models are being produced and used by different groups, each with their own unique set of assumptions,
-              underlying data inputs and methods, and intended uses. Moreover, these models often document their approaches and report
-              or export their results in formats that make it difficult to compare results across models.
-             This project was developed to fill that gap."),
+                            p("Different models are being produced and used by different groups, each with their own unique set of assumptions,
+                              underlying data inputs, methods, and intended uses. Moreover, these models often document their approaches and report
+                                results in formats. This makes it difficult to compare results and assumptions across models."),
                             
                             h3("Approach"),
-                            
-                            p("To monitor how different models have changed over time, compare the assumptions and results of these models, 
-               and evaluate the best available evidence to inform policy decisions, it's first necessary to align modeling results to be able to compare 'apples to apples'.
-               This requires an overarching data architecture that aligns results from different models into a common dataset."),
-                
-                            
+                          
                             p("The COVID model inventory relies on a common data structure, documented in the project's", 
                               tags$a(href = "https://github.com/Innovate-For-Health/covid-ensemble/blob/master/data/Data%20Dictionary.xlsx", "data dictionary.", target = "_black"),
-             "As new model results become available, they are documented, archived,and processed via a series of routinely run R scripts 
-             to add them to a relational data structure. This site will be updated every Thursday as new model results become available, though delays might occur."),
+                              "As new model results become available, they are documented, archived,and processed via a series of routinely run R scripts 
+                              to add them to a relational data structure. This site will be updated every Thursday as new model results become available, though delays might occur."),
                             
-                            h3("FAQ"),
-                            
-                            h4("Which  models are included in this inventory?"),
                             p('A current inventory of all included models can be found in the "Model Inventory" tab above. All of these models
                             have been documented as being used by policy-makers or public health responders during the 2019-2020 COVID-19 pandemic. 
                             However, this inventory of models is by no means comprehensive, and new models are currently being assessed and added in a rolling fashion.'),
                             
-                          h4("How are models currently being used to inform COVID response and recovery?"),
-                            
-                            p("Public health responders, healthcare organizations, and policy-makers rely on 
-                              epidemiological forecast models for COVID-19 to inform their policy decisions and to
-                              develop operational plans based on how the outbreak may unfold."),
-                            
-                            p("For example, in California, Governor Gavin Newsom described how the state's early shelter-in-place orders
-                              were informed by", tags$a(href="https://www.kqed.org/science/1959566/california-gov-gavin-newsom-orders-state-to-shelter-in-place", 
-                              "statewide pandemic planning models", target = "_black"), "developed to forecast how the outbreak might spread.
-                               Similarly, Muriel Bowser, the Mayor of Washington DC, cited results from both",
-                              tags$a(href = "https://penn-chime.phl.io/", "University of Pennsylvania's CHIME model", target = "_black"), "and",
-                              tags$a(href = "http://www.healthdata.org/", "University of Washington's IHME model", target = "_black"), 
-                              "when outlining emergency legislative provisions for the District of Columbia.
-                              Leaders within healthcare organizations also use the results of these models to",
-                              tags$a(href = "https://www.nytimes.com/2020/04/01/us/coronavirus-california-new-york-testing.html", "inform their own planning efforts", target = "_black"),
-                              "."),
-                            
+
                             h3("Team and acknowledgements"),
                             
                             p("This site was designed, built, and developed by", 

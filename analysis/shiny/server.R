@@ -177,7 +177,9 @@ server <- function(input, output, session) {
                                      selectedOutputs()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
-        scale_y_continuous(label = comma) +
+        scale_y_continuous(label = comma,
+                           ## force y axis to only show integers
+                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
@@ -216,7 +218,9 @@ server <- function(input, output, session) {
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
                  color = factor(run_name, levels = rev(unique(selectedOutputsModelTime()$run_name))))) +
         geom_line(size = 1) +
-        scale_y_continuous(label = comma) +
+        scale_y_continuous(label = comma,
+                           ## force y axis to only show integers
+                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
         ylab(input$output_name) +
@@ -258,7 +262,9 @@ server <- function(input, output, session) {
             ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
             color = factor(key_assumptions, levels = rev(unique(selectedOutputsModelAssumption()$key_assumptions))))) +
         geom_line(size = 1) +
-        scale_y_continuous(label = comma) +
+        scale_y_continuous(label = comma,
+                           ## force y axis to only show integers
+                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name, sep = "")) + 
         ylab(input$output_name) +
