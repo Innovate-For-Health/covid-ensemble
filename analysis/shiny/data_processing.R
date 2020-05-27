@@ -21,7 +21,6 @@ outputs_agg <- list("Healthcare demand" = c("Hospital beds needed per day",
                                            "ICU beds needed per day",
                                            "Ventilators needed per day"),
                     "Fatalities" = c("Cumulative fatalities",
-                                     #"Cumulative infections",
                                      "Fatalities per day"))
 
 ####################################################################################

@@ -1,12 +1,12 @@
 #################################################################
 ## Specify some initial details #################################
 #################################################################
-
-model_run_id <- 87
-file_name_cases_us <- "model_runs/13_lanl/model_export/87_2020-05-24_confirmed_quantiles_us_website.csv"
-file_name_deaths_us <- "model_runs/13_lanl/model_export/87_2020-05-24_deaths_quantiles_us_website.csv"
-file_name_cases_global <- "model_runs/13_lanl/model_export/87_2020-05-24_confirmed_quantiles_global_website.csv"
-file_name_deaths_global <- "model_runs/13_lanl/model_export/87_2020-05-24_deaths_quantiles_global_website.csv"
+ 
+model_run_id <- 56
+file_name_cases_us <- "model_runs/13_lanl/model_export/56_2020-05-13_confirmed_quantiles_us_website.csv"
+file_name_deaths_us <- "model_runs/13_lanl/model_export/56_2020-05-13_deaths_quantiles_us_website.csv"
+file_name_cases_global <- "model_runs/13_lanl/model_export/56_2020-05-13_confirmed_quantiles_global_website.csv"
+file_name_deaths_global <- "model_runs/13_lanl/model_export/56_2020-05-13_deaths_quantiles_global_website.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -37,6 +37,8 @@ locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
 ## LANL model ID is always 13, model name is always whatever model_id 13 is named in the file data/models.txt
 model_id <- 13
 model_name <- models$model_name[which(models$model_id == 13)]
+
+model_outputs <- model_outputs[-which(model_outputs$model_run_id == 56),]
 
 #################################################################
 ## Check: any locations not in the locations file? ##############
@@ -70,21 +72,16 @@ model_outputs$date <- as.Date(model_outputs$date)
 
 ## to minimize size of data file, now focus on dates after May 1, 2020 
 ## this change added as of May 26, 2020
-lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-05-01")),]
-lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-05-01")),]
-lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-05-01")),]
-lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-05-01")),]
+lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-05-10")),]
+lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-05-10")),]
+lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-05-10")),]
+lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-05-10")),]
 
 ##########################################################################
 ## Add data for output_id 3:  Cumulative fatalities: US data #############
 ##########################################################################
 
-## only add these new data if you're not reading over model_outputs already stored
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])){
-
-  model_outputs <- rbind.data.frame(
-    model_outputs,
-    cbind.data.frame("model_run_id" = model_run_id,
+  additional_outputs <- cbind.data.frame("model_run_id" = model_run_id,
                      "output_id" = 4,
                      "output_name" = "Cumulative fatalities",
                      "date" = lanl_deaths$dates,
@@ -92,18 +89,13 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                      "value_type" = "percentile (50)",
                      "value" = lanl_deaths$q.50,
                      "notes" = "50th percentile produced across model runs")
-  )
-}
 
 ##########################################################################
-## Add data for output_id 3:  Cumulative fatalities: Global data #########
+## Add data for output_id 4:  Cumulative fatalities: Global data #########
 ##########################################################################
 
-## only add these new data if you're not reading over model_outputs already stored
-if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])){
-
-  model_outputs <- rbind.data.frame(
-    model_outputs,
+  additional_outputs <- rbind.data.frame(
+    additional_outputs,
     cbind.data.frame("model_run_id" = model_run_id,
                      "output_id" = 4,
                      "output_name" = "Cumulative fatalities",
@@ -113,74 +105,109 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                      "value" = lanl_deaths_global$q.50,
                      "notes" = "50th percentile produced across model runs")
   )
+
+# ##########################################################################
+# ## Add data for output_id 3: Fatalities per day: US Data #################
+# ##########################################################################
+
+undoCumSum <- function(x) {
+  c(NA, diff(x))
+}
+## sanity check:
+#undoCumSum(cumsum(seq(1:10)))
+
+lanl_deaths <- lanl_deaths[order(lanl_deaths$dates, decreasing = FALSE),]
+
+lanl_deaths <- lanl_deaths %>%
+  group_by(state) %>%
+  mutate(daily_fatalities =  undoCumSum(q.50))
+
+lanl_deaths$daily_fatalities[which(lanl_deaths$daily_fatalities < 0)] <- 0
+
+  additional_outputs <- rbind.data.frame(
+    additional_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 3,
+                     "output_name" = "Fatalities per day",
+                     "date" = lanl_deaths$dates,
+                     "location" = lanl_deaths$state,
+                     "value_type" = "percentile (50)",
+                     "value" = round(lanl_deaths$daily_fatalities),
+                     "notes" = "50th percentile produced across model runs, daily fatalities calculated as difference between daily cumulative fatalities. If daily fatalities is every less than zero due to data anomaly, value is set to zero.")
+  )
+
+
+# ##############################################################################
+# ## Add data for output_id 3: Fatalities per day: Global Data #################
+# ##############################################################################
+
+lanl_deaths_global <- lanl_deaths_global[order(lanl_deaths_global$dates, decreasing = FALSE),]
+
+lanl_deaths_global <- lanl_deaths_global %>%
+  group_by(countries) %>%
+  mutate(daily_fatalities =  undoCumSum(q.50))
+
+lanl_deaths_global$daily_fatalities[which(lanl_deaths_global$daily_fatalities < 0)] <- 0
+
+  additional_outputs <- rbind.data.frame(
+    additional_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 3,
+                     "output_name" = "Fatalities per day",
+                     "date" = lanl_deaths_global$dates,
+                     "location" = lanl_deaths_global$countries,
+                     "value_type" = "percentile (50)",
+                     "value" = round(lanl_deaths_global$daily_fatalities),
+                     "notes" = "50th percentile produced across model runs, daily fatalities calculated as difference between daily cumulative fatalities. If daily fatalities is every less than zero due to data anomaly, value is set to zero.")
+  )
+  
+
+################################################################
+## Run some sanity checks #######################################
+#################################################################
+
+if(any(is.na(additional_outputs$value))){
+  additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value)),]
 }
 
-# ##########################################################################
-# ## Add data for output_id 3:  New confirmed cases per day: US Data #######
-# ##########################################################################
-# 
-# undoCumSum <- function(x) {
-#   c(NA, diff(x))
-# }
-# ## sanity check:
-# #undoCumSum(cumsum(seq(1:10)))
-# 
-# lanl_cases <- lanl_cases[order(lanl_cases$dates, decreasing = FALSE),]
-# 
-# lanl_cases <- lanl_cases %>%
-#   group_by(state) %>%
-#   mutate(daily_new_cases =  undoCumSum(q.50))
-# 
-# ## only add these new data if you're not reading over model_outputs already stored
-# if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 11])){
-#   
-#   model_outputs <- rbind.data.frame(
-#     model_outputs,
-#     cbind.data.frame("model_run_id" = model_run_id,
-#                      "output_id" = 11,
-#                      "output_name" = "New confirmed cases per day",
-#                      "date" = lanl_cases$dates,
-#                      "location" = lanl_cases$state,
-#                      "value_type" = "percentile (50)",
-#                      "value" = round(lanl_cases$daily_new_cases),
-#                      "notes" = "50th percentile produced across model runs, rounded to nearest whole number")
-#   )
-# 
-#   
-# }
-# 
-# ##############################################################################
-# ## Add data for output_id 3:  New confirmed cases per day: Global Data #######
-# ##############################################################################
-# 
-# lanl_cases_global <- lanl_cases_global[order(lanl_cases_global$dates, decreasing = FALSE),]
-# 
-# lanl_cases_global <- lanl_cases_global %>%
-#   group_by(countries) %>%
-#   mutate(daily_new_cases =  undoCumSum(q.50))
-# 
-# ## only add these new data if you're not reading over model_outputs already stored
-# if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 11])){
-#   
-#   model_outputs <- rbind.data.frame(
-#     model_outputs,
-#     cbind.data.frame("model_run_id" = model_run_id,
-#                      "output_id" = 11,
-#                      "output_name" = "New confirmed cases per day",
-#                      "date" = lanl_cases_global$dates,
-#                      "location" = lanl_cases_global$countries,
-#                      "value_type" = "percentile (50)",
-#                      "value" = round(lanl_cases_global$daily_new_cases),
-#                      "notes" = "50th percentile produced across model runs, rounded to nearest whole number")
-#   )
-#   
-#   
-# }
+table(additional_outputs$output_name)
+
+## max should be two
+max(table(additional_outputs$location, additional_outputs$date))
+
+## are any estimates less than zero?
+any(additional_outputs$value < 0, na.rm = TRUE)
+
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+ggplot(additional_outputs[which(additional_outputs$location == "Brazil" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+ggplot(additional_outputs[which(additional_outputs$location == "United States of America" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
 
 #################################################################
-## Save model_outputs as .RDS file ##############################
+## Merge with full dataset #######################################
 #################################################################
 
-#saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE) 
+model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 
+#################################################################
+## Save output ##################################################
+#################################################################
+
+saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE) 
 
