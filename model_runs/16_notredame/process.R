@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 68
-file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-05-18-NotreDame-FRED.csv"
+model_run_id <- 91
+file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-05-25-NotreDame-FRED.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -53,6 +53,21 @@ nd$target_end_date <- as.Date(nd$target_end_date)
 model_outputs$date <- as.Date(model_outputs$date)
 
 #################################################################
+## Calculate fatalities per day #################################
+#################################################################
+
+undoCumSum <- function(x) {
+  c(NA, diff(x))
+}
+## sanity check:
+#undoCumSum(cumsum(seq(1:10)))
+nd <- nd[order(nd$target_end_date, decreasing = FALSE),]
+
+nd <- nd %>%
+  group_by(location_name, type, quantile) %>%
+  mutate(daily_fatalities =  undoCumSum(value))
+
+#################################################################
 ## Add data for output_id 4: Cumulative fatalities ##############
 #################################################################
 
@@ -73,11 +88,40 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
 }
 
 #################################################################
-## Sanity check #################################################
+## Add data for output_id 3: Fatalities per day #################
+#################################################################
+
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 3,
+                     "output_name" = "Fatalities per day",
+                     "date" = nd$target_end_date,
+                     "location" = nd$location_name,
+                     "value_type" = "percentile (50)",
+                     "value" = nd$daily_fatalities,
+                     "notes" = "values reported as is, and not rounded to the nearest fatality, daily fatalities calculated based on reported values for cumulative fatalities")
+  )
+}
+
+
+#################################################################
+## Sanity checks ################################################
 #################################################################
 
 ## check data
-ggplot(model_outputs[which(model_outputs$location == "Ohio" & model_outputs$model_run_id == model_run_id),],
+ggplot(model_outputs[which(model_outputs$location == "Ohio" & model_outputs$model_run_id == model_run_id & model_outputs$output_name == "Cumulative fatalities"),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+## check data
+ggplot(model_outputs[which(model_outputs$location == "Ohio" & model_outputs$model_run_id == model_run_id & model_outputs$output_name == "Fatalities per day"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +

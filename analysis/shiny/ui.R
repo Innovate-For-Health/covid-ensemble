@@ -639,10 +639,10 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                               "CDC Forecast Website", target = "_blank")))),
                            hr(),
                            
-                           p(tags$b("Update frequency:"), "daily"),
+                           p(tags$b("Update frequency:"), "multiple times per week"),
                            hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "May 18, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "May 27, 2020"),
                            hr()
                          )),
                 

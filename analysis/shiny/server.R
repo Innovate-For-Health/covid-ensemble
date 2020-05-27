@@ -105,6 +105,8 @@ server <- function(input, output, session) {
     ## Columbia University (previously Shaman): #756bb1
     ## GLEAM: #dd1c77
     ## COVID-Act Now: #fd8d3c
+    
+    ## todo: change colors for fred, too light to be visible here
 
     color_function_cm <- function(model_name){
       temp <- c()
