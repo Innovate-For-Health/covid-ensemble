@@ -24,7 +24,7 @@
 # locations_agg <- list("Countries" = sort(locations[which(locations$location_type == "Country" & locations$location_name %in% unique(model_outputs$location)),]$location_name),
 #                      "US states, territories, and DC" = sort(locations[which(locations$area_level == "Intermediate" & locations$iso2 == "US" &
 #                                                              ## unfortunately data from VI are not reliable now (as of 5/22), so manually exclude and hopefully add back later if and as data become available
-#                                                                              locations$location_name != "Virgin Islands" & 
+#                                                                              locations$location_name != "Virgin Islands" &
 #                                                                              locations$location_name %in% unique(model_outputs$location)),]$location_name))
 # 
 # outputs_agg <- list("Healthcare demand" = c("Hospital beds needed per day",
@@ -42,8 +42,8 @@
 # 
 # ## find the most recent model run for each specified model
 # most_recent_model_runs <- model_runs[which(model_runs$compare_across_models == TRUE),] %>%
-#   group_by(model_name) %>% 
-#   arrange(desc(model_snapshot_date)) %>% 
+#   group_by(model_name) %>%
+#   arrange(desc(model_snapshot_date)) %>%
 #   slice(1)
 # 
 # ## generate master dataset of outputs
@@ -66,7 +66,7 @@
 # ## Save R environment ################################################
 # ######################################################################
 # 
-# save.image(file = "data/preprocessed_data.RData",ascii = FALSE, compress = TRUE, safe = TRUE)
+# save.image(file = "data/preprocessed_data.RData", ascii = FALSE, compress = TRUE, safe = TRUE)
 
 ###########################################################################################
 ## Load pre-processed data (each time shiny is run) #######################################
