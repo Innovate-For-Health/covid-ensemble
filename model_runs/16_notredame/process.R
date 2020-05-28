@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 91
-file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-05-25-NotreDame-FRED.csv"
+model_run_id <- 72
+file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-04-27-NotreDame-FRED.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -31,6 +31,8 @@ locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
 ## ND  model ID is always 1, model name is always whatever model_id 16 is named in the file data/models.txt
 model_id <- 16
 model_name <- models$model_name[which(models$model_id == 16)]
+
+#model_outputs <- model_outputs[-which(model_outputs$model_run_id == model_run_id),]
 
 #################################################################
 ## Check: any locations not in the locations file? ##############
@@ -107,6 +109,11 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
   )
 }
 
+## get rid of any missing values we might have introduced,
+## for example, the first value of the available time series
+if(any(is.na(model_outputs$value))){
+  model_outputs <- model_outputs[-which(is.na(model_outputs$value)),]
+}
 
 #################################################################
 ## Sanity checks ################################################
