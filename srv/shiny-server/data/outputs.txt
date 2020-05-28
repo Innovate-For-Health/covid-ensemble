@@ -1,0 +1,12 @@
+output_id	output_name	definition	temporal_resolution	is_cumulative
+1	New infections per day	"The projected number of new COVID-19 infections per day, which is likely not equal to the number of laboratory confirmed cases per day"	daily	FALSE
+11	New confirmed cases per day	The projected number of new laboratory-confirmed COVID-19 cases per day	daily	FALSE
+2	Cumulative infections	"The projected cumulative number of COVID-19 infections as of a given day, inclusive of new cases that occurred on that day"	daily	TRUE
+3	Fatalities per day	The projected number of new COVID-19 fatalities per day	daily	FALSE
+10	Fatalities per week	"The projected number of new COVID-19 fatalities per week, for weeks beginning on Sunday and ending on Saturday (to align with Imperial College London estimates as released)"	weekly	FALSE
+4	Cumulative fatalities	"The projected cumulative number of COVID-19 fatalities as of a given day, inclusive of new deaths that occurred on that day"	daily	TRUE
+5	Hospital beds needed per day	"The projected number of hospital beds needed per day for COVID-19 patients, including ICU beds"	daily	FALSE
+6	ICU beds needed per day	The projected number of ICU or other acute care beds needed per day for COVID-19 patients	daily	FALSE
+7	Ventilators needed per day	The projected number of mechanical ventilators needed per day for COVID-19 patients	daily	FALSE
+8	Hospital admissions per day	The projected number of new hospital admissions per day for COVID-10 patients	daily	FALSE
+9	ICU admissions per day	The projected number of new ICU or other acute care admissions per day for COVID-19 patients	daily	FALSE
