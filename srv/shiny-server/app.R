@@ -18,6 +18,6 @@ library(scales)
 ## Run the app ####################################################################
 ###################################################################################
 
-source(here("analysis", "shiny", "data_processing.R"))
-runApp(here("analysis", "shiny"))
+source(here("srv", "shiny-server", "data_processing.R"))
+runApp(here("srv", "shiny-server"))
 
