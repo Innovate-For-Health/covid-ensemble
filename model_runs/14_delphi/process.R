@@ -152,7 +152,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                                                           "location" = daily_fatalities$location,
                                                           "value_type" = "point estimate",
                                                           "value" = daily_fatalities$daily_fatalities,
-                                                          "notes" = "dfatalities defined as 'detected deaths', daily fatalities calculated as daily difference between estimates of detected deaths"))
+                                                          "notes" = "fatalities defined as 'detected deaths', daily fatalities calculated as daily difference between estimates of detected deaths"))
 }
 
 #################################################################
