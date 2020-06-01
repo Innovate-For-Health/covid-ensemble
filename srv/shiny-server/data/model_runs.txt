@@ -86,4 +86,5 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 89	6	"COVID Act Now (5/27, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/27/20		FALSE	FALSE	TRUE
 90	6	"COVID Act Now (5/27, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/27/20		FALSE	FALSE	TRUE
 91	16	NotreDame-FRED Forecast (5/25)	Update with new data (5/25)	NotreDame-FRED Forecast	5/25/20		TRUE	TRUE	TRUE
-92	17	UCLA COVID-19 Model (5/28)	Update with new data (5/28)	UCLA COVID-19 Model	5/29/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
+92	17	UCLA COVID-19 Model (5/29)	Update with new data (5/29)	UCLA COVID-19 Model	5/29/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
+93	18	COVID19-projections.com (5/28)	Update with new data (5/28)	COVID19-projections.com	5/28/20		TRUE	TRUE	TRUE

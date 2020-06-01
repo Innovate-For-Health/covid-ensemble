@@ -3,8 +3,9 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 85
-file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-25/"
+model_run_id <- 74
+file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/"
+file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/global/"
 
 #################################################################
 ## Load required libraries ######################################
@@ -38,6 +39,10 @@ locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
 model_id <- 18
 model_name <- models$model_name[which(models$model_id == 18)]
 
+undoCumSum <- function(x) {
+  c(NA, diff(x))
+}
+
 #################################################################
 ## Access state-level data from github ###########################
 #################################################################
@@ -60,6 +65,8 @@ location_options <- locations[which(locations$location_type == "Province/State" 
 
 location_options$github_string <- paste("US_", location_options$abbreviation, ".csv", sep = "")
 
+## for model_run_id 75 and 76 (data from 4/4 and 4/11, all of Wyoming's data is NULL, see: https://github.com/youyanggu/covid19_projections/blob/master/projections/2020-04-11/US_WY.csv)
+if(model_run_id %in% c(75, 76)){location_options <- location_options[-which(location_options$location_name == "Wyoming"),]}
 
 for(i in 1:nrow(location_options)){
   
@@ -99,6 +106,21 @@ for(i in 1:nrow(location_options)){
                                              "value_type" = "mean estimate",
                                              "value" = data$predicted_total_deaths_mean,
                                              "notes" = ""))
+    
+    if(sum(undoCumSum(data$predicted_total_deaths_mean), na.rm = TRUE) != max(data$predicted_total_deaths_mean, na.rm = TRUE) - min(data$predicted_total_deaths_mean, na.rm = TRUE)){
+      stop("Something is wrong with calculations of daily fatalities. Please stop to inspect.")
+    }
+    
+    additional_outputs <- rbind.data.frame(additional_outputs,
+                                           cbind.data.frame(
+                                             "model_run_id" = model_run_id,
+                                             "output_id" = 3,
+                                             "output_name" = "Fatalities per day",
+                                             "date" = data$date,
+                                             "location" =  location_options[i,]$location_name,
+                                             "value_type" = "mean estimate, daily fatalities estimated based on daily differences in predicted total deaths",
+                                             "value" = undoCumSum(data$predicted_total_deaths_mean),
+                                             "notes" = ""))
     }
 
 
@@ -109,29 +131,37 @@ additional_outputs <- additional_outputs[-1,]
 ## Access country-level data from github ########################
 #################################################################
 
-international_locations <- c("Algeria", "Argentina", "Austria",
-                             "Bangladesh", "Belgium", "Brazil",
-                             "Bulgaria", "Canada", "Chile", "China",
-                             "Colombia", "Croatia", "Cyprus", "Czechia",
-                             "Denmark", "Dominican-Republic", "Ecuador", 
-                             "Egypt", "Estonia", "Finland", "France", "Germany",
-                             "Greece", "Hungary", "Iceland", "India", "Indonesia",
-                             "Iran", "Ireland", "Israel", "Italy", "Japan",
+international_locations <- c("Algeria", "Argentina", 
+                             "Austria",
+                             "Bangladesh", 
+                             "Belgium", "Brazil",
+                             "Bulgaria", "Canada", 
+                             "Chile", "China", "Colombia", 
+                             "Croatia", "Cyprus", "Czechia",
+                             "Denmark", 
+                             "Dominican-Republic", "Ecuador", "Egypt", 
+                             "Estonia", "Finland", "France", "Germany",
+                             "Greece", "Hungary", "Iceland", 
+                             "India", "Indonesia",
+                             "Iran", "Ireland", "Israel", 
+                             "Italy", "Japan",
                              "Latvia", "Lithuania", "Luxembourg", "Malaysia",
-                             "Malta", "Mexico", "Moldova", "Morocco", "Netherlands",
+                             "Malta", "Mexico", "Moldova", "Morocco", 
+                             "Netherlands",
                              "Nigeria", "Norway", "Pakistan", "Panama", "Peru",
                              "Philippines", "Poland", "Portugal", "Romania",
-                             "Russia", "Saudi-Arabia", "Serbia", "Slovakia",
-                             "South-Africa", "South-Korea", "Spain", "Sweden",
-                             "Switzerland", "Turkey", "Ukraine", "United-Kingdom")
-
-#international_locations[-which(international_locations %in% locations$location_name)]
+                             "Russia", "Saudi-Arabia", "Serbia", 
+                             "Slovakia", "Slovenia",
+                             "South-Africa", "South-Korea", 
+                             "Spain", "Sweden",
+                             "Switzerland", "Turkey", "Ukraine",
+                             "United-Kingdom")
 
 for(i in international_locations){
 
   print(i)
 
-  data <- read.csv(paste("https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/global/", i, "_ALL.csv", sep = ""))
+  data <- read.csv(paste(file_location_base_international, "/", i, "_ALL.csv", sep = ""))
 
   additional_outputs <- rbind.data.frame(additional_outputs,
                                          cbind.data.frame(
@@ -165,8 +195,25 @@ for(i in international_locations){
                                            "value_type" = "mean estimate",
                                            "value" = data$predicted_total_deaths_mean,
                                            "notes" = ""))
+  
+  if(sum(undoCumSum(data$predicted_total_deaths_mean), na.rm = TRUE) != max(data$predicted_total_deaths_mean, na.rm = TRUE) - min(data$predicted_total_deaths_mean, na.rm = TRUE)){
+    stop("Something is wrong with calculations of daily fatalities. Please stop to inspect.")
+  }
+      
+  additional_outputs <- rbind.data.frame(additional_outputs,
+                                         cbind.data.frame(
+                                           "model_run_id" = model_run_id,
+                                           "output_id" = 3,
+                                           "output_name" = "Fatalities per day",
+                                           "date" = data$date,
+                                           "location" =  gsub("-", " ", i),
+                                           "value_type" = "mean estimate, daily fatalities estimated based on daily differences in predicted total deaths",
+                                           "value" = undoCumSum(data$predicted_total_deaths_mean),
+                                           "notes" = ""))
 }
 
+
+additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value)),]
 
 #################################################################
 ## Format data ##################################################
@@ -174,7 +221,9 @@ for(i in international_locations){
 
 model_outputs$date <- as.Date(model_outputs$date)
 additional_outputs$date <- as.Date(additional_outputs$date)
-additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value)),]
+
+## focus just on forecasts of the future
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-15")),]
 
 #################################################################
 ## Sanity check #################################################
@@ -182,6 +231,30 @@ additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value))
 
 ## check data
 ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_id == 4),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+## check data
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_id == 3),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+## check data
+ggplot(additional_outputs[which(additional_outputs$location == "Iran" & additional_outputs$output_id == 3),],
+       aes(x = date, y = value)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light() 
+
+## check data
+ggplot(additional_outputs[which(additional_outputs$location == "Iran" & additional_outputs$output_id == 4),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +

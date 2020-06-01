@@ -53,7 +53,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             selectInput(inputId = "output_name",
                                         label = "Select model outputs:",
                                         choices = outputs_agg,
-                                        selected = "Hospital beds needed per day"),
+                                        selected = "Fatalities per day"),
                             
                             ## if you want to look at changes in a model over time, you need to pick one model to look at
                             conditionalPanel(condition = "input.model_tab == 'monitor' || input.model_tab == 'parameters'" ,
