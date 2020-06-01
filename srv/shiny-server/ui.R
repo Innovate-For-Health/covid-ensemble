@@ -127,9 +127,6 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                           mainPanel(
                             navlistPanel("Select model:",
                                          
-                ###################################################################################
-                ## Columbia Model Details #########################################################
-                ###################################################################################
                                          
                                         tabPanel("Overview",  
                                         h3("Model inventory"),
@@ -140,74 +137,81 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                         p("Use the panel to the right to explore additional details 
                                           about each model included in this inventory.")),
                                         
-                                        tabPanel("Columbia University Model",
-                                                  
-                                                  h3("Columbia University Model"),
-                                                  hr(),
-                                                  
-                                                  p(tags$b("Intended use:"), "project daily hospital demand, at the county level, in the United States"),
-                                                  hr(),
-                                                  
-                                                  p(tags$b("Developer:"), "Sen Pei and Jeffrey Shaman, Mailman School of Public Health, Columbia University"),
-                                                  hr(),
-                                                 
-                                                  p(tags$b("Modeling approach:"), "metapopulation SEIR model"),
-                                                 hr(),
-
-                                                 p(tags$b("What is predicted:"),
-                                                   tags$ul(
-                                                     tags$li("new confirmed cases per day"),
-                                                     tags$li("new reported infections per day"),
-                                                     tags$li("new total infections per day (reported or unreported)"),
-                                                     tags$li("demand for hospital beds per day")
-                                                   )),
-                                                 hr(),
-                                                 
-                                                 p(tags$b("Selected data inputs:"),
-                                                   tags$ul(
-                                                     tags$li("caseload data:", tags$a(href = "https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/", "usafacts.org", target = "_blank")),
-                                                     tags$li("commute data:", tags$a(href = "https://www.census.gov/topics/employment/commuting.html", "US Census commute data", target = "_blank"))
-                                                   )),
-                                                 
-                                                 hr(),
-                                                  
-                                                  p(tags$b("Key assumptions:"),
-                                                    tags$ul(
-                                                      tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
-                                                      br(),
-                                                      tags$li("Once a state has re-opened, contact rates are assumed to increase by 5% each week"),
-                                                      br(),
-                                                      tags$li("please consult available documentation below for additional information on key model assumptions.")),
-                                                    hr(),
-                                                    
-                                                    p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US county"),
-                                                    hr(),
-                                                    
-                                                    p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
-                                                    hr(),
-                                                    
-                                                    p(tags$b("Reference and source documentation:"),
-                                                      tags$ul(
-                                                        tags$li(tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "preprint", target = "_blank")),
-                                                        tags$li(tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "model results and source code", target="_blank"))
-                                                      )),
-                                                    hr(),
-                                                    
-                                                    p(tags$b("Media coverage, responses from other researchers:"),
-                                                      tags$ul(
-                                                        tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
-                                                                       "CDC Forecast Website", target = "_blank"))
-                                                      )),
-                                                    hr(),
-                                                  
-                                                    p(tags$b("Update frequency:"), "approximately twice per week"),
-                                                    hr(),
-                                                    
-                                                    p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
-
-                                                    hr()
-                                                  )),       
-                
+                                        ###################################################################################
+                                        ## Columbia Model Details #########################################################
+                                        ###################################################################################
+                                        
+                                        #tabPanel("Columbia University Model",
+                                                 #  
+                                                 #  h3("Columbia University Model"),
+                                                 #  hr(),
+                                                 #  
+                                                 #  p(tags$b("Intended use:"), "project daily hospital demand, at the county level, in the United States"),
+                                                 #  hr(),
+                                                 #  
+                                                 #  p(tags$b("Developer:"), "Sen Pei and Jeffrey Shaman, Mailman School of Public Health, Columbia University"),
+                                                 #  hr(),
+                                                 # 
+                                                 #  p(tags$b("Modeling approach:"), "metapopulation SEIR model"),
+                                                 # hr(),
+                                                 # 
+                                                 # p(tags$b("What is predicted:"),
+                                                 #   tags$ul(
+                                                 #     tags$li("new confirmed cases per day"),
+                                                 #     tags$li("new reported infections per day"),
+                                                 #     tags$li("new total infections per day (reported or unreported)"),
+                                                 #     tags$li("demand for hospital beds per day")
+                                                 #   )),
+                                                 # hr(),
+                                                 # 
+                                                 # p(tags$b("Selected data inputs:"),
+                                                 #   tags$ul(
+                                                 #     tags$li("caseload data:", tags$a(href = "https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/", "usafacts.org", target = "_blank")),
+                                                 #     tags$li("commute data:", tags$a(href = "https://www.census.gov/topics/employment/commuting.html", "US Census commute data", target = "_blank"))
+                                                 #   )),
+                                                 # 
+                                                 # hr(),
+                                                 #  
+                                                 #  p(tags$b("Key assumptions:"),
+                                                 #    tags$ul(
+                                                 #      tags$li("assumes social distancing levels continue to increase with multiplicative effects over time for all counties with increasing weekly COVID-19 caseload"),
+                                                 #      br(),
+                                                 #      tags$li("Once a state has re-opened, contact rates are assumed to increase by 5% each week"),
+                                                 #      br(),
+                                                 #      tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                                                 #    hr(),
+                                                 #    
+                                                 #    p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US county"),
+                                                 #    hr(),
+                                                 #    
+                                                 #    p(tags$b("Geographic coverage of estimates:"), "United States (no results for Virgin Islands or Puerto Rico)"),
+                                                 #    hr(),
+                                                 #    
+                                                 #    p(tags$b("Reference and source documentation:"),
+                                                 #      tags$ul(
+                                                 #        tags$li(tags$a(href = "https://covidprojections.azurewebsites.net/", "visualizations of forecast results", target = "_blank")),
+                                                 #        tags$li(tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.21.20040303v2", "preprint", target = "_blank")),
+                                                 #        tags$li(tags$a(href="https://github.com/shaman-lab/COVID-19Projection", "model results and source code", target="_blank")),
+                                                 #        tags$li(tags$a(href = "https://blogs.cuit.columbia.edu/jls106/publications/covid-19-findings-simulations/", "blog post", target = "_blank"))
+                                                 #        
+                                                 #      )),
+                                                 #    hr(),
+                                                 #    
+                                                 #    p(tags$b("Media coverage, responses from other researchers:"),
+                                                 #      tags$ul(
+                                                 #        tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                                 #                       "CDC Forecast Website", target = "_blank"))
+                                                 #      )),
+                                                 #    hr(),
+                                                 #  
+                                                 #    p(tags$b("Update frequency:"), "approximately twice per week"),
+                                                 #    hr(),
+                                                 #    
+                                                 #    p(tags$b("Most recent data update in Model Inventory:"), "April 26, 2020"),
+                                                 # 
+                                                 #    hr()
+                                                 #  )),       
+                                                 # 
                 ###################################################################################
                 ## COVID-Act Now Model Details ####################################################
                 ###################################################################################
@@ -266,7 +270,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "every three days"),
                          hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "May 27, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 1, 2020"),
                          hr()
                          
                          ),       

@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 100
-run_id_strong <- 101
-run_id_weak <- 102
+run_id_observed <- 98
+run_id_strong <- 99
+run_id_weak <- 100
 
 #################################################################
 ## Load required libraries ######################################
@@ -260,12 +260,12 @@ for(state in 1:nrow(location_options)){
 additional_outputs <- additional_outputs[-1,]
 
 ## save data as backup
-write.csv(additional_outputs, file = paste("model_runs/6_covidactnow/model_export/", run_id_observed, "_projections.csv", sep = ""))
+write.csv(additional_outputs, file = paste("/Users/seaneff/Documents/covid-ensemble/model_runs/6_covidactnow/model_export/", run_id_observed, "_projections.csv", sep = ""))
 
 ## format dates as dates
 additional_outputs$date <- as.Date(additional_outputs$date)
 
-## drop all dates before May 25th (as of May 27th)
+## drop all dates before May 25th (as of June 1st)
 additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-25")),]
 
 #################################################################
@@ -284,6 +284,13 @@ ggplot(additional_outputs[which(additional_outputs$location == "Ohio" & addition
 
 ggplot(additional_outputs[which(additional_outputs$location == "Georgia" & additional_outputs$output_name == "Fatalities per day"),],
        aes(x = date, y = value, group = model_run_id)) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light()
+
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value, color = factor(model_run_id))) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
   xlab("") +

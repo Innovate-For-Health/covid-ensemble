@@ -59,18 +59,16 @@
 # ### Exclude some data that won't be shown in the UI ##################
 # ######################################################################
 # 
-# ## Fow now, don't look at any fatality data from COVID Act Now #######
-# ## as those data are not shown or presented anywhere on the website ##
-# 
-# outputs <- outputs[-which(outputs$model_name == "COVID Act Now US Intervention Model" &
-#                             (outputs$output_name %in% (c("Cumulative fatalities",
-#                                                          "Fatalities per day")))),]
-# 
 # ## For now, exclude any data indicated as not being shown anywhere in the UI
 # 
 # outputs <- outputs[-which(outputs$compare_across_models == FALSE &
-#                             outputs$compare_across_models == FALSE &
-#                             outputs$compare_over_time == FALSE),]
+#                             outputs$compare_over_time == FALSE &
+#                             outputs$compare_across_assumptions == FALSE),]
+# 
+# ## for now exclude the Columbia data, it's not matching with CDC website and I'm confused
+# outputs <- outputs[-which(outputs$model_name == "Columbia University Model"),]
+# 
+# outputs$value <- as.numeric(as.character(outputs$value))
 # 
 # ######################################################################
 # ## Remove things not required to run the shiny app ###################

@@ -72,11 +72,11 @@ server <- function(input, output, session) {
     })
     
     ## for debugging
-    # selectedOutputsModelTime <- 
-    #   outputs[which(outputs$compare_over_time == TRUE),] %>% 
-    #     filter(location %in% "Alabama" & 
+    # selectedOutputsModelTime <-
+    #   outputs[which(outputs$compare_over_time == TRUE),] %>%
+    #     filter(location %in% "California" &
     #              output_name %in% "Fatalities per day" &
-    #              model_name %in% c("IHME COVID-19 Model")) %>%
+    #              model_name %in% c("COVID Act Now US Intervention Model")) %>%
     #     arrange(desc(model_snapshot_date))
     
     ## filter data based on the location, model output, and specific model selected
@@ -106,11 +106,9 @@ server <- function(input, output, session) {
     ## GLEAM: #dd1c77
     ## COVID-Act Now: #fd8d3c
     
-    ## todo: change colors for fred, too light to be visible here
-
     color_function_cm <- function(model_name){
       temp <- c()
-      #if("Columbia University Model" %in% model_name){temp <- c(temp, "#756bb1")}
+      if("Columbia University Model" %in% model_name){temp <- c(temp, "orchid1")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
       if("COVID19-projections.com" %in% model_name){temp <- c(temp, "darkmagenta")}
       if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
@@ -119,8 +117,6 @@ server <- function(input, output, session) {
       if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")} ## right now showing this instead of Columbia due to lack of documentation
       if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "#6f94c5")}
       if("UCLA COVID-19 Model" %in% model_name){temp <- c(temp, "firebrick3")}
-
-      
       
       return(temp)
     }
@@ -130,12 +126,9 @@ server <- function(input, output, session) {
        color_function_cm(selectedOutputs()$model_name)
     })
     
-    #fredfunc <- colorRampPalette(c( "#cbe2ff", "#6f94c5"))
-    #barplot(1:8, col=fredfunc(8)); # https://encycolorpedia.com/a6bddb
-             
     color_function_mt <- function(model_name){
       temp <- c()
-      #if("Columbia University Model" %in% model_name){temp <- c(temp, "Purples")}
+      if("Columbia University Model" %in% model_name){temp <- c(temp, "RdPu")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "Oranges")}
       if("COVID19-projections.com" %in% model_name){temp <- c(temp, "PuRd")}
       if("GLEAM" %in% model_name){temp <- c(temp, "RdPu")}
@@ -181,7 +174,7 @@ server <- function(input, output, session) {
         geom_line(size = 1) +
         scale_y_continuous(label = comma,
                            ## force y axis to only show integers
-                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
+                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.2))))) +
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, sep = "")) + 
         ylab(input$output_name) +
@@ -203,7 +196,7 @@ server <- function(input, output, session) {
     })
     
     ######################################################################
-    ## Generate plot: compare model over time ############################
+    ## Generate plot: monitor changes over time ##########################
     ######################################################################
     
     output$compare_models_over_time <- renderPlot({
@@ -215,16 +208,14 @@ server <- function(input, output, session) {
         
       print(ggplot(selectedOutputsModelTime()[which( ## for now set focus on May through June
                 selectedOutputsModelTime()$date >= as.Date("2020-05-26") &
-                  selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
+                selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
                  color = factor(run_name, levels = rev(unique(selectedOutputsModelTime()$run_name))))) +
         geom_line(size = 1) +
-        scale_y_continuous(label = comma,
-                           ## force y axis to only show integers
-                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
+        scale_y_continuous(label = comma) +
         guides(color = guide_legend(title = "Model Run")) +
-        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) + 
+        ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name,  sep = "")) +
         ylab(input$output_name) +
         scale_colour_brewer(palette = model_palette_mt(),
                             ## colors are sequential -- show a gradient here
@@ -266,7 +257,7 @@ server <- function(input, output, session) {
         geom_line(size = 1) +
         scale_y_continuous(label = comma,
                            ## force y axis to only show integers
-                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1))))) +
+                           breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.2))))) +
         guides(color = guide_legend(title = "Model Run")) +
         ggtitle(paste("Projected ", input$output_name, ":\n", input$location, "\n", input$model_name, sep = "")) + 
         ylab(input$output_name) +
