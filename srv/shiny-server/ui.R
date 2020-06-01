@@ -731,21 +731,21 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                           mainPanel(
 
                             h3("Motivation"),
-                            p("This project was developed to facilitate open-source, reproducible  modeling for COVID-19 response and recovery.
-                            As the COVID-19 outbreak progresses, policy-makers and public health responders
-                            rely, in part, on the results of models that forecast  caseload and fatalities
-                            to understand how the outbreak might progress."),
+                            p("As the COVID-19 outbreak progresses, policy decision-makers and public health responders rely, 
+                              in part, on the results of models that forecast caseload and fatalities to understand how the 
+                              outbreak might progress."),
                             
-                            p("Different models are being produced and used by different groups, each with their own unique set of assumptions,
-                              underlying data inputs, methods, and intended uses. Moreover, these models often document their approaches and report
-                                results in formats. This makes it difficult to compare results and assumptions across models."),
+                            p("Forecasts produced by different groups each have their own unique assumptions, 
+                              underlying data inputs, methods, and intended uses. To understand these differences 
+                              and how they might drive results, and to support research transparency, it is valuable to compare 
+                              results and assumptions across models."),
                             
                             h3("Approach"),
                           
                             p("The COVID model inventory relies on a common data structure, documented in the project's", 
                               tags$a(href = "https://github.com/Innovate-For-Health/covid-ensemble/blob/master/data/Data%20Dictionary.xlsx", "data dictionary.", target = "_black"),
-                              "As new model results become available, they are documented, archived,and processed via a series of routinely run R scripts 
-                              to add them to a relational data structure. This site will be updated every Thursday as new model results become available, though delays might occur."),
+                              "As new model results become available, they are documented, archived, and processed via a series of routinely run R scripts 
+                              and added to this relational data structure. This site will be updated every Thursday as new model results become available, though delays might occur."),
                             
                             p('A current inventory of all included models can be found in the "Model Inventory" tab above. All of these models
                             have been documented as being used by policy-makers or public health responders during the 2019-2020 COVID-19 pandemic. 
@@ -756,12 +756,12 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             
                             p("This site was designed, built, and developed by", 
                               tags$a(href="https://innovateforhealth.berkeley.edu/steph-eaneff-msp", 
-                                     "Steph Eaneff"), ".", target = "_black"),
+                                     "Steph Eaneff."),  target = "_black"),
                             
                             p("This work was made possible by support from the",
                               tags$a(href = "https://innovateforhealth.berkeley.edu/",
                                      "Innovate for Health Data Science Health Innovation program,", target = "_blank"),
                               "including support from the UCSF Bakar Computational Health Sciences Institute, the UC Berkeley Institute for Data Science, 
-                              and Johnson & Johnson.")
+                              and Johnson & Johnson Innovation.")
                           ))
 )
