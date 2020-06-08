@@ -301,11 +301,9 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          
                          p(tags$b("Key assumptions:"),
                            tags$ul(
-                             tags$li('assume "heavy" social distancing in US until the reopening dates and "moderate" social distancing afterward'),
+                             tags$li("all US state re-openings are assumed to be gradual"),
                              br(),
-                             tags$li('"assume "heavy" social distancing in Europe until until mid-May and "moderate" social distancing afterwards'),
-                             br(),
-                             tags$li('"assume that states with a second outbreak will take actions to reduce transmission"'),
+                             tags$li('assume infection fatality rate decreases over time "to reflect improving treatments and the lower proportion of care home deaths"'),
                              br(),
                              tags$li("please consult available documentation below for additional information on key model assumptions"))),
                            hr(),
@@ -321,6 +319,8 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                              tags$li("visualizations and model results:", tags$a(href = "https://covid19-projections.com/", "https://covid19-projections.com/", target = "_blank")),
                              br(),
                              tags$li("archive of historical data:", tags$a(href="https://github.com/youyanggu/covid19_projections/tree/master/projections", "https://github.com/youyanggu/covid19_projections/tree/master/projections", target="_blank")),
+                             br(),
+                             tags$li("key assumptions:", tags$a(href="https://covid19-projections.com/about/#assumptions", "https://covid19-projections.com/about/#assumptions", target="_blank")),
                              br(),
                              tags$li("model documentation:", tags$a(href = "https://covid19-projections.com/about/#about-the-model", "https://covid19-projections.com/about/#about-the-model", target = "_blank")),
                              br()
@@ -397,7 +397,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "approximately weekly"),
                          hr(),
                          
-                         p(tags$b("Most recent data update in Model Inventory:"), "May 17, 2020"),
+                         p(tags$b("Most recent data update in Model Inventory:"), "May 31, 2020"),
                          hr()
                 ),                
                 

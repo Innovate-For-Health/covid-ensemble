@@ -2,8 +2,7 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_unmitigated <- 66
-model_run_id_mitigated <- 67
+model_run_id_mitigated <- 105
 
 #################################################################
 ## Load required libraries ######################################
@@ -88,7 +87,7 @@ for(state in location_options){
     if(!is.null(raw_data[[i]]$`amt_New Deaths|Mitigated`)){
     additional_outputs <- rbind.data.frame(additional_outputs,
                                            cbind.data.frame(
-                                             "model_run_id" = model_run_id_unmitigated,
+                                             "model_run_id" = model_run_id_mitigated,
                                              "output_id" = 3,
                                              "output_name" = "Fatalities per day",
                                              "date" = raw_data[[i]]$date,
@@ -102,7 +101,7 @@ for(state in location_options){
     if(!is.null(raw_data[[i]]$`amt_ICU beds needed|Mitigated`)){
     additional_outputs <- rbind.data.frame(additional_outputs,
                                            cbind.data.frame(
-                                             "model_run_id" = model_run_id_unmitigated,
+                                             "model_run_id" = model_run_id_mitigated,
                                              "output_id" = 6,
                                              "output_name" = "ICU beds needed per day",
                                              "date" = raw_data[[i]]$date,
@@ -116,7 +115,7 @@ for(state in location_options){
     if(!is.null(raw_data[[i]]$`amt_Hospital beds needed|Mitigated`)){
     additional_outputs <- rbind.data.frame(additional_outputs,
                                            cbind.data.frame(
-                                             "model_run_id" = model_run_id_unmitigated,
+                                             "model_run_id" = model_run_id_mitigated,
                                              "output_id" = 5,
                                              "output_name" = "Hospital beds needed per day",
                                              "date" = raw_data[[i]]$date,
@@ -134,17 +133,17 @@ for(state in location_options){
 #################################################################
 
 write.table(additional_outputs, 
-            file = paste("model_runs/10_gleam/model_export/", model_run_id_unmitigated, "_backup_data.txt", sep = ""),
-            quote = FALSE, sep='\t', row.names = FALSE)
+            file = paste("/Users/seaneff/Documents/covid-ensemble/model_runs/10_gleam/model_export/", model_run_id_mitigated, "_backup_data.txt", sep = ""),
+            quote = FALSE, sep ='\t', row.names = FALSE)
 
 #additional_outputs <- read.delim("model_runs/10_gleam/model_export/46_backup_data.txt", stringsAsFactors = FALSE)
 
 ## remove the first row of this, just used for initialization and all it has are missing values
 additional_outputs <- additional_outputs[-1,]
 
-## for now focus on data from April and later
+## for now focus on data from May 15th and later
 additional_outputs$date <- as.Date(additional_outputs$date)
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-04-01")), ]
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-15")), ]
 
 ## add back spaces in state names
 additional_outputs$location <- gsub(" State", "", gsub("%20", " ", additional_outputs$location))
@@ -157,7 +156,7 @@ additional_outputs <- unique(additional_outputs)
 #################################################################
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "Ohio" & additional_outputs$output_name == "Hospital beds needed per day"),],
+ggplot(additional_outputs[which(additional_outputs$location == "Oregon" & additional_outputs$output_name == "Hospital beds needed per day"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
