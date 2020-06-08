@@ -2,15 +2,18 @@
 ## Specify some initial details #################################
 #################################################################
  
-model_run_id <- 56
-file_name_cases_us <- "model_runs/13_lanl/model_export/56_2020-05-13_confirmed_quantiles_us_website.csv"
-file_name_deaths_us <- "model_runs/13_lanl/model_export/56_2020-05-13_deaths_quantiles_us_website.csv"
-file_name_cases_global <- "model_runs/13_lanl/model_export/56_2020-05-13_confirmed_quantiles_global_website.csv"
-file_name_deaths_global <- "model_runs/13_lanl/model_export/56_2020-05-13_deaths_quantiles_global_website.csv"
+model_run_id <- 107
+file_name_cases_us <- "model_runs/13_lanl/model_export/107_2020-06-03_confirmed_quantiles_us_website.csv"
+file_name_deaths_us <- "model_runs/13_lanl/model_export/107_2020-06-03_deaths_quantiles_us_website.csv"
+file_name_cases_global <- "model_runs/13_lanl/model_export/107_2020-06-03_confirmed_quantiles_global_website.csv"
+file_name_deaths_global <- "model_runs/13_lanl/model_export/107_2020-06-03_deaths_quantiles_global_website.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
 #################################################################
+
+## assume working directory is covid-ensemble
+#setwd("/Users/seaneff/Documents/covid-ensemble/")
 
 ## read in lanl data
 lanl_cases <- read.csv(file_name_cases_us, stringsAsFactors = FALSE)
@@ -20,25 +23,23 @@ lanl_deaths <- read.csv(file_name_deaths_us, stringsAsFactors = FALSE)
 lanl_deaths_global <- read.csv(file_name_deaths_global, stringsAsFactors = FALSE)
 
 ## read in models (file that tracks all models)
-models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
+models <- read.delim("srv/shiny-server/data/models.txt", stringsAsFactors = FALSE)
 
 ## read in model_runs (file that tracks model runs)
-model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
+model_runs <- read.delim("srv/shiny-server/data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
-model_outputs <- readRDS("data/model_outputs.RDS")
+model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
-outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
+outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
 
 ## LANL model ID is always 13, model name is always whatever model_id 13 is named in the file data/models.txt
 model_id <- 13
 model_name <- models$model_name[which(models$model_id == 13)]
-
-model_outputs <- model_outputs[-which(model_outputs$model_run_id == 56),]
 
 #################################################################
 ## Check: any locations not in the locations file? ##############
@@ -57,7 +58,7 @@ all(lanl_deaths$state %in% locations$location_name)
 all(lanl_deaths_global$countries %in% locations$location_name)
 all(lanl_cases_global$countries %in% locations$location_name)
 
-#unique(lanl_deaths_global$countries[-which(lanl_deaths_global$countries %in% locations$location_name)])
+unique(lanl_deaths_global$countries[-which(lanl_deaths_global$countries %in% locations$location_name)])
 
 #################################################################
 ## Format data ##################################################
@@ -70,12 +71,11 @@ lanl_cases_global$dates <- as.Date(lanl_cases_global$dates)
 lanl_deaths_global$dates <- as.Date(lanl_deaths_global$dates)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## to minimize size of data file, now focus on dates after May 1, 2020 
-## this change added as of May 26, 2020
-lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-05-10")),]
-lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-05-10")),]
-lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-05-10")),]
-lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-05-10")),]
+## to minimize size of data file, now focus on dates after May 15, 2020 
+lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-05-15")),]
+lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-05-15")),]
+lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-05-15")),]
+lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-05-15")),]
 
 ##########################################################################
 ## Add data for output_id 3:  Cumulative fatalities: US data #############
@@ -209,5 +209,5 @@ model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 ## Save output ##################################################
 #################################################################
 
-saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE) 
+saveRDS(model_outputs, file = 'srv/shiny-server/data/model_outputs.RDS', compress = TRUE) 
 

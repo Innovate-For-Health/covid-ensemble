@@ -3550,3 +3550,7 @@ BR	BRA	Province/State	Intermediate	Tocantins
 MX	MEX	Province/State	Intermediate	Veracruz de Ignacio de la Llave			
 MX	MEX	Province/State	Intermediate	Yucatan			
 MX	MEX	Province/State	Intermediate	Zacatecas			
+CD	COD	Country	Country	Republic of Congo			
+KG	KGZ	Country	Country	Kyrgyzstan			
+MR	MRT	Country	Country	Mauritania			
+NI	NIC	Country	Country	Nicaragua			

@@ -101,3 +101,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 104	18	COVID19-projections.com (6/7)	"No longer assume ""second lockdown"", assume IFR decreases over time"	COVID19-projections.com	6/7/20	Assumption of second lockdown remoted as of 6/1/2020	TRUE	TRUE	TRUE
 106	10	GLEAM (5/31)	Update with new data (5/31)	GLEAM	5/31/20	Mitigated scenario	TRUE	TRUE	TRUE
 105	1	IHME COVID-19 Model (6/6)	Update with new training data (6/6)	IHME COVID-19 Model	6/6/20		TRUE	TRUE	TRUE
+107	13	LANL COVID-19 Model (6/3)	Update with new training data (6/3)	LANL COVID-19 Model	6/3/20		TRUE	TRUE	TRUE

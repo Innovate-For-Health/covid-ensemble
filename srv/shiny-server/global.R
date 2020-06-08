@@ -73,7 +73,6 @@
 # outputs <- outputs[-which(outputs$model_name == "COVID Act Now US Intervention Model" &
 #                           outputs$output_name %in% c("Cumulative fatalities", "Fatalities per day")),]
 # 
-# 
 # outputs$value <- as.numeric(as.character(outputs$value))
 # 
 # ######################################################################
