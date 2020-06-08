@@ -3468,7 +3468,7 @@ UZ	UZB	Country	Country	Uzbekistan
 VN	VNM	Country	Country	Vietnam			
 AD	AND	Country	Country	Andorra			
 BA	BIH	Country	Country	Bosnia and Herzegovina			
-		partially-recognised state	Intermediate	Kosovo			
+XK		partially-recognised state	Intermediate	Kosovo			
 MD	MDA	Country	Country	Moldova	Republic of Moldova		
 ME	MNE	Country	Country	Montenegro			
 MK	MKD	Country	Country	North Macedonia			

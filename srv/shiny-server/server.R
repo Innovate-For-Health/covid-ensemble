@@ -8,7 +8,10 @@ library(scales)
 #library(DT)
 
 server <- function(input, output, session) {
-    
+  
+  start_date <- as.Date("2020-06-08")
+  end_date <- as.Date("2020-07-15")  
+  
     ######################################################################
     ## Update UI filters based on other UI filters #######################
     ######################################################################
@@ -164,12 +167,12 @@ server <- function(input, output, session) {
       ## if data exist to make this plot, make this plot!
       if(nrow(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                       ## for now set focus to  May through June
-                                      selectedOutputs()$date >= as.Date("2020-05-26") &
-                                      selectedOutputs()$date < as.Date("2020-07-01")),]) > 0){
+                                      selectedOutputs()$date >= start_date &
+                                      selectedOutputs()$date < end_date),]) > 0){
       print(ggplot(selectedOutputs()[which(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
                                        ## for now set focus to  May through June
-                                     selectedOutputs()$date >= as.Date("2020-05-26") &
-                                     selectedOutputs()$date < as.Date("2020-07-01")),],
+                                     selectedOutputs()$date >= start_date &
+                                     selectedOutputs()$date < end_date),],
              aes(x = date, y = value, color = run_name)) +
         geom_line(size = 1) +
         scale_y_continuous(label = comma,
@@ -184,8 +187,8 @@ server <- function(input, output, session) {
       
       ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
       if(any(selectedOutputs()$model_run_id %in% most_recent_model_runs$model_run_id &
-             selectedOutputs()$date >= as.Date("2020-05-26") &
-             selectedOutputs()$date < as.Date("2020-07-01")) == FALSE){
+             selectedOutputs()$date >= start_date &
+             selectedOutputs()$date < end_date) == FALSE){
 
         print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
         print(text(x = 0.5, y = 0.5, paste("At this time, no results are available\nfor the selected location and model outputs.\nPlease explore other options from the drop-down menu."),
@@ -203,12 +206,12 @@ server <- function(input, output, session) {
       
       ## if data exist to make this plot, make this plot!
       if(nrow(selectedOutputsModelTime()[which( 
-        selectedOutputsModelTime()$date >= as.Date("2020-05-26") &
-        selectedOutputsModelTime()$date < as.Date("2020-07-01")),]) > 0){
+        selectedOutputsModelTime()$date >= start_date &
+        selectedOutputsModelTime()$date < end_date),]) > 0){
         
       print(ggplot(selectedOutputsModelTime()[which( ## for now set focus on May through June
-                selectedOutputsModelTime()$date >= as.Date("2020-05-26") &
-                selectedOutputsModelTime()$date < as.Date("2020-07-01")),],
+                selectedOutputsModelTime()$date >= start_date &
+                selectedOutputsModelTime()$date < end_date),],
              aes(x = date, y = value, 
                  ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
                  color = factor(run_name, levels = rev(unique(selectedOutputsModelTime()$run_name))))) +
@@ -227,8 +230,8 @@ server <- function(input, output, session) {
       }
       
       ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
-      if(any(selectedOutputsModelTime()$date >= as.Date("2020-05-26") &
-             selectedOutputsModelTime()$date < as.Date("2020-07-01")) == FALSE){
+      if(any(selectedOutputsModelTime()$date >= start_date &
+             selectedOutputsModelTime()$date < end_date) == FALSE){
         
         print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
         print(text(x = 0.5, y = 0.5, paste("At this time, no results are available\nfor the selected location, model, and outputs selected.\nPlease explore other options from the drop-down menu."),
@@ -245,12 +248,12 @@ server <- function(input, output, session) {
       
       ## if data exist to make this plot, make this plot!
       if(nrow(selectedOutputsModelAssumption()[which( 
-        selectedOutputsModelAssumption()$date >= as.Date("2020-05-26") &
-        selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),]) > 0){
+        selectedOutputsModelAssumption()$date >= start_date &
+        selectedOutputsModelAssumption()$date < end_date),]) > 0){
       
       print(ggplot(selectedOutputsModelAssumption()[which( ## for now set focus on May through June
-        selectedOutputsModelAssumption()$date >= as.Date("2020-05-26") &
-          selectedOutputsModelAssumption()$date < as.Date("2020-07-01")),],
+        selectedOutputsModelAssumption()$date >= start_date &
+          selectedOutputsModelAssumption()$date < end_date),],
         aes(x = date, y = value, 
             ## format model run name as a factor so ggplot2 doesn't hijack the ordering I want
             color = factor(key_assumptions, levels = rev(unique(selectedOutputsModelAssumption()$key_assumptions))))) +
@@ -271,8 +274,8 @@ server <- function(input, output, session) {
       }
       
       ## if data don't exist to make this plot, show some explanatory text saying we don't have the data
-      if(any(selectedOutputsModelAssumption()$date >= as.Date("2020-05-26") &
-             selectedOutputsModelAssumption()$date < as.Date("2020-07-01")) == FALSE){
+      if(any(selectedOutputsModelAssumption()$date >= start_date &
+             selectedOutputsModelAssumption()$date < end_date) == FALSE){
         
         print(plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n'))
         print(text(x = 0.5, y = 0.5, paste("At this time, no results are available\nfor the selected location, model, and outputs selected.\nPlease explore other options from the drop-down menu."),

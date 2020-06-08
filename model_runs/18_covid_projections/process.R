@@ -3,9 +3,9 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 74
-file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/"
-file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-05-21/global/"
+model_run_id <- 104
+file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-07/"
+file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-07/global/"
 
 #################################################################
 ## Load required libraries ######################################
