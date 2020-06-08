@@ -2,16 +2,16 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 62
+model_run_id <- 108
 
-## as of May 22, switched to hosting data on git instead of letting you download a flat file
-#file_name <- "https://raw.githubusercontent.com/COVIDAnalytics/website/master/data/predicted/Global.csv"
-
-file_name <- "model_runs/14_delphi/model_export/62_covid_analytics_projections.csv"
+file_name <- "model_runs/14_delphi/model_export/108_covid_analytics_projections.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
 #################################################################
+
+## assume you're in the covid-ensemble directory
+#setwd("~/Documents/covid-ensemble")
 
 ## read in data
 delphi <- read.csv(file_name, stringsAsFactors = FALSE)
@@ -20,25 +20,23 @@ delphi <- read.csv(file_name, stringsAsFactors = FALSE)
 write.csv(delphi, file = paste("model_runs/14_delphi/model_export/", model_run_id, "_projections.csv", sep = ""))
 
 ## read in models (file that tracks all models)
-models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
+models <- read.delim("srv/shiny-server/data/models.txt", stringsAsFactors = FALSE)
 
 ## read in model_runs (file that tracks model runs)
-model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
+model_runs <- read.delim("srv/shiny-server/data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (file that tracks model outputs)
-model_outputs <- readRDS("data/model_outputs.RDS")
+model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
-outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
+outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
 
 ## DEPHI model ID is always 14, model name is always whatever model_id 14 is named in the file data/models.txt
 model_id <- 14
 model_name <- models$model_name[which(models$model_id == 14)]
-
-model_outputs <- model_outputs[-which(model_outputs$model_run_id == 62),]
 
 #################################################################
 ## Check: any locations not in the locations file? ##############
@@ -133,6 +131,7 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
 undoCumSum <- function(x) {
   c(NA, diff(x))
 }
+
 ## sanity check:
 #undoCumSum(cumsum(seq(1:10)))
 delphi <- delphi[order(delphi$Day, decreasing = FALSE),]
@@ -190,11 +189,10 @@ ggplot(additional_outputs[which(additional_outputs$location == "United States of
 ## Merge with full dataset #######################################
 #################################################################
 
-model_outputs <- rbind.data.frame(model_outputs,
-                                  additional_outputs)
+model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 
 #################################################################
 ## Save output ##################################################
 #################################################################
 
-saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE) 
+saveRDS(model_outputs, file = 'srv/shiny-server/data/model_outputs.RDS', compress = TRUE) 
