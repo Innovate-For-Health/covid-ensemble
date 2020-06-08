@@ -92,6 +92,10 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 95	9	Columbia University Model (5/31)	Assume 20% decrease (each week) in contact rate then 5% increase (one-time) when stay-at-home orders lift	Columbia University Model	5/31/20	This is the model shown on CDC forecast website	TRUE	TRUE	TRUE
 96	9	Columbia University Model (5/31)	"Assume 20% decrease (each week) OR 10% increase in contact rate (each week), depending on stay-at-home policy"	Columbia University Model	5/31/20		FALSE	FALSE	TRUE
 97	9	Columbia University Model (5/31)	"Assume 20% decrease (each week) OR 5% increase in contact rate (each week), depending on stay-at-home policy"	Columbia University Model	5/31/20		FALSE	FALSE	TRUE
-98	6	"COVID Act Now (6/1, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	6/1/20		TRUE	TRUE	TRUE
-99	6	"COVID Act Now (6/1, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/1/20		FALSE	FALSE	TRUE
-100	6	"COVID Act Now (6/1, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/1/20		FALSE	FALSE	TRUE
+98	6	"COVID Act Now (6/1, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	6/1/20		TRUE	TRUE	FALSE
+99	6	"COVID Act Now (6/1, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/1/20		FALSE	FALSE	FALSE
+100	6	"COVID Act Now (6/1, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/1/20		FALSE	FALSE	FALSE
+101	6	"COVID Act Now (6/8, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	6/8/20		TRUE	TRUE	TRUE
+102	6	"COVID Act Now (6/8, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/8/20		FALSE	FALSE	TRUE
+103	6	"COVID Act Now (6/8, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/8/20		FALSE	FALSE	TRUE
+									

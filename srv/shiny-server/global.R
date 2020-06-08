@@ -68,6 +68,12 @@
 # ## for now exclude the Columbia data, it's not matching with CDC website and I'm confused
 # outputs <- outputs[-which(outputs$model_name == "Columbia University Model"),]
 # 
+# ## also exclude the COVID Act Now fatality estimates that are not shown on the COVID
+# ## Act Now site
+# outputs <- outputs[-which(outputs$model_name == "COVID Act Now US Intervention Model" &
+#                           outputs$output_name %in% c("Cumulative fatalities", "Fatalities per day")),]
+# 
+# 
 # outputs$value <- as.numeric(as.character(outputs$value))
 # 
 # ######################################################################

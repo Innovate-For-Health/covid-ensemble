@@ -30,13 +30,9 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                               tags$li("monitor how models have changed over time"), 
                               tags$li("understand how key assumptions influence results")), 
 
-                            h4("Disclaimer"),
                             
-                            p("This site is not intended to act as a substitute for accessing each individual model’s visualizations and 
-                              available documentation. If you are using these results to develop plans or prioritize response efforts, 
-                              please also consult each model’s documentation. This site was developed to archive publicly available modeling 
-                              results and is not intended to be used as an operational response tool."))),
-                 
+                            p(strong("This site is updated monthly (last update on June 8, 2020), and likely does not display the most recent results available for any given model.")))),
+
                  ###################################################################################
                  ## View Models: Sidebar selections  ###############################################
                  ###################################################################################
@@ -270,7 +266,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "every three days"),
                          hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "June 1, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 8, 2020"),
                          hr()
                          
                          ),       
