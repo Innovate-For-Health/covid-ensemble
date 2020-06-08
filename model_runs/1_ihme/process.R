@@ -3,8 +3,10 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 86
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_25.csv"
+#setwd("~/Documents/covid-ensemble")
+
+model_run_id <- 105
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_06_06.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -14,19 +16,19 @@ file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_05_25.csv"
 ihme <- read.csv(file_name, stringsAsFactors = FALSE)
 
 ## read in models (file that tracks all models)
-models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
+models <- read.delim("srv/shiny-server/data/models.txt", stringsAsFactors = FALSE)
 
 ## read in model_runs (file that tracks model runs)
-model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
+model_runs <- read.delim("srv/shiny-server/data/model_runs.txt", stringsAsFactors = FALSE)
 
 ## read in model_outputs (saved as RDS due to large file size)
-model_outputs <- readRDS("data/model_outputs.RDS")
+model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 
 ## read in outputs (file that uniquely identifies each distinct output tracked across models)
-outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
+outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
 
 ## IHME model ID is always 1, model name is always whatever model_id 1 is named in the file data/models.txt
 model_id <- 1
@@ -65,20 +67,17 @@ all(ihme$location_name %in% locations$location_name)
 unique(ihme[-which(ihme$location_name %in% locations$location_name),]$location_name)
 
 
-## exclude some specific elements of IHME data that are only tracked ih IHME export and won't be 
+## exclude some specific elements of IHME data that are only tracked in IHME export and won't be 
 ## comparable to results of other models
-## note that field location_name was once called location
-# if(any(names(ihme) == "location_name")){
-# ihme <- ihme[-which(ihme$location_name %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
-#                                          "Life Care Center, Kirkland, WA",
-#                                          "Other Counties, WA")),]
-# }
+if(any(ihme$location_name %in% c("Life Care Center, Kirkland, WA", "Mexico_two"))){
+ihme <- ihme[-which(ihme$location_name %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
+                                         "Life Care Center, Kirkland, WA",
+                                         "Other Counties, WA",
+                                         "Mexico_two")),]
+}
 
-# if(any(names(ihme) == "location")){
-#   ihme <- ihme[-which(ihme$location %in% c("King and Snohomish Counties (excluding Life Care Center), WA",
-#                                                 "Life Care Center, Kirkland, WA",
-#                                                 "Other Counties, WA")),]
-# }
+## check: this should be empty
+unique(ihme[-which(ihme$location_name %in% locations$location_name),]$location_name)
 
 #################################################################
 ## Format data ##################################################
@@ -232,5 +231,5 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 9])
 ## Save model_outputs as .RDS file ##############################
 #################################################################
 
-saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)
+saveRDS(model_outputs, file = 'srv/shiny-server/data/model_outputs.RDS', compress = TRUE)
 

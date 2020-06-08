@@ -3518,3 +3518,35 @@ BR	BRA	Province/State	Intermediate	Santa Catarina
 CD	COD	Country	Country	Democratic Republic of the Congo			
 YE	YEM	Country	Country	Yemen			
 MN	MNG	Country	Country	Mongolia			
+MX	MEX	Province/State	Intermediate	Aguascalientes			
+MX	MEX	Province/State	Intermediate	Baja California Sur			
+MX	MEX	Province/State	Intermediate	Campeche			
+MX	MEX	Province/State	Intermediate	Chiapas			
+MX	MEX	Province/State	Intermediate	Chihuahua			
+MX	MEX	Province/State	Intermediate	Coahuila			
+MX	MEX	Province/State	Intermediate	Colima			
+MX	MEX	City	Local	Distrito Federal			
+MX	MEX	Province/State	Intermediate	Durango			
+MX	MEX	Province/State	Intermediate	Guanajuato			
+MX	MEX	Province/State	Intermediate	Guerrero			
+MX	MEX	Province/State	Intermediate	Jalisco			
+BR	BRA	Province/State	Intermediate	Mato Grosso			
+BR	BRA	Province/State	Intermediate	Mato Grosso do Sul			
+MX	MEX	Province/State	Intermediate	Michoacan de Ocampo	Michoac‡n		
+MX	MEX	Province/State	Intermediate	Morelos			
+MX	MEX	Province/State	Intermediate	Nayarit			
+MX	MEX	Province/State	Intermediate	Nuevo Leon			
+MX	MEX	Province/State	Intermediate	Oaxaca			
+BR	BRA	Province/State	Intermediate	Piaui			
+MX	MEX	Province/State	Intermediate	Queretaro			
+BR	BRA	Province/State	Intermediate	Rondonia			
+BR	BRA	Province/State	Intermediate	Roraima			
+MX	MEX	Province/State	Intermediate	San Luis Potosi			
+BR	BRA	Province/State	Intermediate	Sergipe			
+MX	MEX	Province/State	Intermediate	Sonora			
+MX	MEX	Province/State	Intermediate	Tamaulipas			
+MX	MEX	Province/State	Intermediate	Tlaxcala			
+BR	BRA	Province/State	Intermediate	Tocantins			
+MX	MEX	Province/State	Intermediate	Veracruz de Ignacio de la Llave			
+MX	MEX	Province/State	Intermediate	Yucatan			
+MX	MEX	Province/State	Intermediate	Zacatecas			
