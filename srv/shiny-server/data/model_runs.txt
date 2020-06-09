@@ -103,4 +103,5 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 105	1	IHME COVID-19 Model (6/6)	Update with new training data (6/6)	IHME COVID-19 Model	6/6/20		TRUE	TRUE	TRUE
 107	13	LANL COVID-19 Model (6/3)	Update with new training data (6/3)	LANL COVID-19 Model	6/3/20		TRUE	TRUE	TRUE
 108	14	MIT DELPHI Model (6/8)	Update with new data 6/8)	MIT DELPHI Model	6/8/20		TRUE	TRUE	TRUE
-109	17	UCLA COVID-19 Model (6/8)	Update with new data (6/8)	UCLA COVID-19 Model	6/8/20		TRUE	TRUE	TRUE
+109	17	UCLA COVID-19 Model (6/8)	Update with new data (6/8)	UCLA COVID-19 Model	6/8/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
+110	16	NotreDame-FRED Forecast (6/8)	Update with new data (6/8)	NotreDame-FRED Forecast	6/8/20		FALSE	TRUE	TRUE

@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 72
-file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-04-27-NotreDame-FRED.csv"
+model_run_id <- 110
+file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-08-NotreDame-FRED.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -32,8 +32,6 @@ locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
 model_id <- 16
 model_name <- models$model_name[which(models$model_id == 16)]
 
-#model_outputs <- model_outputs[-which(model_outputs$model_run_id == model_run_id),]
-
 #################################################################
 ## Check: any locations not in the locations file? ##############
 #################################################################
@@ -44,7 +42,7 @@ all(nd$location_name %in% locations$location_name)
 ## Format data ##################################################
 #################################################################
 
-## for now we're just interested in cumulative deaths, excluding incident deaths
+## for now we're just interested in cumulative deaths
 ## also limit to the median estimate
 nd <- nd[grep("cum death", nd$target),]
 nd <- nd[which(nd$quantile == 0.5),]
@@ -61,8 +59,10 @@ model_outputs$date <- as.Date(model_outputs$date)
 undoCumSum <- function(x) {
   c(NA, diff(x))
 }
+
 ## sanity check:
 #undoCumSum(cumsum(seq(1:10)))
+
 nd <- nd[order(nd$target_end_date, decreasing = FALSE),]
 
 nd <- nd %>%
