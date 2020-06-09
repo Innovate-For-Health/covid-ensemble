@@ -1,8 +1,9 @@
-# Essential information: consolidating the models and assumptions that drive COVID-19 policy decisions
+# COVID-19 Model Archive
 
 ## This work is still in progress.
 
 This project was developed to facilitate open-source, reproducible epidemiological modeling for COVID-19 response and recovery.
+
 As the COVID-19 outbreak continues to rapidly progress, policy-makers, public health responders, and researchers rely, in part, on the results of epidemiological models to understand how the outbreak might progress over time and across geographies. This effort will enable public health experts, policy-makers, and data scientists to make direct and meaningful comparisons between model results (e.g., projected caseload over time) under different sets of assumptions, input data, and modeling approaches.
 
 However, different models are being produced and used by different groups, each with their own unique set of assumptions, underlying data inputs and methods, and intended uses. Moreover, these models often document their approaches and report or export their results in formats that make it difficult to compare results across models. This project was developed to fill that gap by allowing users to:
@@ -13,7 +14,7 @@ However, different models are being produced and used by different groups, each 
 
 - monitor how the projections of a given model have changed over time
 
-The team at [https://github.com/reichlab/covid19-forecast-hub](https://github.com/reichlab/covid19-forecast-hub) is also doing fantastic work in this area. I highly recommend checking out their related efforts as well, which are focused primarily on generating ensemble-based predictions.
+The team at [https://github.com/reichlab/covid19-forecast-hub](https://github.com/reichlab/covid19-forecast-hub) is also doing fantastic work in this area. I highly recommend checking out their related efforts as well, which are focused primarily on generating ensemble-based predictions. The United States Centers for Disease Control and Prevention also now aggregates and reports the results of multiple COVID-19 models, focusing primarily on communicating the results of near-term forecasts of mortality.
 
 ## Models currently incorporated
 
@@ -44,7 +45,7 @@ We are actively working to incorporate data from additional public models as the
 
 ## Data architecture
 
-Each model is mapped to a common data structure of inputs and outputs to enable clear and rapid comparisons across dates, locations, and types of predictions (e.g., daily ICU admissions vs. cumulative fatalities). Additional information, including a detailed data dictionary, an ER diagram, and access to the flat data files are available in the [data subdirectory](https://github.com/Innovate-For-Health/covid-ensemble/tree/master/data).
+Each model is mapped to a common data structure of inputs and outputs to enable clear and rapid comparisons across dates, locations, and types of predictions (e.g., daily ICU admissions vs. cumulative fatalities). Additional information, including a detailed data dictionary, an ER diagram, and access to the flat data files are available in the [data subdirectory](https://github.com/Innovate-For-Health/covid-ensemble/tree/master/srv/shiny-server/data).
 
 A brief overview of key tables and data elements is included below.
 
@@ -56,12 +57,15 @@ A brief overview of key tables and data elements is included below.
 
 - **Key data elements:**
 
-    -  `model id:` a unique identifier for each model
-    -  `model name:` the name of the model
+    - `model id:` a unique identifier for each model
+    - `model name:` the name of the model
     - `model developer:` the group that developed the model
     - `intended use:` a brief description of the model's intended use, as described by the model developer
     - `code publicly available:` whether or not the model's code is publicly available
+    - `formatted results publicly available:` whether or not machine-readable model results are publicly available (e.g., reported in a means other than a PDF, for example, via a "download data" functionality or via an API)
     - `source documentation:` a link the the model's source documentation
+    - `geographic resolution US State:` whether or not the model reports results per US state, for any set of US states
+    - `geographic resolution Country:` whether or not the model reports results for country, for any set of countries
 
 
 #### Outputs Table
@@ -91,6 +95,8 @@ A brief overview of key tables and data elements is included below.
     - `iso2:` for countries, the unique ISO2 code of the country
     - `iso3:` for countries, the unique ISO3 code of the country
     - `FIPS:` for US states, territories, districts, and counties, the unique FIPS code 
+    - `abbreviation:` relevant abbreviations of the location (e.g., for US states)
+    - `other names:` alternate names for the specified location
 
 #### Model Runs Table
 
@@ -104,6 +110,9 @@ A brief overview of key tables and data elements is included below.
     - `model id:` the name of model
     - `key assumptions:` a brief written description of any key assumptions of the model
     - `model_snapshot_date:` a date used to identify the 'version' of the model being run
+    - `notes:` any relevant notes about the model run
+
+    The fields `compare across models`, `compare over time`, and `compare across assumptions` all relate to the UI of the associated shiny app. These boolean fields control which model runs are shown in which visualizations of model results.
     
   #### Model outputs Table
 

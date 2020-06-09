@@ -692,7 +692,8 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            
                            p(tags$b("Reference and source documentation:"),
                              tags$ul(
-                               tags$li(tags$a(href="https://covid19.uclaml.org/index.html", "model outputs and visualizations", target="_blank"))
+                               tags$li(tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.05.24.20111989v1", "preprint", target = "_blank")),
+                               tags$li(tags$a(href = "https://covid19.uclaml.org/index.html", "model outputs and visualizations", target = "_blank"))
                              )),
                            hr(),
                            

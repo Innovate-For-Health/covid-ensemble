@@ -133,7 +133,7 @@ lanl_deaths$daily_fatalities[which(lanl_deaths$daily_fatalities < 0)] <- 0
                      "location" = lanl_deaths$state,
                      "value_type" = "percentile (50)",
                      "value" = round(lanl_deaths$daily_fatalities),
-                     "notes" = "50th percentile produced across model runs, daily fatalities calculated as difference between daily cumulative fatalities. If daily fatalities is every less than zero due to data anomaly, value is set to zero.")
+                     "notes" = "50th percentile produced across model runs, daily fatalities calculated as difference between daily cumulative fatalities. If the value of daily fatalities is ever less than zero due to a data anomaly, the value is set to zero.")
   )
 
 
