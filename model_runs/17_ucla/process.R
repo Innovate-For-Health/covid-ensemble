@@ -3,7 +3,7 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 92
+model_run_id <- 109
 file_location <- "https://gist.githubusercontent.com/ZeroWeight/9a0c53e56c9bf846485a19a324cf74bd/raw/us_all_pred.json"
 file_location_world <- "https://gist.githubusercontent.com/ZeroWeight/9a0c53e56c9bf846485a19a324cf74bd/raw/51bdcf5fa57428c07a40c1184f7fff1b5f1c02e3/world_all_pred.json"
 
@@ -17,6 +17,9 @@ library(jsonlite)
 #################################################################
 ## Load other datasets and set fixed parameters #################
 #################################################################
+
+## assume working directory is covid-ensemble
+#setwd("~/Documents/covid-ensemble")
 
 ## read in models (file that tracks all models)
 models <- read.delim("srv/shiny-server/data/models.txt", stringsAsFactors = FALSE)
@@ -38,7 +41,7 @@ model_id <- 17
 model_name <- models$model_name[which(models$model_id == 17)]
 
 #################################################################
-## Hit API for states ###########################################
+## Get data for states ##########################################
 #################################################################
 
 ## as of May 22, URL: https://gist.githubusercontent.com/ZeroWeight/9a0c53e56c9bf846485a19a324cf74bd/raw/us_all_pred.json
@@ -151,7 +154,7 @@ for(i in 1:nrow(global_location_options)){
                                            "notes" = "estimates rounded to nearest whole number, as displayed on UCLA site"))
   
   ## add daily fatality data
-  if(!(model_run_id == 92 & global_location_options[i,]$location_name == "Germany")){
+  if(!(model_run_id %in% c(92, 109) & global_location_options[i,]$location_name == "Germany")){
     if((max(deaths) - min(deaths)) != sum(daily_deaths, na.rm = TRUE)){stop("Something is wrong with the calculation of daily fatalities. Please check.")}
     
   additional_outputs <- rbind.data.frame(additional_outputs,
@@ -188,7 +191,7 @@ additional_outputs <- additional_outputs[-which(is.na(additional_outputs$value))
 table(additional_outputs$output_name)
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "District of Columbia" & additional_outputs$output_name == "Fatalities per day"),],
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Fatalities per day"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
@@ -210,7 +213,6 @@ ggplot(additional_outputs[which(additional_outputs$location == "United Kingdom" 
   xlab("") +
   theme_light() 
 
-
 #################################################################
 ## Add new data to existing model_outputs file ##################
 #################################################################
@@ -221,5 +223,5 @@ model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
 ## Save model_outputs as .RDS file ##############################
 #################################################################
 
-#saveRDS(model_outputs, file = 'srv/shiny-server/data/model_outputs.RDS', compress = TRUE)
+saveRDS(model_outputs, file = 'srv/shiny-server/data/model_outputs.RDS', compress = TRUE)
 
