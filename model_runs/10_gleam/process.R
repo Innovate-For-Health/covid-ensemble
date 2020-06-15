@@ -2,7 +2,7 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_mitigated <- 105
+model_run_id_mitigated <- 115
 
 #################################################################
 ## Load required libraries ######################################
@@ -152,7 +152,7 @@ additional_outputs$location <- gsub(" State", "", gsub("%20", " ", additional_ou
 additional_outputs <- unique(additional_outputs)
 
 #################################################################
-## Save model_outputs as .tsv file ##############################
+## Sanity checks ################################################
 #################################################################
 
 ## check data
