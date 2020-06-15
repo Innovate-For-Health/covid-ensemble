@@ -31,7 +31,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                               tags$li("understand how key assumptions influence results")), 
 
                             
-                            p(strong("This site is updated monthly (last update on June 8, 2020), and likely does not display the most recent results available for any given model.")))),
+                            p(strong("This site is updated monthly (last update on June 15, 2020), and likely does not display the most recent results available for any given model.")))),
 
                  ###################################################################################
                  ## View Models: Sidebar selections  ###############################################
@@ -252,7 +252,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                tags$li(tags$a(href = "https://covidactnow.org/", "visualizations and model results", target = "_blank")),
                                tags$li(tags$a(href="https://github.com/covid-projections/covid-projections", "source code", target="_blank")),
                                tags$li(tags$a(href = "https://blog.covidactnow.org/covid-act-now-api-intervention-model/", "API documentation", target = "_blank")),
-                               tags$li(tags$a(href = "https://data.covidactnow.org/Covid_Act_Now_Model_References_and_Assumptions.pdf", "additional documentation", target = "_blank"))
+                               tags$li(tags$a(href = "https://docs.google.com/document/d/1cd_cEpNiIl1TzUJBvw9sHLbrbUZ2qCxgN32IqVLa3Do/edit", "references and assumptions", target = "_blank"))
                              )),
                            hr(),
                          
@@ -266,7 +266,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "every three days"),
                          hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "June 8, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 15, 2020"),
                          hr()
                          
                          ),       

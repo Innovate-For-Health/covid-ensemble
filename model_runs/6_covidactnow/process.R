@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 101
-run_id_strong <- 102
-run_id_weak <- 103
+run_id_observed <- 111
+run_id_strong <- 112
+run_id_weak <- 113
 
 #################################################################
 ## Load required libraries ######################################
@@ -265,8 +265,8 @@ write.csv(additional_outputs, file = paste("/Users/seaneff/Documents/covid-ensem
 ## format dates as dates
 additional_outputs$date <- as.Date(additional_outputs$date)
 
-## drop all dates before May 25th (as of June 1st)
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-25")),]
+## drop all dates before June 1st (as of June 15th)
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-01")),]
 
 #################################################################
 ## Run some sanity checks #######################################
@@ -275,21 +275,22 @@ additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Dat
 ## sanity checks
 table(additional_outputs$model_run_id, additional_outputs$output_name)
 
-ggplot(additional_outputs[which(additional_outputs$location == "Ohio" & additional_outputs$output_name == "Hospital beds needed per day"),],
-               aes(x = date, y = value, group = model_run_id)) +
-     geom_line(size = 1) +
-     scale_y_continuous(label = comma) +
-     xlab("") +
-     theme_light()
-
-ggplot(additional_outputs[which(additional_outputs$location == "Georgia" & additional_outputs$output_name == "Fatalities per day"),],
-       aes(x = date, y = value, group = model_run_id)) +
+ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value, color = factor(model_run_id))) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
   xlab("") +
   theme_light()
 
-ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Fatalities per day"),],
+
+ggplot(additional_outputs[which(additional_outputs$location == "Georgia" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value, color = factor(model_run_id))) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light()
+
+ggplot(additional_outputs[which(additional_outputs$location == "Georgia" & additional_outputs$output_name == "Hospital beds needed per day"),],
        aes(x = date, y = value, color = factor(model_run_id))) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
