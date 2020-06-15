@@ -341,7 +341,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "daily"),
                          hr(),
                          
-                         p(tags$b("Most recent data update in Model Inventory:"), "June 7, 2020"),
+                         p(tags$b("Most recent data update in Model Inventory:"), "June 14, 2020"),
                          hr()
                          
                 ),       
@@ -443,7 +443,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                          tags$ul(
                                            tags$li(tags$a(href = "https://www.medrxiv.org/content/10.1101/2020.03.27.20043752v1", "preprint", target = "_blank")),
                                            tags$li(tags$a(href = "https://www.medrxiv.org/content/medrxiv/suppl/2020/04/25/2020.04.21.20074732.DC1/2020.04.21.20074732-2.pdf", "preprint (Appendix B)", target = "_blank")),
-                                           tags$li(tags$a(href="https://covid19.healthdata.org/united-states-of-america", "model results and visualization", target="_blank")),
+                                           tags$li(tags$a(href="https://covid19.healthdata.org/united-states-of-america", "model results and visualizations", target="_blank")),
                                            tags$li(tags$a(href= "http://www.healthdata.org/covid/updates", "history of model updates", target="_blank")))),
                                        hr(),
                                        
@@ -527,7 +527,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            p(tags$b("Update frequency:"), "multiple times per week"),
                            hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "June 3, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 10, 2020"),
                            hr()
                          )),
                 

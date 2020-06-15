@@ -2,11 +2,11 @@
 ## Specify some initial details #################################
 #################################################################
  
-model_run_id <- 107
-file_name_cases_us <- "model_runs/13_lanl/model_export/107_2020-06-03_confirmed_quantiles_us_website.csv"
-file_name_deaths_us <- "model_runs/13_lanl/model_export/107_2020-06-03_deaths_quantiles_us_website.csv"
-file_name_cases_global <- "model_runs/13_lanl/model_export/107_2020-06-03_confirmed_quantiles_global_website.csv"
-file_name_deaths_global <- "model_runs/13_lanl/model_export/107_2020-06-03_deaths_quantiles_global_website.csv"
+model_run_id <- 116
+file_name_cases_us <- "model_runs/13_lanl/model_export/116_2020-06-10_confirmed_quantiles_us_website.csv"
+file_name_deaths_us <- "model_runs/13_lanl/model_export/116_2020-06-10_deaths_quantiles_us_website.csv"
+file_name_cases_global <- "model_runs/13_lanl/model_export/116_2020-06-10_confirmed_quantiles_global_website.csv"
+file_name_deaths_global <- "model_runs/13_lanl/model_export/116_2020-06-10_deaths_quantiles_global_website.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -71,11 +71,11 @@ lanl_cases_global$dates <- as.Date(lanl_cases_global$dates)
 lanl_deaths_global$dates <- as.Date(lanl_deaths_global$dates)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## to minimize size of data file, now focus on dates after May 15, 2020 
-lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-05-15")),]
-lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-05-15")),]
-lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-05-15")),]
-lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-05-15")),]
+## to minimize size of data file, now focus on dates after June 1, 2020 
+lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-06-01")),]
+lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-06-01")),]
+lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-06-01")),]
+lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-06-01")),]
 
 ##########################################################################
 ## Add data for output_id 3:  Cumulative fatalities: US data #############
@@ -113,6 +113,7 @@ lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Da
 undoCumSum <- function(x) {
   c(NA, diff(x))
 }
+
 ## sanity check:
 #undoCumSum(cumsum(seq(1:10)))
 
