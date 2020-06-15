@@ -9,8 +9,8 @@ library(scales)
 
 server <- function(input, output, session) {
   
-  start_date <- as.Date("2020-06-08")
-  end_date <- as.Date("2020-07-15")  
+  start_date <- as.Date("2020-06-15")
+  end_date <- as.Date("2020-07-30")  
   
     ######################################################################
     ## Update UI filters based on other UI filters #######################
