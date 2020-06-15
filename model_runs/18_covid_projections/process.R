@@ -3,9 +3,9 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 104
-file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-07/"
-file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-07/global/"
+model_run_id <- 114
+file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-14/"
+file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-14/global/"
 
 #################################################################
 ## Load required libraries ######################################
@@ -223,7 +223,7 @@ model_outputs$date <- as.Date(model_outputs$date)
 additional_outputs$date <- as.Date(additional_outputs$date)
 
 ## focus just on forecasts of the future
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-15")),]
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-01")),]
 
 #################################################################
 ## Sanity check #################################################
