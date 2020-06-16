@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 110
-file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-08-NotreDame-FRED.csv"
+model_run_id <- 119
+file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-15-NotreDame-FRED.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
