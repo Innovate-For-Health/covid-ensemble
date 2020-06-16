@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 119
-file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-15-NotreDame-FRED.csv"
+model_run_id <- 110
+file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-08-NotreDame-FRED.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -31,6 +31,10 @@ locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
 ## ND  model ID is always 1, model name is always whatever model_id 16 is named in the file data/models.txt
 model_id <- 16
 model_name <- models$model_name[which(models$model_id == 16)]
+
+model_runs[which(model_runs$model_run_id == model_run_id),]
+model_outputs[which(model_outputs$model_run_id == model_run_id),]
+model_outputs <- model_outputs[-which(model_outputs$model_run_id == model_run_id),]
 
 #################################################################
 ## Check: any locations not in the locations file? ##############
@@ -64,6 +68,12 @@ undoCumSum <- function(x) {
 #undoCumSum(cumsum(seq(1:10)))
 
 nd <- nd[order(nd$target_end_date, decreasing = FALSE),]
+
+## exclude the target field (e.g., "5 day ahead cum death")
+## and then exclude any duplicate rows of ND
+## sometimes forecast for a single location-value-date triplicate is listed with two different targets
+nd <- nd[,-which(names(nd) == "target")]
+nd <- unique(nd)
 
 nd <- nd %>%
   group_by(location_name, type, quantile) %>%
