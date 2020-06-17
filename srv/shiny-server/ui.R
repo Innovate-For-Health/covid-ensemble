@@ -134,6 +134,64 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                           about each model included in this inventory.")),
                                         
                                         ###################################################################################
+                                        ## Auquan Model Details ###########################################################
+                                        ###################################################################################
+                                        
+                                        tabPanel("Auquan Model",
+                                                 
+                                                 h3("Auquan Model"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Intended use:"), '"forecast the number of infections and fatalities due to COVID 19 pandemic across countries"'),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Developer:"), "Auquan Data Science"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Modeling approach:"), "modified SEIR model"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("What is predicted:"), "cumulative fatalities"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Selected data inputs:"),
+                                                   tags$ul(
+                                                     tags$li("caseload data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank"))
+                                                   )),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Key assumptions:"),"please consult available documentation below for additional information on key model assumptions"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US state avaiable through Reich Lab COVID-19 forecast hub"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Geographic coverage of estimates:"), "United States"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Reference and source documentation:"),
+                                                   tags$ul(
+                                                     tags$li(tags$a(href = "https://covid19-infection-model.auquan.com/", "visualizations and model results", target = "_blank")),
+                                                     tags$li(tags$a(href = "https://github.com/reichlab/covid19-forecast-hub/blob/master/data-processed/Auquan-SEIR/metadata-Auquan-SEIR.txt", "metadata from Reich Lab forecast hub", target = "_blank"))
+                                                   )),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Media coverage, responses from other researchers:"),
+                                                   tags$ul(
+                                                     tags$li(tags$a(href = "https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html",
+                                                                    "CDC Forecast Website", target = "_blank"))
+                                                   )),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Update frequency:"), "daily"),
+                                                 hr(),
+                                                 
+                                                 p(tags$b("Most recent data update in Model Inventory:"), "June 15, 2020"),
+                                                 hr()
+                                                 
+                                        ),       
+                                        
+                                        ###################################################################################
                                         ## Columbia Model Details #########################################################
                                         ###################################################################################
                                         
