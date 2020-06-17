@@ -32,7 +32,7 @@ server <- function(input, output, session) {
       x_output <- input$output_name
 
       updateSelectInput(session, "model_name",
-                        choices = sort(unique(outputs[which(outputs$output_name == x_output & outputs$model_name != "Columbia University Model"),]$model_name)))
+                        choices = sort(unique(outputs[which(outputs$output_name == x_output),]$model_name)))
     })
 
     ######################################################################
@@ -108,16 +108,17 @@ server <- function(input, output, session) {
     ## Columbia University (previously Shaman): #756bb1
     ## GLEAM: #dd1c77
     ## COVID-Act Now: #fd8d3c
+    ## Auquan model: #756bb1
     
     color_function_cm <- function(model_name){
       temp <- c()
-      if("Columbia University Model" %in% model_name){temp <- c(temp, "orchid1")}
+      if("Auquan model" %in% model_name){temp <- c(temp, "orchid1")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
       if("COVID19-projections.com" %in% model_name){temp <- c(temp, "darkmagenta")}
       if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "#1f78b4")}
-      if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")} ## right now showing this instead of Columbia due to lack of documentation
+      if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "#756bb1")}
       if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "#6f94c5")}
       if("UCLA COVID-19 Model" %in% model_name){temp <- c(temp, "firebrick3")}
       
@@ -131,13 +132,13 @@ server <- function(input, output, session) {
     
     color_function_mt <- function(model_name){
       temp <- c()
-      if("Columbia University Model" %in% model_name){temp <- c(temp, "RdPu")}
+      if("Auquan model" %in% model_name){temp <- c(temp, "RdPu")}
       if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "Oranges")}
       if("COVID19-projections.com" %in% model_name){temp <- c(temp, "PuRd")}
       if("GLEAM" %in% model_name){temp <- c(temp, "RdPu")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "Greens")}
       if("LANL COVID-19 Model" %in% model_name){temp <- c(temp, "Blues")}
-      if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "Purples")}  ## right now showing this instead of Columbia due to lack of documentation
+      if("MIT DELPHI Model" %in% model_name){temp <- c(temp, "Purples")}
       if("NotreDame-FRED Forecast" %in% model_name){temp <- c(temp, "GnBu")} 
       if("UCLA COVID-19 Model" %in% model_name){temp <- c(temp, "Reds")} 
       

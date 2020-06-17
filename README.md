@@ -22,6 +22,8 @@ The researchers that developed the models incorporated in this repository are do
 
 All of the COVID-19 models identified below have been documented as being used by policy-makers or public health responders during the 2019-2020 COVID-19 pandemic. Each model was developed for a different purpose, and relies on different data inputs, key assumptions, and underlying methods. The intended use of a model impacts how it is developed, how it should be used, and the context based on which its results should be interpreted. 
 
+- [Auquan Model](https://covid19-infection-model.auquan.com/)
+
 - [Columbia University Model](https://github.com/shaman-lab/COVID-19Projection)
 
 - [COVID19-projections.com](COVID19-projections.com)
