@@ -5,8 +5,8 @@
 ## working directory should be covid-ensemble
 #setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 120
-file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-06-15-Auquan-SEIR.csv"
+model_run_id <- 125
+file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-05-31-Auquan-SEIR.csv"
 
 #################################################################
 ## Load required libraries ######################################
@@ -49,8 +49,6 @@ undoCumSum <- function(x) {
 ## Process data #################################################
 #################################################################
 
-model_outputs <- model_outputs[-which(model_outputs$model_run_id == model_run_id),]
-
 # reminder from documentation that location is 
 #"a two-digit number representing the US state, territory, or district fips numeric code"
 
@@ -65,7 +63,7 @@ unique(aq$location[-which(aq$location %in% locations$FIPS)])
 aqu <- merge(aq, locations, by.x = "location", by.y = "FIPS", all.x = FALSE, all.y = TRUE)
 
 ## just look at median estimates
-aqu <- aqu[which(as.numeric(aqu$quantile) == 0.5),]
+#aqu <- aqu[which(as.numeric(aqu$quantile) == 0.5),]
 
 additional_outputs <- cbind.data.frame(
   "model_run_id" = model_run_id,
