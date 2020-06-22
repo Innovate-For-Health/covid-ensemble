@@ -5,8 +5,8 @@
 ## working directory should be covid-ensemble
 #setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 125
-file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-05-31-Auquan-SEIR.csv"
+model_run_id <- 126
+file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-06-21-Auquan-SEIR.csv"
 
 #################################################################
 ## Load required libraries ######################################
@@ -53,17 +53,17 @@ undoCumSum <- function(x) {
 #"a two-digit number representing the US state, territory, or district fips numeric code"
 
 ## get rid of leading zeros before FIPS codes
-aq$location <- as.numeric(as.character(aq$location))
+aq$location <- ifelse(aq$location == "US", "United States of America", as.numeric(as.character(aq$location)))
 
-all(aq$location %in% locations$FIPS)
-## not sure what these FIPS codes correspond to, since they don't match to any existing FIPS codes
-## see conversation here: https://en.wikipedia.org/wiki/Talk%3AFederal_Information_Processing_Standard_state_code
-unique(aq$location[-which(aq$location %in% locations$FIPS)])
 ## for now only include rows of the data that have known locations in the locations.csv file
-aqu <- merge(aq, locations, by.x = "location", by.y = "FIPS", all.x = FALSE, all.y = TRUE)
+aqu <- merge(aq, locations[which(locations$area_level %in% c("Intermediate", "Country")),], 
+             by.x = "location", by.y = "FIPS", 
+             all.x = TRUE, all.y = FALSE)
 
-## just look at median estimates
-#aqu <- aqu[which(as.numeric(aqu$quantile) == 0.5),]
+aqu$location_name[which(aqu$location == "United States of America")] <- "United States of America"
+
+## just look at point estimates
+aqu <- aqu[which(aqu$type == "point"),]
 
 additional_outputs <- cbind.data.frame(
   "model_run_id" = model_run_id,
@@ -71,7 +71,7 @@ additional_outputs <- cbind.data.frame(
   "output_name" = "Cumulative fatalities",
   "date" = aqu$target_end_date,
   "location" =  aqu$location_name,
-  "value_type" = "percentile (50)",
+  "value_type" = "point estimate",
   "value" = aqu$value,
   "notes" = "")
 
@@ -98,7 +98,7 @@ additional_outputs <- rbind.data.frame(additional_outputs,
   "output_name" = "Fatalities per day",
   "date" = aqu_daily$target_end_date,
   "location" =  aqu_daily$location_name,
-  "value_type" = "percentile (50)",
+  "value_type" = "point estimate",
   "value" = aqu_daily$daily_fatalities,
   "notes" = "daily fatalities calculated based on reported values for cumulative fatalities"))
 

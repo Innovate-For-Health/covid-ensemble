@@ -23,7 +23,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                             understand, and compare results from the numerous models currently 
                             being used to inform policy decisions and operational planning."),
                             
-                            p("This project was developed to allow users to:"),
+                            p("This project was developed to enable users to:"),
                             
                             tags$ul(
                               tags$li("compare results across models"), 
@@ -186,7 +186,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                                  p(tags$b("Update frequency:"), "daily"),
                                                  hr(),
                                                  
-                                                 p(tags$b("Most recent data update in Model Inventory:"), "June 15, 2020"),
+                                                 p(tags$b("Most recent data update in Model Inventory:"), "June 21, 2020"),
                                                  hr()
                                                  
                                         ),       
