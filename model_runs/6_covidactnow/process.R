@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 111
-run_id_strong <- 112
-run_id_weak <- 113
+run_id_observed <- 127
+run_id_strong <- 128
+run_id_weak <- 129
 
 #################################################################
 ## Load required libraries ######################################
@@ -69,7 +69,6 @@ additional_outputs <- cbind.data.frame(
     "value" = NA,
     "notes" = NA)
 
-
 for(state in 1:nrow(location_options)){
   
   print(location_options$location_name[state])
@@ -129,7 +128,7 @@ for(state in 1:nrow(location_options)){
 }
 
 #########################################################################
-## Read in Covid Act Now data: Stay at home orders ######################
+## Read in Covid Act Now data: Strong intervention ######################
 #########################################################################
 
 for(state in 1:nrow(location_options)){
@@ -191,7 +190,7 @@ for(state in 1:nrow(location_options)){
 }
 
 #########################################################################
-## Read in Covid Act Now data: Social distancing ########################
+## Read in Covid Act Now data: Weak intervention ########################
 #########################################################################
 
 for(state in 1:nrow(location_options)){
