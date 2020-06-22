@@ -68,13 +68,13 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 72	16	NotreDame-FRED Forecast (4/27)	Update with new data (4/27)	NotreDame-FRED Forecast	4/27/20		FALSE	TRUE	TRUE
 70	17	UCLA COVID-19 Model (5/22)	Initial archived results from website (5/22)	UCLA COVID-19 Model	5/22/20		TRUE	TRUE	TRUE
 73	14	MIT DELPHI Model (5/26)	Update with new data (5/26)	MIT DELPHI Model	5/26/20		TRUE	TRUE	TRUE
-74	18	COVID19-projections.com (5/21)	Update with new data (5/21)	COVID19-projections.com	5/21/20		FALSE	FALSE	FALSE
+74	18	COVID19-projections.com (5/21)	Update with new data (5/21)	COVID19-projections.com	5/21/20		TRUE	FALSE	FALSE
 75	18	COVID19-projections.com (4/4)	Initial archived model release (4/4)	COVID19-projections.com	4/4/20	Models prior to 4/4 did not estimate total fatalities	TRUE	TRUE	TRUE
-76	18	COVID19-projections.com (4/11)	Update with new data (4/11)	COVID19-projections.com	4/11/20		FALSE	FALSE	FALSE
-77	18	COVID19-projections.com (4/18)	Update with new data (4/18)	COVID19-projections.com	4/18/20		TRUE	TRUE	TRUE
-78	18	COVID19-projections.com (4/25)	Update with new data (4/25)	COVID19-projections.com	4/25/20		TRUE	TRUE	TRUE
+76	18	COVID19-projections.com (4/11)	Update with new data (4/11)	COVID19-projections.com	4/11/20		TRUE	FALSE	FALSE
+77	18	COVID19-projections.com (4/18)	"Incorporate the relaxing of social distancing in June, switch to Hopkins data inputs"	COVID19-projections.com	4/18/20		TRUE	TRUE	TRUE
+78	18	COVID19-projections.com (4/25)	Incorporate probable deaths into projections	COVID19-projections.com	4/25/20		TRUE	TRUE	TRUE
 79	18	COVID19-projections.com (5/2)	Update with new data (5/2)	COVID19-projections.com	5/2/20		TRUE	TRUE	TRUE
-80	18	COVID19-projections.com (5/9)	Update with new data (5/9)	COVID19-projections.com	5/9/20		TRUE	TRUE	TRUE
+80	18	COVID19-projections.com (5/9)	Update with new data (5/9)	COVID19-projections.com	5/9/20		TRUE	FALSE	FALSE
 81	18	COVID19-projections.com (5/16)	Update with new data (5/16)	COVID19-projections.com	5/16/20		TRUE	TRUE	TRUE
 82	6	"COVID Act Now (5/26, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/26/20		FALSE	FALSE	FALSE
 83	6	"COVID Act Now (5/26, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/26/20		FALSE	FALSE	FALSE
@@ -87,7 +87,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 90	6	"COVID Act Now (5/27, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/27/20		FALSE	FALSE	FALSE
 91	16	NotreDame-FRED Forecast (5/25)	Update with new data (5/25)	NotreDame-FRED Forecast	5/25/20		TRUE	TRUE	TRUE
 92	17	UCLA COVID-19 Model (5/29)	Update with new data (5/29)	UCLA COVID-19 Model	5/29/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
-93	18	COVID19-projections.com (5/28)	Update with new data (5/28)	COVID19-projections.com	5/28/20		FALSE	FALSE	FALSE
+93	18	COVID19-projections.com (5/28)	Update with new data (5/28)	COVID19-projections.com	5/28/20		TRUE	FALSE	FALSE
 94	9	Columbia University Model (5/31)	Assume 20% decrease (each week) in contact rate then 10% increase (one-time) when stay-at-home orders lift	Columbia University Model	5/31/20		FALSE	FALSE	TRUE
 95	9	Columbia University Model (5/31)	Assume 20% decrease (each week) in contact rate then 5% increase (one-time) when stay-at-home orders lift	Columbia University Model	5/31/20	This is the model shown on CDC forecast website	TRUE	TRUE	TRUE
 96	9	Columbia University Model (5/31)	"Assume 20% decrease (each week) OR 10% increase in contact rate (each week), depending on stay-at-home policy"	Columbia University Model	5/31/20		FALSE	FALSE	TRUE
@@ -124,3 +124,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 127	6	"COVID Act Now (6/22, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	6/22/20		FALSE	TRUE	TRUE
 128	6	"COVID Act Now (6/22, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/22/20		FALSE	FALSE	TRUE
 129	6	"COVID Act Now (6/22, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/22/20		FALSE	FALSE	TRUE
+130	18	COVID19-projections.com (6/21)	Update with new data (6/21)	COVID19-projections.com	6/21/20		TRUE	TRUE	TRUE
