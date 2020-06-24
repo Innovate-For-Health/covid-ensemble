@@ -1,4 +1,266 @@
 iso2	iso3	location_type	area_level	location_name	other_names	abbreviation	FIPS
+AD	AND	Country	Country	Andorra			
+AE	ARE	Country	Country	United Arab Emirates			
+AF	AFG	Country	Country	Afghanistan			
+AL	ALB	Country	Country	Albania			
+AM	ARM	Country	Country	Armenia			
+AR	ARG	Country	Country	Argentina			
+AT	AUT	Country	Country	Austria			
+AU	AUS	Country	Country	Australia			
+AZ	DZA	Country	Country	Algeria			
+AZ	AZE	Country	Country	Azerbaijan			
+BA	BIH	Country	Country	Bosnia and Herzegovina			
+BD	BGD	Country	Country	Bangladesh			
+BE	BEL	Country	Country	Belgium			
+BF	BFA	Country	Country	Burkina Faso			
+BG	BGR	Country	Country	Bulgaria			
+BH	BHR	Country	Country	Bahrain			
+BJ	BEN	Country	Country	Benin			
+BO	BOL	Country	Country	Bolivia			
+BR	BRA	Country	Country	Brazil			
+BR	BRA	Province/State	Intermediate	Amazonas			
+BR	BRA	Province/State	Intermediate	Bahia			
+BR	BRA	Province/State	Intermediate	Ceara			
+BR	BRA	Province/State	Intermediate	Pernambuco			
+BR	BRA	Province/State	Intermediate	Rio de Janeiro			
+BR	BRA	Province/State	Intermediate	Acre			
+BR	BRA	Province/State	Intermediate	Alagoas			
+BR	BRA	Province/State	Intermediate	Minas Gerais			
+BR	BRA	Province/State	Intermediate	Rio Grande do Norte			
+BR	BRA	Province/State	Intermediate	Rio Grande do Sul			
+BR	BRA	Province/State	Intermediate	Santa Catarina			
+BR	BRA	Province/State	Intermediate	Mato Grosso			
+BR	BRA	Province/State	Intermediate	Mato Grosso do Sul			
+BR	BRA	Province/State	Intermediate	Piaui			
+BR	BRA	Province/State	Intermediate	Roraima			
+BR	BRA	Province/State	Intermediate	Sergipe			
+BR	BRA	Province/State	Intermediate	Tocantins			
+BR	BRA	Province/State	Intermediate	Amapá	Amapa		
+BR	BRA	Province/State	Intermediate	Ceará	Ceara		
+BR	BRA	Province/State	Intermediate	Espírito Santo	Espirito Santo		
+BR	BRA	Province/State	Intermediate	Goiás	Goias		
+BR	BRA	Province/State	Intermediate	Maranhão	Maranhao		
+BR	BRA	Province/State	Intermediate	Paraná	Parana		
+BR	BRA	Province/State	Intermediate	Paraíba	Paraiba		
+BR	BRA	Province/State	Intermediate	Pará	Para		
+BR	BRA	Province/State	Intermediate	Rondônia	Rondonia		
+BR	BRA	City	Local	São Paulo	Sao Paulo		
+BY	BLR	Country	Country	Belarus			
+CA	CAN	Country	Country	Canada			
+CA	CAN	Province/State	Intermediate	British Columbia			
+CA	CAN	Province/State	Intermediate	Quebec			
+CA	CAN	Province/State	Intermediate	Alberta			
+CD	COD	Province/State	Local	Kinshasa			
+CD	COD	Country	Country	Democratic Republic of the Congo			
+CD	COD	Country	Country	Republic of Congo			
+CF	CAF	Country	Country	Central African Republic			
+CG	COG	Province/State	Local	Brazzaville			
+CH	CHE	Country	Country	Switzerland			
+CI	CIV	Country	Country	Cote d'Ivoire			
+CL	CHL	Country	Country	Chile			
+CM	CMR	Country	Country	Cameroon			
+CN	CHN	Country	Country	China			
+CO	COL	Country	Country	Colombia			
+CR	CRI	Country	Country	Costa Rica			
+CU	CUB	Country	Country	Cuba			
+CV	CPV	Country	Country	Cabo Verde			
+CY	CYP	Country	Country	Cyprus			
+CZ	CZE	Country	Country	Czechia			
+DE	DEU	Province/State	Intermediate	Thuringia			
+DE	DEU	Province/State	Intermediate	Schleswig-Holstein			
+DE	DEU	Province/State	Intermediate	Saxony			
+DE	DEU	Province/State	Intermediate	Saxony-Anhalt			
+DE	DEU	Province/State	Intermediate	Saarland			
+DE	DEU	Province/State	Intermediate	Rhineland-Palatinate			
+DE	DEU	Province/State	Intermediate	North Rhine-Westphalia			
+DE	DEU	Province/State	Intermediate	Mecklenburg-Vorpommern			
+DE	DEU	Province/State	Intermediate	Lower Saxony			
+DE	DEU	Province/State	Intermediate	Hesse			
+DE	DEU	Other	Intermediate	Hamburg			
+DE	DEU	Country	Country	Germany			
+DE	DEU	Other	Intermediate	Bremen			
+DE	DEU	Other	Intermediate	Brandenburg			
+DE	DEU	Other	Intermediate	Berlin			
+DE	DEU	Province/State	Intermediate	Bavaria			
+DE	DEU	Province/State	Intermediate	Baden-Wurttemberg			
+DE	DEU	Province/State	Intermediate	Baden-Württemberg	Baden-Wurttemberg		
+DJ	DJI	Country	Country	Djibouti			
+DK	DNK	Country	Country	Denmark			
+DO	DOM	Country	Country	Dominican Republic			
+EC	ECU	Country	Country	Ecuador			
+EE	EST	Country	Country	Estonia			
+EG	EGY	Country	Country	Egypt			
+ES	ESP	Other	Intermediate	Valencian Community			
+ES	ESP	Country	Country	Spain			
+ES	ESP	Other	Intermediate	Navarre			
+ES	ESP	Other	Intermediate	Murcia			
+ES	ESP	Province/State	Intermediate	La Rioja			
+ES	ESP	Other	Intermediate	Galicia			
+ES	ESP	Other	Intermediate	Extremadura			
+ES	ESP	Other	Intermediate	Emilia-Romagna			
+ES	ESP	Other	Local	Community of Madrid			
+ES	ESP	Other	Intermediate	Ceuta			
+ES	ESP	Other	Intermediate	Catalonia			
+ES	ESP	Other	Intermediate	Castilla-La Mancha			
+ES	ESP	Other	Intermediate	Cantabria			
+ES	ESP	Other	Intermediate	Canary Islands			
+ES	ESP	Other	Intermediate	Basque County			
+ES	ESP	Other	Intermediate	Balearic Islands			
+ES	ESP	Other	Intermediate	Asturias			
+ES	ESP	Other	Intermediate	Aragon			
+ES	ESP	Other	Intermediate	Andalucia			
+ES	ESP	Other	Intermediate	Basque Country			
+ES	ESP	Other	Intermediate	Castile and León	Castile and Leon		
+ET	ETH	Country	Country	Ethiopia			
+FI	FIN	Country	Country	Finland			
+FR	FRA	Country	Country	France			
+GA	GAB	Country	Country	Gabon			
+GB	GBR	Country	Country	United Kingdom			
+GE	GEO	Country	Country	Georgia (country)			
+GH	GHA	Country	Country	Ghana			
+GN	GIN	Country	Country	Guinea			
+GQ	GNQ	Country	Country	Equatorial Guinea			
+GR	GRC	Country	Country	Greece			
+GT	GTM	Country	Country	Guatemala			
+GW	GNB	Country	Country	Guinea-Bissau			
+GY	GUY	Country	Country	Guyana			
+HN	HND	Country	Country	Honduras			
+HR	HRV	Country	Country	Croatia			
+HT	HTI	Country	Country	Haiti			
+HU	HUN	Country	Country	Hungary			
+ID	IDN	Country	Country	Indonesia			
+IE	IRL	Country	Country	Ireland			
+IL	ISL	Country	Country	Israel			
+IN	IND	Country	Country	India			
+IQ	IRQ	Country	Country	Iraq			
+IR	IRN	Country	Country	Iran			
+IS	ISL	Country	Country	Iceland			
+IT	ITA	Other	Intermediate	Veneto			
+IT	ITA	Other	Intermediate	Valle d'Aosta			
+IT	ITA	Other	Intermediate	Umbria			
+IT	ITA	Other	Intermediate	Toscana			
+IT	ITA	Other	Intermediate	Sicilia			
+IT	ITA	Other	Intermediate	Sardegna			
+IT	ITA	Other	Intermediate	Puglia			
+IT	ITA	Province/State	Intermediate	Provincia autonoma di Trento			
+IT	ITA	Province/State	Intermediate	Provincia autonoma di Bolzano			
+IT	ITA	Other	Intermediate	Piemonte			
+IT	ITA	Other	Intermediate	Molise			
+IT	ITA	Other	Intermediate	Melilla			
+IT	ITA	Other	Intermediate	Marche			
+IT	ITA	Other	Intermediate	Lombardia			
+IT	ITA	Other	Intermediate	Liguria			
+IT	ITA	Other	Intermediate	Lazio			
+IT	ITA	Country	Country	Italy			
+IT	ITA	Other	Intermediate	Friuli-Venezia Giulia			
+IT	ITA	Other	Intermediate	Campania			
+IT	ITA	Other	Intermediate	Calabria			
+IT	ITA	Other	Intermediate	Basilicata			
+IT	ITA	Other	Intermediate	Abruzzo			
+JM	JAM	Country	Country	Jamaica			
+JO	JOR	Country	Country	Jordan			
+JP	JPN	Country	Country	Japan			
+KE	KEN	Country	Country	Kenya			
+KG	KGZ	Country	Country	Kyrgyzstan			
+KH	KHM	Country	Country	Cambodia			
+KR	KOR	Country	Country	South Korea	Republic of Korea		
+KW	KWT	Country	Country	Kuwait			
+KZ	KAZ	Country	Country	Kazakhstan			
+LK	LKA	Country	Country	Sri Lanka			
+LR	LBR	Country	Country	Liberia			
+LT	LTU	Country	Country	Lithuania			
+LU	LUX	Country	Country	Luxembourg			
+LV	LVA	Country	Country	Latvia			
+MA	MAR	Country	Country	Morocco			
+MD	MDA	Country	Country	Moldova	Republic of Moldova		
+ME	MNE	Country	Country	Montenegro			
+MG	MDG	Country	Country	Madagascar			
+MK	MKD	Country	Country	North Macedonia			
+ML	MLI	Country	Country	Mali			
+MN	MNG	Country	Country	Mongolia			
+MR	MRT	Country	Country	Mauritania			
+MT	MLT	Country	Country	Malta			
+MU	MUS	Country	Country	Mauritius			
+MV	MDV	Country	Country	Maldives			
+MX	MEX	Country	Country	Mexico	México		
+MX	MEX	Province/State	Intermediate	Baja California			
+MX	MEX	City	Local	Mexico City			
+MX	MEX	Province/State	Intermediate	Puebla			
+MX	MEX	Province/State	Intermediate	Quintana Roo			
+MX	MEX	Province/State	Intermediate	Sinaloa			
+MX	MEX	Province/State	Intermediate	Tabasco			
+MX	MEX	Province/State	Intermediate	Aguascalientes			
+MX	MEX	Province/State	Intermediate	Baja California Sur			
+MX	MEX	Province/State	Intermediate	Campeche			
+MX	MEX	Province/State	Intermediate	Chiapas			
+MX	MEX	Province/State	Intermediate	Chihuahua			
+MX	MEX	Province/State	Intermediate	Coahuila			
+MX	MEX	Province/State	Intermediate	Colima			
+MX	MEX	City	Local	Distrito Federal			
+MX	MEX	Province/State	Intermediate	Durango			
+MX	MEX	Province/State	Intermediate	Guanajuato			
+MX	MEX	Province/State	Intermediate	Guerrero			
+MX	MEX	Province/State	Intermediate	Jalisco			
+MX	MEX	Province/State	Intermediate	Michoacan de Ocampo	Michoacán		
+MX	MEX	Province/State	Intermediate	Morelos			
+MX	MEX	Province/State	Intermediate	Nayarit			
+MX	MEX	Province/State	Intermediate	Oaxaca			
+MX	MEX	Province/State	Intermediate	Sonora			
+MX	MEX	Province/State	Intermediate	Tamaulipas			
+MX	MEX	Province/State	Intermediate	Tlaxcala			
+MX	MEX	Province/State	Intermediate	Veracruz de Ignacio de la Llave			
+MX	MEX	Province/State	Intermediate	Yucatan			
+MX	MEX	Province/State	Intermediate	Zacatecas			
+MX	MEX	Province/State	Intermediate	Michoacán de Ocampo	Michoacán; Michoacan de Ocampo		
+MX	MEX	Province/State	Intermediate	Nuevo León	Nuevo Leon		
+MX	MEX	Province/State	Intermediate	Querétaro	Queretaro		
+MX	MEX	Province/State	Intermediate	San Luis Potosí	San Luis Potosi		
+MX	MEX	Province/State	Intermediate	Yucatán	Yucatan		
+MY	MYS	Country	Country	Malaysia			
+MZ	MOZ	Country	Country	Mozambique			
+NE	NER	Country	Country	Niger			
+NG	NGA	Country	Country	Nigeria			
+NI	NIC	Country	Country	Nicaragua			
+NL	NLD	Country	Country	Netherlands			
+NO	NOR	Country	Country	Norway			
+NP	NPL	Country	Country	Nepal			
+NZ	NZL	Country	Country	New Zealand			
+OM	OMN	Country	Country	Oman			
+PA	PAN	Country	Country	Panama			
+PE	PER	Country	Country	Peru			
+PH	PHL	Country	Country	Philippines			
+PK	PAK	Country	Country	Pakistan			
+PL	POL	Country	Country	Poland			
+PR	PRI	Other	Intermediate	Puerto Rico			
+PT	PRT	Country	Country	Portugal			
+PY	PRY	Country	Country	Paraguay			
+QA	QAT	Country	Country	Qatar			
+RO	ROU	Country	Intermediate	Romania			
+RS	SRB	Country	Country	Serbia			
+RU	RUS	Country	Country	Russia	Russian Federation		
+RW	RWA	Country	Country	Rwanda			
+SA	SAU	Country	Country	Saudi Arabia			
+SD	SDN	Country	Country	Sudan			
+SE	SWE	Country	Country	Sweden			
+SG	SGP	Country	Country	Singapore			
+SI	SVN	Country	Country	Slovenia			
+SK	SVK	Country	Country	Slovakia			
+SL	SLE	Country	Country	Sierra Leone			
+SM	SMR	Country	Country	San Marino			
+SO	SOM	Country	Country	Somalia			
+SS	SSD	Country	Country	South Sudan			
+ST	STP	Country	Country	Sao Tome and Principe			
+SV	SLV	Country	Country	El Salvador			
+TD	TCD	Country	Country	Chad			
+TG	TGO	Country	Country	Togo			
+TH	THA	Country	Country	Thailand			
+TJ	TJK	Country	Country	Tajikistan			
+TN	TUN	Country	Country	Tunisia			
+TR	TUR	Country	Country	Turkey			
+TT	TTO	Country	Country	Trinidad and Tobago			
+TZ	TZA	Country	Country	Tanzania			
+UA	UKR	Country	Country	Ukraine			
+UG	UGA	Country	Country	Uganda			
 US	USA	Province/State	Intermediate	Alabama		AL	1
 US	USA	Province/State	Intermediate	Alaska		AK	2
 US	USA	Other	Intermediate	American Samoa		AS	60
@@ -54,117 +316,6 @@ US	USA	Province/State	Intermediate	Washington		WA	53
 US	USA	Province/State	Intermediate	West Virginia		WV	54
 US	USA	Province/State	Intermediate	Wisconsin		WI	55
 US	USA	Province/State	Intermediate	Wyoming		WY	56
-IT	ITA	Other	Intermediate	Veneto			
-IT	ITA	Other	Intermediate	Valle d'Aosta			
-ES	ESP	Other	Intermediate	Valencian Community			
-GB	GBR	Country	Country	United Kingdom			
-IT	ITA	Other	Intermediate	Umbria			
-IT	ITA	Other	Intermediate	Toscana			
-DE	DEU	Province/State	Intermediate	Thuringia			
-SE	SWE	Country	Country	Sweden			
-ES	ESP	Country	Country	Spain			
-SI	SVN	Country	Country	Slovenia			
-SK	SVK	Country	Country	Slovakia			
-IT	ITA	Other	Intermediate	Sicilia			
-DE	DEU	Province/State	Intermediate	Schleswig-Holstein			
-DE	DEU	Province/State	Intermediate	Saxony			
-DE	DEU	Province/State	Intermediate	Saxony-Anhalt			
-IT	ITA	Other	Intermediate	Sardegna			
-DE	DEU	Province/State	Intermediate	Saarland			
-RO	ROU	Country	Intermediate	Romania			
-DE	DEU	Province/State	Intermediate	Rhineland-Palatinate			
-IT	ITA	Other	Intermediate	Puglia			
-IT	ITA	Province/State	Intermediate	Provincia autonoma di Trento			
-IT	ITA	Province/State	Intermediate	Provincia autonoma di Bolzano			
-PT	PRT	Country	Country	Portugal			
-PL	POL	Country	Country	Poland			
-IT	ITA	Other	Intermediate	Piemonte			
-NO	NOR	Country	Country	Norway			
-DE	DEU	Province/State	Intermediate	North Rhine-Westphalia			
-NL	NLD	Country	Country	Netherlands			
-ES	ESP	Other	Intermediate	Navarre			
-ES	ESP	Other	Intermediate	Murcia			
-IT	ITA	Other	Intermediate	Molise			
-IT	ITA	Other	Intermediate	Melilla			
-DE	DEU	Province/State	Intermediate	Mecklenburg-Vorpommern			
-IT	ITA	Other	Intermediate	Marche			
-MT	MLT	Country	Country	Malta			
-LU	LUX	Country	Country	Luxembourg			
-DE	DEU	Province/State	Intermediate	Lower Saxony			
-IT	ITA	Other	Intermediate	Lombardia			
-LT	LTU	Country	Country	Lithuania			
-IT	ITA	Other	Intermediate	Liguria			
-IT	ITA	Other	Intermediate	Lazio			
-LV	LVA	Country	Country	Latvia			
-ES	ESP	Province/State	Intermediate	La Rioja			
-IT	ITA	Country	Country	Italy			
-IE	IRL	Country	Country	Ireland			
-HU	HUN	Country	Country	Hungary			
-DE	DEU	Province/State	Intermediate	Hesse			
-DE	DEU	Other	Intermediate	Hamburg			
-GR	GRC	Country	Country	Greece			
-DE	DEU	Country	Country	Germany			
-ES	ESP	Other	Intermediate	Galicia			
-IT	ITA	Other	Intermediate	Friuli-Venezia Giulia			
-FR	FRA	Country	Country	France			
-FI	FIN	Country	Country	Finland			
-ES	ESP	Other	Intermediate	Extremadura			
-EE	EST	Country	Country	Estonia			
-ES	ESP	Other	Intermediate	Emilia-Romagna			
-DK	DNK	Country	Country	Denmark			
-CZ	CZE	Country	Country	Czechia			
-CY	CYP	Country	Country	Cyprus			
-HR	HRV	Country	Country	Croatia			
-ES	ESP	Other	Local	Community of Madrid			
-ES	ESP	Other	Intermediate	Ceuta			
-ES	ESP	Other	Intermediate	Catalonia			
-ES	ESP	Other	Intermediate	Castilla-La Mancha			
-ES	ESP	Other	Intermediate	Castile and Leon			
-ES	ESP	Other	Intermediate	Cantabria			
-ES	ESP	Other	Intermediate	Canary Islands			
-IT	ITA	Other	Intermediate	Campania			
-IT	ITA	Other	Intermediate	Calabria			
-BG	BGR	Country	Country	Bulgaria			
-DE	DEU	Other	Intermediate	Bremen			
-DE	DEU	Other	Intermediate	Brandenburg			
-DE	DEU	Other	Intermediate	Berlin			
-BE	BEL	Country	Country	Belgium			
-DE	DEU	Province/State	Intermediate	Bavaria			
-ES	ESP	Other	Intermediate	Basque County			
-IT	ITA	Other	Intermediate	Basilicata			
-ES	ESP	Other	Intermediate	Balearic Islands			
-DE	DEU	Province/State	Intermediate	Baden-Wurttemberg			
-AT	AUT	Country	Country	Austria			
-ES	ESP	Other	Intermediate	Asturias			
-ES	ESP	Other	Intermediate	Aragon			
-ES	ESP	Other	Intermediate	Andalucia			
-IT	ITA	Other	Intermediate	Abruzzo			
-PR	PRI	Other	Intermediate	Puerto Rico			
-AZ	DZA	Country	Country	Algeria			
-AR	ARG	Country	Country	Argentina			
-BR	BRA	Country	Country	Brazil			
-CA	CAN	Country	Country	Canada			
-CN	CHN	Country	Country	China			
-DO	DOM	Country	Country	Dominican Republic			
-EC	ECU	Country	Country	Ecuador			
-EG	EGY	Country	Country	Egypt			
-IN	IND	Country	Country	India			
-ID	IDN	Country	Country	Indonesia			
-IR	IRN	Country	Country	Iran			
-IQ	IRQ	Country	Country	Iraq			
-IL	ISL	Country	Country	Israel			
-JP	JPN	Country	Country	Japan			
-MY	MYS	Country	Country	Malaysia			
-MX	MEX	Country	Country	Mexico			
-MA	MAR	Country	Country	Morocco			
-PA	PAN	Country	Country	Panama			
-PE	PER	Country	Country	Peru			
-PH	PHL	Country	Country	Philippines			
-KR	KOR	Country	Country	South Korea	Republic of Korea		
-CH	CHE	Country	Country	Switzerland			
-TR	TUR	Country	Country	Turkey			
-ES	ESP	Other	Intermediate	Basque Country			
-IS	ISL	Country	Country	Iceland			
 US	USA	Country	Country	United States of America			
 US	USA	County	Local	Autauga			1001
 US	USA	County	Local	Baldwin			1003
@@ -3398,159 +3549,12 @@ US	USA	County	Local	Yauco			72153
 US	USA	County	Local	St. Croix			78010
 US	USA	County	Local	St. John			78020
 US	USA	County	Local	St. Thomas			78030
-CA	CAN	Province/State	Intermediate	British Columbia			
-CA	CAN	Province/State	Intermediate	Quebec			
-CA	CAN	Province/State	Intermediate	Alberta			
-BF	BFA	Country	Country	Burkina Faso			
-CV	CPV	Country	Country	Cabo Verde			
-CM	CMR	Country	Country	Cameroon			
-TD	TCD	Country	Country	Chad			
-CI	CIV	Country	Country	Cote d'Ivoire			
-DJ	DJI	Country	Country	Djibouti			
-GQ	GNQ	Country	Country	Equatorial Guinea			
-ET	ETH	Country	Country	Ethiopia			
-GA	GAB	Country	Country	Gabon			
-GH	GHA	Country	Country	Ghana			
-GN	GIN	Country	Country	Guinea			
-GW	GNB	Country	Country	Guinea-Bissau			
-JM	JAM	Country	Country	Jamaica			
-KE	KEN	Country	Country	Kenya			
-LR	LBR	Country	Country	Liberia			
-MG	MDG	Country	Country	Madagascar			
-ML	MLI	Country	Country	Mali			
-MU	MUS	Country	Country	Mauritius			
-BJ	BEN	Country	Country	Benin			
-CF	CAF	Country	Country	Central African Republic			
-NE	NER	Country	Country	Niger			
-ZA	ZAF	Country	Country	South Africa			
-TG	TGO	Country	Country	Togo			
-AF	AFG	Country	Country	Afghanistan			
-TN	TUN	Country	Country	Tunisia			
-		Country	Country	Senegal			
-SG	SGP	Country	Country	Singapore			
-TH	THA	Country	Country	Thailand			
-OM	OMN	Country	Country	Oman			
-BD	BGD	Country	Country	Bangladesh			
-PK	PAK	Country	Country	Pakistan			
-KW	KWT	Country	Country	Kuwait			
-AL	ALB	Country	Country	Albania			
-CU	CUB	Country	Country	Cuba			
-RS	SRB	Country	Country	Serbia			
-BY	BLR	Country	Country	Belarus			
-LK	LKA	Country	Country	Sri Lanka			
-QA	QAT	Country	Country	Qatar			
-AU	AUS	Country	Country	Australia			
-TT	TTO	Country	Country	Trinidad and Tobago			
 UY	URY	Country	Country	Uruguay			
-NG	NGA	Country	Country	Nigeria			
-RW	RWA	Country	Country	Rwanda			
-ST	STP	Country	Country	Sao Tome and Principe			
-SL	SLE	Country	Country	Sierra Leone			
-SO	SOM	Country	Country	Somalia			
-SS	SSD	Country	Country	South Sudan			
-SD	SDN	Country	Country	Sudan			
-TZ	TZA	Country	Country	Tanzania			
-UG	UGA	Country	Country	Uganda			
-ZM	ZMB	Country	Country	Zambia			
-AM	ARM	Country	Country	Armenia			
-AZ	AZE	Country	Country	Azerbaijan			
-BH	BHR	Country	Country	Bahrain			
-KH	KHM	Country	Country	Cambodia			
-JO	JOR	Country	Country	Jordan			
-KZ	KAZ	Country	Country	Kazakhstan			
-MV	MDV	Country	Country	Maldives			
-NP	NPL	Country	Country	Nepal			
-RU	RUS	Country	Country	Russia	Russian Federation		
-SA	SAU	Country	Country	Saudi Arabia			
-TJ	TJK	Country	Country	Tajikistan			
-AE	ARE	Country	Country	United Arab Emirates			
 UZ	UZB	Country	Country	Uzbekistan			
-VN	VNM	Country	Country	Vietnam			
-AD	AND	Country	Country	Andorra			
-BA	BIH	Country	Country	Bosnia and Herzegovina			
-XK		partially-recognised state	Intermediate	Kosovo			
-MD	MDA	Country	Country	Moldova	Republic of Moldova		
-ME	MNE	Country	Country	Montenegro			
-MK	MKD	Country	Country	North Macedonia			
-SM	SMR	Country	Country	San Marino			
-UA	UKR	Country	Country	Ukraine			
-CR	CRI	Country	Country	Costa Rica			
-SV	SLV	Country	Country	El Salvador			
-GT	GTM	Country	Country	Guatemala			
 VE	VEN	Country	Country	Venezuela			
-PY	PRY	Country	Country	Paraguay			
-NZ	NZL	Country	Country	New Zealand			
-GY	GUY	Country	Country	Guyana			
-HT	HTI	Country	Country	Haiti			
-HN	HND	Country	Country	Honduras			
-CL	CHL	Country	Country	Chile			
-BO	BOL	Country	Country	Bolivia			
-CO	COL	Country	Country	Colombia			
-CG	COG	Province/State	Local	Brazzaville			
-CD	COD	Province/State	Local	Kinshasa			
-GE	GEO	Country	Country	Georgia (country)			
-BR	BRA	Province/State	Intermediate	Amazonas			
-BR	BRA	Province/State	Intermediate	Bahia			
-MX	MEX	Province/State	Intermediate	Baja California			
-BR	BRA	Province/State	Intermediate	Ceara			
-BR	BRA	Province/State	Intermediate	Maranhao			
-MX	MEX	City	Local	Mexico City			
-BR	BRA	Province/State	Intermediate	Parana			
-BR	BRA	Province/State	Intermediate	Pernambuco			
-MX	MEX	Province/State	Intermediate	Puebla			
-MX	MEX	Province/State	Intermediate	Quintana Roo			
-BR	BRA	Province/State	Intermediate	Rio de Janeiro			
-BR	BRA	Province/State	Intermediate	Acre			
-BR	BRA	Province/State	Intermediate	Alagoas			
-BR	BRA	Province/State	Intermediate	Amapa			
-BR	BRA	Province/State	Intermediate	Espirito Santo			
-BR	BRA	Province/State	Intermediate	Goias			
-BR	BRA	Province/State	Intermediate	Minas Gerais			
-BR	BRA	Province/State	Intermediate	Para			
-BR	BRA	Province/State	Intermediate	Paraiba			
-BR	BRA	City	Local	Sao Paulo			
-MX	MEX	Province/State	Intermediate	Sinaloa			
-MX	MEX	Province/State	Intermediate	Tabasco			
-MZ	MOZ	Country	Country	Mozambique			
-BR	BRA	Province/State	Intermediate	Rio Grande do Norte			
-BR	BRA	Province/State	Intermediate	Rio Grande do Sul			
-BR	BRA	Province/State	Intermediate	Santa Catarina			
-CD	COD	Country	Country	Democratic Republic of the Congo			
+VN	VNM	Country	Country	Vietnam			
+XK		partially-recognised state	Intermediate	Kosovo			
 YE	YEM	Country	Country	Yemen			
-MN	MNG	Country	Country	Mongolia			
-MX	MEX	Province/State	Intermediate	Aguascalientes			
-MX	MEX	Province/State	Intermediate	Baja California Sur			
-MX	MEX	Province/State	Intermediate	Campeche			
-MX	MEX	Province/State	Intermediate	Chiapas			
-MX	MEX	Province/State	Intermediate	Chihuahua			
-MX	MEX	Province/State	Intermediate	Coahuila			
-MX	MEX	Province/State	Intermediate	Colima			
-MX	MEX	City	Local	Distrito Federal			
-MX	MEX	Province/State	Intermediate	Durango			
-MX	MEX	Province/State	Intermediate	Guanajuato			
-MX	MEX	Province/State	Intermediate	Guerrero			
-MX	MEX	Province/State	Intermediate	Jalisco			
-BR	BRA	Province/State	Intermediate	Mato Grosso			
-BR	BRA	Province/State	Intermediate	Mato Grosso do Sul			
-MX	MEX	Province/State	Intermediate	Michoacan de Ocampo	Michoacán		
-MX	MEX	Province/State	Intermediate	Morelos			
-MX	MEX	Province/State	Intermediate	Nayarit			
-MX	MEX	Province/State	Intermediate	Nuevo Leon			
-MX	MEX	Province/State	Intermediate	Oaxaca			
-BR	BRA	Province/State	Intermediate	Piaui			
-MX	MEX	Province/State	Intermediate	Queretaro			
-BR	BRA	Province/State	Intermediate	Rondonia			
-BR	BRA	Province/State	Intermediate	Roraima			
-MX	MEX	Province/State	Intermediate	San Luis Potosi			
-BR	BRA	Province/State	Intermediate	Sergipe			
-MX	MEX	Province/State	Intermediate	Sonora			
-MX	MEX	Province/State	Intermediate	Tamaulipas			
-MX	MEX	Province/State	Intermediate	Tlaxcala			
-BR	BRA	Province/State	Intermediate	Tocantins			
-MX	MEX	Province/State	Intermediate	Veracruz de Ignacio de la Llave			
-MX	MEX	Province/State	Intermediate	Yucatan			
-MX	MEX	Province/State	Intermediate	Zacatecas			
-CD	COD	Country	Country	Republic of Congo			
-KG	KGZ	Country	Country	Kyrgyzstan			
-MR	MRT	Country	Country	Mauritania			
-NI	NIC	Country	Country	Nicaragua			
+ZA	ZAF	Country	Country	South Africa			
+ZM	ZMB	Country	Country	Zambia			
+		Country	Country	Senegal			
