@@ -366,7 +366,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                              tags$li("please consult available documentation below for additional information on key model assumptions"))),
                            hr(),
 
-                         p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US state and for selected counties"),
+                         p(tags$b("Temporal and geographic resolution:"), "daily estimates, per US state and for selected countries"),
                          hr(),
                          
                          p(tags$b("Geographic coverage of estimates:"), "Global"),
@@ -455,7 +455,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "approximately weekly"),
                          hr(),
                          
-                         p(tags$b("Most recent data update in Model Inventory:"), "June 7, 2020"),
+                         p(tags$b("Most recent data update in Model Inventory:"), "June 14, 2020"),
                          hr()
                 ),                
                 

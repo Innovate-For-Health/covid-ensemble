@@ -125,3 +125,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 128	6	"COVID Act Now (6/22, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/22/20		FALSE	FALSE	TRUE
 129	6	"COVID Act Now (6/22, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/22/20		FALSE	FALSE	TRUE
 130	18	COVID19-projections.com (6/21)	Update with new data (6/21)	COVID19-projections.com	6/21/20		TRUE	TRUE	TRUE
+131	10	GLEAM (6/14)	Update with new data (6/14)	GLEAM	6/14/20	Mitigated scenario	TRUE	TRUE	TRUE
