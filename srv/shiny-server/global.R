@@ -16,7 +16,7 @@
 # model_outputs <- readRDS("data/model_outputs.RDS")
 # models <- read.delim("data/models.txt", stringsAsFactors = FALSE)
 # model_runs <- read.delim("data/model_runs.txt", stringsAsFactors = FALSE)
-# locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+# locations <- read.csv("data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 # output_options <- unique(model_outputs$output_name)
 # 
 # ## locations for which you can view data, grouped separately by countries and US states/territories/intermediate areas
