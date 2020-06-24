@@ -517,7 +517,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                        p(tags$b("Update frequency:"), "multiple times per week"),
                                        hr(),
                                        
-                                       p(tags$b("Most recent data update in Model Inventory:"), "June 6, 2020"),
+                                       p(tags$b("Most recent data update in Model Inventory:"), "June 13, 2020"),
                                        hr()
                                      )),
                 

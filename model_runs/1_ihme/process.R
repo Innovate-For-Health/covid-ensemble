@@ -5,8 +5,8 @@
 ## working directory should be covid-ensemble
 #setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 105
-file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_06_06.csv"
+model_run_id <- 132
+file_name <- "model_runs/1_ihme/model_export/Hospitalization_all_locs_06_13.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -28,7 +28,7 @@ model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("srv/shiny-server/data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-16")
 
 ## IHME model ID is always 1, model name is always whatever model_id 1 is named in the file data/models.txt
 model_id <- 1
@@ -61,6 +61,10 @@ if(any(ihme$location_name == "Republic of Moldova")){
 
 if(any(ihme$location_name == "Russian Federation")){
   ihme$location_name[which(ihme$location_name == "Russian Federation")] <- "Russia"
+}
+
+if(any(ihme$location_name == "México")){
+  ihme$location_name[which(ihme$location_name == "México")] <- "Mexico"
 }
 
 all(ihme$location_name %in% locations$location_name)
