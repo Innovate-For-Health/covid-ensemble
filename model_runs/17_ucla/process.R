@@ -3,7 +3,7 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 118
+model_run_id <- 136
 file_location <- "https://gist.githubusercontent.com/ZeroWeight/9a0c53e56c9bf846485a19a324cf74bd/raw/us_all_pred.json"
 file_location_world <- "https://gist.githubusercontent.com/ZeroWeight/9a0c53e56c9bf846485a19a324cf74bd/raw/51bdcf5fa57428c07a40c1184f7fff1b5f1c02e3/world_all_pred.json"
 
@@ -19,7 +19,7 @@ library(jsonlite)
 #################################################################
 
 ## assume working directory is covid-ensemble
-#setwd("~/Documents/covid-ensemble")
+setwd("~/Documents/covid-ensemble")
 
 ## read in models (file that tracks all models)
 models <- read.delim("srv/shiny-server/data/models.txt", stringsAsFactors = FALSE)
@@ -34,7 +34,7 @@ model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("srv/shiny-server/data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 ## UCLA model ID is always 17, model name is always whatever model_id 17 is named in the file data/models.txt
 model_id <- 17
@@ -154,7 +154,7 @@ for(i in 1:nrow(global_location_options)){
                                            "notes" = "estimates rounded to nearest whole number, as displayed on UCLA site"))
   
   ## add daily fatality data
-  if(!(model_run_id %in% c(92, 109, 118) & global_location_options[i,]$location_name == "Germany")){
+  if(!(model_run_id %in% c(92, 109, 118, 136) & global_location_options[i,]$location_name == "Germany")){
     if((max(deaths) - min(deaths)) != sum(daily_deaths, na.rm = TRUE)){stop("Something is wrong with the calculation of daily fatalities. Please check.")}
     
   additional_outputs <- rbind.data.frame(additional_outputs,
