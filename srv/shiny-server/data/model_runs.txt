@@ -129,3 +129,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 132	1	IHME COVID-19 Model (6/13)	Update with new training data (6/13)	IHME COVID-19 Model	6/13/20		TRUE	TRUE	TRUE
 133	13	LANL COVID-19 Model (6/21)	Update with new training data (6/21)	LANL COVID-19 Model	6/21/20		TRUE	TRUE	TRUE
 134	14	MIT DELPHI Model (6/25)	Update with new data (6/25)	MIT DELPHI Model	6/25/20		TRUE	TRUE	TRUE
+135	16	NotreDame-FRED Forecast (6/22)	Update with new data (6/22)	NotreDame-FRED Forecast	6/22/20		TRUE	TRUE	TRUE
