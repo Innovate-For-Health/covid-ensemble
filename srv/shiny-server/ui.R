@@ -761,7 +761,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                               "CDC Forecast Website", target = "_blank")))),
                            hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "June 15, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 25, 2020"),
                            hr()
                          ))
                 
