@@ -2,11 +2,11 @@
 ## Specify some initial details #################################
 #################################################################
  
-model_run_id <- 116
-file_name_cases_us <- "model_runs/13_lanl/model_export/116_2020-06-10_confirmed_quantiles_us_website.csv"
-file_name_deaths_us <- "model_runs/13_lanl/model_export/116_2020-06-10_deaths_quantiles_us_website.csv"
-file_name_cases_global <- "model_runs/13_lanl/model_export/116_2020-06-10_confirmed_quantiles_global_website.csv"
-file_name_deaths_global <- "model_runs/13_lanl/model_export/116_2020-06-10_deaths_quantiles_global_website.csv"
+model_run_id <- 133
+file_name_cases_us <- "model_runs/13_lanl/model_export/133_2020-06-21_confirmed_quantiles_us_website.csv"
+file_name_deaths_us <- "model_runs/13_lanl/model_export/133_2020-06-21_deaths_quantiles_us_website.csv"
+file_name_cases_global <- "model_runs/13_lanl/model_export/133_2020-06-21_confirmed_quantiles_global_website.csv"
+file_name_deaths_global <- "model_runs/13_lanl/model_export/133_2020-06-21_deaths_quantiles_global_website.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -35,7 +35,7 @@ model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("srv/shiny-server/data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 ## LANL model ID is always 13, model name is always whatever model_id 13 is named in the file data/models.txt
 model_id <- 13
@@ -71,11 +71,11 @@ lanl_cases_global$dates <- as.Date(lanl_cases_global$dates)
 lanl_deaths_global$dates <- as.Date(lanl_deaths_global$dates)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## to minimize size of data file, now focus on dates after June 1, 2020 
-lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-06-01")),]
-lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-06-01")),]
-lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-06-01")),]
-lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-06-01")),]
+## to minimize size of data file, now focus on dates after June 21, 2020 
+lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-06-21")),]
+lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-06-21")),]
+lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-06-21")),]
+lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-06-21")),]
 
 ##########################################################################
 ## Add data for output_id 3:  Cumulative fatalities: US data #############
