@@ -3,8 +3,8 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 110
-file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-08-NotreDame-FRED.csv"
+model_run_id <- 135
+file_location <- "https://raw.githubusercontent.com/confunguido/covid19_ND_forecasting/master/output/2020-06-22-NotreDame-FRED.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -26,15 +26,11 @@ model_outputs <- readRDS("data/model_outputs.RDS")
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 ## ND  model ID is always 1, model name is always whatever model_id 16 is named in the file data/models.txt
 model_id <- 16
 model_name <- models$model_name[which(models$model_id == 16)]
-
-model_runs[which(model_runs$model_run_id == model_run_id),]
-model_outputs[which(model_outputs$model_run_id == model_run_id),]
-model_outputs <- model_outputs[-which(model_outputs$model_run_id == model_run_id),]
 
 #################################################################
 ## Check: any locations not in the locations file? ##############
