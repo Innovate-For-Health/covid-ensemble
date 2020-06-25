@@ -31,7 +31,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                               tags$li("understand how key assumptions influence results")), 
 
                             
-                            p(strong("This site is updated monthly (last update on June 15, 2020), and likely does not display the most recent results available for any given model.")))),
+                            p(strong("This site is updated monthly (last update on June 25, 2020), and likely does not display the most recent results available for any given model.")))),
 
                  ###################################################################################
                  ## View Models: Sidebar selections  ###############################################
@@ -641,7 +641,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                            p(tags$b("Update frequency:"), "daily"),
                            hr(),
 
-                           p(tags$b("Most recent data update in Model Inventory:"), "June 15, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 25, 2020"),
                            hr()
                          )),
                 ###################################################################################

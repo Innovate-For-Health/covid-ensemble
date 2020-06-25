@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 117
+model_run_id <- 134
 
-file_name <- "model_runs/14_delphi/model_export/108_covid_analytics_projections.csv"
+file_name <- "model_runs/14_delphi/model_export/134_covid_analytics_projections.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -32,7 +32,7 @@ model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("srv/shiny-server/data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 ## DEPHI model ID is always 14, model name is always whatever model_id 14 is named in the file data/models.txt
 model_id <- 14
