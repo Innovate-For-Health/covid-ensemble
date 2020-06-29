@@ -1,21 +1,62 @@
 ﻿iso2,iso3,location_type,area_level,location_name,other_names,abbreviation,FIPS,ISO_3166_2_subdivision_code
+AF,AFG,Country,Country,Afghanistan,,,,
+AO,AGO,Country,Country,Angola,,,,
+AO,AGO,Province/State,Intermediate,Bengo,,,,AO-BGO
+AO,AGO,Province/State,Intermediate,Benguela,,,,AO-BGU
+AO,AGO,Province/State,Intermediate,Bié,,,,AO-BIE
+AO,AGO,Province/State,Intermediate,Cabinda,,,,AO-CAB
+AO,AGO,Province/State,Intermediate,Cunene,,,,AO-CCU
+AO,AGO,Province/State,Intermediate,Huambo,,,,AO-CNN
+AO,AGO,Province/State,Intermediate,Huíla,,,,AO-CNO
+AO,AGO,Province/State,Intermediate,Kuando Kubango,,,,AO-CUS
+AO,AGO,Province/State,Intermediate,Kwanza Norte,,,,AO-HUA
+AO,AGO,Province/State,Intermediate,Kwanza Sul,,,,AO-HUI
+AO,AGO,Province/State,Intermediate,Luanda,,,,AO-LNO
+AO,AGO,Province/State,Intermediate,Lunda Norte,,,,AO-LSU
+AO,AGO,Province/State,Intermediate,Lunda Sul,,,,AO-LUA
+AO,AGO,Province/State,Intermediate,Malange,,,,AO-MAL
+AO,AGO,Province/State,Intermediate,Moxico,,,,AO-MOX
+AO,AGO,Province/State,Intermediate,Namibe,,,,AO-NAM
+AO,AGO,Province/State,Intermediate,Uíge,,,,AO-UIG
+AO,AGO,Province/State,Intermediate,Zaire,,,,AO-ZAI
+AL,ALB,Country,Country,Albania,,,,
 AD,AND,Country,Country,Andorra,,,,
 AE,ARE,Country,Country,United Arab Emirates,,,,
-AF,AFG,Country,Country,Afghanistan,,,,
-AL,ALB,Country,Country,Albania,,,,
-AM,ARM,Country,Country,Armenia,,,,
 AR,ARG,Country,Country,Argentina,,,,
-AT,AUT,Country,Country,Austria,,,,
+AM,ARM,Country,Country,Armenia,,,,
+AG,ATG,Country,Country,Antigua and Barbuda,,,,
 AU,AUS,Country,Country,Australia,,,,
-AZ,DZA,Country,Country,Algeria,,,,
+AT,AUT,Country,Country,Austria,,,,
 AZ,AZE,Country,Country,Azerbaijan,,,,
-BA,BIH,Country,Country,Bosnia and Herzegovina,,,,
-BD,BGD,Country,Country,Bangladesh,,,,
+BI,BDI,Country,Country,Burundi,,,,
+BI,BDI,Province/State,Intermediate,Bubanza,,,,BI-BB
+BI,BDI,Province/State,Intermediate,Bujumbura Mairie,,,,BI-BM
+BI,BDI,Province/State,Intermediate,Bujumbura Rural,,,,BI-BL
+BI,BDI,Province/State,Intermediate,Bururi,,,,BI-BR
+BI,BDI,Province/State,Intermediate,Cankuzo,,,,BI-CA
+BI,BDI,Province/State,Intermediate,Cibitoke,,,,BI-CI
+BI,BDI,Province/State,Intermediate,Gitega,,,,BI-GI
+BI,BDI,Province/State,Intermediate,Karuzi,,,,BI-KR
+BI,BDI,Province/State,Intermediate,Kayanza,,,,BI-KY
+BI,BDI,Province/State,Intermediate,Kirundo,,,,BI-KI
+BI,BDI,Province/State,Intermediate,Makamba,,,,BI-MA
+BI,BDI,Province/State,Intermediate,Muramvya,,,,BI-MU
+BI,BDI,Province/State,Intermediate,Muyinga,,,,BI-MY
+BI,BDI,Province/State,Intermediate,Mwaro,,,,BI-MW
+BI,BDI,Province/State,Intermediate,Ngozi,,,,BI-NG
+BI,BDI,Province/State,Intermediate,Rumonge,,,,BI-RM
+BI,BDI,Province/State,Intermediate,Rutana,,,,BI-RT
+BI,BDI,Province/State,Intermediate,Ruyigi,,,,BI-RY
 BE,BEL,Country,Country,Belgium,,,,
+BJ,BEN,Country,Country,Benin,,,,
 BF,BFA,Country,Country,Burkina Faso,,,,
+BD,BGD,Country,Country,Bangladesh,,,,
 BG,BGR,Country,Country,Bulgaria,,,,
 BH,BHR,Country,Country,Bahrain,,,,
-BJ,BEN,Country,Country,Benin,,,,
+BS,BHS,Country,Country,Bahamas,,,,
+BA,BIH,Country,Country,Bosnia and Herzegovina,,,,
+BY,BLR,Country,Country,Belarus,,,,
+BZ,BLZ,Country,Country,Belize,,,,
 BO,BOL,Country,Country,Bolivia,,,,
 BR,BRA,Country,Country,Brazil,,,,
 BR,BRA,Province/State,Intermediate,Amazonas,,,,
@@ -45,25 +86,37 @@ BR,BRA,Province/State,Intermediate,Paraíba,Paraiba,,,
 BR,BRA,Province/State,Intermediate,Pará,Para,,,
 BR,BRA,Province/State,Intermediate,Rondônia,Rondonia,,,
 BR,BRA,City,Local,São Paulo,Sao Paulo,,,
-BY,BLR,Country,Country,Belarus,,,,
+BB,BRB,Country,Country,Barbados,,,,
+BN,BRN,Country,Country,Brunei Darussalam,,,,
+BW,BWA,Country,Country,Botswana,,,,
+CF,CAF,Country,Country,Central African Republic,,,,
 CA,CAN,Country,Country,Canada,,,,
 CA,CAN,Province/State,Intermediate,British Columbia,,,,
 CA,CAN,Province/State,Intermediate,Quebec,,,,
 CA,CAN,Province/State,Intermediate,Alberta,,,,
-CD,COD,Province/State,Local,Kinshasa,,,,
-CD,COD,Country,Country,Democratic Republic of the Congo,,,,
-CD,COD,Country,Country,Republic of Congo,,,,
-CF,CAF,Country,Country,Central African Republic,,,,
-CG,COG,Province/State,Local,Brazzaville,,,,
+CA,CAN,Province/State,Intermediate,Manitoba,,,,"	CA-MB"
+CA,CAN,Province/State,Intermediate,New Brunswick,,,,CA-NB
+CA,CAN,Province/State,Intermediate,Newfoundland and Labrador,,,,"	CA-NL"
+CA,CAN,Territory,Intermediate,Northwest Territories,,,,"	CA-NT"
+CA,CAN,Province/State,Intermediate,Nova Scotia,,,,"	CA-NS"
+CA,CAN,Territory,Intermediate,Nunavut,,,,"	CA-NU"
+CA,CAN,Province/State,Intermediate,Prince Edward Island,,,,"	CA-PE"
+CA,CAN,Province/State,Intermediate,Saskatchewan,,,,"	CA-SK"
+CA,CAN,Territory,Intermediate,Yukon,,,,"	CA-YT"
 CH,CHE,Country,Country,Switzerland,,,,
-CI,CIV,Country,Country,Cote d'Ivoire,,,,
 CL,CHL,Country,Country,Chile,,,,
-CM,CMR,Country,Country,Cameroon,,,,
 CN,CHN,Country,Country,China,,,,
+CI,CIV,Country,Country,Côte d'Ivoire,,,,
+CM,CMR,Country,Country,Cameroon,,,,
+CD,COD,Province/State,Local,Kinshasa,,,,
+CD,COD,Country,Country,Democratic Republic of the Congo,Congo,,,
+CD,COD,Country,Country,Republic of Congo,,,,
+CG,COG,Province/State,Local,Brazzaville,,,,
 CO,COL,Country,Country,Colombia,,,,
+KM,COM,Country,Country,Comoros,,,,
+CV,CPV,Country,Country,Cabo Verde,,,,
 CR,CRI,Country,Country,Costa Rica,,,,
 CU,CUB,Country,Country,Cuba,,,,
-CV,CPV,Country,Country,Cabo Verde,,,,
 CY,CYP,Country,Country,Cyprus,,,,
 CZ,CZE,Country,Country,Czechia,,,,
 DE,DEU,Province/State,Intermediate,Thuringia,,,,
@@ -87,9 +140,10 @@ DE,DEU,Province/State,Intermediate,Baden-Württemberg,Baden-Wurttemberg,,,
 DJ,DJI,Country,Country,Djibouti,,,,
 DK,DNK,Country,Country,Denmark,,,,
 DO,DOM,Country,Country,Dominican Republic,,,,
+AZ,DZA,Country,Country,Algeria,,,,
 EC,ECU,Country,Country,Ecuador,,,,
-EE,EST,Country,Country,Estonia,,,,
 EG,EGY,Country,Country,Egypt,,,,
+ER,ERI,Country,Country,Eritrea,,,,
 ES,ESP,Other,Intermediate,Valencian Community,,,,
 ES,ESP,Country,Country,Spain,,,,
 ES,ESP,Other,Intermediate,Navarre,,,,
@@ -111,6 +165,7 @@ ES,ESP,Other,Intermediate,Aragon,,,,
 ES,ESP,Other,Intermediate,Andalucia,,,,
 ES,ESP,Other,Intermediate,Basque Country,,,,
 ES,ESP,Other,Intermediate,Castile and León,Castile and Leon,,,
+EE,EST,Country,Country,Estonia,,,,
 ET,ETH,Country,Country,Ethiopia,,,,
 FI,FIN,Country,Country,Finland,,,,
 FR,FRA,Country,Country,France,,,,
@@ -119,21 +174,22 @@ GB,GBR,Country,Country,United Kingdom,,,,
 GE,GEO,Country,Country,Georgia (country),,,,
 GH,GHA,Country,Country,Ghana,,,,
 GN,GIN,Country,Country,Guinea,,,,
+GM,GMB,Country,Country,Gambia,,,,
+GW,GNB,Country,Country,Guinea-Bissau,,,,
 GQ,GNQ,Country,Country,Equatorial Guinea,,,,
 GR,GRC,Country,Country,Greece,,,,
 GT,GTM,Country,Country,Guatemala,,,,
-GW,GNB,Country,Country,Guinea-Bissau,,,,
 GY,GUY,Country,Country,Guyana,,,,
 HN,HND,Country,Country,Honduras,,,,
 HR,HRV,Country,Country,Croatia,,,,
 HT,HTI,Country,Country,Haiti,,,,
 HU,HUN,Country,Country,Hungary,,,,
 ID,IDN,Country,Country,Indonesia,,,,
-IE,IRL,Country,Country,Ireland,,,,
-IL,ISL,Country,Country,Israel,,,,
 IN,IND,Country,Country,India,,,,
+IE,IRL,Country,Country,Ireland,,,,
+IR,IRN,Country,Country,Iran,Iran (Islamic Republic of),,,
 IQ,IRQ,Country,Country,Iraq,,,,
-IR,IRN,Country,Country,Iran,,,,
+IL,ISL,Country,Country,Israel,,,,
 IS,ISL,Country,Country,Iceland,,,,
 IT,ITA,Other,Intermediate,Veneto,,,,
 IT,ITA,Other,Intermediate,Valle d'Aosta,,,,
@@ -160,27 +216,22 @@ IT,ITA,Other,Intermediate,Abruzzo,,,,
 JM,JAM,Country,Country,Jamaica,,,,
 JO,JOR,Country,Country,Jordan,,,,
 JP,JPN,Country,Country,Japan,,,,
+KZ,KAZ,Country,Country,Kazakhstan,,,,
 KE,KEN,Country,Country,Kenya,,,,
 KG,KGZ,Country,Country,Kyrgyzstan,,,,
 KH,KHM,Country,Country,Cambodia,,,,
 KR,KOR,Country,Country,South Korea,Republic of Korea,,,
 KW,KWT,Country,Country,Kuwait,,,,
-KZ,KAZ,Country,Country,Kazakhstan,,,,
-LK,LKA,Country,Country,Sri Lanka,,,,
 LR,LBR,Country,Country,Liberia,,,,
+LY,LBY,Country,Country,Libya,,,,
+LK,LKA,Country,Country,Sri Lanka,,,,
 LT,LTU,Country,Country,Lithuania,,,,
 LU,LUX,Country,Country,Luxembourg,,,,
 LV,LVA,Country,Country,Latvia,,,,
 MA,MAR,Country,Country,Morocco,,,,
+MC,MCO,Country,Country,Monaco,,,,
 MD,MDA,Country,Country,Moldova,Republic of Moldova,,,
-ME,MNE,Country,Country,Montenegro,,,,
 MG,MDG,Country,Country,Madagascar,,,,
-MK,MKD,Country,Country,North Macedonia,,,,
-ML,MLI,Country,Country,Mali,,,,
-MN,MNG,Country,Country,Mongolia,,,,
-MR,MRT,Country,Country,Mauritania,,,,
-MT,MLT,Country,Country,Malta,,,,
-MU,MUS,Country,Country,Mauritius,,,,
 MV,MDV,Country,Country,Maldives,,,,
 MX,MEX,Country,Country,Mexico,México,,,
 MX,MEX,Province/State,Intermediate,Baja California,,,,
@@ -216,8 +267,17 @@ MX,MEX,Province/State,Intermediate,Nuevo León,Nuevo Leon,,,
 MX,MEX,Province/State,Intermediate,Querétaro,Queretaro,,,
 MX,MEX,Province/State,Intermediate,San Luis Potosí,San Luis Potosi,,,
 MX,MEX,Province/State,Intermediate,Yucatán,Yucatan,,,
-MY,MYS,Country,Country,Malaysia,,,,
+MK,MKD,Country,Country,North Macedonia,,,,
+ML,MLI,Country,Country,Mali,,,,
+MT,MLT,Country,Country,Malta,,,,
+MM,MMR,Country,Country,Myanmar,,,,
+ME,MNE,Country,Country,Montenegro,,,,
+MN,MNG,Country,Country,Mongolia,,,,
 MZ,MOZ,Country,Country,Mozambique,,,,
+MR,MRT,Country,Country,Mauritania,,,,
+MU,MUS,Country,Country,Mauritius,,,,
+MW,MWI,Country,Country,Malawi,,,,
+MY,MYS,Country,Country,Malaysia,,,,
 NE,NER,Country,Country,Niger,,,,
 NG,NGA,Country,Country,Nigeria,,,,
 NI,NIC,Country,Country,Nicaragua,,,,
@@ -226,41 +286,52 @@ NO,NOR,Country,Country,Norway,,,,
 NP,NPL,Country,Country,Nepal,,,,
 NZ,NZL,Country,Country,New Zealand,,,,
 OM,OMN,Country,Country,Oman,,,,
+PK,PAK,Country,Country,Pakistan,,,,
+PK,PAK,Federal capital territory,Local,Islamabad Capital Territory,,,,"	PK-IS"
+PK,PAK,Province/State,Intermediate,Khyber Pakhtunkhwa,,,,PK-KP
+PK,PAK,Province/State,Intermediate,Punjab,,,,"PK-PB	"
+PK,PAK,Province/State,Intermediate,Sindh,,,,PK-SD
 PA,PAN,Country,Country,Panama,,,,
 PE,PER,Country,Country,Peru,,,,
 PH,PHL,Country,Country,Philippines,,,,
-PK,PAK,Country,Country,Pakistan,,,,
+PG,PNG,Country,Country,Papua New Guinea,,,,
 PL,POL,Country,Country,Poland,,,,
 PR,PRI,Other,Intermediate,Puerto Rico,,,,
 PT,PRT,Country,Country,Portugal,,,,
 PY,PRY,Country,Country,Paraguay,,,,
+PS,PSE,,,Palestine,,,,
 QA,QAT,Country,Country,Qatar,,,,
 RO,ROU,Country,Intermediate,Romania,,,,
-RS,SRB,Country,Country,Serbia,,,,
 RU,RUS,Country,Country,Russia,Russian Federation,,,
 RW,RWA,Country,Country,Rwanda,,,,
 SA,SAU,Country,Country,Saudi Arabia,,,,
 SD,SDN,Country,Country,Sudan,,,,
-SE,SWE,Country,Country,Sweden,,,,
+SN,SEN,Country,Country,Senegal,,,,
 SG,SGP,Country,Country,Singapore,,,,
-SI,SVN,Country,Country,Slovenia,,,,
-SK,SVK,Country,Country,Slovakia,,,,
 SL,SLE,Country,Country,Sierra Leone,,,,
+SV,SLV,Country,Country,El Salvador,,,,
 SM,SMR,Country,Country,San Marino,,,,
 SO,SOM,Country,Country,Somalia,,,,
+RS,SRB,Country,Country,Serbia,,,,
 SS,SSD,Country,Country,South Sudan,,,,
 ST,STP,Country,Country,Sao Tome and Principe,,,,
-SV,SLV,Country,Country,El Salvador,,,,
+SR,SUR,Country,Country,Suriname,,,,
+SK,SVK,Country,Country,Slovakia,,,,
+SI,SVN,Country,Country,Slovenia,,,,
+SE,SWE,Country,Country,Sweden,,,,
+SZ,SWZ,Country,Country,Eswatini,Swaziland,,,
+SY,SYR,Country,Country,Syrian Arab Republic,,,,
 TD,TCD,Country,Country,Chad,,,,
 TG,TGO,Country,Country,Togo,,,,
 TH,THA,Country,Country,Thailand,,,,
 TJ,TJK,Country,Country,Tajikistan,,,,
+TT,TTO,Country,Country,Trinidad and Tobago,,,,
 TN,TUN,Country,Country,Tunisia,,,,
 TR,TUR,Country,Country,Turkey,,,,
-TT,TTO,Country,Country,Trinidad and Tobago,,,,
 TZ,TZA,Country,Country,Tanzania,,,,
-UA,UKR,Country,Country,Ukraine,,,,
 UG,UGA,Country,Country,Uganda,,,,
+UA,UKR,Country,Country,Ukraine,,,,
+UY,URY,Country,Country,Uruguay,,,,
 US,USA,Province/State,Intermediate,Alabama,,AL,1,
 US,USA,Province/State,Intermediate,Alaska,,AK,2,
 US,USA,Other,Intermediate,American Samoa,,AS,60,
@@ -311,7 +382,7 @@ US,USA,Province/State,Intermediate,Texas,,TX,48,
 US,USA,Province/State,Intermediate,Utah,,UT,49,
 US,USA,Province/State,Intermediate,Vermont,,VT,50,
 US,USA,Province/State,Intermediate,Virginia,,VA,51,
-US,USA,Other,Intermediate,Virgin Islands,,VI,78,
+US,USA,Other,Intermediate,Virgin Islands,United States Virgin Islands,VI,78,
 US,USA,Province/State,Intermediate,Washington,,WA,53,
 US,USA,Province/State,Intermediate,West Virginia,,WV,54,
 US,USA,Province/State,Intermediate,Wisconsin,,WI,55,
@@ -3549,55 +3620,14 @@ US,USA,County,Local,Yauco,,,72153,
 US,USA,County,Local,St. Croix,,,78010,
 US,USA,County,Local,St. John,,,78020,
 US,USA,County,Local,St. Thomas,,,78030,
-UY,URY,Country,Country,Uruguay,,,,
 UZ,UZB,Country,Country,Uzbekistan,,,,
-VE,VEN,Country,Country,Venezuela,,,,
+VE,VEN,Country,Country,Venezuela,Venezuela (Bolivarian Republic of),,,
 VN,VNM,Country,Country,Vietnam,,,,
-XK,,partially-recognised state,Intermediate,Kosovo,,,,
 YE,YEM,Country,Country,Yemen,,,,
 ZA,ZAF,Country,Country,South Africa,,,,
 ZM,ZMB,Country,Country,Zambia,,,,
-SN,SEN,Country,Country,Senegal,,,,
-AO,AGO,Country,Country,Angola,,,,
-AO,AGO,Province/State,Intermediate,Bengo,,,,AO-BGO
-AO,AGO,Province/State,Intermediate,Benguela,,,,AO-BGU
-AO,AGO,Province/State,Intermediate,Bié,,,,AO-BIE
-AO,AGO,Province/State,Intermediate,Cabinda,,,,AO-CAB
-AO,AGO,Province/State,Intermediate,Cunene,,,,AO-CCU
-AO,AGO,Province/State,Intermediate,Huambo,,,,AO-CNN
-AO,AGO,Province/State,Intermediate,Huíla,,,,AO-CNO
-AO,AGO,Province/State,Intermediate,Kuando Kubango,,,,AO-CUS
-AO,AGO,Province/State,Intermediate,Kwanza Norte,,,,AO-HUA
-AO,AGO,Province/State,Intermediate,Kwanza Sul,,,,AO-HUI
-AO,AGO,Province/State,Intermediate,Luanda,,,,AO-LNO
-AO,AGO,Province/State,Intermediate,Lunda Norte,,,,AO-LSU
-AO,AGO,Province/State,Intermediate,Lunda Sul,,,,AO-LUA
-AO,AGO,Province/State,Intermediate,Malange,,,,AO-MAL
-AO,AGO,Province/State,Intermediate,Moxico,,,,AO-MOX
-AO,AGO,Province/State,Intermediate,Namibe,,,,AO-NAM
-AO,AGO,Province/State,Intermediate,Uíge,,,,AO-UIG
-AO,AGO,Province/State,Intermediate,Zaire,,,,AO-ZAI
-BI,BDI,Country,Country,Burundi,,,,
-BI,BDI,Province/State,Intermediate,Bubanza,,,,BI-BB
-BI,BDI,Province/State,Intermediate,Bujumbura Mairie,,,,BI-BM
-BI,BDI,Province/State,Intermediate,Bujumbura Rural,,,,BI-BL
-BI,BDI,Province/State,Intermediate,Bururi,,,,BI-BR
-BI,BDI,Province/State,Intermediate,Cankuzo,,,,BI-CA
-BI,BDI,Province/State,Intermediate,Cibitoke,,,,BI-CI
-BI,BDI,Province/State,Intermediate,Gitega,,,,BI-GI
-BI,BDI,Province/State,Intermediate,Karuzi,,,,BI-KR
-BI,BDI,Province/State,Intermediate,Kayanza,,,,BI-KY
-BI,BDI,Province/State,Intermediate,Kirundo,,,,BI-KI
-BI,BDI,Province/State,Intermediate,Makamba,,,,BI-MA
-BI,BDI,Province/State,Intermediate,Muramvya,,,,BI-MU
-BI,BDI,Province/State,Intermediate,Muyinga,,,,BI-MY
-BI,BDI,Province/State,Intermediate,Mwaro,,,,BI-MW
-BI,BDI,Province/State,Intermediate,Ngozi,,,,BI-NG
-BI,BDI,Province/State,Intermediate,Rumonge,,,,BI-RM
-BI,BDI,Province/State,Intermediate,Rutana,,,,BI-RT
-BI,BDI,Province/State,Intermediate,Ruyigi,,,,BI-RY
-KM,COM,Country,Country,Comoros,,,,
-LY,LBY,Country,Country,Libya,,,,
-MW,MWI,Country,Country,Malawi,,,,
 ZW,ZWE,Country,Country,Zimbabwe,,,,
-SR,SUR,Country,Country,Suriname,,,,
+XK,,partially-recognised state,Intermediate,Kosovo,,,,
+,,,Intermediate,Azad Jammu & Kashmir,,,,PK-JK
+,,,Intermediate,Balochistan,,,,PK-BA
+,,,,Gilgit-Baltistan,,,,PK-GB
