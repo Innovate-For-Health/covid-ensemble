@@ -494,7 +494,8 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                      
                                      p(tags$b("Key assumptions:") ,
                                        tags$ul(
-                                         tags$li("please consult available documentation below for additional information on key model assumptions.")),
+                                         tags$li("please consult available documentation below for additional information on key model assumptions."),
+                                         tags$li("as of June 24, 2020 estimates, model is run for three scenarios, assuming different social distancing and mask mandates")),
                                        hr(),
                                        
                                        p(tags$b("Reference and source documentation:"),
@@ -517,7 +518,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                                        p(tags$b("Update frequency:"), "multiple times per week"),
                                        hr(),
                                        
-                                       p(tags$b("Most recent data update in Model Inventory:"), "June 13, 2020"),
+                                       p(tags$b("Most recent data update in Model Inventory:"), "June 24, 2020"),
                                        hr()
                                      )),
                 

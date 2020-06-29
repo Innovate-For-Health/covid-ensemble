@@ -113,7 +113,8 @@ server <- function(input, output, session) {
     color_function_cm <- function(model_name){
       temp <- c()
       if("Auquan model" %in% model_name){temp <- c(temp, "orchid1")}
-      if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
+      ## COVID Act Now model not currently compared to other models
+      #if("COVID Act Now US Intervention Model" %in% model_name){temp <- c(temp, "#fd8d3c")}
       if("COVID19-projections.com" %in% model_name){temp <- c(temp, "darkmagenta")}
       if("GLEAM" %in% model_name){temp <- c(temp, "#dd1c77")}
       if("IHME COVID-19 Model" %in% model_name){temp <- c(temp, "#31a354")}
