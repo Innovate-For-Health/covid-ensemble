@@ -1,5 +1,5 @@
-# ###########################################################################################
-# ## Pre-process outputs (prior to loading shiny) ###########################################
+# ##########################################################################################
+# # Pre-process outputs (prior to loading shiny) ###########################################
 # ###########################################################################################
 # 
 # ######################################################################
@@ -54,6 +54,9 @@
 # 
 # ## always round to nearest whole value
 # outputs$value <- round(outputs$value)
+# 
+# ## only look at values in the "future" (e.g., projects for dates in the future of the model snapshot date)
+# outputs <- outputs[which(outputs$model_snapshot_date <= outputs$date),]
 # 
 # ######################################################################
 # ### Exclude some data that won't be shown in the UI ##################

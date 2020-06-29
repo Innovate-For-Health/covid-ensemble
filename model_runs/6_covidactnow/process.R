@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 127
-run_id_strong <- 128
-run_id_weak <- 129
+run_id_observed <- 137
+run_id_strong <- 138
+run_id_weak <- 139
 
 #################################################################
 ## Load required libraries ######################################
@@ -31,7 +31,7 @@ model_outputs <- readRDS("data/model_outputs.RDS")
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of US states and their abbreviations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 locations <- locations[which(locations$iso3 == "USA" & locations$area_level == "Intermediate"),]
 
 ## Covid Act Now model ID is always 6, model name is always whatever model_id 6 is named in the file data/models.txt
@@ -264,8 +264,33 @@ write.csv(additional_outputs, file = paste("/Users/seaneff/Documents/covid-ensem
 ## format dates as dates
 additional_outputs$date <- as.Date(additional_outputs$date)
 
-## drop all dates before June 1st (as of June 15th)
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-01")),]
+## drop all dates before June 29th
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-29")),]
+
+#################################################################
+## Calculate data for the entire US #############################
+#################################################################
+
+## calculate sums across all 50 states and DC
+us_counts <- additional_outputs %>%
+  group_by(model_run_id, output_id, output_name, date, value_type) %>%
+  summarise(sum = sum(value), state_n = n())
+
+## sanity check
+#table(us_counts$state_n)
+
+## add the US totals to the additional_outputs table
+additional_outputs <- rbind.data.frame(
+  additional_outputs,
+  cbind.data.frame(model_run_id = us_counts$model_run_id,
+                 output_id = us_counts$output_id,
+                 output_name = us_counts$output_name,
+                 date = us_counts$date,
+                 location = "United States of America",
+                 value_type = us_counts$value_type,
+                 value = us_counts$sum,
+                 notes = "US data calculated as the sum of estimates across all 50 states and Washington DC")
+)
 
 #################################################################
 ## Run some sanity checks #######################################
@@ -273,8 +298,16 @@ additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Dat
 
 ## sanity checks
 table(additional_outputs$model_run_id, additional_outputs$output_name)
+table(additional_outputs$location, additional_outputs$output_name)
 
 ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_name == "Fatalities per day"),],
+       aes(x = date, y = value, color = factor(model_run_id))) +
+  geom_line(size = 1) +
+  scale_y_continuous(label = comma) +
+  xlab("") +
+  theme_light()
+
+ggplot(additional_outputs[which(additional_outputs$location == "United States of America" & additional_outputs$output_name == "Fatalities per day"),],
        aes(x = date, y = value, color = factor(model_run_id))) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +

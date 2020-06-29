@@ -324,7 +324,7 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          p(tags$b("Update frequency:"), "every three days"),
                          hr(),
                            
-                           p(tags$b("Most recent data update in Model Inventory:"), "June 22, 2020"),
+                           p(tags$b("Most recent data update in Model Inventory:"), "June 29, 2020"),
                          hr()
                          
                          ),       
@@ -606,13 +606,21 @@ ui <- navbarPage("COVID Model Inventory", id = "tabs",
                          
                          p(tags$b("Modeling approach:"), '"SEIR model fit to reported death and case counts" (per CDC)'),
                          hr(),
-                         
+
                          p(tags$b("What is predicted:"), "detected infections, detected deaths, active cases, and hospitalizations"),
+                         hr(),
+                         
+                         p(tags$b("Selected data inputs:"),
+                           tags$ul(
+                             tags$li("caseload data:", tags$a(href = "https://coronavirus.jhu.edu/map.html", "Johns Hopkins COVID-19 dashboard", target = "_blank"))
+                           )),
                          hr(),
 
                          p(tags$b("Key assumptions:") ,
                            tags$ul(
                              tags$li("forecasts detected deaths, so counts may exclude deaths not detected by existing surveillance infrastructure"),
+                             br(),
+                             tags$li('governmental and societal response assumed "to continue until the end of the pandemic" (per Reich Lab metadata)'),
                              br(),
                              tags$li("please consult available documentation below for additional information on key model assumptions.")),
                            

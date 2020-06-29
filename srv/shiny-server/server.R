@@ -9,7 +9,7 @@ library(scales)
 
 server <- function(input, output, session) {
   
-  start_date <- as.Date("2020-06-15")
+  start_date <- as.Date("2020-06-20")
   end_date <- as.Date("2020-07-30")  
   
     ######################################################################
