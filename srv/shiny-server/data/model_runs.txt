@@ -108,7 +108,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 111	6	"COVID Act Now (6/15, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	6/15/20		FALSE	TRUE	FALSE
 112	6	"COVID Act Now (6/15, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/15/20		FALSE	FALSE	FALSE
 113	6	"COVID Act Now (6/15, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/15/20		FALSE	FALSE	FALSE
-114	18	COVID19-projections.com (6/14)	Update with new data (6/14)	COVID19-projections.com	6/14/20		TRUE	TRUE	TRUE
+114	18	COVID19-projections.com (6/14)	Update with new data (6/14)	COVID19-projections.com	6/14/20		TRUE	FALSE	FALSE
 115	10	GLEAM (6/7)	Update with new data (6/7)	GLEAM	6/7/20	Mitigated scenario	TRUE	TRUE	TRUE
 116	13	LANL COVID-19 Model (6/10)	Update with new training data (6/10)	LANL COVID-19 Model	6/10/20		TRUE	TRUE	TRUE
 117	14	MIT DELPHI Model (6/15)	Update with new data (6/15)	MIT DELPHI Model	6/15/20		TRUE	TRUE	TRUE
@@ -134,3 +134,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 137	6	"COVID Act Now (6/29, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	6/29/20		FALSE	TRUE	TRUE
 138	6	"COVID Act Now (6/29, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/29/20		FALSE	FALSE	TRUE
 139	6	"COVID Act Now (6/29, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/29/20		FALSE	FALSE	TRUE
+140	18	COVID19-projections.com (6/28)	Update with new data (6/28)	COVID19-projections.com	6/28/20		TRUE	TRUE	TRUE
