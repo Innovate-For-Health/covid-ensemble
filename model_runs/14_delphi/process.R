@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 134
+model_run_id <- 145
 
-file_name <- "model_runs/14_delphi/model_export/134_covid_analytics_projections.csv"
+file_name <- "model_runs/14_delphi/model_export/145_covid_analytics_projections.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -47,6 +47,7 @@ delphi$Country[which(delphi$Country == "Korea, South")] <- "South Korea"
 delphi$Country[which(delphi$Country == "Congo (Brazzaville)")] <- "Brazzaville"
 delphi$Country[which(delphi$Country == "Congo (Kinshasa)")] <- "Kinshasa"
 delphi$Country[which(delphi$Country == "Georgia")] <- "Georgia (country)"
+delphi$Country[which(delphi$Country == "Cote d'Ivoire")] <- "Côte d'Ivoire"
 
 all(delphi$Country %in% locations$location_name)
 
