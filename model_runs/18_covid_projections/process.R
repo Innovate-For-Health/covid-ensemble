@@ -3,9 +3,9 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-model_run_id <- 130
-file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-21/"
-file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-21/global/"
+model_run_id <- 140
+file_location_base <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-28/"
+file_location_base_international <- "https://raw.githubusercontent.com/youyanggu/covid19_projections/master/projections/2020-06-28/global/"
 
 #################################################################
 ## Load required libraries ######################################
@@ -33,7 +33,7 @@ model_outputs <- readRDS("data/model_outputs.RDS")
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 ## This model ID is always 18, model name is always whatever model_id 18 is named in the file data/models.txt
 model_id <- 18
@@ -223,7 +223,7 @@ model_outputs$date <- as.Date(model_outputs$date)
 additional_outputs$date <- as.Date(additional_outputs$date)
 
 ## focus just on forecasts of the future
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-01")),]
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-25")),]
 
 #################################################################
 ## Sanity check #################################################
