@@ -5,8 +5,8 @@
 ## working directory should be covid-ensemble
 #setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 126
-file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-06-21-Auquan-SEIR.csv"
+model_run_id <- 147
+file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-06-28-Auquan-SEIR.csv"
 
 #################################################################
 ## Load required libraries ######################################
@@ -33,7 +33,7 @@ model_outputs <- readRDS("srv/shiny-server/data/model_outputs.RDS")
 outputs <- read.delim("srv/shiny-server/data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of locations
-locations <- read.delim("srv/shiny-server/data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("srv/shiny-server/data/locations.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 aq <- read.csv(file_location)
 
@@ -53,7 +53,10 @@ undoCumSum <- function(x) {
 #"a two-digit number representing the US state, territory, or district fips numeric code"
 
 ## get rid of leading zeros before FIPS codes
-aq$location <- ifelse(aq$location == "US", "United States of America", as.numeric(as.character(aq$location)))
+## NAs introduced by coercion warning is fine here
+if(any(aq$location == "US")){
+  aq$location <- ifelse(aq$location == "US", "United States of America", as.numeric(as.character(aq$location)))
+}
 
 ## for now only include rows of the data that have known locations in the locations.csv file
 aqu <- merge(aq, locations[which(locations$area_level %in% c("Intermediate", "Country")),], 
