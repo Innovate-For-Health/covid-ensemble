@@ -141,3 +141,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 144	13	LANL COVID-19 Model (6/29)	Update with new training data (6/29)	LANL COVID-19 Model	6/29/20		TRUE	TRUE	TRUE
 145	14	MIT DELPHI Model (6/29)	Update with new data (6/29)	MIT DELPHI Model	6/29/20		TRUE	TRUE	TRUE
 146	17	UCLA COVID-19 Model (6/29)	Update with new data (6/25)	UCLA COVID-19 Model	6/29/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
+147	19	Auquan model (6/28)	Update with new data (6/28)	Auquan model	6/28/20		TRUE	TRUE	TRUE

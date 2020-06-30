@@ -113,7 +113,7 @@ model_outputs$date <- as.Date(model_outputs$date)
 additional_outputs$date <- as.Date(additional_outputs$date)
 
 ## focus just on forecasts of the future
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-01")),]
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-25")),]
 
 #################################################################
 ## Sanity check #################################################
