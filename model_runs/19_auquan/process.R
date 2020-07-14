@@ -3,10 +3,14 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-#setwd("~/Documents/covid-ensemble")
+setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 147
-file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-06-28-Auquan-SEIR.csv"
+model_run_id <- 148
+file_location <- "https://raw.githubusercontent.com/reichlab/covid19-forecast-hub/master/data-processed/Auquan-SEIR/2020-07-05-Auquan-SEIR.csv"
+
+## as of 7/2/2020, no longer reporting daily estimates,
+## just weekly estimates of cumulative cases, so it's not possible
+## to derive estimates of daily fatalities from available data
 
 #################################################################
 ## Load required libraries ######################################
@@ -45,6 +49,8 @@ undoCumSum <- function(x) {
   c(NA, diff(x))
 }
 
+model_outputs <- model_outputs[-which(model_outputs$model_run_id == 148),]
+
 #################################################################
 ## Process data #################################################
 #################################################################
@@ -78,32 +84,32 @@ additional_outputs <- cbind.data.frame(
   "value" = aqu$value,
   "notes" = "")
 
-aqu <- aqu[order(aqu$target_end_date, decreasing = FALSE),]
-
-## sometimes two identical rows exist for the same target (e.g., 3 weeks vs 21 days)
-## so deal with that now before it misses up daily fatality calculations
-aqu <- aqu[,-which(names(aqu) == "target"),]
-aqu <- unique(aqu)
-
-aqu_daily <- aqu %>%
-  group_by(location_name) %>%
-  mutate(daily_fatalities =  undoCumSum(value))
-
-aqu_daily <- aqu_daily[-which(is.na(aqu_daily$daily_fatalities)),]
-
-## sanity check
-plot(aqu_daily$daily_fatalities)
-
-additional_outputs <- rbind.data.frame(additional_outputs,
-  cbind.data.frame(
-  "model_run_id" = model_run_id,
-  "output_id" = 3,
-  "output_name" = "Fatalities per day",
-  "date" = aqu_daily$target_end_date,
-  "location" =  aqu_daily$location_name,
-  "value_type" = "point estimate",
-  "value" = aqu_daily$daily_fatalities,
-  "notes" = "daily fatalities calculated based on reported values for cumulative fatalities"))
+# aqu <- aqu[order(aqu$target_end_date, decreasing = FALSE),]
+# 
+# ## sometimes two identical rows exist for the same target (e.g., 3 weeks vs 21 days)
+# ## so deal with that now before it misses up daily fatality calculations
+# aqu <- aqu[,-which(names(aqu) == "target"),]
+# aqu <- unique(aqu)
+# 
+# aqu_daily <- aqu %>%
+#   group_by(location_name) %>%
+#   mutate(daily_fatalities =  undoCumSum(value))
+# 
+# aqu_daily <- aqu_daily[-which(is.na(aqu_daily$daily_fatalities)),]
+# 
+# ## sanity check
+# plot(aqu_daily$daily_fatalities)
+# 
+# additional_outputs <- rbind.data.frame(additional_outputs,
+#   cbind.data.frame(
+#   "model_run_id" = model_run_id,
+#   "output_id" = 3,
+#   "output_name" = "Fatalities per day",
+#   "date" = aqu_daily$target_end_date,
+#   "location" =  aqu_daily$location_name,
+#   "value_type" = "point estimate",
+#   "value" = aqu_daily$daily_fatalities,
+#   "notes" = "daily fatalities calculated based on reported values for cumulative fatalities"))
 
 #################################################################
 ## Format data ##################################################
@@ -113,7 +119,7 @@ model_outputs$date <- as.Date(model_outputs$date)
 additional_outputs$date <- as.Date(additional_outputs$date)
 
 ## focus just on forecasts of the future
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-06-25")),]
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-07-01")),]
 
 #################################################################
 ## Sanity check #################################################
@@ -122,12 +128,12 @@ additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Dat
 table(additional_outputs$output_id, additional_outputs$output_name)
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_id == 3),],
-       aes(x = date, y = value)) +
-  geom_line(size = 1) +
-  scale_y_continuous(label = comma) +
-  xlab("") +
-  theme_light() 
+# ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_id == 3),],
+#        aes(x = date, y = value)) +
+#   geom_line(size = 1) +
+#   scale_y_continuous(label = comma) +
+#   xlab("") +
+#   theme_light() 
 
 ## check data
 ggplot(additional_outputs[which(additional_outputs$location == "California" & additional_outputs$output_id == 4),],
@@ -146,12 +152,12 @@ ggplot(additional_outputs[which(additional_outputs$location == "New Mexico" & ad
   theme_light() 
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "New Mexico" & additional_outputs$output_id == 3),],
-       aes(x = date, y = value)) +
-  geom_line(size = 1) +
-  scale_y_continuous(label = comma) +
-  xlab("") +
-  theme_light() 
+# ggplot(additional_outputs[which(additional_outputs$location == "New Mexico" & additional_outputs$output_id == 3),],
+#        aes(x = date, y = value)) +
+#   geom_line(size = 1) +
+#   scale_y_continuous(label = comma) +
+#   xlab("") +
+#   theme_light() 
 
 #################################################################
 ## Add new data to existing model_outputs file ##################
