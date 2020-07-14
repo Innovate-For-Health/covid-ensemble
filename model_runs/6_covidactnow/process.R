@@ -2,9 +2,9 @@
 ## Specify some initial details #################################
 #################################################################
 
-run_id_observed <- 137
-run_id_strong <- 138
-run_id_weak <- 139
+run_id_observed <- 149
+run_id_strong <- 150
+run_id_weak <- 151
 
 #################################################################
 ## Load required libraries ######################################
@@ -334,5 +334,4 @@ ggplot(additional_outputs[which(additional_outputs$location == "Georgia" & addit
 #################################################################
 
 model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
-
 saveRDS(model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)
