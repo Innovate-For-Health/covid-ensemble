@@ -138,7 +138,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 141	1	IHME COVID-19 Model (6/24)	"Assume 95% mask usage in public, plus iterative social distancing mandates"	IHME COVID-19 Model	6/24/20		FALSE	FALSE	FALSE
 142	1	IHME COVID-19 Model (6/24)	Assume social distancing mandates not re-imposed	IHME COVID-19 Model	6/24/20		FALSE	FALSE	FALSE
 143	1	IHME COVID-19 Model (6/24)	Assume social distancing mandates imposed iteratively	IHME COVID-19 Model	6/24/20		TRUE	TRUE	FALSE
-144	13	LANL COVID-19 Model (6/29)	Update with new training data (6/29)	LANL COVID-19 Model	6/29/20		TRUE	TRUE	TRUE
+144	13	LANL COVID-19 Model (6/29)	Update with new training data (6/29)	LANL COVID-19 Model	6/29/20		FALSE	FALSE	FALSE
 145	14	MIT DELPHI Model (6/29)	Update with new data (6/29)	MIT DELPHI Model	6/29/20		TRUE	TRUE	TRUE
 146	17	UCLA COVID-19 Model (6/29)	Update with new data (6/25)	UCLA COVID-19 Model	6/29/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
 147	19	Auquan model (6/28)	Update with new data (6/28)	Auquan model	6/28/20		TRUE	TRUE	TRUE
@@ -153,3 +153,5 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 156	1	IHME COVID-19 Model (7/11)	"Assume 95% mask usage in public, plus iterative social distancing mandates"	IHME COVID-19 Model	7/11/20		FALSE	FALSE	TRUE
 157	1	IHME COVID-19 Model (7/11)	Assume social distancing mandates not re-imposed	IHME COVID-19 Model	7/11/20		FALSE	FALSE	TRUE
 158	1	IHME COVID-19 Model (7/11)	Assume social distancing mandates imposed iteratively	IHME COVID-19 Model	7/11/20		TRUE	TRUE	TRUE
+159	13	LANL COVID-19 Model (7/1)	Update with new training data (7/1)	LANL COVID-19 Model	7/1/20		TRUE	TRUE	TRUE
+160	13	LANL COVID-19 Model (7/12)	Update with new training data (7/12)	LANL COVID-19 Model	7/12/20		TRUE	TRUE	TRUE

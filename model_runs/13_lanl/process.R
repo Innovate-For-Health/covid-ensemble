@@ -2,11 +2,11 @@
 ## Specify some initial details #################################
 #################################################################
  
-model_run_id <- 144
-file_name_cases_us <- "model_runs/13_lanl/model_export/144_2020-06-28_confirmed_quantiles_us_website.csv"
-file_name_deaths_us <- "model_runs/13_lanl/model_export/144_2020-06-28_deaths_quantiles_us_website.csv"
-file_name_cases_global <- "model_runs/13_lanl/model_export/144_2020-06-28_confirmed_quantiles_global_website.csv"
-file_name_deaths_global <- "model_runs/13_lanl/model_export/144_2020-06-28_deaths_quantiles_global_website.csv"
+model_run_id <- 160
+file_name_cases_us <- "model_runs/13_lanl/model_export/2020-07-12_confirmed_quantiles_us_website.csv"
+file_name_deaths_us <- "model_runs/13_lanl/model_export/2020-07-12_deaths_quantiles_us_website.csv"
+file_name_cases_global <- "model_runs/13_lanl/model_export/2020-07-12_confirmed_quantiles_global_website.csv"
+file_name_deaths_global <- "model_runs/13_lanl/model_export/2020-07-12_deaths_quantiles_global_website.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -41,6 +41,8 @@ locations <- read.csv("srv/shiny-server/data/locations.csv", stringsAsFactors = 
 model_id <- 13
 model_name <- models$model_name[which(models$model_id == 13)]
 
+#model_outputs <- model_outputs[-which(model_outputs$model_run_id == 160),]
+
 #################################################################
 ## Check: any locations not in the locations file? ##############
 #################################################################
@@ -61,6 +63,14 @@ if(any(lanl_deaths_global$countries == "Cote d'Ivoire")){
   lanl_deaths_global$countries[which(lanl_deaths_global$countries == "Cote d'Ivoire")] <- "Côte d'Ivoire"
 }
 
+if(any(lanl_cases_global$countries == "West Bank and Gaza")){
+  lanl_cases_global$countries[which(lanl_cases_global$countries == "West Bank and Gaza")] <- "Palestine"
+}
+
+if(any(lanl_deaths_global$countries == "West Bank and Gaza")){
+  lanl_deaths_global$countries[which(lanl_deaths_global$countries == "West Bank and Gaza")] <- "Palestine"
+}
+
 all(lanl_cases$state %in% locations$location_name)
 all(lanl_deaths$state %in% locations$location_name)
 all(lanl_deaths_global$countries %in% locations$location_name)
@@ -79,11 +89,11 @@ lanl_cases_global$dates <- as.Date(lanl_cases_global$dates)
 lanl_deaths_global$dates <- as.Date(lanl_deaths_global$dates)
 model_outputs$date <- as.Date(model_outputs$date)
 
-## to minimize size of data file, now focus on dates after June 25, 2020 
-lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-06-25")),]
-lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-06-25")),]
-lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-06-25")),]
-lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-06-25")),]
+## only dates after date of model run
+lanl_cases <- lanl_cases[which(lanl_cases$dates >= as.Date("2020-07-12")),]
+lanl_cases_global <- lanl_cases_global[which(lanl_cases_global$dates >= as.Date("2020-07-12")),]
+lanl_deaths <- lanl_deaths[which(lanl_deaths$dates >= as.Date("2020-07-12")),]
+lanl_deaths_global <- lanl_deaths_global[which(lanl_deaths_global$dates >= as.Date("2020-07-12")),]
 
 ##########################################################################
 ## Add data for output_id 3:  Cumulative fatalities: US data #############
