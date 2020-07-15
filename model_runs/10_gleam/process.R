@@ -2,7 +2,7 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id_mitigated <- 131
+model_run_id_mitigated <- 152
 
 #################################################################
 ## Load required libraries ######################################
@@ -28,7 +28,7 @@ model_outputs <- readRDS("data/model_outputs.RDS")
 outputs <- read.delim("data/outputs.txt", stringsAsFactors = FALSE)
 
 ## read in dataset of US states and their abbreviations
-locations <- read.delim("data/locations.txt", stringsAsFactors = FALSE)
+locations <- read.csv("data/locations.csv", stringsAsFactors = FALSE)
 locations <- locations[which(locations$iso3 == "USA" & locations$area_level == "Intermediate"),]
 
 ## GLEAM model ID is always 10, model name is always whatever model_id 10 is named in the file data/models.txt
@@ -141,9 +141,9 @@ write.table(additional_outputs,
 ## remove the first row of this, just used for initialization and all it has are missing values
 additional_outputs <- additional_outputs[-1,]
 
-## for now focus on data from May 15th and later
+## for now focus on data from July 1st and later
 additional_outputs$date <- as.Date(additional_outputs$date)
-additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-05-15")), ]
+additional_outputs <- additional_outputs[which(additional_outputs$date >= as.Date("2020-07-01")), ]
 
 ## add back spaces in state names
 additional_outputs$location <- gsub(" State", "", gsub("%20", " ", additional_outputs$location))
@@ -156,7 +156,7 @@ additional_outputs <- unique(additional_outputs)
 #################################################################
 
 ## check data
-ggplot(additional_outputs[which(additional_outputs$location == "Oregon" & additional_outputs$output_name == "Hospital beds needed per day"),],
+ggplot(additional_outputs[which(additional_outputs$location == "Wyoming" & additional_outputs$output_name == "Hospital beds needed per day"),],
        aes(x = date, y = value)) +
   geom_line(size = 1) +
   scale_y_continuous(label = comma) +
@@ -168,5 +168,4 @@ ggplot(additional_outputs[which(additional_outputs$location == "Oregon" & additi
 #################################################################
 
 new_model_outputs <- rbind.data.frame(model_outputs, additional_outputs)
-
 saveRDS(new_model_outputs, file = 'data/model_outputs.RDS', compress = TRUE)
