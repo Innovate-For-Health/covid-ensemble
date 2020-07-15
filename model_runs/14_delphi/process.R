@@ -2,9 +2,8 @@
 ## Specify some initial details #################################
 #################################################################
 
-model_run_id <- 145
-
-file_name <- "model_runs/14_delphi/model_export/145_covid_analytics_projections.csv"
+model_run_id <- 161
+file_name <- "model_runs/14_delphi/model_export/161_covid_analytics_projections.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################

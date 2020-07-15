@@ -155,3 +155,4 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 158	1	IHME COVID-19 Model (7/11)	Assume social distancing mandates imposed iteratively	IHME COVID-19 Model	7/11/20		TRUE	TRUE	TRUE
 159	13	LANL COVID-19 Model (7/1)	Update with new training data (7/1)	LANL COVID-19 Model	7/1/20		TRUE	TRUE	TRUE
 160	13	LANL COVID-19 Model (7/12)	Update with new training data (7/12)	LANL COVID-19 Model	7/12/20		TRUE	TRUE	TRUE
+161	14	MIT DELPHI Model (7/15)	Update with new data (7/15)	MIT DELPHI Model	7/15/20		TRUE	TRUE	TRUE
