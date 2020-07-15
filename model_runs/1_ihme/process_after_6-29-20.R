@@ -5,8 +5,8 @@
 ## working directory should be covid-ensemble
 setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 143
-file_name <- "model_runs/1_ihme/model_export/Reference_hospitalization_all_locs_06_24_20.csv"
+model_run_id <- 158
+file_name <- "model_runs/1_ihme/model_export/Reference_hospitalization_all_locs_07_11_20.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################
@@ -86,7 +86,6 @@ if(any(ihme$location_name == "Venezuela (Bolivarian Republic of)")){
 all(ihme$location_name %in% locations$location_name)
 unique(ihme[-which(ihme$location_name %in% locations$location_name),]$location_name)
 
-
 ## exclude some specific elements of IHME data that are only tracked in IHME export and won't be 
 ## comparable to results of other models
 if(any(ihme$location_name %in% c("Life Care Center, Kirkland, WA", "Mexico_two"))){
@@ -120,7 +119,8 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 3])
                      "output_id" = 3,
                      "output_name" = "Fatalities per day",
                      "date" = ihme$date,
-                     "location" = ihme$location,
+                     ## as of data from 7/11, the field "location" was renamed "location name"
+                     "location" = ihme$location_name,
                      "value_type" = "point estimate",
                      "value" = ihme$deaths_mean,
                      "notes" = "")
@@ -140,9 +140,79 @@ if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 4])
                      "output_id" = 4,
                      "output_name" = "Cumulative fatalities",
                      "date" = ihme$date,
-                     "location" = ihme$location,
+                     ## as of data from 7/11, the field "location" was renamed "location name"
+                     "location" = ihme$location_name,
                      "value_type" = "point estimate",
                      "value" = ihme$totdea_mean,
+                     "notes" = "")
+  )
+}
+
+########################################################################
+## Add data for output_id 5: Hospital beds needed per day ##############
+########################################################################
+
+## this isn't available for the files Best_mask_hospitalization_all_locs_07_11_20.csv or Worse_hospitalization_all_locs_07_11_20.csv, so skipping i
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 5])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 5,
+                     "output_name" = "Hospital beds needed per day",
+                     "date" = ihme$date,
+                     ## as of data from 7/11, the field "location" was renamed "location name"
+                     "location" = ihme$location_name,
+                     "value_type" = "point estimate",
+                     ## this was at one point removed, but has been added back as of 7/11 data
+                     "value" = ihme$allbed_mean,
+                     "notes" = "")
+  )
+}
+
+########################################################################
+## Add data for output_id 6: ICU beds needed per day ###################
+########################################################################
+
+## this isn't available for the files Best_mask_hospitalization_all_locs_07_11_20.csv or Worse_hospitalization_all_locs_07_11_20.csv, so skipping i
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 6])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 6,
+                     "output_name" = "ICU beds needed per day",
+                     "date" = ihme$date,
+                     ## as of data from 7/11, the field "location" was renamed "location name"
+                     "location" = ihme$location_name,
+                     "value_type" = "point estimate",
+                     ## this was at one point removed, but has been added back as of 7/11 data
+                     "value" = ihme$ICUbed_mean,
+                     "notes" = "")
+  )
+}
+
+############################################################################
+## Add data for output_id 7: Ventilators needed per day ####################
+############################################################################
+
+## this isn't available for the files Best_mask_hospitalization_all_locs_07_11_20.csv or or Worse_hospitalization_all_locs_07_11_20.csv, so skipping i
+## only add these new data if you're not reading over model_outputs already stored
+if((!model_run_id %in% model_outputs$model_run_id[model_outputs$output_id == 7])){
+  
+  model_outputs <- rbind.data.frame(
+    model_outputs,
+    cbind.data.frame("model_run_id" = model_run_id,
+                     "output_id" = 7,
+                     "output_name" = "Ventilators needed per day",
+                     "date" = ihme$date,
+                     ## as of data from 7/11, the field "location" was renamed "location name"
+                     "location" = ihme$location_name,
+                     "value_type" = "point estimate",
+                     ## this was at one point removed, but has been added back as of 7/11 data
+                     "value" = ihme$InvVen_mean,
                      "notes" = "")
   )
 }
