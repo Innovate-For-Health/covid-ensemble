@@ -3,10 +3,10 @@
 #################################################################
 
 ## working directory should be covid-ensemble
-setwd("~/Documents/covid-ensemble")
+#setwd("~/Documents/covid-ensemble")
 
-model_run_id <- 158
-file_name <- "model_runs/1_ihme/model_export/Reference_hospitalization_all_locs_07_11_20.csv"
+model_run_id <- 157
+file_name <- "model_runs/1_ihme/model_export/Worse_hospitalization_all_locs_07_11_20.csv"
 
 #################################################################
 ## Load datasets and set fixed parameters #######################

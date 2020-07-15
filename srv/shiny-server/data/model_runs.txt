@@ -48,7 +48,7 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 51	6	"COVID Act Now (5/15, ""forecast based on observations"")"	Assume continuation of state's current trends	COVID Act Now US Intervention Model	5/15/20		FALSE	TRUE	FALSE
 52	6	"COVID Act Now (5/15, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	FALSE
 53	6	"COVID Act Now (5/15, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	5/15/20		FALSE	FALSE	FALSE
-54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		TRUE	TRUE	FALSE
+54	1	IHME COVID-19 Model (5/4)	Addition of SEIR modeling component (5/4)	IHME COVID-19 Model	5/4/20		FALSE	FALSE	FALSE
 55	10	GLEAM (5/10)	Update with new data (5/10)	GLEAM	5/10/20	Mitigated scenario	TRUE	TRUE	TRUE
 56	13	LANL COVID-19 Model (5/13)	Update with new training data (5/13)	LANL COVID-19 Model	5/13/20		TRUE	TRUE	TRUE
 57	13	LANL COVID-19 Model (5/6)	Update with new training data (5/6)	LANL COVID-19 Model	5/6/20		TRUE	TRUE	TRUE
@@ -135,9 +135,9 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 138	6	"COVID Act Now (6/29, ""strong intervention"")"	"Assume strong intervention (e.g., stay at home)"	COVID Act Now US Intervention Model	6/29/20		FALSE	FALSE	TRUE
 139	6	"COVID Act Now (6/29, ""weak intervention"")"	"Assume weak intervention (e.g., limited social distancing)"	COVID Act Now US Intervention Model	6/29/20		FALSE	FALSE	TRUE
 140	18	COVID19-projections.com (6/28)	Update with new data (6/28)	COVID19-projections.com	6/28/20		FALSE	FALSE	FALSE
-141	1	IHME COVID-19 Model (6/24)	"Assume 95% mask usage in public, plus iterative social distancing mandates"	IHME COVID-19 Model	6/24/20		FALSE	FALSE	TRUE
-142	1	IHME COVID-19 Model (6/24)	Assume social distancing mandates not re-imposed	IHME COVID-19 Model	6/24/20		FALSE	FALSE	TRUE
-143	1	IHME COVID-19 Model (6/24)	Assume social distancing mandates imposed iteratively	IHME COVID-19 Model	6/24/20		TRUE	TRUE	TRUE
+141	1	IHME COVID-19 Model (6/24)	"Assume 95% mask usage in public, plus iterative social distancing mandates"	IHME COVID-19 Model	6/24/20		FALSE	FALSE	FALSE
+142	1	IHME COVID-19 Model (6/24)	Assume social distancing mandates not re-imposed	IHME COVID-19 Model	6/24/20		FALSE	FALSE	FALSE
+143	1	IHME COVID-19 Model (6/24)	Assume social distancing mandates imposed iteratively	IHME COVID-19 Model	6/24/20		TRUE	TRUE	FALSE
 144	13	LANL COVID-19 Model (6/29)	Update with new training data (6/29)	LANL COVID-19 Model	6/29/20		TRUE	TRUE	TRUE
 145	14	MIT DELPHI Model (6/29)	Update with new data (6/29)	MIT DELPHI Model	6/29/20		TRUE	TRUE	TRUE
 146	17	UCLA COVID-19 Model (6/29)	Update with new data (6/25)	UCLA COVID-19 Model	6/29/20	"Excluded daily fatality estimates for Germany, as cumulative fatality estimates were not monotonically increasing."	TRUE	TRUE	TRUE
@@ -150,3 +150,6 @@ model_run_id	model_id	run_name	key_assumptions	model_name	model_snapshot_date	no
 153	18	COVID19-projections.com (7/1)	"Updated infections estimate ""to closer match the observed data"""	COVID19-projections.com	7/1/20		TRUE	TRUE	TRUE
 154	18	COVID19-projections.com (7/7)	Update with new data (7/7)	COVID19-projections.com	7/7/20		FALSE	FALSE	FALSE
 155	18	COVID19-projections.com (7/14)	Update with new data (7/14)	COVID19-projections.com	7/14/20		TRUE	TRUE	TRUE
+156	1	IHME COVID-19 Model (7/11)	"Assume 95% mask usage in public, plus iterative social distancing mandates"	IHME COVID-19 Model	7/11/20		FALSE	FALSE	TRUE
+157	1	IHME COVID-19 Model (7/11)	Assume social distancing mandates not re-imposed	IHME COVID-19 Model	7/11/20		FALSE	FALSE	TRUE
+158	1	IHME COVID-19 Model (7/11)	Assume social distancing mandates imposed iteratively	IHME COVID-19 Model	7/11/20		TRUE	TRUE	TRUE
